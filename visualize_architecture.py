@@ -1,10 +1,10 @@
 """
-Visualize CBSAtt model architecture
+Visualize gru_xnet model architecture
 Creates a diagram showing the model structure and information flow
 """
 
 import torch
-from model import create_cbsatt_model
+from model import create_gru_xnet_model
 from torchinfo import summary
 
 
@@ -12,7 +12,7 @@ def print_model_architecture():
     """Print detailed model architecture"""
     
     print("\n" + "="*80)
-    print("CBSAtt MODEL ARCHITECTURE")
+    print("gru_xnet MODEL ARCHITECTURE")
     print("="*80 + "\n")
     
     # Model parameters
@@ -23,7 +23,7 @@ def print_model_architecture():
     batch_size = 4
     
     # Create model
-    model = create_cbsatt_model(
+    model = create_gru_xnet_model(
         n_channels=n_channels,
         n_freq_bins=n_freq_bins,
         n_time_bins=n_time_bins,
@@ -140,7 +140,7 @@ def compare_model_variants():
     print("-" * 65)
     
     for config in configs:
-        model = create_cbsatt_model(
+        model = create_gru_xnet_model(
             n_channels=config['n_channels'],
             n_freq_bins=config['n_freq_bins'],
             n_time_bins=config['n_time_bins'],
@@ -186,10 +186,10 @@ def print_attention_mechanism():
     print("  - Dimension per head (d_k): 256 / 4 = 64")
     print()
     print("Benefits:")
-    print("  ✓ Captures different types of relationships")
-    print("  ✓ Provides global context to each time step")
-    print("  ✓ Dynamic feature weighting")
-    print("  ✓ Interpretable attention weights")
+    print("  Captures different types of relationships")
+    print("  Provides global context to each time step")
+    print("  Dynamic feature weighting")
+    print("  Interpretable attention weights")
     
     print("\n" + "="*80)
 
@@ -237,7 +237,7 @@ def main():
     """Main visualization function"""
     
     print("\n" + "🎯"*40)
-    print("CBSAtt ARCHITECTURE VISUALIZATION")
+    print("gru_xnet ARCHITECTURE VISUALIZATION")
     print("🎯"*40)
     
     # Print architecture

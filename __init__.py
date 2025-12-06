@@ -1,14 +1,14 @@
 """
-CBSAtt: CNN-BiGRU-Self Attention Network for EEG Emotion Recognition
+gru_xnet: CNN-BiGRU-Self Attention Network for EEG Emotion Recognition
 Modified from original paper to use BiGRU instead of BiLSTM
 
-This package implements the CBSAtt architecture for multi-dataset EEG emotion recognition.
+This package implements the gru_xnet architecture for multi-dataset EEG emotion recognition.
 """
 
 from .model import (
-    CBSAtt,
-    CBSAttDynamic,
-    create_cbsatt_model,
+    gru_xnet,
+    gru_xnetDynamic,
+    create_gru_xnet_model,
     ChannelIndependentCNN,
     MultiHeadSelfAttention
 )
@@ -32,7 +32,7 @@ from .config import (
 )
 
 from .data_loader import (
-    CBSAttDataset,
+    gru_xnetDataset,
     load_combined_dataset,
     create_data_loaders
 )
@@ -52,13 +52,13 @@ from .utils import (
 )
 
 __version__ = '1.0.0'
-__author__ = 'CBSAtt Team'
+__author__ = 'gru_xnet Team'
 
 __all__ = [
     # Model
-    'CBSAtt',
-    'CBSAttDynamic',
-    'create_cbsatt_model',
+    'gru_xnet',
+    'gru_xnetDynamic',
+    'create_gru_xnet_model',
     'ChannelIndependentCNN',
     'MultiHeadSelfAttention',
     
@@ -79,7 +79,7 @@ __all__ = [
     'get_loso_config',
     
     # Data loading
-    'CBSAttDataset',
+    'gru_xnetDataset',
     'load_combined_dataset',
     'create_data_loaders',
     

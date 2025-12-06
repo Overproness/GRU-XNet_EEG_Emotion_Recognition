@@ -1,14 +1,14 @@
-# CBSAtt: CNN-BiGRU-Self Attention for EEG Emotion Recognition
+# gru_xnet: CNN-BiGRU-Self Attention for EEG Emotion Recognition
 
-Implementation of the CBSAtt architecture for multi-dataset EEG emotion recognition, modified to use BiGRU instead of BiLSTM.
+Implementation of the gru_xnet architecture for multi-dataset EEG emotion recognition, modified to use BiGRU instead of BiLSTM.
 
 ## Trained Checkpoint Link:
 
-Google Drive: [CBSAtt Trained Model](https://drive.google.com/file/d/1em6OdJllEMgycVeKM01s0ckQxPDpU_7Y/view?usp=sharing)
+Google Drive: [gru_xnet Trained Model](https://drive.google.com/file/d/1em6OdJllEMgycVeKM01s0ckQxPDpU_7Y/view?usp=sharing)
 
 ## Overview
 
-CBSAtt combines:
+gru_xnet combines:
 
 - **STFT preprocessing**: Time-frequency transformation of EEG signals
 - **Channel-independent CNNs**: Separate CNN for each EEG channel
@@ -83,7 +83,7 @@ print(f"Test Accuracy: {test_results['accuracy']:.2f}%")
 ```python
 import numpy as np
 import torch
-from model import create_cbsatt_model
+from model import create_gru_xnet_model
 from preprocessing import STFTPreprocessor
 
 # Create STFT preprocessor
@@ -99,7 +99,7 @@ stft_features = stft_processor.transform(eeg_data)
 print(f"STFT shape: {stft_features.shape}")  # (32, n_freq, n_time)
 
 # Create model
-model = create_cbsatt_model(
+model = create_gru_xnet_model(
     n_channels=32,
     n_freq_bins=stft_features.shape[1],
     n_time_bins=stft_features.shape[2],
@@ -170,9 +170,9 @@ config.data.cache_stft = True  # Cache STFT for faster loading
 ## File Structure
 
 ```
-CBSAtt/
+gru_xnet/
 ├── __init__.py              # Package initialization
-├── model.py                 # CBSAtt model architecture
+├── model.py                 # gru_xnet model architecture
 ├── preprocessing.py         # STFT preprocessing
 ├── config.py                # Configuration classes
 ├── data_loader.py          # Data loading pipeline
@@ -239,7 +239,7 @@ The implementation handles datasets with different characteristics:
 Training produces:
 
 ```
-outputs/cbsatt/
+outputs/gru_xnet/
 ├── checkpoints/
 │   ├── best_model.pth
 │   └── checkpoint_epoch_*.pth
@@ -289,11 +289,11 @@ config.data.balance_classes = True      # Balance classes
 
 ## Citation
 
-If you use this implementation, please cite the original CBSAtt paper and acknowledge the modifications:
+If you use this implementation, please cite the original gru_xnet paper and acknowledge the modifications:
 
 ```bibtex
-@article{cbsatt,
-  title={CBSAtt: Channel-Balanced Self-Attention for Emotion Recognition},
+@article{gru_xnet,
+  title={gru_xnet: Channel-Balanced Self-Attention for Emotion Recognition},
   author={Original Authors},
   journal={Journal Name},
   year={2023}

@@ -80,8 +80,8 @@ class TrainingConfig:
 class DataConfig:
     """Data loading configuration"""
     # Dataset paths
-    base_dir: str = r"d:\OneDrive - National University of Sciences & Technology\Study\Semester 5\Deep Learning\Project\Implementation"
-    augmented_dir: str = "OurApproach/augmented_datasets"
+    base_dir: str = r"YOUR BASE DIRECTORY PATH HERE"
+    augmented_dir: str = "YOUR AUGMENTED DATA DIRECTORY PATH HERE"
     
     # Datasets to use
     datasets: List[str] = field(default_factory=lambda: ['DEAP', 'GAMEEMO', 'SEEDIV'])

@@ -364,29 +364,29 @@ if __name__ == "__main__":
     
     # Test seed setting
     set_seed(42)
-    print("✓ Seed set")
+    print("Seed set")
     
     # Test device
     device = get_device()
-    print(f"✓ Device: {device}")
+    print(f"Device: {device}")
     
     # Test early stopping
     early_stopping = EarlyStopping(patience=3, min_delta=0.01)
     for i, loss in enumerate([1.0, 0.9, 0.85, 0.84, 0.83, 0.82]):
         early_stopping(loss)
         print(f"  Epoch {i}: Loss={loss}, Counter={early_stopping.counter}, Stop={early_stopping.should_stop}")
-    print("✓ Early stopping tested")
+    print("Early stopping tested")
     
     # Test metric tracker
     tracker = MetricTracker()
     for i in range(5):
         tracker.update({'loss': 1.0 - i*0.1, 'accuracy': 50 + i*5})
-    print(f"✓ Metric tracker: {tracker.get_latest()}")
+    print(f"Metric tracker: {tracker.get_latest()}")
     
     # Test confusion matrix plotting
     y_true = np.array([0, 1, 0, 1, 0, 1])
     y_pred = np.array([0, 1, 1, 1, 0, 0])
     plot_confusion_matrix(y_true, y_pred, class_names=['Negative', 'Positive'])
-    print("✓ Confusion matrix plotted")
+    print("Confusion matrix plotted")
     
     print("\nAll utility tests passed!")

@@ -1,75 +1,68 @@
 {
-    "experiment_name": "cbsatt_full_training",
-    "output_dir": "outputs/cbsatt",
-    "stft": {
-        "freq_range": [
-            0.5,
-            50.0
-        ],
-        "target_freq_bins": 129,
-        "target_time_bins": 126
+  "experiment_name": "cbsatt_full_training",
+  "output_dir": "outputs/cbsatt",
+  "stft": {
+    "freq_range": [0.5, 50.0],
+    "target_freq_bins": 129,
+    "target_time_bins": 126
+  },
+  "model": {
+    "model_type": "dynamic",
+    "gru_hidden_size": 128,
+    "gru_num_layers": 2,
+    "num_attention_heads": 4,
+    "dropout": 0.5,
+    "n_classes": 2
+  },
+  "training": {
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "num_epochs": 30,
+    "use_scheduler": true,
+    "scheduler_type": "cosine",
+    "scheduler_params": {
+      "T_max": 30,
+      "eta_min": 1e-6
     },
-    "model": {
-        "model_type": "dynamic",
-        "gru_hidden_size": 128,
-        "gru_num_layers": 2,
-        "num_attention_heads": 4,
-        "dropout": 0.5,
-        "n_classes": 2
+    "early_stopping": true,
+    "patience": 10,
+    "min_delta": 0.001,
+    "grad_clip": 1.0,
+    "gradient_accumulation_steps": 4,
+    "use_amp": true,
+    "device": "cuda"
+  },
+  "data": {
+    "base_dir": "YOUR BASE DIR",
+    "augmented_dir": "AUGMENTED DATASET FOLDER",
+    "datasets": ["DEAP", "GAMEEMO", "SEEDIV"],
+    "use_original": true,
+    "use_augmented": true,
+    "augmentation_ratio": 2.0,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "test_ratio": 0.15,
+    "use_loso_cv": false,
+    "cv_subject": null,
+    "seediv_binary_mapping": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 1
     },
-    "training": {
-        "learning_rate": 0.001,
-        "weight_decay": 0.0001,
-        "batch_size": 32,
-        "num_epochs": 30,
-        "use_scheduler": true,
-        "scheduler_type": "cosine",
-        "scheduler_params": {
-            "T_max": 30,
-            "eta_min": 1e-06
-        },
-        "early_stopping": true,
-        "patience": 10,
-        "min_delta": 0.001,
-        "grad_clip": 1.0,
-        "gradient_accumulation_steps": 4,
-        "use_amp": true,
-        "device": "cuda"
-    },
-    "data": {
-        "base_dir": "d:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation",
-        "augmented_dir": "OurApproach/augmented_datasets",
-        "datasets": [
-            "DEAP",
-            "GAMEEMO",
-            "SEEDIV"
-        ],
-        "use_original": true,
-        "use_augmented": true,
-        "augmentation_ratio": 2.0,
-        "train_ratio": 0.7,
-        "val_ratio": 0.15,
-        "test_ratio": 0.15,
-        "use_loso_cv": false,
-        "cv_subject": null,
-        "seediv_binary_mapping": {
-            "0": 0,
-            "1": 1,
-            "2": 0,
-            "3": 1
-        },
-        "seediv_keep_multiclass": false,
-        "balance_classes": true,
-        "balance_datasets": true,
-        "cache_stft": false,
-        "cache_dir": "cache/cbsatt_stft",
-        "num_workers": 0,
-        "use_memory_mapping": true
-    },
-    "log_interval": 10,
-    "save_best_only": true,
-    "save_interval": 5,
-    "eval_interval": 1,
-    "seed": 42,
-    "deterministic": true
+    "seediv_keep_multiclass": false,
+    "balance_classes": true,
+    "balance_datasets": true,
+    "cache_stft": false,
+    "cache_dir": "cache/cbsatt_stft",
+    "num_workers": 0,
+    "use_memory_mapping": true
+  },
+  "log_interval": 10,
+  "save_best_only": true,
+  "save_interval": 5,
+  "eval_interval": 1,
+  "seed": 42,
+  "deterministic": true
 }

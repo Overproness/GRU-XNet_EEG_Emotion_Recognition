@@ -1,5 +1,5 @@
 """
-Data loader for CBSAtt that integrates with existing data loading pipeline
+Data loader for gru_xnet that integrates with existing data loading pipeline
 """
 
 import sys
@@ -63,9 +63,9 @@ def custom_collate_fn(batch):
     return stft_features, labels
 
 
-class CBSAttDataset(Dataset):
+class gru_xnetDataset(Dataset):
     """
-    PyTorch Dataset for CBSAtt that handles STFT transformation
+    PyTorch Dataset for gru_xnet that handles STFT transformation
     """
     
     def __init__(
@@ -373,7 +373,7 @@ def create_data_loaders(
     cache_dir = os.path.join(config.data.base_dir, config.data.cache_dir) if config.data.cache_stft else None
     
     # Create datasets - unpack the 4-element tuples correctly
-    train_dataset = CBSAttDataset(
+    train_dataset = gru_xnetDataset(
         data=train_split[0],
         labels=train_split[1],
         dataset_names=train_split[2],
@@ -383,7 +383,7 @@ def create_data_loaders(
         split_name='train'
     )
     
-    val_dataset = CBSAttDataset(
+    val_dataset = gru_xnetDataset(
         data=val_split[0],
         labels=val_split[1],
         dataset_names=val_split[2],
@@ -393,7 +393,7 @@ def create_data_loaders(
         split_name='val'
     )
     
-    test_dataset = CBSAttDataset(
+    test_dataset = gru_xnetDataset(
         data=test_split[0],
         labels=test_split[1],
         dataset_names=test_split[2],
@@ -449,7 +449,7 @@ def create_data_loaders(
 
 if __name__ == "__main__":
     # Test data loader
-    print("Testing CBSAtt data loader...")
+    print("Testing gru_xnet data loader...")
     
     from config import get_quick_test_config
     

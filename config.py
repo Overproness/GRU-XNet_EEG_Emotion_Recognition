@@ -1,5 +1,5 @@
 """
-Configuration for CBSAtt training and evaluation
+Configuration for gru_xnet training and evaluation
 """
 
 import os
@@ -117,7 +117,7 @@ class DataConfig:
     
     # Caching
     cache_stft: bool = False  # Disabled by default due to memory constraints with large datasets
-    cache_dir: str = "cache/cbsatt_stft"
+    cache_dir: str = "cache/gru_xnet_stft"
     
     # Number of workers for data loading
     num_workers: int = 0  # Set to 0 to avoid multiprocessing overhead with large data
@@ -130,8 +130,8 @@ class DataConfig:
 class ExperimentConfig:
     """Complete experiment configuration"""
     # Experiment name and paths
-    experiment_name: str = "cbsatt_multi_dataset"
-    output_dir: str = "outputs/cbsatt"
+    experiment_name: str = "gru_xnet_multi_dataset"
+    output_dir: str = "outputs/gru_xnet"
     
     # Sub-configurations
     stft: STFTConfig = field(default_factory=STFTConfig)
@@ -225,14 +225,14 @@ def get_quick_test_config() -> ExperimentConfig:
 def get_full_training_config() -> ExperimentConfig:
     """Configuration for full training"""
     return ExperimentConfig(
-        experiment_name="cbsatt_full_training"
+        experiment_name="gru_xnet_full_training"
     )
 
 
 def get_loso_config(subject_id: int) -> ExperimentConfig:
     """Configuration for Leave-One-Subject-Out cross-validation"""
     config = ExperimentConfig(
-        experiment_name=f"cbsatt_loso_subject_{subject_id}"
+        experiment_name=f"gru_xnet_loso_subject_{subject_id}"
     )
     
     config.data.use_loso_cv = True

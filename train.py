@@ -1,5 +1,5 @@
 """
-Training script for CBSAtt
+Training script for gru_xnet
 
 Features:
 - Full training pipeline with data loading, model creation, and optimization
@@ -15,7 +15,7 @@ Usage:
     python train.py --config full
     
     # Resume from specific checkpoint
-    python train.py --config full --resume outputs/cbsatt/checkpoints/checkpoint_epoch_5.pth
+    python train.py --config full --resume outputs/gru_xnet/checkpoints/checkpoint_epoch_5.pth
     
     # Test only (loads best model)
     python train.py --config full --test-only
@@ -36,7 +36,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 from config import ExperimentConfig, get_full_training_config, get_quick_test_config
-from model import create_cbsatt_model
+from model import create_gru_xnet_model
 from data_loader import create_data_loaders
 from utils import (
     set_seed,
@@ -50,7 +50,7 @@ from utils import (
 
 
 class Trainer:
-    """Training manager for CBSAtt"""
+    """Training manager for gru_xnet"""
     
     def __init__(self, config: ExperimentConfig, resume_from_checkpoint: str = None):
         """
@@ -86,7 +86,7 @@ class Trainer:
         
         # Create model
         print("\nCreating model...")
-        self.model = create_cbsatt_model(
+        self.model = create_gru_xnet_model(
             n_channels=n_channels,
             n_freq_bins=n_freq_bins,
             n_time_bins=n_time_bins,
@@ -320,7 +320,7 @@ class Trainer:
                 if is_best:
                     self.best_val_loss = val_metrics['loss']
                     self.best_val_acc = val_metrics['accuracy']
-                    print(f"  ✓ New best model (Val Loss: {val_metrics['loss']:.4f})")
+                    print(f"  New best model (Val Loss: {val_metrics['loss']:.4f})")
                 
                 # Save checkpoint at each epoch
                 self._save_checkpoint(epoch, val_metrics['loss'], is_best=is_best)
@@ -493,7 +493,7 @@ def main():
     """Main training function"""
     import argparse
     
-    parser = argparse.ArgumentParser(description='Train CBSAtt model')
+    parser = argparse.ArgumentParser(description='Train gru_xnet model')
     parser.add_argument('--config', type=str, default='full', 
                        choices=['full', 'quick'],
                        help='Configuration preset')

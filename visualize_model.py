@@ -1,5 +1,5 @@
 """
-Comprehensive Visualization Script for CBSAtt Model
+Comprehensive Visualization Script for gru_xnet Model
 
 This script loads a trained model and generates various visualizations:
 - Confusion Matrix
@@ -11,7 +11,7 @@ This script loads a trained model and generates various visualizations:
 - Attention Weights Visualization (if available)
 
 Usage:
-    python visualize_model.py --checkpoint outputs/cbsatt/checkpoints/checkpoint_epoch_30.pth
+    python visualize_model.py --checkpoint outputs/gru_xnet/checkpoints/checkpoint_epoch_30.pth
 """
 
 import os
@@ -40,7 +40,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 from config import ExperimentConfig
-from model import create_cbsatt_model
+from model import create_gru_xnet_model
 from data_loader import create_data_loaders
 from utils import set_seed, get_device
 
@@ -127,7 +127,7 @@ class ModelVisualizer:
         
         # Create model
         print("\nCreating model...")
-        self.model = create_cbsatt_model(
+        self.model = create_gru_xnet_model(
             n_channels=n_channels,
             n_freq_bins=n_freq_bins,
             n_time_bins=n_time_bins,
@@ -688,11 +688,11 @@ class ModelVisualizer:
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Visualize CBSAtt model performance')
+    parser = argparse.ArgumentParser(description='Visualize gru_xnet model performance')
     parser.add_argument(
         '--checkpoint',
         type=str,
-        default='outputs/cbsatt/checkpoints/checkpoint_epoch_30.pth',
+        default='outputs/gru_xnet/checkpoints/checkpoint_epoch_30.pth',
         help='Path to model checkpoint'
     )
     parser.add_argument(

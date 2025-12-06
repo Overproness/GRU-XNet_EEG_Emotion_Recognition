@@ -1,5 +1,5 @@
 """
-Preprocessing module for CBSAtt
+Preprocessing module for gru_xnet
 Handles STFT transformation and data normalization
 """
 

@@ -1,5 +1,5 @@
 """
-CBSAtt: CNN-BiGRU-Self Attention Network for EEG Emotion Recognition
+gru_xnet: CNN-BiGRU-Self Attention Network for EEG Emotion Recognition
 Modified from original paper to use BiGRU instead of BiLSTM
 """
 
@@ -142,9 +142,9 @@ class MultiHeadSelfAttention(nn.Module):
         return output
 
 
-class CBSAtt(nn.Module):
+class gru_xnet(nn.Module):
     """
-    CBSAtt: CNN-BiGRU-Self Attention Network for EEG Emotion Recognition
+    gru_xnet: CNN-BiGRU-Self Attention Network for EEG Emotion Recognition
     
     Architecture:
     1. STFT transformation (done in preprocessing)
@@ -279,9 +279,9 @@ class CBSAtt(nn.Module):
         return output
 
 
-class CBSAttDynamic(nn.Module):
+class gru_xnetDynamic(nn.Module):
     """
-    Dynamic version of CBSAtt that handles variable-length sequences
+    Dynamic version of gru_xnet that handles variable-length sequences
     Uses actual temporal dimension from CNN output
     """
     
@@ -406,7 +406,7 @@ class CBSAttDynamic(nn.Module):
         return output
 
 
-def create_cbsatt_model(
+def create_gru_xnet_model(
     n_channels: int,
     n_freq_bins: int,
     n_time_bins: int,
@@ -415,7 +415,7 @@ def create_cbsatt_model(
     **kwargs
 ) -> nn.Module:
     """
-    Factory function to create CBSAtt model
+    Factory function to create gru_xnet model
     
     Args:
         n_channels: Number of EEG channels
@@ -426,10 +426,10 @@ def create_cbsatt_model(
         **kwargs: Additional arguments for model
         
     Returns:
-        CBSAtt model
+        gru_xnet model
     """
     if model_type == 'dynamic':
-        return CBSAttDynamic(
+        return gru_xnetDynamic(
             n_channels=n_channels,
             n_freq_bins=n_freq_bins,
             n_time_bins=n_time_bins,
@@ -437,7 +437,7 @@ def create_cbsatt_model(
             **kwargs
         )
     else:
-        return CBSAtt(
+        return gru_xnet(
             n_channels=n_channels,
             n_freq_bins=n_freq_bins,
             n_time_bins=n_time_bins,
@@ -455,7 +455,7 @@ if __name__ == "__main__":
     n_classes = 2
     
     # Create model
-    model = create_cbsatt_model(
+    model = create_gru_xnet_model(
         n_channels=n_channels,
         n_freq_bins=n_freq_bins,
         n_time_bins=n_time_bins,

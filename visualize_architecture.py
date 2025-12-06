@@ -253,7 +253,7 @@ def main():
     print_preprocessing_pipeline()
     
     print("\n" + "="*80)
-    print("✅ Visualization Complete!")
+    print("    Visualization Complete!")
     print("="*80 + "\n")
     
     print("For more details:")

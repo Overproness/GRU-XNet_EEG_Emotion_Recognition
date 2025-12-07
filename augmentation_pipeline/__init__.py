@@ -3,8 +3,6 @@ EEG Data Augmentation Pipeline
 A comprehensive framework for augmenting EEG data with quality validation
 """
 
-__version__ = "1.0.0"
-__author__ = "Your Name"
 
 # Import main components for easy access
 from .augmentation_config import AugmentationConfig, DEFAULT_CONFIG

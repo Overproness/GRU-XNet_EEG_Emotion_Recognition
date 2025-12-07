@@ -338,7 +338,7 @@ def main():
                        help='Dataset to augment')
     
     parser.add_argument('--base_dir', type=str,
-                       default=r'd:\OneDrive - National University of Sciences & Technology\Study\Semester 5\Deep Learning\Project\Implementation',
+                       default=r'',
                        help='Base directory containing datasets folder')
     
     parser.add_argument('--output_dir', type=str,

@@ -577,7 +577,7 @@ if __name__ == "__main__":
     # Test loaders
     import sys
     
-    base_dir = r"d:\OneDrive - National University of Sciences & Technology\Study\Semester 5\Deep Learning\Project\Implementation\datasets"
+    base_dir = r""
     
     # Test DEAP loader
     print("Testing DEAP Loader")

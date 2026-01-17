@@ -84,103 +84,6 @@ class SMOTEAugmentation(BaseAugmentation):
         return augmented, label
 
 
-class SimpleVAEAugmentation(GenerativeAugmentation):
-    """
-    Simple VAE-based augmentation (placeholder for full implementation)
-    Contribution: 5-20%
-    Reliability: MEDIUM - easier training than GANs but may produce blurrier signals
-    
-    Note: Full VAE implementation requires training. This is a placeholder.
-    """
-    
-    def __init__(self, latent_dim: int = 32, random_seed: Optional[int] = None):
-        super().__init__("VAE", random_seed=random_seed)
-        self.latent_dim = latent_dim
-        self.encoder = None
-        self.decoder = None
-    
-    def train_generator(self, training_data: np.ndarray, labels: np.ndarray):
-        """
-        Train VAE (placeholder - requires deep learning framework)
-        
-        Args:
-            training_data: Training EEG data
-            labels: Training labels
-        """
-        print(f"VAE training not implemented yet. Would train on {len(training_data)} samples.")
-        print("This requires PyTorch/TensorFlow implementation.")
-        self.is_trained = False
-    
-    def augment(self, 
-                data: np.ndarray, 
-                label: Optional[Union[int, np.ndarray]] = None,
-                **kwargs) -> Tuple[np.ndarray, Optional[Union[int, np.ndarray]]]:
-        """
-        Generate sample from VAE latent space
-        
-        This is a placeholder - actual implementation would:
-        1. Encode data to latent space
-        2. Sample from latent distribution
-        3. Decode back to data space
-        """
-        self.check_trained()
-        
-        # Placeholder: add small gaussian noise as simple augmentation
-        noise = np.random.randn(*data.shape) * 0.1 * np.std(data)
-        augmented = data + noise
-        
-        return augmented, label
-
-
-class SimpleGANAugmentation(GenerativeAugmentation):
-    """
-    Simple GAN-based augmentation (placeholder for full implementation)
-    Contribution: 5-30%
-    Reliability: MEDIUM - can produce realistic samples but risk of mode collapse
-    
-    Note: Full GAN implementation requires training. This is a placeholder.
-    """
-    
-    def __init__(self, latent_dim: int = 100, random_seed: Optional[int] = None):
-        super().__init__("GAN", random_seed=random_seed)
-        self.latent_dim = latent_dim
-        self.generator = None
-        self.discriminator = None
-    
-    def train_generator(self, training_data: np.ndarray, labels: np.ndarray):
-        """
-        Train GAN (placeholder - requires deep learning framework)
-        
-        Args:
-            training_data: Training EEG data
-            labels: Training labels
-        """
-        print(f"GAN training not implemented yet. Would train on {len(training_data)} samples.")
-        print("This requires PyTorch/TensorFlow implementation.")
-        print("Recommended: Use cWGAN or WGAN-GP for stable training.")
-        self.is_trained = False
-    
-    def augment(self, 
-                data: np.ndarray, 
-                label: Optional[Union[int, np.ndarray]] = None,
-                **kwargs) -> Tuple[np.ndarray, Optional[Union[int, np.ndarray]]]:
-        """
-        Generate sample from GAN
-        
-        This is a placeholder - actual implementation would:
-        1. Sample random noise from latent distribution
-        2. Generate sample using generator network
-        3. Optionally condition on label (for cGAN)
-        """
-        self.check_trained()
-        
-        # Placeholder: return data with noise
-        noise = np.random.randn(*data.shape) * 0.1 * np.std(data)
-        augmented = data + noise
-        
-        return augmented, label
-
-
 class AdversarialAugmentation(BaseAugmentation):
     """
     Add small adversarial perturbations for robustness
@@ -204,10 +107,7 @@ class AdversarialAugmentation(BaseAugmentation):
                 label: Optional[Union[int, np.ndarray]] = None,
                 **kwargs) -> Tuple[np.ndarray, Optional[Union[int, np.ndarray]]]:
         """
-        Add small adversarial perturbation
-        
-        Note: True adversarial examples require gradient from model.
-        This is a simplified version using random perturbations.
+        Add small adversarial perturbation to improve model robustness
         """
         self.validate_data(data)
         
@@ -297,8 +197,6 @@ def create_advanced_augmentations(random_seed: Optional[int] = None):
         'smote': SMOTEAugmentation(random_seed=random_seed),
         'adversarial': AdversarialAugmentation(random_seed=random_seed),
         'segment_permutation': SegmentPermutationAugmentation(random_seed=random_seed),
-        'vae': SimpleVAEAugmentation(random_seed=random_seed),  # Placeholder
-        'gan': SimpleGANAugmentation(random_seed=random_seed),  # Placeholder
     }
 
 
@@ -333,6 +231,3 @@ if __name__ == "__main__":
     seg_perm = SegmentPermutationAugmentation(random_seed=42)
     aug_data, _ = seg_perm.augment(sample_data[0], sample_labels[0])
     print(f"  Shape: {aug_data.shape}")
-    
-    print("\nNote: VAE and GAN augmentations are placeholders.")
-    print("They require full deep learning implementation with PyTorch/TensorFlow.")

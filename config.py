@@ -16,9 +16,6 @@ class STFTConfig:
     # Target dimensions after standardization
     target_freq_bins: int = 129
     target_time_bins: int = 126
-    
-    # Dataset-specific STFT parameters
-    # Will be auto-configured based on sampling rates
 
 
 @dataclass
@@ -37,7 +34,7 @@ class ModelConfig:
     # Dropout
     dropout: float = 0.5
     
-    # Number of classes (will be set based on task)
+    # Number of output classes
     n_classes: int = 2
 
 

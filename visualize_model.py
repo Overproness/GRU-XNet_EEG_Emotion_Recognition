@@ -63,11 +63,9 @@ class ModelVisualizer:
         self.checkpoint_path = checkpoint_path
         self.device = get_device('cuda')
         
-        # Load checkpoint
         print(f"Loading checkpoint from: {checkpoint_path}")
         checkpoint = torch.load(checkpoint_path, map_location=self.device)
         
-        # Load or use provided config
         if config is None:
             # Try to load config from outputs directory
             checkpoint_dir = os.path.dirname(checkpoint_path)

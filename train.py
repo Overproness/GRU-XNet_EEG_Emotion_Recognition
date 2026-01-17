@@ -81,7 +81,7 @@ class Trainer:
         print(f"  Frequency bins: {n_freq_bins}")
         print(f"  Time bins: {n_time_bins}")
         
-        # Note: Channels are zero-padded to match the max across datasets (62 for SEEDIV)
+        # Channels are zero-padded to match the maximum across datasets (62 for SEEDIV)
         self.n_channels = n_channels
         
         # Create model

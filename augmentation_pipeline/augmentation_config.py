@@ -76,7 +76,6 @@ class AugmentationConfig:
     smote_contribution: float = 0.20  # 20% of augmented samples (10% of total 2.0)
     smote_k_neighbors: int = 5
     
-    # Note: GAN/VAE/Diffusion models require pre-training, marked as optional
     use_gan: bool = False
     gan_contribution: float = 0.00  # 0% initially, can be enabled after GAN training
     

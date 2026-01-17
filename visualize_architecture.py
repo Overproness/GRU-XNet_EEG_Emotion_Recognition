@@ -236,9 +236,9 @@ def print_preprocessing_pipeline():
 def main():
     """Main visualization function"""
     
-    print("\n" + "🎯"*40)
-    print("gru_xnet ARCHITECTURE VISUALIZATION")
-    print("🎯"*40)
+    print("\n" + "="*80)
+    print("GRU-XNET ARCHITECTURE VISUALIZATION")
+    print("="*80)
     
     # Print architecture
     print_model_architecture()

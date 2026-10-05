@@ -14,7 +14,7 @@ DATE = "2026-10-05"
 REPORTS = [f"GRU-XNet_{name}_{DATE}.md" for name in (
     "Publication_Review", "Implementation_Status", "Dataset_Provenance",
     "First_Party_DEAP_Check", "GitHub_Configuration_Review", "DEAP_Control",
-    "Publication_Readiness", "Exploration_Findings", "Neural_Transfer_Investigation")]
+    "Publication_Readiness", "Exploration_Findings", "Neural_Transfer_Investigation", "Multitarget_Transfer_Findings")]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",
@@ -27,6 +27,7 @@ EXTRA_FILES = [
     "joint_seediv_control_plan_2026-10-05.json",
     "neural_negative_transfer_plan_2026-10-05.json",
     "gradient_conflict_plan_2026-10-05.json",
+    "multitarget_transfer_plan_2026-10-05.json", "cache_common14_trial_features/prepared.json",
     "deap32_cache_consistency.json", "cache_common14/prepared.json", "cache_deap32/prepared.json",
     "provenance/upstream_full_integrity_comparison.json", "provenance/upstream_sample_comparison.json",
     "provenance/deap_change_summary.json", "provenance/existing_cache_binding.json",

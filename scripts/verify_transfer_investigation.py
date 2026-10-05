@@ -19,15 +19,31 @@ from scripts.native_seediv_diagnostic import make_folds
 
 def verify(output):
     config=json.loads((output/"config.json").read_text())
+    if "target_dataset" in config:
+        from gruxnet.transfer_extension import target_mapping
+        with target_mapping(config["target_dataset"]):
+            return verify_selected(output)
+    return verify_selected(output)
+
+
+def verify_selected(output):
+    config=json.loads((output/"config.json").read_text())
     for name,expected in config["source_sha256"].items():
         if sha256(Path(__file__).resolve().parents[1]/"gruxnet"/name)!=expected:
             raise ValueError("Evaluation source changed: "+name)
     assert sha256(output/"plan.json")==config["plan_sha256"]
     plan=json.loads((output/"plan.json").read_text())
-    x,target,z,sources,binding=load_inputs(Path(config["pack"]),Path(config["common_cache"]))
+    if "target_dataset" in config:
+        from gruxnet.transfer_extension import load_extension_inputs,participant_folds
+        assert config["conditions"]==CONDITIONS
+        x,target,z,sources,binding=load_extension_inputs(config)
+        expected_folds=participant_folds(target.subject_id.tolist())
+    else:
+        x,target,z,sources,binding=load_inputs(Path(config["pack"]),Path(config["common_cache"]))
+        expected_folds=make_folds(target.subject_id.tolist())
     assert binding==config["input_binding"]
     folds=json.loads((output/"folds.json").read_text())
-    assert folds==make_folds(target.subject_id.tolist())
+    assert folds==expected_folds and list(CONDITIONS)==plan["conditions"]
     all_saved=pd.read_csv(output/"trial_predictions.csv")
     reconstructed=[]
     count_models,count_checkpoints,count_predictions=0,0,0
@@ -119,6 +135,7 @@ def verify(output):
             "paired_initializations_equal":True,"exact_target_exposure_streams_equal":True,
             "validation_selections_reconstructed":True,"all_aggregate_metrics_reproduced":True,
             "predictions_sha256":sha256(output/"trial_predictions.csv"),
+            "verifier_sha256":sha256(Path(__file__)),
             "scope":"Selected checkpoint replay and metrics, frozen scaler refits, source-participant exclusions, sampling streams and history selection. Does not rerun every optimizer update or independently regenerate original features."}
     write_json(output/"verification.json",result)
     print(json.dumps(result))

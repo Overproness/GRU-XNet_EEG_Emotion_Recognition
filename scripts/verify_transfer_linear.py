@@ -29,15 +29,30 @@ def compare_nested(actual, expected):
 
 def verify(output):
     config = json.loads((output / "config.json").read_text())
+    if "target_dataset" in config:
+        from gruxnet.transfer_extension import target_mapping
+        with target_mapping(config["target_dataset"]):
+            return verify_fits(output)
+    return verify_fits(output)
+
+
+def verify_fits(output):
+    config = json.loads((output / "config.json").read_text())
     root = Path(__file__).resolve().parents[1]
     for name, expected in config["source_sha256"].items():
         assert sha256(root / "gruxnet" / name) == expected, name
-    x, target, z, sources, binding = load_inputs(Path(config["pack"]), Path(config["common_cache"]))
+    if "target_dataset" in config:
+        from gruxnet.transfer_extension import load_extension_inputs, linear_pair
+        x, target, z, sources, binding = load_extension_inputs(config)
+        fitter, condition_count = linear_pair, 2
+    else:
+        x, target, z, sources, binding = load_inputs(Path(config["pack"]), Path(config["common_cache"]))
+        fitter, condition_count = linear_controls, 4
     assert binding == config["input_binding"]
     folds = json.loads((output / "folds.json").read_text())
     replay = output / "linear_replay"
     replay.mkdir(exist_ok=False)
-    actual = linear_controls(x, target, z, sources, folds, replay)
+    actual = fitter(x, target, z, sources, folds, replay)
     expected = json.loads((output / "linear_comparison.json").read_text())
     compare_nested(actual, expected)
     saved = pd.read_csv(output / "linear_trial_predictions.csv")
@@ -48,7 +63,8 @@ def verify(output):
                                rtol=1e-8, atol=1e-10)
     candidates = sum(len(f["validation_candidates"]) for r in expected.values() for f in r["folds"])
     selected = sum(len(r["folds"]) for r in expected.values())
-    assert candidates == 80 and selected == 20 and len(saved) == 3240
+    assert candidates == condition_count * 20 and selected == condition_count * 5
+    assert len(saved) == len(target) * condition_count
     result = {"passed": True, "validation_candidate_fits_reproduced": candidates,
               "selected_models_reproduced": selected, "test_probabilities_reproduced": len(saved),
               "input_binding_checked": True, "all_candidate_and_aggregate_metrics_reproduced": True,

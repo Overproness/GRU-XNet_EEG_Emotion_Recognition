@@ -19,3 +19,14 @@ python scripts/investigate_negative_transfer.py --pack ../publication_runs/joint
 ```
 
 Input hashes, original trial/label identities and source-participant exclusions are checked before fitting. Existing experiment outputs are not overwritten. Model snapshots, selected checkpoints and detailed histories remain in the local run bundle; only bounded derived summaries will be exported to GitHub after validation.
+
+The investigation is complete; [findings and limitations](GRU-XNet_Neural_Transfer_Investigation_2026-10-05.md) contain all planned conditions. Reproduction requires the local feature pack, waveform cache, and checkpoint bundle:
+
+```powershell
+python scripts/verify_transfer_investigation.py --output ../publication_runs/negative_transfer_neural_seediv
+python scripts/verify_transfer_linear.py --output ../publication_runs/negative_transfer_neural_seediv
+python scripts/analyze_transfer_investigation.py --output ../publication_runs/negative_transfer_neural_seediv
+python scripts/diagnose_transfer_gradients.py --output ../publication_runs/negative_transfer_neural_seediv --plan ../publication_runs/gradient_conflict_plan_2026-10-05.json
+```
+
+Linear replay requires a fresh `linear_replay/` subdirectory and refuses to overwrite an existing replay. The gradient plan is secondary and was saved after training but before the training-only analysis. It does not change models or selection. Exported JSON replaces machine-specific paths and records source/export hashes separately.

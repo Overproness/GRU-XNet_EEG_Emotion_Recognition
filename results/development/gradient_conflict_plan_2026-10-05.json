@@ -1,0 +1,9 @@
+{
+  "stage": "Secondary descriptive training-only analysis; no model tuning or adopted question change",
+  "purpose": "Check whether training gradients and feature offsets differ between SEED-IV, DEAP and GAMEEMO",
+  "models": "For every fold/initialization: common initialization and selected primary single, joint, joint_heads checkpoints",
+  "data": "Only original training participants; complete trial features; no validation or test examples",
+  "gradients": "Disable dropout; average cross entropy equally over the two classes within each dataset; concatenate shared-backbone gradients; report pairwise cosine and gradient norms",
+  "outputs": "Training recognition, shared-backbone gradient alignment and anchored feature mean offsets; no threshold adjustment or retraining",
+  "limitations": "Gradient alignment is an association at selected models. Does not identify label semantics, recording quality or optimization as the causal mechanism, and does not establish a novel mitigation method."
+}

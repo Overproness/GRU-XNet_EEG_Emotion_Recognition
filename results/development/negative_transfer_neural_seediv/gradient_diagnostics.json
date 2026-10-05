@@ -1,0 +1,5649 @@
+{
+  "development_only": true,
+  "training_only": true,
+  "plan_sha256": "d109fedc22d44fcb5cf7154e9308eae1a1beedfd2f232cd43fdca0695dad1228",
+  "records": [
+    {
+      "seed": 42,
+      "fold": 0,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.7235493659973145,
+          "backbone_gradient_norm": 0.42805859446525574,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.4588477366255144,
+            "balanced_accuracy": 0.433641975308642,
+            "macro_f1": 0.4312805065251149,
+            "auroc": 0.42872656607224513,
+            "confusion_matrix": [
+              [
+                165,
+                159
+              ],
+              [
+                104,
+                58
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7035170793533325,
+          "backbone_gradient_norm": 0.5137560367584229,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.4867052023121387,
+            "balanced_accuracy": 0.5079141288818708,
+            "macro_f1": 0.44428045561883595,
+            "auroc": 0.5331496460528717,
+            "confusion_matrix": [
+              [
+                330,
+                73
+              ],
+              [
+                371,
+                91
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7303282618522644,
+          "backbone_gradient_norm": 0.4272802770137787,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5352112676056338,
+            "balanced_accuracy": 0.48951612903225805,
+            "macro_f1": 0.4341946389760928,
+            "auroc": 0.4467741935483871,
+            "confusion_matrix": [
+              [
+                34,
+                6
+              ],
+              [
+                27,
+                4
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.48891815543174744,
+        "SEEDIV:GAMEEMO": 0.31667038798332214,
+        "DEAP:GAMEEMO": 0.5054536461830139
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 0,
+      "condition": "single",
+      "checkpoint_sha256": "dc0f1488d988b80d01e33eb42bc7e51bd8cec3ae7e624b3896121218836ad13d",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.4804593026638031,
+          "backbone_gradient_norm": 0.481312096118927,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7736625514403292,
+            "balanced_accuracy": 0.7577160493827161,
+            "macro_f1": 0.7512099776619509,
+            "auroc": 0.8612444749276026,
+            "confusion_matrix": [
+              [
+                261,
+                63
+              ],
+              [
+                47,
+                115
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.9461687803268433,
+          "backbone_gradient_norm": 2.3290276527404785,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5271676300578034,
+            "balanced_accuracy": 0.5023793410890185,
+            "macro_f1": 0.4383375483616955,
+            "auroc": 0.515334128237354,
+            "confusion_matrix": [
+              [
+                56,
+                347
+              ],
+              [
+                62,
+                400
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.8565084934234619,
+          "backbone_gradient_norm": 1.906596302986145,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5211267605633803,
+            "balanced_accuracy": 0.5241935483870968,
+            "macro_f1": 0.5202702702702703,
+            "auroc": 0.5080645161290323,
+            "confusion_matrix": [
+              [
+                20,
+                20
+              ],
+              [
+                14,
+                17
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.6283949017524719,
+        "SEEDIV:GAMEEMO": 0.6912888884544373,
+        "DEAP:GAMEEMO": 0.8163154125213623
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 0,
+      "condition": "joint",
+      "checkpoint_sha256": "77081c14728db285fff4d0df2d3084f534a2617a5de170733388aa99762ddd37",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.6075729131698608,
+          "backbone_gradient_norm": 0.2582310438156128,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.720164609053498,
+            "balanced_accuracy": 0.7067901234567902,
+            "macro_f1": 0.6971407624633431,
+            "auroc": 0.7541152263374485,
+            "confusion_matrix": [
+              [
+                242,
+                82
+              ],
+              [
+                54,
+                108
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6842410564422607,
+          "backbone_gradient_norm": 0.19902090728282928,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5699421965317919,
+            "balanced_accuracy": 0.5516123661284952,
+            "macro_f1": 0.5253982300884956,
+            "auroc": 0.6042344752022171,
+            "confusion_matrix": [
+              [
+                114,
+                289
+              ],
+              [
+                83,
+                379
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.6568022966384888,
+          "backbone_gradient_norm": 0.20775125920772552,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.6056338028169014,
+            "balanced_accuracy": 0.635483870967742,
+            "macro_f1": 0.5959349593495935,
+            "auroc": 0.7306451612903225,
+            "confusion_matrix": [
+              [
+                16,
+                24
+              ],
+              [
+                4,
+                27
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.43598973751068115,
+        "SEEDIV:GAMEEMO": -0.21138469874858856,
+        "DEAP:GAMEEMO": 0.4502464234828949
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 0,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "a0de90b30061608c3b95c1cf55056b4c6e7e58628a9f1b7274b7f56887b99e8b",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.5430545806884766,
+          "backbone_gradient_norm": 0.26730281114578247,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7283950617283951,
+            "balanced_accuracy": 0.7145061728395061,
+            "macro_f1": 0.705319246669729,
+            "auroc": 0.8168152720621857,
+            "confusion_matrix": [
+              [
+                245,
+                79
+              ],
+              [
+                53,
+                109
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6835534572601318,
+          "backbone_gradient_norm": 0.11072336882352829,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5722543352601156,
+            "balanced_accuracy": 0.5602730602730602,
+            "macro_f1": 0.5517507002801121,
+            "auroc": 0.5847056169636815,
+            "confusion_matrix": [
+              [
+                155,
+                248
+              ],
+              [
+                122,
+                340
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.6352962255477905,
+          "backbone_gradient_norm": 0.288892924785614,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5633802816901409,
+            "balanced_accuracy": 0.5508064516129032,
+            "macro_f1": 0.5505411476414132,
+            "auroc": 0.7129032258064516,
+            "confusion_matrix": [
+              [
+                26,
+                14
+              ],
+              [
+                17,
+                14
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.03275434672832489,
+        "SEEDIV:GAMEEMO": 0.24260221421718597,
+        "DEAP:GAMEEMO": 0.15931850671768188
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 1,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.7172898054122925,
+          "backbone_gradient_norm": 0.4059118330478668,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.3991769547325103,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.387888198757764,
+            "auroc": 0.46683051364121325,
+            "confusion_matrix": [
+              [
+                64,
+                260
+              ],
+              [
+                32,
+                130
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7200124263763428,
+          "backbone_gradient_norm": 0.24779914319515228,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.4647398843930636,
+            "balanced_accuracy": 0.46358480229447974,
+            "macro_f1": 0.46347498395763476,
+            "auroc": 0.45455619649168044,
+            "confusion_matrix": [
+              [
+                180,
+                223
+              ],
+              [
+                240,
+                222
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7107535600662231,
+          "backbone_gradient_norm": 0.29431769251823425,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5211267605633803,
+            "balanced_accuracy": 0.5459677419354838,
+            "macro_f1": 0.5133064516129032,
+            "auroc": 0.5580645161290323,
+            "confusion_matrix": [
+              [
+                14,
+                26
+              ],
+              [
+                8,
+                23
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.20002715289592743,
+        "SEEDIV:GAMEEMO": 0.05532663315534592,
+        "DEAP:GAMEEMO": 0.07603415846824646
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 1,
+      "condition": "single",
+      "checkpoint_sha256": "3d6f959adf86a3c2398ab1573b8454e0cd9188913920e228a8d461e733b7e12f",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.22991415858268738,
+          "backbone_gradient_norm": 0.8844403624534607,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8909465020576132,
+            "balanced_accuracy": 0.8966049382716049,
+            "macro_f1": 0.881532652338486,
+            "auroc": 0.9729652491998171,
+            "confusion_matrix": [
+              [
+                285,
+                39
+              ],
+              [
+                14,
+                148
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.0891048908233643,
+          "backbone_gradient_norm": 3.333218574523926,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5294797687861271,
+            "balanced_accuracy": 0.5205466576434319,
+            "macro_f1": 0.5160682841939878,
+            "auroc": 0.5117033504130277,
+            "confusion_matrix": [
+              [
+                157,
+                246
+              ],
+              [
+                161,
+                301
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.1901347637176514,
+          "backbone_gradient_norm": 3.5459158420562744,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.4084507042253521,
+            "balanced_accuracy": 0.3987903225806452,
+            "macro_f1": 0.3987903225806452,
+            "auroc": 0.4612903225806451,
+            "confusion_matrix": [
+              [
+                19,
+                21
+              ],
+              [
+                21,
+                10
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.22587113082408905,
+        "SEEDIV:GAMEEMO": -0.09476626664400101,
+        "DEAP:GAMEEMO": 0.12248913943767548
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 1,
+      "condition": "joint",
+      "checkpoint_sha256": "9f17c438688d18ba141bda0fb928b825abd5cf61540fc29f69472c586128f35a",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.39699995517730713,
+          "backbone_gradient_norm": 0.37833288311958313,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.823045267489712,
+            "balanced_accuracy": 0.808641975308642,
+            "macro_f1": 0.803859365907683,
+            "auroc": 0.910932022557537,
+            "confusion_matrix": [
+              [
+                276,
+                48
+              ],
+              [
+                38,
+                124
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6589246988296509,
+          "backbone_gradient_norm": 0.27351999282836914,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.6057803468208093,
+            "balanced_accuracy": 0.6119391361326845,
+            "macro_f1": 0.6048487462841328,
+            "auroc": 0.6514668127571354,
+            "confusion_matrix": [
+              [
+                283,
+                120
+              ],
+              [
+                221,
+                241
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.34268033504486084,
+          "backbone_gradient_norm": 0.7605065703392029,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.8873239436619719,
+            "balanced_accuracy": 0.8891129032258065,
+            "macro_f1": 0.8862179487179487,
+            "auroc": 0.967741935483871,
+            "confusion_matrix": [
+              [
+                35,
+                5
+              ],
+              [
+                3,
+                28
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.045761022716760635,
+        "SEEDIV:GAMEEMO": 0.06464824080467224,
+        "DEAP:GAMEEMO": -0.043175049126148224
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 1,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "d011829380f17291c58a09814b8d6698600d8fca747a62801ad32f7edca7caa2",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.4174422025680542,
+          "backbone_gradient_norm": 0.5427435040473938,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8148148148148148,
+            "balanced_accuracy": 0.8040123456790124,
+            "macro_f1": 0.7964445271779599,
+            "auroc": 0.8953856119493978,
+            "confusion_matrix": [
+              [
+                271,
+                53
+              ],
+              [
+                37,
+                125
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6715621948242188,
+          "backbone_gradient_norm": 0.21835924685001373,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5745664739884393,
+            "balanced_accuracy": 0.57574683381135,
+            "macro_f1": 0.5743611137853941,
+            "auroc": 0.6184353281127475,
+            "confusion_matrix": [
+              [
+                239,
+                164
+              ],
+              [
+                204,
+                258
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.4093508720397949,
+          "backbone_gradient_norm": 3.498380184173584,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.7887323943661971,
+            "balanced_accuracy": 0.7979838709677419,
+            "macro_f1": 0.7885646217986897,
+            "auroc": 0.9056451612903226,
+            "confusion_matrix": [
+              [
+                29,
+                11
+              ],
+              [
+                4,
+                27
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.054735083132982254,
+        "SEEDIV:GAMEEMO": 0.28099575638771057,
+        "DEAP:GAMEEMO": -0.03536789119243622
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 2,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.748120129108429,
+          "backbone_gradient_norm": 0.6292275786399841,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.37037037037037035,
+            "balanced_accuracy": 0.4845679012345679,
+            "macro_f1": 0.3490273667991526,
+            "auroc": 0.5300830666057004,
+            "confusion_matrix": [
+              [
+                46,
+                278
+              ],
+              [
+                28,
+                134
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7091888785362244,
+          "backbone_gradient_norm": 0.6249405741691589,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5572254335260116,
+            "balanced_accuracy": 0.5316269751753623,
+            "macro_f1": 0.46693344532244335,
+            "auroc": 0.5292127227611098,
+            "confusion_matrix": [
+              [
+                63,
+                340
+              ],
+              [
+                43,
+                419
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7968053221702576,
+          "backbone_gradient_norm": 1.3589601516723633,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.43661971830985913,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.30392156862745096,
+            "auroc": 0.5008064516129033,
+            "confusion_matrix": [
+              [
+                0,
+                40
+              ],
+              [
+                0,
+                31
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.2724652588367462,
+        "SEEDIV:GAMEEMO": 0.41212180256843567,
+        "DEAP:GAMEEMO": 0.765169084072113
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 2,
+      "condition": "single",
+      "checkpoint_sha256": "577610f7afb646c367ae5814e1e640c491e58e1926847a076a5382c98e111ce1",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.2227761149406433,
+          "backbone_gradient_norm": 0.6934594511985779,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.9135802469135802,
+            "balanced_accuracy": 0.9135802469135802,
+            "macro_f1": 0.9047467940940399,
+            "auroc": 0.9756896814509983,
+            "confusion_matrix": [
+              [
+                296,
+                28
+              ],
+              [
+                14,
+                148
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.5436960458755493,
+          "backbone_gradient_norm": 5.458348751068115,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5364161849710982,
+            "balanced_accuracy": 0.5083438067309035,
+            "macro_f1": 0.42114784164317814,
+            "auroc": 0.5110104948814626,
+            "confusion_matrix": [
+              [
+                39,
+                364
+              ],
+              [
+                37,
+                425
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.3529056310653687,
+          "backbone_gradient_norm": 4.082083225250244,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5211267605633803,
+            "balanced_accuracy": 0.5314516129032258,
+            "macro_f1": 0.521031746031746,
+            "auroc": 0.4741935483870968,
+            "confusion_matrix": [
+              [
+                18,
+                22
+              ],
+              [
+                12,
+                19
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.5429227352142334,
+        "SEEDIV:GAMEEMO": 0.5226556658744812,
+        "DEAP:GAMEEMO": 0.6437981724739075
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 2,
+      "condition": "joint",
+      "checkpoint_sha256": "7da9624c76d7bdf53c2ae57ff4a8432f9b74d338390ad34212520455ced38db0",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.4515625536441803,
+          "backbone_gradient_norm": 0.3885258436203003,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8004115226337448,
+            "balanced_accuracy": 0.7824074074074074,
+            "macro_f1": 0.7784545108488771,
+            "auroc": 0.8799535131839658,
+            "confusion_matrix": [
+              [
+                271,
+                53
+              ],
+              [
+                44,
+                118
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6608045101165771,
+          "backbone_gradient_norm": 0.25814712047576904,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5976878612716763,
+            "balanced_accuracy": 0.6084829149345279,
+            "macro_f1": 0.5921270852980391,
+            "auroc": 0.648604084087955,
+            "confusion_matrix": [
+              [
+                309,
+                94
+              ],
+              [
+                254,
+                208
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.439219206571579,
+          "backbone_gradient_norm": 1.2703325748443604,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.8450704225352113,
+            "balanced_accuracy": 0.8443548387096774,
+            "macro_f1": 0.8430781595338557,
+            "auroc": 0.9209677419354839,
+            "confusion_matrix": [
+              [
+                34,
+                6
+              ],
+              [
+                5,
+                26
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.2993951141834259,
+        "SEEDIV:GAMEEMO": 0.03081793524324894,
+        "DEAP:GAMEEMO": 0.015287701040506363
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 2,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "7c6d22a93402e16e7bd6bdd893e2dae88b69b0ea8676eeab560a34602ce60ded",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.4951441287994385,
+          "backbone_gradient_norm": 0.21575787663459778,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8045267489711934,
+            "balanced_accuracy": 0.7808641975308642,
+            "macro_f1": 0.7804303887766021,
+            "auroc": 0.8550144795000763,
+            "confusion_matrix": [
+              [
+                276,
+                48
+              ],
+              [
+                47,
+                115
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6760152578353882,
+          "backbone_gradient_norm": 0.0894598662853241,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.584971098265896,
+            "balanced_accuracy": 0.5865961994994253,
+            "macro_f1": 0.5848623515933206,
+            "auroc": 0.6107602075344011,
+            "confusion_matrix": [
+              [
+                246,
+                157
+              ],
+              [
+                202,
+                260
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.6488534212112427,
+          "backbone_gradient_norm": 0.3623107075691223,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.647887323943662,
+            "balanced_accuracy": 0.6258064516129033,
+            "macro_f1": 0.6237015051939792,
+            "auroc": 0.6975806451612903,
+            "confusion_matrix": [
+              [
+                32,
+                8
+              ],
+              [
+                17,
+                14
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.14131753146648407,
+        "SEEDIV:GAMEEMO": -0.02417096309363842,
+        "DEAP:GAMEEMO": -0.06847981363534927
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 3,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.6827498078346252,
+          "backbone_gradient_norm": 0.3133695423603058,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.5329218106995884,
+            "balanced_accuracy": 0.5848765432098766,
+            "macro_f1": 0.5322068395276358,
+            "auroc": 0.6018137479042829,
+            "confusion_matrix": [
+              [
+                139,
+                185
+              ],
+              [
+                42,
+                120
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7100498676300049,
+          "backbone_gradient_norm": 0.828974187374115,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5329479768786127,
+            "balanced_accuracy": 0.5031957290021807,
+            "macro_f1": 0.40014693361896125,
+            "auroc": 0.5391705069124424,
+            "confusion_matrix": [
+              [
+                27,
+                376
+              ],
+              [
+                28,
+                434
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7089383602142334,
+          "backbone_gradient_norm": 0.5555446147918701,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.4788732394366197,
+            "balanced_accuracy": 0.5048387096774194,
+            "macro_f1": 0.46832624974701476,
+            "auroc": 0.49274193548387096,
+            "confusion_matrix": [
+              [
+                12,
+                28
+              ],
+              [
+                9,
+                22
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.24403394758701324,
+        "SEEDIV:GAMEEMO": 0.30145636200904846,
+        "DEAP:GAMEEMO": 0.7976645231246948
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 3,
+      "condition": "single",
+      "checkpoint_sha256": "fe8632b4ad9694598d398cbabd36b99878ff884c2eabb29f34253fbb4dc13858",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.3378754258155823,
+          "backbone_gradient_norm": 0.9112364649772644,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8580246913580247,
+            "balanced_accuracy": 0.845679012345679,
+            "macro_f1": 0.8419482398631293,
+            "auroc": 0.9316034141137022,
+            "confusion_matrix": [
+              [
+                286,
+                38
+              ],
+              [
+                31,
+                131
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.5310487747192383,
+          "backbone_gradient_norm": 4.980815410614014,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5294797687861271,
+            "balanced_accuracy": 0.5013749691169046,
+            "macro_f1": 0.4124867120917045,
+            "auroc": 0.5366783753880529,
+            "confusion_matrix": [
+              [
+                36,
+                367
+              ],
+              [
+                40,
+                422
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.1635010242462158,
+          "backbone_gradient_norm": 2.863293170928955,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.49295774647887325,
+            "balanced_accuracy": 0.49193548387096775,
+            "macro_f1": 0.49043062200956933,
+            "auroc": 0.5088709677419354,
+            "confusion_matrix": [
+              [
+                20,
+                20
+              ],
+              [
+                16,
+                15
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.6689682006835938,
+        "SEEDIV:GAMEEMO": 0.6576518416404724,
+        "DEAP:GAMEEMO": 0.7943016886711121
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 3,
+      "condition": "joint",
+      "checkpoint_sha256": "4bbb32068117ea30c22d14bd6f48c071c8330d71550cd0166fe98990c98e8c77",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.367759644985199,
+          "backbone_gradient_norm": 0.5633836984634399,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8580246913580247,
+            "balanced_accuracy": 0.845679012345679,
+            "macro_f1": 0.8419482398631293,
+            "auroc": 0.9199055022100289,
+            "confusion_matrix": [
+              [
+                286,
+                38
+              ],
+              [
+                31,
+                131
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6519426107406616,
+          "backbone_gradient_norm": 0.39268869161605835,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.6208092485549133,
+            "balanced_accuracy": 0.6217304201175169,
+            "macro_f1": 0.6204922418405565,
+            "auroc": 0.6589270944109654,
+            "confusion_matrix": [
+              [
+                256,
+                147
+              ],
+              [
+                181,
+                281
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.37655359506607056,
+          "backbone_gradient_norm": 1.9406890869140625,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.8309859154929577,
+            "balanced_accuracy": 0.8391129032258065,
+            "macro_f1": 0.8306836248012719,
+            "auroc": 0.9524193548387097,
+            "confusion_matrix": [
+              [
+                31,
+                9
+              ],
+              [
+                3,
+                28
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.3219178020954132,
+        "SEEDIV:GAMEEMO": 0.5029402375221252,
+        "DEAP:GAMEEMO": 0.17125749588012695
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 3,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "8224993451cd2fda47020167790a7d0b729559ebbc58e5faeac27e18547db4f9",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.40156909823417664,
+          "backbone_gradient_norm": 0.6012336015701294,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7880658436213992,
+            "balanced_accuracy": 0.8009259259259259,
+            "macro_f1": 0.7764020100502513,
+            "auroc": 0.9047782350251486,
+            "confusion_matrix": [
+              [
+                247,
+                77
+              ],
+              [
+                26,
+                136
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6603037118911743,
+          "backbone_gradient_norm": 0.17945103347301483,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5815028901734104,
+            "balanced_accuracy": 0.5822403403048564,
+            "macro_f1": 0.5811530230069556,
+            "auroc": 0.6380984606791058,
+            "confusion_matrix": [
+              [
+                239,
+                164
+              ],
+              [
+                198,
+                264
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.431751012802124,
+          "backbone_gradient_norm": 0.7771438360214233,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.8591549295774648,
+            "balanced_accuracy": 0.8604838709677419,
+            "macro_f1": 0.8577724358974359,
+            "auroc": 0.957258064516129,
+            "confusion_matrix": [
+              [
+                34,
+                6
+              ],
+              [
+                4,
+                27
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.3352299928665161,
+        "SEEDIV:GAMEEMO": 0.3051263689994812,
+        "DEAP:GAMEEMO": 0.14022132754325867
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 4,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.751950740814209,
+          "backbone_gradient_norm": 0.7512298822402954,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.5473251028806584,
+            "balanced_accuracy": 0.4691358024691358,
+            "macro_f1": 0.4656564848872541,
+            "auroc": 0.4483500990702637,
+            "confusion_matrix": [
+              [
+                228,
+                96
+              ],
+              [
+                124,
+                38
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7308201789855957,
+          "backbone_gradient_norm": 0.9180817008018494,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.4658959537572254,
+            "balanced_accuracy": 0.4976233443975379,
+            "macro_f1": 0.3438965286260294,
+            "auroc": 0.48976292524679627,
+            "confusion_matrix": [
+              [
+                388,
+                15
+              ],
+              [
+                447,
+                15
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7131104469299316,
+          "backbone_gradient_norm": 0.660465657711029,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5633802816901409,
+            "balanced_accuracy": 0.5254032258064516,
+            "macro_f1": 0.4957617411225659,
+            "auroc": 0.5096774193548387,
+            "confusion_matrix": [
+              [
+                33,
+                7
+              ],
+              [
+                24,
+                7
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.8197999596595764,
+        "SEEDIV:GAMEEMO": 0.7485746145248413,
+        "DEAP:GAMEEMO": 0.8651309013366699
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 4,
+      "condition": "single",
+      "checkpoint_sha256": "f4ea88c4c55684a1a9f87bca9d930e418fb13289c4bf5cf6b847564becd0d883",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.41786274313926697,
+          "backbone_gradient_norm": 0.5860283970832825,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8148148148148148,
+            "balanced_accuracy": 0.8132716049382716,
+            "macro_f1": 0.7995784457478006,
+            "auroc": 0.8986244474927603,
+            "confusion_matrix": [
+              [
+                265,
+                59
+              ],
+              [
+                31,
+                131
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.194336175918579,
+          "backbone_gradient_norm": 2.3568408489227295,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5341040462427745,
+            "balanced_accuracy": 0.50396109267077,
+            "macro_f1": 0.39739593867387174,
+            "auroc": 0.5040550847002461,
+            "confusion_matrix": [
+              [
+                25,
+                378
+              ],
+              [
+                25,
+                437
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.042588472366333,
+          "backbone_gradient_norm": 1.778308391571045,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5352112676056338,
+            "balanced_accuracy": 0.5439516129032258,
+            "macro_f1": 0.5352112676056338,
+            "auroc": 0.4943548387096774,
+            "confusion_matrix": [
+              [
+                19,
+                21
+              ],
+              [
+                12,
+                19
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.30453863739967346,
+        "SEEDIV:GAMEEMO": 0.1727888137102127,
+        "DEAP:GAMEEMO": 0.7171094417572021
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 4,
+      "condition": "joint",
+      "checkpoint_sha256": "481d3c2a5135c7fcc8c5116b26b0a2cae1c980bb9b5b4796e8fbbecffa7f91f9",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.3717716932296753,
+          "backbone_gradient_norm": 0.5121990442276001,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8209876543209876,
+            "balanced_accuracy": 0.8302469135802469,
+            "macro_f1": 0.8091579968856492,
+            "auroc": 0.922229843011736,
+            "confusion_matrix": [
+              [
+                260,
+                64
+              ],
+              [
+                23,
+                139
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.663776695728302,
+          "backbone_gradient_norm": 0.30498987436294556,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.6034682080924856,
+            "balanced_accuracy": 0.6029615545744578,
+            "macro_f1": 0.6025311436230425,
+            "auroc": 0.6464664367890174,
+            "confusion_matrix": [
+              [
+                240,
+                163
+              ],
+              [
+                180,
+                282
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.27050843834877014,
+          "backbone_gradient_norm": 1.8093324899673462,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.9295774647887324,
+            "balanced_accuracy": 0.9375,
+            "macro_f1": 0.9293532338308458,
+            "auroc": 0.989516129032258,
+            "confusion_matrix": [
+              [
+                35,
+                5
+              ],
+              [
+                0,
+                31
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.21074582636356354,
+        "SEEDIV:GAMEEMO": 0.15455210208892822,
+        "DEAP:GAMEEMO": -0.0620419979095459
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 4,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "58dbd4982e8ebf2d5699b9fb5da1b25fbe90ea02c6c83bf693cf837ab212e045",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.3441147208213806,
+          "backbone_gradient_norm": 0.7763171792030334,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8415637860082305,
+            "balanced_accuracy": 0.8441358024691359,
+            "macro_f1": 0.8287377521086281,
+            "auroc": 0.9307460752934005,
+            "confusion_matrix": [
+              [
+                271,
+                53
+              ],
+              [
+                24,
+                138
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6659464836120605,
+          "backbone_gradient_norm": 0.13233785331249237,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.6023121387283237,
+            "balanced_accuracy": 0.6047312902151611,
+            "macro_f1": 0.6022988505747127,
+            "auroc": 0.6345858442632637,
+            "confusion_matrix": [
+              [
+                258,
+                145
+              ],
+              [
+                199,
+                263
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.23637273907661438,
+          "backbone_gradient_norm": 2.932736396789551,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.9577464788732394,
+            "balanced_accuracy": 0.9588709677419355,
+            "macro_f1": 0.9572031344183243,
+            "auroc": 0.9701612903225806,
+            "confusion_matrix": [
+              [
+                38,
+                2
+              ],
+              [
+                1,
+                30
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.42566975951194763,
+        "SEEDIV:GAMEEMO": 0.28883618116378784,
+        "DEAP:GAMEEMO": 0.21070410311222076
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 0,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.6967849731445312,
+          "backbone_gradient_norm": 0.5802208781242371,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.6275720164609053,
+            "balanced_accuracy": 0.5478395061728395,
+            "macro_f1": 0.546966333798559,
+            "auroc": 0.5594421582075902,
+            "confusion_matrix": [
+              [
+                255,
+                69
+              ],
+              [
+                112,
+                50
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6962493062019348,
+          "backbone_gradient_norm": 0.3067403733730316,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.530635838150289,
+            "balanced_accuracy": 0.5140236107978043,
+            "macro_f1": 0.49113518338201884,
+            "auroc": 0.5379996347738283,
+            "confusion_matrix": [
+              [
+                109,
+                294
+              ],
+              [
+                112,
+                350
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7227039933204651,
+          "backbone_gradient_norm": 0.4510495960712433,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.4788732394366197,
+            "balanced_accuracy": 0.48306451612903223,
+            "macro_f1": 0.47845940043676793,
+            "auroc": 0.4669354838709677,
+            "confusion_matrix": [
+              [
+                18,
+                22
+              ],
+              [
+                15,
+                16
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.4885667860507965,
+        "SEEDIV:GAMEEMO": 0.08300209045410156,
+        "DEAP:GAMEEMO": -0.09648285806179047
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 0,
+      "condition": "single",
+      "checkpoint_sha256": "658b9a817aba271a05aaeab2df5ce30309e0ff4567654ff99bbe4afd0ae02c22",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.3448460102081299,
+          "backbone_gradient_norm": 0.6150197982788086,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8209876543209876,
+            "balanced_accuracy": 0.837962962962963,
+            "macro_f1": 0.8111356783919599,
+            "auroc": 0.9326893766194178,
+            "confusion_matrix": [
+              [
+                255,
+                69
+              ],
+              [
+                18,
+                144
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.2989388704299927,
+          "backbone_gradient_norm": 4.0902485847473145,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5433526011560693,
+            "balanced_accuracy": 0.5146788695175792,
+            "macro_f1": 0.42380887335178224,
+            "auroc": 0.5107016639274704,
+            "confusion_matrix": [
+              [
+                38,
+                365
+              ],
+              [
+                30,
+                432
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.0610461235046387,
+          "backbone_gradient_norm": 4.292027473449707,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5070422535211268,
+            "balanced_accuracy": 0.540725806451613,
+            "macro_f1": 0.4871001031991744,
+            "auroc": 0.5258064516129033,
+            "confusion_matrix": [
+              [
+                11,
+                29
+              ],
+              [
+                6,
+                25
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.43183085322380066,
+        "SEEDIV:GAMEEMO": 0.5087200403213501,
+        "DEAP:GAMEEMO": 0.8361712694168091
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 0,
+      "condition": "joint",
+      "checkpoint_sha256": "7532e2c599487965da2e3eaaad2ff916ebcf52e6b53c665f6f4a8134bf76e372",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.5155314207077026,
+          "backbone_gradient_norm": 0.2630574107170105,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7716049382716049,
+            "balanced_accuracy": 0.7453703703703703,
+            "macro_f1": 0.7442287177298912,
+            "auroc": 0.8557384545038865,
+            "confusion_matrix": [
+              [
+                267,
+                57
+              ],
+              [
+                54,
+                108
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6776845455169678,
+          "backbone_gradient_norm": 0.1686227023601532,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.584971098265896,
+            "balanced_accuracy": 0.5747129214871151,
+            "macro_f1": 0.5694960274715144,
+            "auroc": 0.6046910079168144,
+            "confusion_matrix": [
+              [
+                171,
+                232
+              ],
+              [
+                127,
+                335
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.5957918167114258,
+          "backbone_gradient_norm": 0.39834466576576233,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.676056338028169,
+            "balanced_accuracy": 0.697983870967742,
+            "macro_f1": 0.6737262737262737,
+            "auroc": 0.7782258064516129,
+            "confusion_matrix": [
+              [
+                21,
+                19
+              ],
+              [
+                4,
+                27
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.1549830287694931,
+        "SEEDIV:GAMEEMO": 0.16042426228523254,
+        "DEAP:GAMEEMO": 0.3564499020576477
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 0,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "5a3b510b1777916e0f5c61b9fcb427cece772ea810b3a07ab36ddc07bc7907a6",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.44541090726852417,
+          "backbone_gradient_norm": 0.4711310565471649,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7901234567901234,
+            "balanced_accuracy": 0.7824074074074074,
+            "macro_f1": 0.7717175066312998,
+            "auroc": 0.8840877914951989,
+            "confusion_matrix": [
+              [
+                261,
+                63
+              ],
+              [
+                39,
+                123
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.681570291519165,
+          "backbone_gradient_norm": 0.2904452085494995,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5387283236994219,
+            "balanced_accuracy": 0.5558232090490155,
+            "macro_f1": 0.5168673332689409,
+            "auroc": 0.6005231327811973,
+            "confusion_matrix": [
+              [
+                325,
+                78
+              ],
+              [
+                321,
+                141
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.5746804475784302,
+          "backbone_gradient_norm": 0.7236781716346741,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.676056338028169,
+            "balanced_accuracy": 0.6544354838709677,
+            "macro_f1": 0.6538053847784608,
+            "auroc": 0.7822580645161291,
+            "confusion_matrix": [
+              [
+                33,
+                7
+              ],
+              [
+                16,
+                15
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.46732041239738464,
+        "SEEDIV:GAMEEMO": 0.47211959958076477,
+        "DEAP:GAMEEMO": 0.5435712933540344
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 1,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.6870598793029785,
+          "backbone_gradient_norm": 0.32791492342948914,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.5864197530864198,
+            "balanced_accuracy": 0.5725308641975309,
+            "macro_f1": 0.5627833699597631,
+            "auroc": 0.5725880201188843,
+            "confusion_matrix": [
+              [
+                199,
+                125
+              ],
+              [
+                76,
+                86
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7062073945999146,
+          "backbone_gradient_norm": 0.29754185676574707,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5098265895953757,
+            "balanced_accuracy": 0.5198940844102135,
+            "macro_f1": 0.503584112959113,
+            "auroc": 0.5182237117720989,
+            "confusion_matrix": [
+              [
+                269,
+                134
+              ],
+              [
+                290,
+                172
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7123135328292847,
+          "backbone_gradient_norm": 0.3115028440952301,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5352112676056338,
+            "balanced_accuracy": 0.5112903225806451,
+            "macro_f1": 0.5032859868560526,
+            "auroc": 0.47338709677419355,
+            "confusion_matrix": [
+              [
+                28,
+                12
+              ],
+              [
+                21,
+                10
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.48312893509864807,
+        "SEEDIV:GAMEEMO": 0.4225553870201111,
+        "DEAP:GAMEEMO": 0.46936091780662537
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 1,
+      "condition": "single",
+      "checkpoint_sha256": "5de54bd4dad511a81fb91d9192266b3e48d05720c7bd393ea40a73481539934a",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.380398690700531,
+          "backbone_gradient_norm": 0.5354156494140625,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8189300411522634,
+            "balanced_accuracy": 0.8317901234567902,
+            "macro_f1": 0.8079913800844034,
+            "auroc": 0.9166285627190977,
+            "confusion_matrix": [
+              [
+                257,
+                67
+              ],
+              [
+                21,
+                141
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.9800074696540833,
+          "backbone_gradient_norm": 3.344860792160034,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5283236994219653,
+            "balanced_accuracy": 0.5053629166532392,
+            "macro_f1": 0.4529932546374368,
+            "auroc": 0.5101457682102843,
+            "confusion_matrix": [
+              [
+                68,
+                335
+              ],
+              [
+                73,
+                389
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.9833016991615295,
+          "backbone_gradient_norm": 1.8494981527328491,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5070422535211268,
+            "balanced_accuracy": 0.4935483870967742,
+            "macro_f1": 0.4925464570144987,
+            "auroc": 0.48225806451612907,
+            "confusion_matrix": [
+              [
+                24,
+                16
+              ],
+              [
+                19,
+                12
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.20054002106189728,
+        "SEEDIV:GAMEEMO": 0.10529062896966934,
+        "DEAP:GAMEEMO": 0.32516568899154663
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 1,
+      "condition": "joint",
+      "checkpoint_sha256": "f78f7a8feb987b8529bfc7cf2c0426267a814a123af11e693546c8bb8922a115",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.3926435112953186,
+          "backbone_gradient_norm": 0.5283936858177185,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8415637860082305,
+            "balanced_accuracy": 0.8256172839506173,
+            "macro_f1": 0.8231031402005229,
+            "auroc": 0.9137707666514251,
+            "confusion_matrix": [
+              [
+                283,
+                41
+              ],
+              [
+                36,
+                126
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6723951697349548,
+          "backbone_gradient_norm": 0.3351518511772156,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5826589595375723,
+            "balanced_accuracy": 0.5831641476802767,
+            "macro_f1": 0.5822212054195581,
+            "auroc": 0.6202453460517977,
+            "confusion_matrix": [
+              [
+                238,
+                165
+              ],
+              [
+                196,
+                266
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.4315313696861267,
+          "backbone_gradient_norm": 1.239626407623291,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.8450704225352113,
+            "balanced_accuracy": 0.8407258064516129,
+            "macro_f1": 0.8419348310058692,
+            "auroc": 0.917741935483871,
+            "confusion_matrix": [
+              [
+                35,
+                5
+              ],
+              [
+                6,
+                25
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.21493390202522278,
+        "SEEDIV:GAMEEMO": 0.08772138506174088,
+        "DEAP:GAMEEMO": -0.07276459038257599
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 1,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "f55e1495a88f71d6fb237a90bb4a8e362ee3fdd17cbff60e180ddc9069d0c80e",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.35500121116638184,
+          "backbone_gradient_norm": 0.7910205721855164,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8518518518518519,
+            "balanced_accuracy": 0.8317901234567902,
+            "macro_f1": 0.8328141423793598,
+            "auroc": 0.9295267489711934,
+            "confusion_matrix": [
+              [
+                289,
+                35
+              ],
+              [
+                37,
+                125
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6639454364776611,
+          "backbone_gradient_norm": 0.19168047606945038,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5907514450867052,
+            "balanced_accuracy": 0.6000880839590517,
+            "macro_f1": 0.5869484282430639,
+            "auroc": 0.646842404906921,
+            "confusion_matrix": [
+              [
+                297,
+                106
+              ],
+              [
+                248,
+                214
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.2914603352546692,
+          "backbone_gradient_norm": 2.5256474018096924,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.8732394366197183,
+            "balanced_accuracy": 0.8766129032258064,
+            "macro_f1": 0.8723276723276723,
+            "auroc": 0.9556451612903225,
+            "confusion_matrix": [
+              [
+                34,
+                6
+              ],
+              [
+                3,
+                28
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.21449698507785797,
+        "SEEDIV:GAMEEMO": -0.0727304145693779,
+        "DEAP:GAMEEMO": -0.18810521066188812
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 2,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.6966190338134766,
+          "backbone_gradient_norm": 0.4562911093235016,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.5308641975308642,
+            "balanced_accuracy": 0.5324074074074074,
+            "macro_f1": 0.5164179104477612,
+            "auroc": 0.5401806127114769,
+            "confusion_matrix": [
+              [
+                171,
+                153
+              ],
+              [
+                75,
+                87
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7005863785743713,
+          "backbone_gradient_norm": 0.41326338052749634,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5433526011560693,
+            "balanced_accuracy": 0.5248192667547507,
+            "macro_f1": 0.4956595799955422,
+            "auroc": 0.5455861342958117,
+            "confusion_matrix": [
+              [
+                102,
+                301
+              ],
+              [
+                94,
+                368
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.721947431564331,
+          "backbone_gradient_norm": 0.7852903604507446,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.4647887323943662,
+            "balanced_accuracy": 0.5141129032258065,
+            "macro_f1": 0.4020390070921986,
+            "auroc": 0.5088709677419355,
+            "confusion_matrix": [
+              [
+                5,
+                35
+              ],
+              [
+                3,
+                28
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.41616958379745483,
+        "SEEDIV:GAMEEMO": -0.35658615827560425,
+        "DEAP:GAMEEMO": 0.7473661303520203
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 2,
+      "condition": "single",
+      "checkpoint_sha256": "0a0e86b2544264d756d62d2e3e0a7db16ae0da33c7edfbc617c96fc10bb3089a",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.1764892339706421,
+          "backbone_gradient_norm": 0.7192009687423706,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.934156378600823,
+            "balanced_accuracy": 0.9290123456790123,
+            "macro_f1": 0.9263747916982276,
+            "auroc": 0.9838439262307574,
+            "confusion_matrix": [
+              [
+                306,
+                18
+              ],
+              [
+                14,
+                148
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 2.0246469974517822,
+          "backbone_gradient_norm": 7.777032852172852,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5410404624277456,
+            "balanced_accuracy": 0.5112468176984306,
+            "macro_f1": 0.40971464226718535,
+            "auroc": 0.49894191829675705,
+            "confusion_matrix": [
+              [
+                30,
+                373
+              ],
+              [
+                24,
+                438
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.4456210136413574,
+          "backbone_gradient_norm": 6.381047248840332,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5211267605633803,
+            "balanced_accuracy": 0.5423387096774194,
+            "macro_f1": 0.516426282051282,
+            "auroc": 0.5161290322580645,
+            "confusion_matrix": [
+              [
+                15,
+                25
+              ],
+              [
+                9,
+                22
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.20438753068447113,
+        "SEEDIV:GAMEEMO": -0.171310693025589,
+        "DEAP:GAMEEMO": 0.6314950585365295
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 2,
+      "condition": "joint",
+      "checkpoint_sha256": "7f6e725837e603084fb3a53eb91c3570f6ebb2f4121c2e7537ead8f62fb3dfef",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.6443443894386292,
+          "backbone_gradient_norm": 0.21287274360656738,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7098765432098766,
+            "balanced_accuracy": 0.6481481481481481,
+            "macro_f1": 0.6542077296879967,
+            "auroc": 0.7209838439262308,
+            "confusion_matrix": [
+              [
+                270,
+                54
+              ],
+              [
+                87,
+                75
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6894530057907104,
+          "backbone_gradient_norm": 0.0788392573595047,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5433526011560693,
+            "balanced_accuracy": 0.5336921143372756,
+            "macro_f1": 0.528404754116236,
+            "auroc": 0.5579903967000742,
+            "confusion_matrix": [
+              [
+                158,
+                245
+              ],
+              [
+                150,
+                312
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.6752514243125916,
+          "backbone_gradient_norm": 0.14302800595760345,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5774647887323944,
+            "balanced_accuracy": 0.5850806451612903,
+            "macro_f1": 0.5773809523809523,
+            "auroc": 0.6201612903225806,
+            "confusion_matrix": [
+              [
+                21,
+                19
+              ],
+              [
+                11,
+                20
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.05706921964883804,
+        "SEEDIV:GAMEEMO": -0.09544379264116287,
+        "DEAP:GAMEEMO": -0.005454517435282469
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 2,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "ba3b0f9e3b5f80a4dc971f8a6a656122d2a200e0ef2055743f9afed5f8ce5917",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.3931550979614258,
+          "backbone_gradient_norm": 0.34154313802719116,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8415637860082305,
+            "balanced_accuracy": 0.8287037037037037,
+            "macro_f1": 0.8241339931480777,
+            "auroc": 0.9094269166285627,
+            "confusion_matrix": [
+              [
+                281,
+                43
+              ],
+              [
+                34,
+                128
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6644763946533203,
+          "backbone_gradient_norm": 0.21772034466266632,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5826589595375723,
+            "balanced_accuracy": 0.5809459357846455,
+            "macro_f1": 0.5809024156845692,
+            "auroc": 0.6305415015092434,
+            "confusion_matrix": [
+              [
+                224,
+                179
+              ],
+              [
+                182,
+                280
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.20801734924316406,
+          "backbone_gradient_norm": 5.512146472930908,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.9154929577464789,
+            "balanced_accuracy": 0.9213709677419355,
+            "macro_f1": 0.9150717703349283,
+            "auroc": 0.9806451612903225,
+            "confusion_matrix": [
+              [
+                35,
+                5
+              ],
+              [
+                1,
+                30
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.1259905993938446,
+        "SEEDIV:GAMEEMO": 0.13689561188220978,
+        "DEAP:GAMEEMO": 0.45125332474708557
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 3,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.7164696455001831,
+          "backbone_gradient_norm": 0.5024834275245667,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.5,
+            "balanced_accuracy": 0.49537037037037035,
+            "macro_f1": 0.48344683698775737,
+            "auroc": 0.48700655387898195,
+            "confusion_matrix": [
+              [
+                165,
+                159
+              ],
+              [
+                84,
+                78
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6948150396347046,
+          "backbone_gradient_norm": 0.3319670557975769,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5213872832369942,
+            "balanced_accuracy": 0.5368958997991256,
+            "macro_f1": 0.5033148404993065,
+            "auroc": 0.5314792734147573,
+            "confusion_matrix": [
+              [
+                308,
+                95
+              ],
+              [
+                319,
+                143
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7181271910667419,
+          "backbone_gradient_norm": 0.4681028127670288,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.4084507042253521,
+            "balanced_accuracy": 0.4241935483870968,
+            "macro_f1": 0.4055023923444976,
+            "auroc": 0.4588709677419355,
+            "confusion_matrix": [
+              [
+                12,
+                28
+              ],
+              [
+                14,
+                17
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.3139721155166626,
+        "SEEDIV:GAMEEMO": 0.26892921328544617,
+        "DEAP:GAMEEMO": -0.09795311093330383
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 3,
+      "condition": "single",
+      "checkpoint_sha256": "a8e484695fb7b45353ac94eed2a787042a7a1677ba8189884de75b96fbf0e4e1",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.34929990768432617,
+          "backbone_gradient_norm": 0.6251087784767151,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8518518518518519,
+            "balanced_accuracy": 0.8302469135802468,
+            "macro_f1": 0.8322852760736197,
+            "auroc": 0.9278882792257278,
+            "confusion_matrix": [
+              [
+                290,
+                34
+              ],
+              [
+                38,
+                124
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.5695875883102417,
+          "backbone_gradient_norm": 4.489875316619873,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5317919075144508,
+            "balanced_accuracy": 0.5054407957633764,
+            "macro_f1": 0.4310402790838177,
+            "auroc": 0.522746071133168,
+            "confusion_matrix": [
+              [
+                48,
+                355
+              ],
+              [
+                50,
+                412
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.1622791290283203,
+          "backbone_gradient_norm": 2.3890268802642822,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5070422535211268,
+            "balanced_accuracy": 0.4935483870967742,
+            "macro_f1": 0.4925464570144987,
+            "auroc": 0.5161290322580645,
+            "confusion_matrix": [
+              [
+                24,
+                16
+              ],
+              [
+                19,
+                12
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.4751954674720764,
+        "SEEDIV:GAMEEMO": 0.22880682349205017,
+        "DEAP:GAMEEMO": 0.44871264696121216
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 3,
+      "condition": "joint",
+      "checkpoint_sha256": "ebe4a3830184eeb48d857827567e67f6d26eed4cfa189156cf178df122ae758b",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.4705962538719177,
+          "backbone_gradient_norm": 0.3375835120677948,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8209876543209876,
+            "balanced_accuracy": 0.7824074074074074,
+            "macro_f1": 0.7914132220396928,
+            "auroc": 0.8685794848346287,
+            "confusion_matrix": [
+              [
+                291,
+                33
+              ],
+              [
+                54,
+                108
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6682150363922119,
+          "backbone_gradient_norm": 0.24376322329044342,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5583815028901734,
+            "balanced_accuracy": 0.5658239609852513,
+            "macro_f1": 0.5561743120251872,
+            "auroc": 0.6113295306843693,
+            "confusion_matrix": [
+              [
+                272,
+                131
+              ],
+              [
+                251,
+                211
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.5104694962501526,
+          "backbone_gradient_norm": 0.681369423866272,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.7746478873239436,
+            "balanced_accuracy": 0.7818548387096774,
+            "macro_f1": 0.7742448330683624,
+            "auroc": 0.8975806451612903,
+            "confusion_matrix": [
+              [
+                29,
+                11
+              ],
+              [
+                5,
+                26
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.373852401971817,
+        "SEEDIV:GAMEEMO": -0.05827471241354942,
+        "DEAP:GAMEEMO": 0.23796477913856506
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 3,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "4cb0d5a8f7f0c3f94786a030836fa17a1ed2640eb42511d04387a7d2600d84ff",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.45540183782577515,
+          "backbone_gradient_norm": 0.32364386320114136,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7901234567901234,
+            "balanced_accuracy": 0.7901234567901234,
+            "macro_f1": 0.7744800101905265,
+            "auroc": 0.8679698216735255,
+            "confusion_matrix": [
+              [
+                256,
+                68
+              ],
+              [
+                34,
+                128
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6723214387893677,
+          "backbone_gradient_norm": 0.11399564146995544,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5722543352601156,
+            "balanced_accuracy": 0.5758005435424791,
+            "macro_f1": 0.5721851507277063,
+            "auroc": 0.6095517385839967,
+            "confusion_matrix": [
+              [
+                253,
+                150
+              ],
+              [
+                220,
+                242
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.5174252986907959,
+          "backbone_gradient_norm": 0.6131645441055298,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.8450704225352113,
+            "balanced_accuracy": 0.8407258064516129,
+            "macro_f1": 0.8419348310058692,
+            "auroc": 0.8919354838709678,
+            "confusion_matrix": [
+              [
+                35,
+                5
+              ],
+              [
+                6,
+                25
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.016552461311221123,
+        "SEEDIV:GAMEEMO": -0.008513005450367928,
+        "DEAP:GAMEEMO": -0.05247035250067711
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 4,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.712507963180542,
+          "backbone_gradient_norm": 0.47602757811546326,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.5123456790123457,
+            "balanced_accuracy": 0.5277777777777778,
+            "macro_f1": 0.5040111614928496,
+            "auroc": 0.5175659198292942,
+            "confusion_matrix": [
+              [
+                156,
+                168
+              ],
+              [
+                69,
+                93
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7212108373641968,
+          "backbone_gradient_norm": 0.4490590989589691,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.49017341040462425,
+            "balanced_accuracy": 0.4919891936020968,
+            "macro_f1": 0.4901488794943524,
+            "auroc": 0.486073066718228,
+            "confusion_matrix": [
+              [
+                209,
+                194
+              ],
+              [
+                247,
+                215
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7280396223068237,
+          "backbone_gradient_norm": 0.4083765149116516,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.4788732394366197,
+            "balanced_accuracy": 0.4903225806451613,
+            "macro_f1": 0.47845940043676793,
+            "auroc": 0.43870967741935485,
+            "confusion_matrix": [
+              [
+                16,
+                24
+              ],
+              [
+                13,
+                18
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.2353009283542633,
+        "SEEDIV:GAMEEMO": 0.2554071843624115,
+        "DEAP:GAMEEMO": 0.22218284010887146
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 4,
+      "condition": "single",
+      "checkpoint_sha256": "402df6ae9bcaa75c588eda3fdf0367d440f2cff0b86989b0b531ba66cd759523",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.2284933626651764,
+          "backbone_gradient_norm": 0.9684097170829773,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.9032921810699589,
+            "balanced_accuracy": 0.9074074074074074,
+            "macro_f1": 0.8944039941751611,
+            "auroc": 0.9699359853680842,
+            "confusion_matrix": [
+              [
+                290,
+                34
+              ],
+              [
+                13,
+                149
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.564957857131958,
+          "backbone_gradient_norm": 5.4592132568359375,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5491329479768786,
+            "balanced_accuracy": 0.5210407871698194,
+            "macro_f1": 0.4362994104829762,
+            "auroc": 0.513607360381554,
+            "confusion_matrix": [
+              [
+                44,
+                359
+              ],
+              [
+                31,
+                431
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.4689252376556396,
+          "backbone_gradient_norm": 3.571925401687622,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.4788732394366197,
+            "balanced_accuracy": 0.4612903225806452,
+            "macro_f1": 0.45779153766769864,
+            "auroc": 0.48225806451612907,
+            "confusion_matrix": [
+              [
+                24,
+                16
+              ],
+              [
+                21,
+                10
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.4560166001319885,
+        "SEEDIV:GAMEEMO": -0.00985141284763813,
+        "DEAP:GAMEEMO": 0.2048533409833908
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 4,
+      "condition": "joint",
+      "checkpoint_sha256": "e6403272df6bf9b78adc81002b109d8d959e0a23130f404cb1d291bfff39b043",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.41971465945243835,
+          "backbone_gradient_norm": 0.3728155195713043,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8065843621399177,
+            "balanced_accuracy": 0.7978395061728395,
+            "macro_f1": 0.7885313286920457,
+            "auroc": 0.892280140222527,
+            "confusion_matrix": [
+              [
+                267,
+                57
+              ],
+              [
+                37,
+                125
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6536878347396851,
+          "backbone_gradient_norm": 0.19598767161369324,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.6208092485549133,
+            "balanced_accuracy": 0.6223641949448401,
+            "macro_f1": 0.6206627305010054,
+            "auroc": 0.6538407828730409,
+            "confusion_matrix": [
+              [
+                260,
+                143
+              ],
+              [
+                185,
+                277
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.35437947511672974,
+          "backbone_gradient_norm": 0.894035279750824,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.8732394366197183,
+            "balanced_accuracy": 0.8766129032258064,
+            "macro_f1": 0.8723276723276723,
+            "auroc": 0.9629032258064516,
+            "confusion_matrix": [
+              [
+                34,
+                6
+              ],
+              [
+                3,
+                28
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.08919938653707504,
+        "SEEDIV:GAMEEMO": 0.049910809844732285,
+        "DEAP:GAMEEMO": 0.07402622699737549
+      }
+    },
+    {
+      "seed": 43,
+      "fold": 4,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "0fca0d9e689835ac9ebbfb8fc50cf4b662b8e70119b59217769c9e45e8389fad",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.35854965448379517,
+          "backbone_gradient_norm": 0.37325170636177063,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8374485596707819,
+            "balanced_accuracy": 0.8580246913580247,
+            "macro_f1": 0.8288389095691326,
+            "auroc": 0.9360996799268404,
+            "confusion_matrix": [
+              [
+                258,
+                66
+              ],
+              [
+                13,
+                149
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6642321944236755,
+          "backbone_gradient_norm": 0.17755940556526184,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5976878612716763,
+            "balanced_accuracy": 0.6021451666612957,
+            "macro_f1": 0.5974506007082259,
+            "auroc": 0.6420676098095452,
+            "confusion_matrix": [
+              [
+                269,
+                134
+              ],
+              [
+                214,
+                248
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.2344408929347992,
+          "backbone_gradient_norm": 2.5625357627868652,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.9154929577464789,
+            "balanced_accuracy": 0.9104838709677419,
+            "macro_f1": 0.9134146341463415,
+            "auroc": 0.9846774193548387,
+            "confusion_matrix": [
+              [
+                38,
+                2
+              ],
+              [
+                4,
+                27
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.25181061029434204,
+        "SEEDIV:GAMEEMO": 0.13652540743350983,
+        "DEAP:GAMEEMO": 0.5067645311355591
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 0,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.7004366517066956,
+          "backbone_gradient_norm": 0.27529996633529663,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.4567901234567901,
+            "balanced_accuracy": 0.5262345679012346,
+            "macro_f1": 0.4562007289988981,
+            "auroc": 0.49554183813443076,
+            "confusion_matrix": [
+              [
+                103,
+                221
+              ],
+              [
+                43,
+                119
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6949638724327087,
+          "backbone_gradient_norm": 0.18735629320144653,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5375722543352601,
+            "balanced_accuracy": 0.5168729120342024,
+            "macro_f1": 0.47763807867434804,
+            "auroc": 0.5338156467188725,
+            "confusion_matrix": [
+              [
+                86,
+                317
+              ],
+              [
+                83,
+                379
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.6934133768081665,
+          "backbone_gradient_norm": 0.16925419867038727,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.4647887323943662,
+            "balanced_accuracy": 0.49959677419354837,
+            "macro_f1": 0.4397840531561462,
+            "auroc": 0.5266129032258063,
+            "confusion_matrix": [
+              [
+                9,
+                31
+              ],
+              [
+                7,
+                24
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.16168659925460815,
+        "SEEDIV:GAMEEMO": 0.13969838619232178,
+        "DEAP:GAMEEMO": 0.30342429876327515
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 0,
+      "condition": "single",
+      "checkpoint_sha256": "7704afb88f0588ad57bf910b5218b6366e891f940c33c6cf87aba5dbe8fc22a8",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.5575071573257446,
+          "backbone_gradient_norm": 0.2182464450597763,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7592592592592593,
+            "balanced_accuracy": 0.7376543209876543,
+            "macro_f1": 0.7335363996344806,
+            "auroc": 0.8216925773510136,
+            "confusion_matrix": [
+              [
+                260,
+                64
+              ],
+              [
+                53,
+                109
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.772144615650177,
+          "backbone_gradient_norm": 1.0330414772033691,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5352601156069364,
+            "balanced_accuracy": 0.5088459927169604,
+            "macro_f1": 0.4345853658536586,
+            "auroc": 0.5041087944313751,
+            "confusion_matrix": [
+              [
+                49,
+                354
+              ],
+              [
+                48,
+                414
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7055261731147766,
+          "backbone_gradient_norm": 0.4583713412284851,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5492957746478874,
+            "balanced_accuracy": 0.5419354838709678,
+            "macro_f1": 0.5419354838709678,
+            "auroc": 0.5475806451612903,
+            "confusion_matrix": [
+              [
+                24,
+                16
+              ],
+              [
+                16,
+                15
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.019664794206619263,
+        "SEEDIV:GAMEEMO": 0.20771126449108124,
+        "DEAP:GAMEEMO": 0.6770674586296082
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 0,
+      "condition": "joint",
+      "checkpoint_sha256": "72a8869d9adc5690746e9ca805f94b6365c82f77e8b384be79076f5a0489faf9",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.3896011710166931,
+          "backbone_gradient_norm": 0.6778618693351746,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8271604938271605,
+            "balanced_accuracy": 0.8148148148148149,
+            "macro_f1": 0.8089622641509434,
+            "auroc": 0.9085505258344765,
+            "confusion_matrix": [
+              [
+                276,
+                48
+              ],
+              [
+                36,
+                126
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6647152900695801,
+          "backbone_gradient_norm": 0.19721966981887817,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.6104046242774567,
+            "balanced_accuracy": 0.6029588690879013,
+            "macro_f1": 0.6014015656513862,
+            "auroc": 0.647255969836615,
+            "confusion_matrix": [
+              [
+                199,
+                204
+              ],
+              [
+                133,
+                329
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.39999449253082275,
+          "backbone_gradient_norm": 2.721285343170166,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.7605633802816901,
+            "balanced_accuracy": 0.780241935483871,
+            "macro_f1": 0.7598009950248756,
+            "auroc": 0.9266129032258064,
+            "confusion_matrix": [
+              [
+                25,
+                15
+              ],
+              [
+                2,
+                29
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.4190204441547394,
+        "SEEDIV:GAMEEMO": 0.613119900226593,
+        "DEAP:GAMEEMO": 0.44667166471481323
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 0,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "e4d05f1f4f3826dbc1a7b2b2b7459a820ea0478e3f2aa50fce4b631dea1b683f",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.6070504188537598,
+          "backbone_gradient_norm": 0.19907234609127045,
+          "mean_feature_offset_l2": 5.876306659047259e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.6604938271604939,
+            "balanced_accuracy": 0.6604938271604939,
+            "macro_f1": 0.6431987968693686,
+            "auroc": 0.7633935375704923,
+            "confusion_matrix": [
+              [
+                214,
+                110
+              ],
+              [
+                55,
+                107
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6853116750717163,
+          "backbone_gradient_norm": 0.06103013828396797,
+          "mean_feature_offset_l2": 14.708539962768555,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5664739884393064,
+            "balanced_accuracy": 0.5581891227052518,
+            "macro_f1": 0.5551516015913744,
+            "auroc": 0.5747746876779134,
+            "confusion_matrix": [
+              [
+                176,
+                227
+              ],
+              [
+                148,
+                314
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.648472785949707,
+          "backbone_gradient_norm": 0.17909809947013855,
+          "mean_feature_offset_l2": 6.7755231857299805,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.647887323943662,
+            "balanced_accuracy": 0.6366935483870968,
+            "macro_f1": 0.6375331835817848,
+            "auroc": 0.6903225806451614,
+            "confusion_matrix": [
+              [
+                29,
+                11
+              ],
+              [
+                14,
+                17
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.03977607935667038,
+        "SEEDIV:GAMEEMO": 0.02665022760629654,
+        "DEAP:GAMEEMO": -0.013714213855564594
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 1,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.8486671447753906,
+          "backbone_gradient_norm": 1.2356436252593994,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.4,
+            "auroc": 0.5301783264746227,
+            "confusion_matrix": [
+              [
+                324,
+                0
+              ],
+              [
+                162,
+                0
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.8562799096107483,
+          "backbone_gradient_norm": 1.8187711238861084,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.4658959537572254,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.31782334384858046,
+            "auroc": 0.523030732708152,
+            "confusion_matrix": [
+              [
+                403,
+                0
+              ],
+              [
+                462,
+                0
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.8752892017364502,
+          "backbone_gradient_norm": 1.8144729137420654,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5633802816901409,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.36036036036036034,
+            "auroc": 0.5451612903225806,
+            "confusion_matrix": [
+              [
+                40,
+                0
+              ],
+              [
+                31,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.7270681262016296,
+        "SEEDIV:GAMEEMO": 0.7499324679374695,
+        "DEAP:GAMEEMO": 0.8370497822761536
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 1,
+      "condition": "single",
+      "checkpoint_sha256": "6a83a0db0fba21c15375e5d0b330cad1489fee91ad824b6cbf0817add3e75b66",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.3212915062904358,
+          "backbone_gradient_norm": 0.44964399933815,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8600823045267489,
+            "balanced_accuracy": 0.8410493827160495,
+            "macro_f1": 0.8421022455805065,
+            "auroc": 0.944539704313367,
+            "confusion_matrix": [
+              [
+                291,
+                33
+              ],
+              [
+                35,
+                127
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.0463883876800537,
+          "backbone_gradient_norm": 3.8081021308898926,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5329479768786127,
+            "balanced_accuracy": 0.5084243713275971,
+            "macro_f1": 0.44700796273087484,
+            "auroc": 0.5023900830352444,
+            "confusion_matrix": [
+              [
+                60,
+                343
+              ],
+              [
+                61,
+                401
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.9796217679977417,
+          "backbone_gradient_norm": 2.0767924785614014,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.4647887323943662,
+            "balanced_accuracy": 0.4487903225806451,
+            "macro_f1": 0.4462233169129721,
+            "auroc": 0.5008064516129033,
+            "confusion_matrix": [
+              [
+                23,
+                17
+              ],
+              [
+                21,
+                10
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.18806470930576324,
+        "SEEDIV:GAMEEMO": -0.02230416052043438,
+        "DEAP:GAMEEMO": 0.04684064909815788
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 1,
+      "condition": "joint",
+      "checkpoint_sha256": "3519f3e48bd4fce16101d914375166968d4ef792ec211eac5a9329a11f325ab7",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.44103914499282837,
+          "backbone_gradient_norm": 0.3503771126270294,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7839506172839507,
+            "balanced_accuracy": 0.7854938271604939,
+            "macro_f1": 0.7686459235348255,
+            "auroc": 0.8896319158664837,
+            "confusion_matrix": [
+              [
+                253,
+                71
+              ],
+              [
+                34,
+                128
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6622172594070435,
+          "backbone_gradient_norm": 0.2273593544960022,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.6115606936416185,
+            "balanced_accuracy": 0.6029320142223368,
+            "macro_f1": 0.6003300330033003,
+            "auroc": 0.6469122275573889,
+            "confusion_matrix": [
+              [
+                192,
+                211
+              ],
+              [
+                125,
+                337
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.47408199310302734,
+          "backbone_gradient_norm": 0.6180130839347839,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.7605633802816901,
+            "balanced_accuracy": 0.7657258064516128,
+            "macro_f1": 0.7598009950248756,
+            "auroc": 0.8758064516129032,
+            "confusion_matrix": [
+              [
+                29,
+                11
+              ],
+              [
+                6,
+                25
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.17318059504032135,
+        "SEEDIV:GAMEEMO": 0.040690552443265915,
+        "DEAP:GAMEEMO": 0.17606844007968903
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 1,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "d79888afd50c0c0b768886e700f2e93d04a0277d81d31c977d91ce9e40362cb7",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.3574579060077667,
+          "backbone_gradient_norm": 0.5875416994094849,
+          "mean_feature_offset_l2": 5.622297862828418e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8333333333333334,
+            "balanced_accuracy": 0.8333333333333334,
+            "macro_f1": 0.8193979933110368,
+            "auroc": 0.9292028654168571,
+            "confusion_matrix": [
+              [
+                270,
+                54
+              ],
+              [
+                27,
+                135
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6654199957847595,
+          "backbone_gradient_norm": 0.15895380079746246,
+          "mean_feature_offset_l2": 16.1412353515625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.6011560693641619,
+            "balanced_accuracy": 0.6049165887875565,
+            "macro_f1": 0.6010792948891899,
+            "auroc": 0.6399031076450432,
+            "confusion_matrix": [
+              [
+                266,
+                137
+              ],
+              [
+                208,
+                254
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.334147185087204,
+          "backbone_gradient_norm": 4.161701202392578,
+          "mean_feature_offset_l2": 7.679919242858887,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.8873239436619719,
+            "balanced_accuracy": 0.8818548387096774,
+            "macro_f1": 0.8845528455284553,
+            "auroc": 0.9451612903225807,
+            "confusion_matrix": [
+              [
+                37,
+                3
+              ],
+              [
+                5,
+                26
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.17731888592243195,
+        "SEEDIV:GAMEEMO": -0.34158220887184143,
+        "DEAP:GAMEEMO": 0.3971623480319977
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 2,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.7296807765960693,
+          "backbone_gradient_norm": 0.5546752214431763,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.36419753086419754,
+            "balanced_accuracy": 0.4783950617283951,
+            "macro_f1": 0.3421355820830139,
+            "auroc": 0.44419676878524605,
+            "confusion_matrix": [
+              [
+                44,
+                280
+              ],
+              [
+                29,
+                133
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7197632789611816,
+          "backbone_gradient_norm": 0.49470630288124084,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5260115606936416,
+            "balanced_accuracy": 0.5150816925010473,
+            "macro_f1": 0.5072005824940529,
+            "auroc": 0.4987969020227085,
+            "confusion_matrix": [
+              [
+                143,
+                260
+              ],
+              [
+                150,
+                312
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7191643118858337,
+          "backbone_gradient_norm": 0.3161717653274536,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.39436619718309857,
+            "balanced_accuracy": 0.4153225806451613,
+            "macro_f1": 0.3865782599959815,
+            "auroc": 0.3903225806451613,
+            "confusion_matrix": [
+              [
+                10,
+                30
+              ],
+              [
+                13,
+                18
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.023752713575959206,
+        "SEEDIV:GAMEEMO": -0.06448566168546677,
+        "DEAP:GAMEEMO": 0.3211463987827301
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 2,
+      "condition": "single",
+      "checkpoint_sha256": "c11bbf8fbb2f765b1b959edacddf126b07d5c59429c4eb8be93059696be82b57",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.22766539454460144,
+          "backbone_gradient_norm": 0.8306071758270264,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.9238683127572016,
+            "balanced_accuracy": 0.9058641975308642,
+            "macro_f1": 0.9128217310573189,
+            "auroc": 0.9775377229080933,
+            "confusion_matrix": [
+              [
+                311,
+                13
+              ],
+              [
+                24,
+                138
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.7257462739944458,
+          "backbone_gradient_norm": 6.566800594329834,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5352601156069364,
+            "balanced_accuracy": 0.5077368867691449,
+            "macro_f1": 0.4248441903854551,
+            "auroc": 0.5007009119912346,
+            "confusion_matrix": [
+              [
+                42,
+                361
+              ],
+              [
+                41,
+                421
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.3943032026290894,
+          "backbone_gradient_norm": 4.881972789764404,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5211267605633803,
+            "balanced_accuracy": 0.5278225806451613,
+            "macro_f1": 0.521031746031746,
+            "auroc": 0.48064516129032253,
+            "confusion_matrix": [
+              [
+                19,
+                21
+              ],
+              [
+                13,
+                18
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.4425818920135498,
+        "SEEDIV:GAMEEMO": -0.3750092685222626,
+        "DEAP:GAMEEMO": 0.6951500177383423
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 2,
+      "condition": "joint",
+      "checkpoint_sha256": "70238c235bcc68ec3b30f584d82e8ee52a019a0895965962b3dff3d167bc642f",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.4986030161380768,
+          "backbone_gradient_norm": 0.3229178488254547,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7921810699588477,
+            "balanced_accuracy": 0.7777777777777778,
+            "macro_f1": 0.7712536174139161,
+            "auroc": 0.8460219478737998,
+            "confusion_matrix": [
+              [
+                266,
+                58
+              ],
+              [
+                43,
+                119
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6678775548934937,
+          "backbone_gradient_norm": 0.3435825705528259,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5965317919075145,
+            "balanced_accuracy": 0.582208114466179,
+            "macro_f1": 0.5697002005504804,
+            "auroc": 0.6327060036737456,
+            "confusion_matrix": [
+              [
+                150,
+                253
+              ],
+              [
+                96,
+                366
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.58363938331604,
+          "backbone_gradient_norm": 0.8078373670578003,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.676056338028169,
+            "balanced_accuracy": 0.6943548387096774,
+            "macro_f1": 0.6750248756218906,
+            "auroc": 0.7653225806451613,
+            "confusion_matrix": [
+              [
+                22,
+                18
+              ],
+              [
+                5,
+                26
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.021472444757819176,
+        "SEEDIV:GAMEEMO": 0.1549142599105835,
+        "DEAP:GAMEEMO": 0.5662668943405151
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 2,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "683fcb61aca61ba00d70e82503a5f6a43fdeedff5d020518536bbbeb390a9d7e",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.42579081654548645,
+          "backbone_gradient_norm": 0.383002907037735,
+          "mean_feature_offset_l2": 6.229016662473441e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.831275720164609,
+            "balanced_accuracy": 0.8225308641975309,
+            "macro_f1": 0.8145383469843633,
+            "auroc": 0.8905845145557079,
+            "confusion_matrix": [
+              [
+                275,
+                49
+              ],
+              [
+                33,
+                129
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6690700650215149,
+          "backbone_gradient_norm": 0.13833127915859222,
+          "mean_feature_offset_l2": 19.920122146606445,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5861271676300578,
+            "balanced_accuracy": 0.5857771260997068,
+            "macro_f1": 0.5852841286507103,
+            "auroc": 0.6246226891388182,
+            "confusion_matrix": [
+              [
+                234,
+                169
+              ],
+              [
+                189,
+                273
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.4825938940048218,
+          "backbone_gradient_norm": 0.9764260649681091,
+          "mean_feature_offset_l2": 7.810305595397949,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.7887323943661971,
+            "balanced_accuracy": 0.7798387096774193,
+            "macro_f1": 0.7825199101490709,
+            "auroc": 0.9016129032258065,
+            "confusion_matrix": [
+              [
+                34,
+                6
+              ],
+              [
+                9,
+                22
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.13595296442508698,
+        "SEEDIV:GAMEEMO": -0.06721027195453644,
+        "DEAP:GAMEEMO": 0.48299601674079895
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 3,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.7329385280609131,
+          "backbone_gradient_norm": 0.5830426216125488,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.33539094650205764,
+            "balanced_accuracy": 0.4444444444444444,
+            "macro_f1": 0.31338818249813016,
+            "auroc": 0.4310128029263831,
+            "confusion_matrix": [
+              [
+                38,
+                286
+              ],
+              [
+                37,
+                125
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7042407989501953,
+          "backbone_gradient_norm": 0.17404475808143616,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.45895953757225433,
+            "balanced_accuracy": 0.4638775203291332,
+            "macro_f1": 0.4580722891566265,
+            "auroc": 0.4760132340777502,
+            "confusion_matrix": [
+              [
+                216,
+                187
+              ],
+              [
+                281,
+                181
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7136133313179016,
+          "backbone_gradient_norm": 0.495930939912796,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.4788732394366197,
+            "balanced_accuracy": 0.5266129032258065,
+            "macro_f1": 0.423524248409041,
+            "auroc": 0.5370967741935484,
+            "confusion_matrix": [
+              [
+                6,
+                34
+              ],
+              [
+                3,
+                28
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.3937152326107025,
+        "SEEDIV:GAMEEMO": 0.3264416754245758,
+        "DEAP:GAMEEMO": -0.007916287519037724
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 3,
+      "condition": "single",
+      "checkpoint_sha256": "847c6d9af7bb213e8d17bc24c39dab5da68016b7a240870e32fb839f2ef32142",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.23173290491104126,
+          "backbone_gradient_norm": 0.8404569625854492,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.9053497942386831,
+            "balanced_accuracy": 0.9058641975308642,
+            "macro_f1": 0.8959605361131795,
+            "auroc": 0.9700121932632221,
+            "confusion_matrix": [
+              [
+                293,
+                31
+              ],
+              [
+                15,
+                147
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.6340923309326172,
+          "backbone_gradient_norm": 6.161017417907715,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.530635838150289,
+            "balanced_accuracy": 0.5038832135606329,
+            "macro_f1": 0.4262201338422126,
+            "auroc": 0.5136530136530136,
+            "confusion_matrix": [
+              [
+                45,
+                358
+              ],
+              [
+                48,
+                414
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.2635886669158936,
+          "backbone_gradient_norm": 3.8355443477630615,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5211267605633803,
+            "balanced_accuracy": 0.5278225806451613,
+            "macro_f1": 0.521031746031746,
+            "auroc": 0.5120967741935484,
+            "confusion_matrix": [
+              [
+                19,
+                21
+              ],
+              [
+                13,
+                18
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.25280630588531494,
+        "SEEDIV:GAMEEMO": 0.19704794883728027,
+        "DEAP:GAMEEMO": 0.7587863802909851
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 3,
+      "condition": "joint",
+      "checkpoint_sha256": "b0aa4802a54f24e510c80e01141a83d153b0b67f5337761cc6997dc4237c9765",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.39678993821144104,
+          "backbone_gradient_norm": 0.34950950741767883,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8580246913580247,
+            "balanced_accuracy": 0.8302469135802468,
+            "macro_f1": 0.8368738781248328,
+            "auroc": 0.9113511659807956,
+            "confusion_matrix": [
+              [
+                296,
+                28
+              ],
+              [
+                41,
+                121
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6607754826545715,
+          "backbone_gradient_norm": 0.3250206410884857,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.6057803468208093,
+            "balanced_accuracy": 0.6060767189799448,
+            "macro_f1": 0.6052400893467755,
+            "auroc": 0.648367761270987,
+            "confusion_matrix": [
+              [
+                246,
+                157
+              ],
+              [
+                184,
+                278
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.37544649839401245,
+          "backbone_gradient_norm": 1.6625864505767822,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.8591549295774648,
+            "balanced_accuracy": 0.8677419354838709,
+            "macro_f1": 0.8589030206677266,
+            "auroc": 0.9443548387096774,
+            "confusion_matrix": [
+              [
+                32,
+                8
+              ],
+              [
+                2,
+                29
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.02144481986761093,
+        "SEEDIV:GAMEEMO": -0.3006783723831177,
+        "DEAP:GAMEEMO": 0.3185698390007019
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 3,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "cb29c8d7e0f0c9bac3fe073187179deebd26f86f1433e7cbc2c67bd2daca8495",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.35322242975234985,
+          "backbone_gradient_norm": 0.6155470013618469,
+          "mean_feature_offset_l2": 5.807904130961106e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8497942386831275,
+            "balanced_accuracy": 0.8503086419753086,
+            "macro_f1": 0.8368279928435751,
+            "auroc": 0.9289932937052279,
+            "confusion_matrix": [
+              [
+                275,
+                49
+              ],
+              [
+                24,
+                138
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6562063694000244,
+          "backbone_gradient_norm": 0.30231988430023193,
+          "mean_feature_offset_l2": 20.443544387817383,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.6104046242774567,
+            "balanced_accuracy": 0.6154759219275348,
+            "macro_f1": 0.6099959729262912,
+            "auroc": 0.6623054364989849,
+            "confusion_matrix": [
+              [
+                278,
+                125
+              ],
+              [
+                212,
+                250
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.1367282122373581,
+          "backbone_gradient_norm": 1.836786150932312,
+          "mean_feature_offset_l2": 8.859197616577148,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "macro_f1": 1.0,
+            "auroc": 1.0,
+            "confusion_matrix": [
+              [
+                40,
+                0
+              ],
+              [
+                0,
+                31
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.3271316587924957,
+        "SEEDIV:GAMEEMO": 0.13406327366828918,
+        "DEAP:GAMEEMO": 0.33711692690849304
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 4,
+      "condition": "initial",
+      "checkpoint_sha256": null,
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.7408905029296875,
+          "backbone_gradient_norm": 0.7364770770072937,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.43004115226337447,
+            "balanced_accuracy": 0.45524691358024694,
+            "macro_f1": 0.426718392689086,
+            "auroc": 0.45061728395061723,
+            "confusion_matrix": [
+              [
+                123,
+                201
+              ],
+              [
+                76,
+                86
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.7431617975234985,
+          "backbone_gradient_norm": 1.0943481922149658,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.4820809248554913,
+            "balanced_accuracy": 0.507229329809975,
+            "macro_f1": 0.41700365877142304,
+            "auroc": 0.4734835057415703,
+            "confusion_matrix": [
+              [
+                353,
+                50
+              ],
+              [
+                398,
+                64
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.7527530193328857,
+          "backbone_gradient_norm": 1.2598695755004883,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5633802816901409,
+            "balanced_accuracy": 0.5290322580645161,
+            "macro_f1": 0.5070548712206047,
+            "auroc": 0.5088709677419354,
+            "confusion_matrix": [
+              [
+                32,
+                8
+              ],
+              [
+                23,
+                8
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.763360857963562,
+        "SEEDIV:GAMEEMO": 0.715419590473175,
+        "DEAP:GAMEEMO": 0.8861244320869446
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 4,
+      "condition": "single",
+      "checkpoint_sha256": "01d405be5ee8df5991504b2de69cc140c4c9d98aa024d916af4230c459487350",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.2412564903497696,
+          "backbone_gradient_norm": 1.5295958518981934,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.8950617283950617,
+            "balanced_accuracy": 0.8919753086419753,
+            "macro_f1": 0.8841748638986893,
+            "auroc": 0.9659541228471269,
+            "confusion_matrix": [
+              [
+                292,
+                32
+              ],
+              [
+                19,
+                143
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 1.7599666118621826,
+          "backbone_gradient_norm": 3.6316938400268555,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5445086705202312,
+            "balanced_accuracy": 0.5163948954271536,
+            "macro_f1": 0.43051786597510927,
+            "auroc": 0.5205278592375367,
+            "confusion_matrix": [
+              [
+                42,
+                361
+              ],
+              [
+                33,
+                429
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 1.5190397500991821,
+          "backbone_gradient_norm": 2.8696541786193848,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5070422535211268,
+            "balanced_accuracy": 0.5189516129032258,
+            "macro_f1": 0.5066507841969426,
+            "auroc": 0.4967741935483871,
+            "confusion_matrix": [
+              [
+                17,
+                23
+              ],
+              [
+                12,
+                19
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.500244677066803,
+        "SEEDIV:GAMEEMO": 0.39841657876968384,
+        "DEAP:GAMEEMO": 0.6735059022903442
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 4,
+      "condition": "joint",
+      "checkpoint_sha256": "cc4b545ed94db4beb4bb5df45d0340ab5e52fa5770bea861ad5593c884642bc9",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.631515383720398,
+          "backbone_gradient_norm": 0.2489394098520279,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.7119341563786008,
+            "balanced_accuracy": 0.6604938271604939,
+            "macro_f1": 0.6649464229435865,
+            "auroc": 0.7601547020271302,
+            "confusion_matrix": [
+              [
+                264,
+                60
+              ],
+              [
+                80,
+                82
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.6868651509284973,
+          "backbone_gradient_norm": 0.08278002589941025,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5560693641618497,
+            "balanced_accuracy": 0.5460722073625299,
+            "macro_f1": 0.5405453257790368,
+            "auroc": 0.5578373239663562,
+            "confusion_matrix": [
+              [
+                161,
+                242
+              ],
+              [
+                142,
+                320
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.6771451234817505,
+          "backbone_gradient_norm": 0.13733182847499847,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.5633802816901409,
+            "balanced_accuracy": 0.5653225806451614,
+            "macro_f1": 0.5619900497512438,
+            "auroc": 0.5983870967741935,
+            "confusion_matrix": [
+              [
+                22,
+                18
+              ],
+              [
+                13,
+                18
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": -0.35966426134109497,
+        "SEEDIV:GAMEEMO": -0.06577444076538086,
+        "DEAP:GAMEEMO": 0.0955931767821312
+      }
+    },
+    {
+      "seed": 44,
+      "fold": 4,
+      "condition": "joint_heads",
+      "checkpoint_sha256": "0b1ac2cc27cfb4172e0b41aeeed756db1c02abc24c5934fb4544918637e03b69",
+      "domains": {
+        "SEEDIV": {
+          "training_trials": 486,
+          "class_balanced_loss": 0.37132227420806885,
+          "backbone_gradient_norm": 0.5248003005981445,
+          "mean_feature_offset_l2": 6.306591444626974e-07,
+          "training_metrics": {
+            "n": 486,
+            "class_counts": [
+              324,
+              162
+            ],
+            "accuracy": 0.845679012345679,
+            "balanced_accuracy": 0.8487654320987654,
+            "macro_f1": 0.8331861221837287,
+            "auroc": 0.9243827160493827,
+            "confusion_matrix": [
+              [
+                272,
+                52
+              ],
+              [
+                23,
+                139
+              ]
+            ]
+          }
+        },
+        "DEAP": {
+          "training_trials": 865,
+          "class_balanced_loss": 0.670328676700592,
+          "backbone_gradient_norm": 0.12066498398780823,
+          "mean_feature_offset_l2": 14.625244140625,
+          "training_metrics": {
+            "n": 865,
+            "class_counts": [
+              403,
+              462
+            ],
+            "accuracy": 0.5907514450867052,
+            "balanced_accuracy": 0.5912152363765266,
+            "macro_f1": 0.5902909347805144,
+            "auroc": 0.6249825443373831,
+            "confusion_matrix": [
+              [
+                241,
+                162
+              ],
+              [
+                192,
+                270
+              ]
+            ]
+          }
+        },
+        "GAMEEMO": {
+          "training_trials": 71,
+          "class_balanced_loss": 0.22080251574516296,
+          "backbone_gradient_norm": 1.0593481063842773,
+          "mean_feature_offset_l2": 6.222823143005371,
+          "training_metrics": {
+            "n": 71,
+            "class_counts": [
+              40,
+              31
+            ],
+            "accuracy": 0.9295774647887324,
+            "balanced_accuracy": 0.9229838709677419,
+            "macro_f1": 0.9275066367163569,
+            "auroc": 0.9854838709677419,
+            "confusion_matrix": [
+              [
+                39,
+                1
+              ],
+              [
+                4,
+                27
+              ]
+            ]
+          }
+        }
+      },
+      "gradient_cosines": {
+        "SEEDIV:DEAP": 0.2944779694080353,
+        "SEEDIV:GAMEEMO": 0.0843588337302208,
+        "DEAP:GAMEEMO": 0.1496652066707611
+      }
+    }
+  ],
+  "scope": "Complete original training trials; no validation/test inputs. Gradients of class-balanced loss in eval mode on shared backbone.",
+  "limitations": "Descriptive association, not causal evidence about label semantics or a new method; no tuning/retraining follows these diagnostics."
+}

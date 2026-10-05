@@ -26,6 +26,7 @@ EXTRA_FILES = [
     "deap_control_plan_2026-10-05.json", "exploration_plan_2026-10-05.json",
     "joint_seediv_control_plan_2026-10-05.json",
     "neural_negative_transfer_plan_2026-10-05.json",
+    "gradient_conflict_plan_2026-10-05.json",
     "deap32_cache_consistency.json", "cache_common14/prepared.json", "cache_deap32/prepared.json",
     "provenance/upstream_full_integrity_comparison.json", "provenance/upstream_sample_comparison.json",
     "provenance/deap_change_summary.json", "provenance/existing_cache_binding.json",
@@ -42,6 +43,12 @@ EXTRA_FILES = [
     "joint_seediv_diagnostic/folds.json", "joint_seediv_diagnostic/trial_predictions.csv",
     "joint_seediv_diagnostic/verification.json", "joint_seediv_diagnostic/reproduction.json",
     "joint_seediv_diagnostic/paired_comparison.json",
+    *[f"negative_transfer_neural_seediv/{name}" for name in (
+        "config.json", "plan.json", "folds.json", "linear_comparison.json",
+        "linear_trial_predictions.csv", "model_metrics.json", "trial_predictions.csv",
+        "neural_comparison.json", "paired_comparison.json", "training_behavior.json",
+        "verification.json", "linear_verification.json", "neural_transfer_comparison.png",
+        "gradient_diagnostics.json", "gradient_summary.json", "gradient_plan.json")],
 ]
 
 

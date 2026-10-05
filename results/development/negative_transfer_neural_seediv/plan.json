@@ -1,0 +1,32 @@
+{
+  "stage": "Exploratory negative-transfer investigation; no adopted research-question change",
+  "target": "SEED-IV coarse binary valence, existing five fixed participant-disjoint 9/3/3 folds",
+  "feature_input": "Exactly the retained 56-dimensional mean-window-log-bandpower trial features; named common 14 electrodes",
+  "source_data": "Previously verified feature pack from joint_seediv_diagnostic; only the original DEAP/GAMEEMO training participants",
+  "normalization": "Anchor every condition to one StandardScaler fitted only to that fold's SEED-IV training trials; frozen for all sources, validation, and test",
+  "conditions": [
+    "single",
+    "plus_deap",
+    "plus_game",
+    "joint",
+    "joint_heads"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "model": "FeatureMLP 56 -> 64 -> 32 -> 2, LayerNorm/GELU/dropout 0.2; common head, or separate binary heads for each known dataset with identical initial weights",
+  "optimizer": "AdamW 0.001, weight decay 0.01, no scheduler, no AMP, gradient norm clip 1",
+  "batch_size": 60,
+  "batch_composition": "Exactly equal dataset quotas and exactly equal class quotas within each dataset; replacement sampling of original trials",
+  "sampling_control": "Independent pre-generated streams for each dataset/class; identical SEED-IV draw prefixes across all conditions in a fold/seed",
+  "primary_budget": "600 optimizer updates in every condition; 36,000 total trial presentations",
+  "exposure_control_budget": "For pooled conditions continue to 600 times number of datasets, giving exactly 36,000 SEED-IV presentations in every condition; more total compute is explicit",
+  "validation": "Every 25 updates; maximize SEED-IV validation trial balanced accuracy, ties lower balanced trial log loss; no early stopping",
+  "test": "Infer only after both primary and exposure checkpoints have been selected; threshold 0.5; previously inspected development cohort",
+  "linear_control": "Same anchored scaler/source subsets and four C candidates; fix total effective sample weight to SEED-IV training-trial count to control relative L2 regularization",
+  "device": "CUDA, chosen by outcome-free 200-update timing check: 0.407 s CUDA versus 0.495 s CPU",
+  "novelty": "Small MLPs and separate output heads are controls, not proposed novel methods. No GRU-XNet architectural superiority, label-semantics mechanism, unseen-dataset transfer, or conference readiness is established by this suite.",
+  "reporting": "Report every planned condition/seed/fold and both budgets, training/validation/test behavior, source-ablation effects, head routing, paired subject uncertainty and reproduction checks; do not select a direction solely on test scores"
+}

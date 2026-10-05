@@ -168,6 +168,8 @@ These remain exploratory classical controls. They do not establish neural negati
 
 ## Planned comparisons
 
+The [matched neural investigation](docs/publication/GRU-XNet_Neural_Transfer_Investigation_2026-10-05.md) completes 75 feature-MLP runs, five participant folds and three initializations, including individual source additions, separate binary heads, and equal-compute/equal-available-target-exposure controls. Independent replay reproduces 135 selected checkpoints and 21,870 neural probabilities; 80 anchored linear candidates and 3,240 probabilities also reproduce. See the [protocol](docs/publication/NEURAL_TRANSFER_PROTOCOL.md) for training and verification commands. Its small neural pooling penalty is uncertain and does not establish a novel mitigation method or full GRU-XNet ablation. mdJPT (NeurIPS 2025) is now an essential prior-work comparator.
+
 The [GitHub configuration review](docs/publication/GRU-XNet_GitHub_Configuration_Review_2026-10-05.md) inspects TSception, LibEER, TorchEEG, EEGain, and DeepVANet at fixed commits. It documents preprocessing, optimizer settings, training budgets, label boundaries, and actual split implementations. The DEAP-only EEGNet control and matched normalization diagnostic are complete; matched neural architecture ablations remain outstanding. Keep existing recovered labels and completed run artifacts unchanged; repository configurations do not replace first-party DEAP authentication.
 
 Use the same predeclared subject folds and training budget for every variant:

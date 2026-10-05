@@ -1,0 +1,30 @@
+{
+  "stage": "Exploratory cross-target extension after the SEED-IV neural controls; no research-question adoption",
+  "targets": [
+    "DEAP",
+    "GAMEEMO"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "conditions": [
+    "single",
+    "joint",
+    "joint_heads"
+  ],
+  "inputs": "All 2167 common-14 original trials; same 56 mean-window-log-bandpowers. Re-extract from waveform cache and demand exact agreement with all 1746 preceding target/source features before fitting.",
+  "folds": "For each complete target participant cohort, seed-42 permutation split into five consecutive groups as evenly as possible. Rotate test group and next validation group; all remaining participants train. Every target participant tested once per initialization. No test-label stratification or fold selection.",
+  "sources": "Only the original seed-42 subject split's training participants from the other two datasets; their validation/test participants are excluded",
+  "normalization": "Frozen target-training-only StandardScaler for every source and held-out trial",
+  "model": "Exactly the frozen SEED-IV FeatureMLP trainer: 56 -> 64 -> 32 -> 2, LayerNorm/GELU/dropout 0.2; common or three binary dataset heads; target slot zero",
+  "optimizer": "AdamW 0.001, weight decay 0.01, gradient clipping 1, no scheduler/AMP/augmentation/early stopping",
+  "sampling": "Batch 60, exact equal dataset quotas and equal class quotas per dataset. Independent dataset/class replacement streams, paired target draw prefixes and initial target/backbone weights",
+  "budgets": "600 updates primary; continue joint conditions to 1800 updates, giving the same 36000 available target draws as target-only. Report both; selected checkpoints may have fewer actual target exposures.",
+  "selection": "Every 25 updates, target-validation trial balanced accuracy then balanced log loss. Test after both checkpoint selections. No test threshold or normalization fitted.",
+  "linear": "Target-only and shared joint, same target-anchored scaler, equal dataset/class/trial weights with effective total weight fixed to target-training trial count; C 0.01/0.1/1/10 selected only on validation BA, smallest-C tie",
+  "uncertainty": "All initialization results, original-trial coverage, source exclusions, participant bootstrap of pooled class-conditional counts; report class-deficient bootstrap draws rather than change cohorts. Known development tests, one fold grouping per dataset, overlapping training sets.",
+  "scope": "90 additional neural runs and 80 linear validation fits. Existing SEED-IV runs reused. No GRU/LSTM/attention comparison, native four-class learning or unseen-dataset transfer.",
+  "decision": "Assess whether the observed SEED-IV pooling effect is target-dependent before proposing a contribution. All hypotheses remain exploratory; show findings and obtain explicit author approval before any adopted research-question change."
+}

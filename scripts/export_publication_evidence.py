@@ -50,6 +50,12 @@ EXTRA_FILES = [
         "neural_comparison.json", "paired_comparison.json", "training_behavior.json",
         "verification.json", "linear_verification.json", "neural_transfer_comparison.png",
         "gradient_diagnostics.json", "gradient_summary.json", "gradient_plan.json")],
+    *[f"negative_transfer_neural_{target}/{name}" for target in ("deap", "gameemo") for name in (
+        "config.json", "plan.json", "folds.json", "linear_comparison.json",
+        "linear_trial_predictions.csv", "model_metrics.json", "trial_predictions.csv",
+        "neural_comparison.json", "verification.json", "linear_verification.json")],
+    "multitarget_transfer_analysis/comparison.json", "multitarget_transfer_analysis/analysis_provenance.json",
+    "multitarget_transfer_analysis/multitarget_transfer_comparison.png",
 ]
 
 

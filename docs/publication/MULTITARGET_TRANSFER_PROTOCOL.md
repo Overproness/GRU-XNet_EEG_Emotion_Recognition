@@ -20,3 +20,13 @@ python scripts/verify_transfer_linear.py --output ../publication_runs/negative_t
 ```
 
 Use fresh output directories. Raw EEG, feature arrays, detailed histories and checkpoints remain local; bounded summaries are exported after verification. Existing test cohorts are development evidence. This does not complete GRU/BiLSTM/attention ablations, native four-class objectives, multiple fold groupings, or unseen-dataset transfer. It tests whether the first target's result extends to the other tasks before selecting a contribution.
+
+The extension completed and its checkpoints/candidate fits reproduced. [All-target findings](GRU-XNet_Multitarget_Transfer_Findings_2026-10-05.md) record every planned condition and remaining uncertainty. After both target verifications, generate the paired summary and standalone figure using a fresh output directory:
+
+```powershell
+python scripts/analyze_transfer_targets.py --runs-root ../publication_runs --output ../publication_runs/multitarget_transfer_analysis
+```
+
+The summary combines three separately trained/validated target studies, not one checkpoint tested on three datasets. No question change is adopted.
+
+Derived summary files can be regenerated in their own analysis directory; the script refuses directories containing unrelated files. Training outputs, feature caches and linear replay directories still require fresh paths. Regenerate the summary after refreshing verification records so its input hashes remain current.

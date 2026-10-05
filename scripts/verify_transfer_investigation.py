@@ -35,7 +35,9 @@ def verify_selected(output):
     plan=json.loads((output/"plan.json").read_text())
     if "target_dataset" in config:
         from gruxnet.transfer_extension import load_extension_inputs,participant_folds
+        from gruxnet.transfer_controls import DATASET_INDEX
         assert config["conditions"]==CONDITIONS
+        assert config["dataset_index"]==DATASET_INDEX
         x,target,z,sources,binding=load_extension_inputs(config)
         expected_folds=participant_folds(target.subject_id.tolist())
     else:
@@ -46,6 +48,7 @@ def verify_selected(output):
     assert folds==expected_folds and list(CONDITIONS)==plan["conditions"]
     all_saved=pd.read_csv(output/"trial_predictions.csv")
     reconstructed=[]
+    reconstructed_models=[]
     count_models,count_checkpoints,count_predictions=0,0,0
     device=torch.device(config["hardware"]["device"])
     for seed in plan["seeds"]:
@@ -115,11 +118,13 @@ def verify_selected(output):
                     count_checkpoints+=1
                     count_predictions+=len(rows)
                 count_models+=1
+                reconstructed_models.append(result)
             assert len(set(initials))==1
             for negative,positive in target_streams[1:]:
                 np.testing.assert_array_equal(negative,target_streams[0][0])
                 np.testing.assert_array_equal(positive,target_streams[0][1])
     actual=pd.concat(reconstructed,ignore_index=True)
+    assert reconstructed_models==json.loads((output/"model_metrics.json").read_text())
     pd.testing.assert_frame_equal(actual,all_saved)
     report=json.loads((output/"neural_comparison.json").read_text())
     for (condition,budget),rows in all_saved.groupby(["condition","budget"]):

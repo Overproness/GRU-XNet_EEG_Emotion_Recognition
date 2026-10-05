@@ -6,6 +6,8 @@ The new results identify a useful lead: **adding other datasets can hurt a match
 
 **Subsequent follow-up:** the [75-run neural investigation](GRU-XNet_Neural_Transfer_Investigation_2026-10-05.md) now checks source additions, paired initialization, exact dataset/class sampling, target-only scaling, and both compute and available-target-exposure budgets. Its smaller neural pooling differences have participant intervals including zero; ordinary separate heads do not reliably improve on target-only. mdJPT (NeurIPS 2025), missed in the earlier review, is now an essential comparator. The results below remain the initial classical/normalization phase rather than the complete current evidence.
 
+The [completed cross-target extension](GRU-XNet_Multitarget_Transfer_Findings_2026-10-05.md) adds 90 neural runs on DEAP/GAMEEMO. All 165 runs and 285 selected checkpoints are checked; shared-joint versus target-only neural intervals include zero on every target/budget. Linear penalties persist on SEED-IV/GAMEEMO. The current suite passes 32 tests. No pivot is adopted.
+
 ## 1. Matched DEAP normalization control
 
 The [exploration plan](../../results/development/exploration_plan_2026-10-05.json) was saved before training. This pair fixes EEGNet-8,2, all 32 named DEAP electrodes, recovered valence labels, 4–40 Hz filtering, four-second windows, seed 42, the same 22/5/5 participant partitions, initialization/sampling policy, fixed Adam 0.001, batch 32, no augmentation, and validation-based selection. Maximum 100 epochs, minimum 25, patience 15. **The sole configured intervention is normalization:** frozen training-electrode statistics versus independent mean/RMS normalization of each window/electrode.

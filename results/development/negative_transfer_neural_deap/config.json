@@ -1,0 +1,82 @@
+{
+  "created_utc": "2026-10-05T17:00:51.982315+00:00",
+  "development_only": true,
+  "research_question_change_approved": false,
+  "target_dataset": "DEAP",
+  "feature_cache": "<workspace>\\publication_runs\\cache_common14_trial_features",
+  "common_cache": "<workspace>\\publication_runs\\cache_common14",
+  "plan_sha256": "2f589180e00a9b74ef079011c2fa7967ec13e965bed00c907c6ff82ee1987051",
+  "hardware": {
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+  },
+  "scope": "Matched feature-MLP target extension, not GRU-XNet, native four-class supervision, or unseen-dataset transfer",
+  "input_binding": {
+    "pack_sha256": {
+      "features.npz": "d4fa112fc5fe681996053b10f5b43eb1d4a1b9ec99f6eab9e8881c40e08cad33",
+      "trials.csv": "5d6e31e53db32974d33631249873cfe6744ef3dbd0b2f12611a19a367fd714bb",
+      "prepared.json": "17f1c2265aef5772ac89cb6c66dac3d0b56173c6d47666e074ebbbd1632f7278"
+    },
+    "common_cache_fingerprint": "4065723d1804c04582ed0f6c65c4c22981b8dd18676043b3a5c12b0cd3bc07dd",
+    "external_training_subjects": [
+      "GAMEEMO:S01",
+      "GAMEEMO:S03",
+      "GAMEEMO:S04",
+      "GAMEEMO:S05",
+      "GAMEEMO:S08",
+      "GAMEEMO:S10",
+      "GAMEEMO:S13",
+      "GAMEEMO:S14",
+      "GAMEEMO:S15",
+      "GAMEEMO:S16",
+      "GAMEEMO:S17",
+      "GAMEEMO:S18",
+      "GAMEEMO:S19",
+      "GAMEEMO:S20",
+      "GAMEEMO:S21",
+      "GAMEEMO:S22",
+      "GAMEEMO:S24",
+      "GAMEEMO:S26",
+      "GAMEEMO:S27",
+      "GAMEEMO:S28",
+      "SEEDIV:S01",
+      "SEEDIV:S02",
+      "SEEDIV:S03",
+      "SEEDIV:S06",
+      "SEEDIV:S07",
+      "SEEDIV:S08",
+      "SEEDIV:S09",
+      "SEEDIV:S10",
+      "SEEDIV:S11",
+      "SEEDIV:S14",
+      "SEEDIV:S15"
+    ]
+  },
+  "source_sha256": {
+    "transfer_extension.py": "469ac9f784feb4144b846cc60feddb0f6c7a23c4013cd1ceac22f0748276dd7b",
+    "transfer_controls.py": "a4d48059fd67b71f5e85db851b468701c31588467e5f65257d47b1f1cae8491c",
+    "train.py": "62a6d4ab8ea7719f689c7c040215194bf42b6a06875af4848860e2d95e16218d",
+    "deap_control.py": "f8b99ae9fce9a5a2d101ef8a045b2ec7ebca15a4a3bfd7a026d89f5c45ad7340",
+    "splits.py": "2e325bf756930355fbba16c0063ef94e1e46d97f7c8a6e6ef77cee12fb343833"
+  },
+  "conditions": {
+    "single": [
+      "DEAP"
+    ],
+    "joint": [
+      "DEAP",
+      "GAMEEMO",
+      "SEEDIV"
+    ],
+    "joint_heads": [
+      "DEAP",
+      "GAMEEMO",
+      "SEEDIV"
+    ]
+  },
+  "dataset_index": {
+    "DEAP": 0,
+    "GAMEEMO": 1,
+    "SEEDIV": 2
+  }
+}

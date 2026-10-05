@@ -2,6 +2,8 @@
 
 Date: 5 October 2026. **The matched neural controls do not yet support adopting negative-transfer mitigation as the paper's new contribution.** Joint training has a small average penalty on SEED-IV, but its participant interval includes zero, and ordinary separate heads do not reliably beat target-only training. The stronger classical penalty survives source ablation and an additional regularization control. These results justify checking other targets and representations, not claiming that pooling universally fails or that a new method has been established.
 
+**Subsequent extension completed:** [all-three-target findings](GRU-XNet_Multitarget_Transfer_Findings_2026-10-05.md) add 90 DEAP/GAMEEMO neural runs, bringing this investigation to 165 runs and 285 replayed selected checkpoints. Shared-joint versus target-only neural participant intervals include zero on every target and both budgets. Separate heads do not consistently help. The suite now passes 32 tests. This report retains the first SEED-IV phase and its original 27-test verification milestone.
+
 **No research-question change is approved or adopted.** The author authorized exploration and regular GitHub commits/pushes. The historical manuscript remains untouched and [archived](../paper_archive/2026-10-05-pre-exploration/README.md). Archive the then-current manuscript again immediately before any approved pivot. The [readiness checklist](GRU-XNet_Publication_Readiness_2026-10-05.md) still records incomplete publication work.
 
 ## Protocol and controls

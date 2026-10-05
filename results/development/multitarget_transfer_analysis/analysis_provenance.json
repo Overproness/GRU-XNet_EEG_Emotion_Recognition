@@ -1,0 +1,35 @@
+{
+  "development_only": true,
+  "source_sha256": "f9e1ddabdbe5d8b7df15f6f81081c49705e1e8627c9cc9fea21a01137272d65f",
+  "input_sha256": {
+    "SEEDIV": {
+      "config.json": "34a9340c299580590507faff05c4244b1510c3980b5e16038e78072471566cac",
+      "trial_predictions.csv": "af57ae404a635561485fca4303ba3b98b5da1af058407efd878c429edcab7576",
+      "neural_comparison.json": "79bb991b18adab1a72bf19dfa5472f6c23162a030a76296bdb60117c152f1d5a",
+      "linear_comparison.json": "045f8929a10717173af0f9d1d13ac60218381109bb1f7e11b408901b614ec6f4",
+      "linear_trial_predictions.csv": "cbd6c6435885a2585c8be9f7a8d359904b4d3cc713ecad2a91dbd10ac3da6d45",
+      "verification.json": "01fb191876d4af1154ccd85665073910a6dd251e166fc50f9931268c5a87282b",
+      "linear_verification.json": "3fbd9e7ed9c3bd77fa46eedae1821f360cc409f73ef398672bf75867baaa34f7"
+    },
+    "DEAP": {
+      "config.json": "07ac39e182f7d4c77f350ccd41fc639f561e9e253f758c5b2eee4fec6ce8d90c",
+      "trial_predictions.csv": "c6acfb312397e9ac07fe5d473114a836d097efbc877804d1598c0c7fec17cf86",
+      "neural_comparison.json": "27ba540b541e40b94cac57dc109a600545ac5d51e0cf2c6a7f4a55778b4dcf51",
+      "linear_comparison.json": "0863dc14967f28dc670018c3fd35139a64abe7daa692fd76f167ca68812b3361",
+      "linear_trial_predictions.csv": "1fecaba95132617f9bdca8f8f106f4f0faa1cffff8c60b03887afc858e098165",
+      "verification.json": "5824af8d3bbe55964d7bcf459467824a5e1a05e22a664afff3e768aabf05b9b4",
+      "linear_verification.json": "8c75b9d360e6536eb81c968e701ed0bfeee096484fbec4532db59575dea6504a"
+    },
+    "GAMEEMO": {
+      "config.json": "236f63fce7ee4720255e6e9d043828eb27519f809903365f376e284d5ab9563c",
+      "trial_predictions.csv": "669b049b1f78ed0af057419ebf758ce3727e8289cf78121f9cced355e8a976f8",
+      "neural_comparison.json": "ad2bb56fa9cf4a1dc7d095e6f0bbf9e22c957e027fc569cd04aa4b9b6631557a",
+      "linear_comparison.json": "6d4989219eee22e5f12421820dea02d239cc46ca85ff979f25b1a5b7b492983d",
+      "linear_trial_predictions.csv": "1703fa58a89e519a32547d37b7b81eabf60e412b7d8dc1963461f0274f6df3b4",
+      "verification.json": "186df85163a662a26492eb5b299292dcdefe14d2669f6f84e4782d7d5c685ccc",
+      "linear_verification.json": "4443ff1b3c4c407eb9ad5c2f06c4989fd184804be4c9a0df3970a2e9dfe94951"
+    }
+  },
+  "bootstrap": "Same 10000 participant draws for paired conditions; pool TN/FP/FN/TP across sampled participants for each initialization, calculate trial BA, then average differences over three initializations. Linear uses its one deterministic fit set. Discard/report class-deficient draws.",
+  "limitations": "One fold grouping per target, overlapping training sets, previously inspected/adaptive development cohorts. Intervals capture participant variation conditional on selected models, not all training or selection uncertainty. No confirmatory significance, causal or novelty claim."
+}

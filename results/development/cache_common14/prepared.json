@@ -1,0 +1,197 @@
+{
+  "config": {
+    "preprocess_version": 1,
+    "sampling_rate": 128,
+    "window_seconds": 4,
+    "stride_seconds": 4,
+    "montage": "common14",
+    "channels": [
+      "AF3",
+      "AF4",
+      "F3",
+      "F4",
+      "F7",
+      "F8",
+      "FC5",
+      "FC6",
+      "O1",
+      "O2",
+      "P7",
+      "P8",
+      "T7",
+      "T8"
+    ],
+    "label_policy": {
+      "DEAP": "valence < 5: negative; > 5: positive; exactly 5: exclude",
+      "GAMEEMO": "participant SAM valence 1..4: negative; 6..9: positive; 5: exclude",
+      "SEEDIV": "sad(1)/fear(2): negative; happy(3): positive; neutral(0): exclude"
+    },
+    "filter": "4th-order Butterworth 4..40 Hz, zero-phase per source trial, before resampling",
+    "resampling": "scipy resample_poly, 200->128 (16/25), no time interpolation",
+    "baseline": "DEAP first 384 samples excluded; no baseline feature subtraction",
+    "normalization": "per-window per-observed-channel z-score at model input; no fitted population statistics",
+    "stft": {
+      "n_fft": 128,
+      "hop_length": 32,
+      "window": "periodic Hann",
+      "center": false,
+      "frequencies_hz": [
+        4,
+        40
+      ],
+      "representation": "log1p magnitude / window sum"
+    }
+  },
+  "source_audit": {
+    "label_policy": {
+      "DEAP": "valence < 5: negative; > 5: positive; exactly 5: exclude",
+      "GAMEEMO": "participant SAM valence 1..4: negative; 6..9: positive; 5: exclude",
+      "SEEDIV": "sad(1)/fear(2): negative; happy(3): positive; neutral(0): exclude"
+    },
+    "datasets": {
+      "DEAP": {
+        "subjects": 32,
+        "source_trials": 1280,
+        "excluded_neutral_trials": 16,
+        "eligible_trials": 1264,
+        "trial_class_counts": {
+          "1": 708,
+          "0": 556
+        }
+      },
+      "GAMEEMO": {
+        "subjects": 28,
+        "source_trials": 112,
+        "excluded_neutral_trials": 19,
+        "eligible_trials": 93,
+        "trial_class_counts": {
+          "0": 52,
+          "1": 41
+        }
+      },
+      "SEEDIV": {
+        "subjects": 15,
+        "source_trials": 1080,
+        "excluded_neutral_trials": 270,
+        "eligible_trials": 810,
+        "trial_class_counts": {
+          "0": 540,
+          "1": 270
+        }
+      }
+    },
+    "source_roots": {
+      "DEAP": "<workspace>\\emotion-recognition-eeg-datasets\\Emotion Recognition EEG Datasets\\deap",
+      "GAMEEMO": "<workspace>\\emotion-recognition-eeg-datasets\\Emotion Recognition EEG Datasets\\GAMEEMO",
+      "SEEDIV": "<workspace>\\emotion-recognition-eeg-datasets\\Emotion Recognition EEG Datasets\\sead-4"
+    },
+    "common_channels": [
+      "AF3",
+      "AF4",
+      "F3",
+      "F4",
+      "F7",
+      "F8",
+      "FC5",
+      "FC6",
+      "O1",
+      "O2",
+      "P7",
+      "P8",
+      "T7",
+      "T8"
+    ],
+    "seed_channels": [
+      "FP1",
+      "FPZ",
+      "FP2",
+      "AF3",
+      "AF4",
+      "F7",
+      "F5",
+      "F3",
+      "F1",
+      "FZ",
+      "F2",
+      "F4",
+      "F6",
+      "F8",
+      "FT7",
+      "FC5",
+      "FC3",
+      "FC1",
+      "FCZ",
+      "FC2",
+      "FC4",
+      "FC6",
+      "FT8",
+      "T7",
+      "C5",
+      "C3",
+      "C1",
+      "CZ",
+      "C2",
+      "C4",
+      "C6",
+      "T8",
+      "TP7",
+      "CP5",
+      "CP3",
+      "CP1",
+      "CPZ",
+      "CP2",
+      "CP4",
+      "CP6",
+      "TP8",
+      "P7",
+      "P5",
+      "P3",
+      "P1",
+      "PZ",
+      "P2",
+      "P4",
+      "P6",
+      "P8",
+      "PO7",
+      "PO5",
+      "PO3",
+      "POZ",
+      "PO4",
+      "PO6",
+      "PO8",
+      "CB1",
+      "O1",
+      "OZ",
+      "O2",
+      "CB2"
+    ],
+    "ignored": [
+      "pre-existing augmented_datasets",
+      "duplicate sead-4/seed_iv tree"
+    ],
+    "deap_label_recovery": {
+      "file": "<workspace>\\emotion-recognition-eeg-datasets\\Emotion Recognition EEG Datasets\\deap\\metadata_xls\\participant_ratings.xls",
+      "sha256": "e3269144e3018848760b0f1a7b2301912cee402012911f427728e3a04bbdfb94",
+      "join": "Participant_id + Experiment_id (video order, not presentation Trial)",
+      "changed_counts_valence_arousal_dominance_liking": [
+        439,
+        439,
+        0,
+        0
+      ],
+      "observed_modification": "439 valence/arousal values replaced by 9 - original in this download; use spreadsheet ratings"
+    },
+    "sam_review": "Geometry extracted; inspect PDFs/contact sheet before manuscript use."
+  },
+  "eligible_trials": 2167,
+  "excluded_trials": 305,
+  "windows": 53247,
+  "dataset_window_counts": {
+    "DEAP": 18960,
+    "GAMEEMO": 6882,
+    "SEEDIV": 27405
+  },
+  "manifest_sha256": "355c1cca6e23e79f684110b206e5677535eff6ccb4bb07ef12ba12afef037252",
+  "lineage_sha256": "13867fb3b5e27168c19394cd846c0fc0e9802973ab5989f1d1477c0eb24ca365",
+  "cache_fingerprint": "4065723d1804c04582ed0f6c65c4c22981b8dd18676043b3a5c12b0cd3bc07dd"
+}

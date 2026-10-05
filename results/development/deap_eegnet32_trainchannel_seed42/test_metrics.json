@@ -1,0 +1,104 @@
+{
+  "window": {
+    "n": 3000,
+    "class_counts": [
+      1200,
+      1800
+    ],
+    "accuracy": 0.46166666666666667,
+    "balanced_accuracy": 0.4736111111111111,
+    "macro_f1": 0.4610063995060616,
+    "auroc": 0.4877546296296296,
+    "confusion_matrix": [
+      [
+        640,
+        560
+      ],
+      [
+        1055,
+        745
+      ]
+    ]
+  },
+  "trial": {
+    "n": 200,
+    "class_counts": [
+      80,
+      120
+    ],
+    "accuracy": 0.445,
+    "balanced_accuracy": 0.4625,
+    "macro_f1": 0.4449861246531164,
+    "auroc": 0.5007291666666667,
+    "confusion_matrix": [
+      [
+        44,
+        36
+      ],
+      [
+        75,
+        45
+      ]
+    ]
+  },
+  "datasets": {
+    "DEAP": {
+      "n": 200,
+      "class_counts": [
+        80,
+        120
+      ],
+      "accuracy": 0.445,
+      "balanced_accuracy": 0.4625,
+      "macro_f1": 0.4449861246531164,
+      "auroc": 0.5007291666666667,
+      "confusion_matrix": [
+        [
+          44,
+          36
+        ],
+        [
+          75,
+          45
+        ]
+      ],
+      "subjects": 5,
+      "subject_cluster_bootstrap_balanced_accuracy_95ci": [
+        0.4028176799543253,
+        0.5209525265178115
+      ],
+      "bootstrap_valid_replicates": 1000,
+      "bootstrap_requested_replicates": 1000
+    }
+  },
+  "macro_dataset_trial_balanced_accuracy": 0.4625,
+  "run_id": "deap_eegnet32_trainchannel_seed42",
+  "model": "EEGNet-8,2-PyTorch-Control",
+  "protocol": "subject",
+  "pilot": false,
+  "development_result": true,
+  "checkpoint": "best.pt",
+  "checkpoint_sha256": "2bc33628f245cf3cd63e40cdfc4c9e88d4a04656a4e5c9650362157382921f89",
+  "best_epoch": 13,
+  "epochs_completed": 28,
+  "test_loss": 0.878515971104304,
+  "test_diagnostics": {
+    "trial_predicted_class_counts": [
+      119,
+      81
+    ],
+    "trial_probability_mean": 0.5984512660205364,
+    "trial_probability_std": 0.23760066533455626,
+    "trial_probability_min": 0.3270175894101461,
+    "trial_probability_max": 0.9928841114044189,
+    "balanced_trial_log_loss": 0.9216493443172311
+  },
+  "normalization": "train-channel",
+  "selected_split_sha256": "03e022252154cb1accfed62aee144649797101662fe27f29a63ddb2c88d1314d",
+  "cache_fingerprint": "13c1e7922a7c1cf7583f34225a34ef1d9f68831e680e2fcb9a0cb42f04d90ab9",
+  "normalizer_sha256": "a930e9b2076a04c028508d634e602410d73f447d501043a62200c0db43892556",
+  "elapsed_seconds": 874.2689533999655,
+  "peak_cuda_allocated_mib": 117.29736328125,
+  "peak_cuda_reserved_mib": 160.0,
+  "predictions_sha256": "b98f30aa376058c80710ffc054761e20e266205185ce47d5be7552c06eb5179c"
+}

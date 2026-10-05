@@ -2,6 +2,23 @@
 
 Deep learning architecture for multi-dataset EEG-based emotion recognition using bidirectional GRU networks with self-attention mechanisms.
 
+## Publication revision (5 October 2026)
+
+Use the maintained [publication pipeline](PUBLICATION.md) for new experiments:
+
+```powershell
+conda activate pytorch
+python -m gruxnet train --cache ../publication_runs/cache_common14 --output ../publication_runs/my_subject_run --device cuda
+```
+
+The course-project scripts, pretrained model, paper PDF, and scores below are historical. Their pooled sample split and augmentation provenance do not establish unseen-subject or unseen-dataset generalization. The new pipeline verifies labels against source metadata, separates subjects before training, augments only training batches, and provides true leave-one-dataset-out evaluation. Its compact model is a distinct variant and requires new results.
+
+**Data finding:** this extracted DEAP mirror has 439 valence/arousal ratings replaced by `9 - original`. The new loader uses the included participant-rating spreadsheet, joined by participant and video ID, and verifies dominance/liking to check alignment. Downloaded files remain untouched.
+
+**Source verification:** the altered labels are already present in the supplied upstream DEAP Kaggle source. All 304 training input/metadata files match the three upstream archives by size and CRC32; six representative files also match SHA-256. [dataset_sources.json](dataset_sources.json) records the author's bundle, upstream URLs, pinned versions, and the limits of this verification. New audits and caches accept `--provenance dataset_sources.json` to bind this declaration.
+
+Joint training on all three datasets is the historical research question. Alternative questions may be explored; adopting one requires showing the findings and receiving the author's approval. The [readiness record](docs/publication/GRU-XNet_Publication_Readiness_2026-10-05.md) tracks unresolved concerns. The completed [DEAP-only learning control](docs/publication/GRU-XNet_DEAP_Control_2026-10-05.md) is a diagnostic: raw EEGNet with training-only normalization reaches 46.25% held-out trial balanced accuracy, so this configuration supplies no reliable generalization gain. Its source, normalization, partitions, and predictions were verified using the commands in PUBLICATION.md. The [archived manuscript](docs/paper_archive/2026-10-05-pre-exploration/README.md) preserves the current source for backtracking.
+
 ## Authors
 
 **Muhammad Wasif Shakeel** - [GitHub](https://github.com/mwasifshkeel)  

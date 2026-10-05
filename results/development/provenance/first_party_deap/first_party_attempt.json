@@ -1,0 +1,93 @@
+{
+  "checked_at_utc": "2026-10-05T13:58:54.276405+00:00",
+  "status": "first_party_recording_comparison_blocked_by_source_unavailability",
+  "first_party_eeg_files_obtained": 0,
+  "first_party_metadata_archives_obtained": 0,
+  "official_data_urls": [
+    {
+      "url": "https://www.eecs.qmul.ac.uk/mmv/datasets/deap/data/metadata_xls.zip",
+      "status": 503,
+      "final_url": "https://www.eecs.qmul.ac.uk/mmv/datasets/deap/data/metadata_xls.zip"
+    },
+    {
+      "url": "https://www.eecs.qmul.ac.uk/mmv/datasets/deap/data/data_preprocessed_python.zip",
+      "status": 503,
+      "final_url": "https://www.eecs.qmul.ac.uk/mmv/datasets/deap/data/data_preprocessed_python.zip"
+    }
+  ],
+  "request_server_url": "https://anaxagoras.eecs.qmul.ac.uk/request.php?dataset=DEAP",
+  "request_server_result": "Connection timeout on HTTPS and HTTP",
+  "archive_result": "Official public download/README/contact pages recovered; no metadata ZIP snapshot found in checked routes",
+  "tls_result": "Missing intermediate retrieved from the certificate issuer; final probes verify the hostname and trusted chain. The verified endpoints still return 503.",
+  "official_schema_checks": {
+    "archived_official_readme_url": "https://web.archive.org/web/20231030222856id_/https://www.eecs.qmul.ac.uk/mmv/datasets/deap/readme.html",
+    "response_file": "publication_runs/provenance/first_party_deap/archive_followup/route_01.body",
+    "response_sha256": "22d08f0c7bba5094ad93a359645e84f6a45cb205d56474150643ba5ec3fef194",
+    "official_eeg_channel_order": [
+      "FP1",
+      "AF3",
+      "F3",
+      "F7",
+      "FC5",
+      "FC1",
+      "C3",
+      "T7",
+      "CP5",
+      "CP1",
+      "P3",
+      "P7",
+      "PO3",
+      "O1",
+      "OZ",
+      "PZ",
+      "FP2",
+      "AF4",
+      "FZ",
+      "F4",
+      "F8",
+      "FC6",
+      "FC2",
+      "CZ",
+      "C4",
+      "T8",
+      "CP6",
+      "CP2",
+      "P4",
+      "P8",
+      "PO4",
+      "O2"
+    ],
+    "channel_order_matches_pipeline": true,
+    "array_dimensions_match_pipeline": [
+      40,
+      40,
+      8064
+    ],
+    "rating_array_dimensions": [
+      40,
+      4
+    ],
+    "official_trial_order": "Experiment_id (video ID), not presentation Trial",
+    "rating_column_order": [
+      "valence",
+      "arousal",
+      "dominance",
+      "liking"
+    ],
+    "scope": "Archived first-party format documentation only; not an EEG-content or spreadsheet-content comparison"
+  },
+  "existing_catalog_sha256": "4fc83ad6cc87f8dec1879a013191267778000be677d6ef65e930b9c34c00221b",
+  "evidence_sha256": {
+    "official_routes/route_checks.json": "e913a01881ffd0d2be0db67cb91fc6aba0d8c11d48c13714bf1a6ecd72076ffe",
+    "archive_routes/route_checks.json": "47efe7728a40ad3031c1149049912944d4b8e20ae0717f01598330d7d792f029",
+    "verified_tls_routes/route_checks.json": "b4bbf5d5e8e4ad07b019b862de508995162c3a6ab934de43bf5eec43ba9eec17",
+    "archive_followup/route_checks.json": "2135703c4d2783ae48556626706eae40bae21d5e7373bfa5e99ab7c592e6d235",
+    "archive_https_metadata/route_checks.json": "3a9641dbec476ed44547af1cbf1a10903c32694551f369b043c198b88d2dc716",
+    "tls_chain_repair.json": "5ee94cc651fd746c00493af9baa4bd501c2e9a835ad3bb1454a77acdcb38aad2",
+    "peer_certificate_diagnostic.json": "e3120fa0c08565013a67564aecfb542f5983607fecc66b1b90165f76d8608b81",
+    "official_documentation_check.json": "d1de7a13ec3ed386c2c690096bd554fe7b263fb4a20ca0acefa2999ffa4f1a72",
+    "comparator_control_s01.json": "c28abe215711f739b99a9f22bf883cc6869762ef1397791a89b48cec971ad21b"
+  },
+  "comparator_control_scope": "Kaggle s01 comparison only; a control does not establish first-party authenticity",
+  "next_required_input": "An author-downloaded data_preprocessed_python ZIP/directory, or a restored official download service and author-issued access"
+}

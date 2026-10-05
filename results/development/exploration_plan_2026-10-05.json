@@ -1,0 +1,27 @@
+{
+  "stage": "Exploratory diagnostics; no approved research-question change",
+  "author_permission": "Explore alternatives; show findings and await explicit approval before adopting a new research question",
+  "purpose": "Resolve learning and participant-generalization failures before proposing a contribution",
+  "deap_normalization_pair": {
+    "reference_run": "deap_eegnet32_trainchannel_seed42",
+    "new_run": "deap_eegnet32_windownorm_seed42",
+    "hypothesis": "Per-window, per-electrode normalization may reduce participant offsets while retaining discriminative within-window structure",
+    "single_planned_difference": "Replace frozen training-channel mean/std with each window/electrode's own mean and RMS",
+    "fixed": "Canonical 32 electrodes; recovered valence; 4..40 Hz; non-overlapping 4 s; EEGNet-8,2; seed 42; same participant split, initialization, sampler; fixed Adam 0.001; batch 32; no augmentation; max 100 epochs, min 25, patience 15; same validation checkpoint selection and 0.5 threshold",
+    "primary_selection": "Validation trial balanced accuracy, ties lower balanced trial log loss",
+    "development_only": "Both runs use a previously inspected test cohort; comparison is diagnostic, not an untouched confirmatory evaluation",
+    "stopping_rule": "One normalization run; report the result regardless of direction; no test-based threshold or participant calibration",
+    "unused_artifact": "Existing trainer still fits and records the training-channel scaler for verification; window mode does not apply it"
+  },
+  "native_seediv_diagnostic": {
+    "purpose": "Assess learnable native dataset structure before considering changes to binary pooling",
+    "inputs": "All 62 named electrodes, all four supplied emotion classes, all 15 participants and three sessions",
+    "features": "Four-second non-overlapping window log bandpowers in theta 4..8, alpha 8..14, beta 14..31, gamma 31..40 Hz; aggregate within each original trial",
+    "split": "Five predeclared participant-disjoint outer folds; three test participants, next three validation participants, remaining nine training participants; seed-42 permutation",
+    "models": "Training-standardized class-balanced multinomial logistic regression, C in [0.01, 0.1, 1, 10], selected using validation macro recall",
+    "comparisons": "Native 62 vs named common 14 electrodes, and native four-class vs existing coarse binary with neutral excluded; same subject folds; report different chance levels and avoid comparing raw accuracies across tasks",
+    "development_only": true,
+    "limitations": "Trial features differ from neural input. Diagnostic classical baseline, not a replication of a published SEED-IV score. Does not prove a new contribution or determine a pivot by itself."
+  },
+  "first_party_deap_authenticated": false
+}

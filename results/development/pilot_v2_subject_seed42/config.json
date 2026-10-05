@@ -1,0 +1,103 @@
+{
+  "run_id": "pilot_v2_subject_seed42",
+  "created_utc": "2026-10-05T12:30:50.007644+00:00",
+  "cache": "<workspace>\\publication_runs\\cache_common14",
+  "cache_fingerprint": "4065723d1804c04582ed0f6c65c4c22981b8dd18676043b3a5c12b0cd3bc07dd",
+  "protocol": "subject",
+  "target": null,
+  "test_subject": null,
+  "seed": 42,
+  "epochs": 6,
+  "batch_size": 16,
+  "accumulation": 4,
+  "patience": 5,
+  "max_windows_per_trial": 4,
+  "pilot": true,
+  "model": {
+    "name": "GRU-XNet-Compact-v2",
+    "channels": 14,
+    "recurrent": "gru",
+    "attention": true,
+    "frequency_pooling": "flatten"
+  },
+  "augment": true,
+  "augmentation": [
+    "Gaussian noise SD .03",
+    "gain .9..1.1",
+    "channel dropout p=.05"
+  ],
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001
+  },
+  "selection_metric": "validation macro dataset trial balanced accuracy",
+  "amp": true,
+  "sampler": "equal datasets/classes/trials; inverse windows per trial; training only",
+  "source_sha256": {
+    "data.py": "a29de05d8c579e990db84ce49d45fb9526c4ff46f0080e7d1e4831471deece5f",
+    "model.py": "ed00606e17622d621f7949493de1630b349d93c0640a6a4a7d0080218c7f7218",
+    "prepare.py": "db674536fde999ee643f6642c8b0b37bc4a5a93c470daef80e0ef0bd53423098",
+    "review.py": "5e7255018e1a0b77a82a8cc0327ac22816cf03a7feed830716ccfea9899bcbb0",
+    "splits.py": "2e325bf756930355fbba16c0063ef94e1e46d97f7c8a6e6ef77cee12fb343833",
+    "train.py": "62a6d4ab8ea7719f689c7c040215194bf42b6a06875af4848860e2d95e16218d",
+    "__init__.py": "186f66cfbfb665241aa2668ecafc976dd6b6779e1702500d8d69254b123aec50",
+    "__main__.py": "ddc3b882ec6b0ac1acd65518a5eeb1fb4655526cee87923dab328b7b07bd3f0a"
+  },
+  "selected_split_sha256": "c15760c41b354a6a180f48f3e6bf122ec03ff16bda80510ffcc70039da09fdc9",
+  "verify_cache_at_start": true,
+  "full_split_sha256": "691cf5cd66e6dc908d584239968157a915e952c525f51ed3d128044aa12449c9",
+  "versions": {
+    "torch": "2.5.1",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3"
+  },
+  "hardware": {
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+  },
+  "parameters": 537442,
+  "prepared_config": {
+    "preprocess_version": 1,
+    "sampling_rate": 128,
+    "window_seconds": 4,
+    "stride_seconds": 4,
+    "montage": "common14",
+    "channels": [
+      "AF3",
+      "AF4",
+      "F3",
+      "F4",
+      "F7",
+      "F8",
+      "FC5",
+      "FC6",
+      "O1",
+      "O2",
+      "P7",
+      "P8",
+      "T7",
+      "T8"
+    ],
+    "label_policy": {
+      "DEAP": "valence < 5: negative; > 5: positive; exactly 5: exclude",
+      "GAMEEMO": "participant SAM valence 1..4: negative; 6..9: positive; 5: exclude",
+      "SEEDIV": "sad(1)/fear(2): negative; happy(3): positive; neutral(0): exclude"
+    },
+    "filter": "4th-order Butterworth 4..40 Hz, zero-phase per source trial, before resampling",
+    "resampling": "scipy resample_poly, 200->128 (16/25), no time interpolation",
+    "baseline": "DEAP first 384 samples excluded; no baseline feature subtraction",
+    "normalization": "per-window per-observed-channel z-score at model input; no fitted population statistics",
+    "stft": {
+      "n_fft": 128,
+      "hop_length": 32,
+      "window": "periodic Hann",
+      "center": false,
+      "frequencies_hz": [
+        4,
+        40
+      ],
+      "representation": "log1p magnitude / window sum"
+    }
+  }
+}

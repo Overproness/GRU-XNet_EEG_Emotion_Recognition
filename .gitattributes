@@ -1,0 +1,8 @@
+# Preserve hashes of the reviewed source and evidence on Windows checkouts.
+gruxnet/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+scripts/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tests/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# The manuscript is an exact historical snapshot, including its whitespace.
+docs/paper_archive/**/*.tex -whitespace

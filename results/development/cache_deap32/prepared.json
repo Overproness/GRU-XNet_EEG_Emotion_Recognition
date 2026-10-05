@@ -1,0 +1,150 @@
+{
+  "config": {
+    "preprocess_version": "deap-control-1",
+    "datasets": [
+      "DEAP"
+    ],
+    "sampling_rate": 128,
+    "window_seconds": 4,
+    "stride_seconds": 4,
+    "montage": "deap32",
+    "channels": [
+      "FP1",
+      "AF3",
+      "F3",
+      "F7",
+      "FC5",
+      "FC1",
+      "C3",
+      "T7",
+      "CP5",
+      "CP1",
+      "P3",
+      "P7",
+      "PO3",
+      "O1",
+      "OZ",
+      "PZ",
+      "FP2",
+      "AF4",
+      "FZ",
+      "F4",
+      "F8",
+      "FC6",
+      "FC2",
+      "CZ",
+      "C4",
+      "T8",
+      "CP6",
+      "CP2",
+      "P4",
+      "P8",
+      "PO4",
+      "O2"
+    ],
+    "label_policy": {
+      "DEAP": "valence < 5: negative; > 5: positive; exactly 5: exclude"
+    },
+    "filter": "4th-order Butterworth 4..40 Hz, zero-phase per source trial",
+    "baseline": "First 384 samples discarded; no baseline waveform/feature subtraction",
+    "representation": "Raw float32 filtered windows; no STFT",
+    "normalization": "Deferred to each run; train-channel statistics fitted after participant splitting"
+  },
+  "source_audit": {
+    "rating_reference": {
+      "file": "<workspace>\\emotion-recognition-eeg-datasets\\Emotion Recognition EEG Datasets\\deap\\metadata_xls\\participant_ratings.xls",
+      "sha256": "e3269144e3018848760b0f1a7b2301912cee402012911f427728e3a04bbdfb94",
+      "join": "Participant_id + Experiment_id (video order, not presentation Trial)"
+    },
+    "declared_sources": {
+      "catalog_sha256": "4fc83ad6cc87f8dec1879a013191267778000be677d6ef65e930b9c34c00221b",
+      "catalog": {
+        "schema_version": 1,
+        "checked_date": "2026-10-05",
+        "bundle": {
+          "kaggle_ref": "fdskjlajlkfdsa/emotion-recognition-eeg-datasets",
+          "kaggle_url": "https://www.kaggle.com/datasets/fdskjlajlkfdsa/emotion-recognition-eeg-datasets",
+          "kaggle_version": 1,
+          "last_updated": "2025-12-01T09:05:32.193Z",
+          "relationship": "The project author identified this as their own assembled bundle and supplied the three upstream sources below."
+        },
+        "datasets": {
+          "DEAP": {
+            "kaggle_ref": "manh123df/deap-dataset",
+            "kaggle_url": "https://www.kaggle.com/datasets/manh123df/deap-dataset",
+            "kaggle_version": 1,
+            "last_updated": "2024-12-11T13:56:47Z",
+            "local_subdirectory": "Emotion Recognition EEG Datasets/deap",
+            "research_dataset_url": "https://www.eecs.qmul.ac.uk/mmv/datasets/deap/",
+            "integrity_check": {
+              "method": "Source ZIP central-directory CRC32 and uncompressed size versus local files",
+              "scope": "All 32 Python subject files and participant_ratings.xls",
+              "files_checked": 33,
+              "files_matching": 33,
+              "downloaded_files_sha256_checked": 2,
+              "downloaded_files_sha256_matching": 2
+            },
+            "label_finding": "439 valence and 439 arousal ratings differ from the included spreadsheet by 9-r. All 439 affected trials had spreadsheet valence >5 and arousal >5; all their binary valence labels flip. Independently downloaded upstream s01.dat and spreadsheet match local SHA-256 and reproduce 13 affected trials. The discrepancy is present in the upstream Kaggle version, before bundling.",
+            "label_policy": "Use spreadsheet ratings joined by Participant_id + Experiment_id; retain original pickle ratings and source hashes."
+          },
+          "GAMEEMO": {
+            "kaggle_ref": "sigfest/database-for-emotion-recognition-system-gameemo",
+            "kaggle_url": "https://www.kaggle.com/datasets/sigfest/database-for-emotion-recognition-system-gameemo",
+            "kaggle_version": 1,
+            "last_updated": "2021-03-09T08:03:55.287Z",
+            "local_subdirectory": "Emotion Recognition EEG Datasets/GAMEEMO",
+            "research_dataset_url": "https://data.mendeley.com/datasets/b3pn4kwpmn/1",
+            "integrity_check": {
+              "method": "Source ZIP central-directory CRC32 and uncompressed size versus local files",
+              "scope": "112 preprocessed AllChannels CSV recordings and 112 SAM rating PDFs",
+              "files_checked": 224,
+              "files_matching": 224,
+              "downloaded_files_sha256_checked": 2,
+              "downloaded_files_sha256_matching": 2
+            }
+          },
+          "SEEDIV": {
+            "kaggle_ref": "phhasian0710/seed-iv",
+            "kaggle_url": "https://www.kaggle.com/datasets/phhasian0710/seed-iv",
+            "kaggle_version": 1,
+            "last_updated": "2019-06-05T10:14:54.87Z",
+            "local_subdirectory": "Emotion Recognition EEG Datasets/sead-4",
+            "research_dataset_url": "https://bcmi.sjtu.edu.cn/home/seed/seed-iv.html",
+            "integrity_check": {
+              "method": "Source ZIP central-directory CRC32 and uncompressed size versus local files",
+              "scope": "45 raw EEG MAT files, ReadMe.txt, and Channel Order.xlsx",
+              "files_checked": 47,
+              "files_matching": 47,
+              "downloaded_files_sha256_checked": 2,
+              "downloaded_files_sha256_matching": 2
+            }
+          }
+        },
+        "evidence": {
+          "workspace_directory": "../publication_runs/provenance",
+          "full_integrity_comparison": "upstream_full_integrity_comparison.json",
+          "sha256_sample_comparison": "upstream_sample_comparison.json",
+          "deap_affected_trials": "deap_rating_discrepancies.csv",
+          "scope_limit": "CRC32 is an integrity checksum, not a cryptographic hash. Six representative files have SHA-256 comparisons; the remaining source files were compared by size and CRC32. No first-party full-release comparison has been completed. No EEG or rating source file was changed."
+        }
+      },
+      "binding_scope": "Declared source catalog snapshot; external integrity evidence is recorded separately"
+    },
+    "recovered_rating_changes": [
+      439,
+      439,
+      0,
+      0
+    ],
+    "first_party_authenticated": false
+  },
+  "eligible_trials": 1264,
+  "excluded_trials": 16,
+  "windows": 18960,
+  "dataset_window_counts": {
+    "DEAP": 18960
+  },
+  "manifest_sha256": "dfe5d6321d3c91f7f310a49ca28f12865e6f7f2025c0dac3dc0553ca1dfc698b",
+  "lineage_sha256": "759e1ed13977d0b7f3d997ed13863e43c6224c858e4cf4a269c701720568b545",
+  "cache_fingerprint": "13c1e7922a7c1cf7583f34225a34ef1d9f68831e680e2fcb9a0cb42f04d90ab9"
+}

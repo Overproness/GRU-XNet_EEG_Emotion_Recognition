@@ -1,0 +1,187 @@
+"""Export a bounded, portable review checkpoint; never copy raw EEG or credentials."""
+from __future__ import annotations
+
+from argparse import ArgumentParser
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+
+REPO = Path(__file__).resolve().parents[1]
+WORKSPACE = REPO.parent
+DATE = "2026-10-05"
+REPORTS = [f"GRU-XNet_{name}_{DATE}.md" for name in (
+    "Publication_Review", "Implementation_Status", "Dataset_Provenance",
+    "First_Party_DEAP_Check", "GitHub_Configuration_Review", "DEAP_Control",
+    "Publication_Readiness", "Exploration_Findings")]
+RUN_FILES = {
+    "config.json", "history.json", "split_audit.json", "test_metrics.json",
+    "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",
+    "validation_selection.json", "normalizer_fit.json", "training_metrics.json",
+    "test_subject_metrics.csv", "development_comparison.json", "normalization_comparison.json",
+    "training.png", "test_confusion.png", "development_diagnostics.png",
+}
+EXTRA_FILES = [
+    "deap_control_plan_2026-10-05.json", "exploration_plan_2026-10-05.json",
+    "deap32_cache_consistency.json", "cache_common14/prepared.json", "cache_deap32/prepared.json",
+    "provenance/upstream_full_integrity_comparison.json", "provenance/upstream_sample_comparison.json",
+    "provenance/deap_change_summary.json", "provenance/existing_cache_binding.json",
+    "provenance/first_party_deap/first_party_attempt.json",
+    "provenance/first_party_deap/official_documentation_check.json",
+    "provenance/first_party_deap/verified_tls_routes/route_checks.json",
+    "repository_review_2026-10-05/source_file_manifest.json",
+    "native_seediv_diagnostic/comparison.json", "native_seediv_diagnostic/folds.json",
+    "native_seediv_diagnostic/config.json", "native_seediv_diagnostic/trial_predictions.csv",
+    "native_seediv_diagnostic/verification.json",
+]
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def json_out(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+
+
+def portable_text(text):
+    # Keep evidence hashes unchanged, but replace this machine's absolute path.
+    for prefix in (str(WORKSPACE), WORKSPACE.as_posix()):
+        text = text.replace(prefix, "<workspace>")
+    # Signed download URLs are transient credentials, not publication evidence.
+    text = re.sub(r"(https?://[^\s\"<>]+)\?[^\s\"<>]*(?:X-Amz|X-Goog|Signature|token)[^\s\"<>]*",
+                  r"\1?redacted-transient-query", text, flags=re.I)
+    return text
+
+
+def portable_value(value):
+    if isinstance(value, str):
+        return portable_text(value)
+    if isinstance(value, list):
+        return [portable_value(v) for v in value]
+    if isinstance(value, dict):
+        return {k: portable_value(v) for k, v in value.items()}
+    return value
+
+
+def archive_paper():
+    archive = REPO / "docs/paper_archive/2026-10-05-pre-exploration"
+    source = WORKSPACE / "report.tex"
+    target = archive / "report.tex"
+    archive.mkdir(parents=True, exist_ok=True)
+    if target.exists() and sha(target) != sha(source):
+        raise ValueError("Preservation snapshot exists and differs; create a new dated archive")
+    target.write_bytes(source.read_bytes())
+    uncommented = re.sub(r"(?m)(?<!\\)%.*$", "", source.read_text(encoding="utf-8"))
+    assets = re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", uncommented)
+    missing, files = [], [{"source": "report.tex", "archive": "report.tex", "sha256": sha(target)}]
+    for name in assets:
+        asset = WORKSPACE / name
+        if asset.is_file():
+            dest = archive / Path(name).name
+            dest.write_bytes(asset.read_bytes())
+            files.append({"source": name, "archive": dest.name, "sha256": sha(dest)})
+        else:
+            missing.append(name)
+    # An existing historical PDF is retained; it is not asserted to compile from this source.
+    pdf = REPO / "paper/DL-Report.pdf"
+    if pdf.is_file():
+        (archive / pdf.name).write_bytes(pdf.read_bytes())
+        files.append({"source": "paper/DL-Report.pdf", "archive": pdf.name, "sha256": sha(pdf)})
+    json_out(archive / "manifest.json", {"purpose": "Preservation before exploratory work, not an approved pivot",
+             "files": files, "missing_referenced_assets": missing,
+             "compile_status": "Not compiled; historical PDF may not correspond exactly to report.tex"})
+    (archive / "README.md").write_text(
+        "# Manuscript preservation checkpoint\n\n"
+        "The [original source](report.tex) is a byte-for-byte copy of the working manuscript on 5 October 2026. "
+        "Its SHA-256 and the existing [historical PDF](DL-Report.pdf) are recorded in [manifest.json](manifest.json). "
+        "The PDF is retained as an existing artifact; it was not regenerated from this source.\n\n"
+        "Missing source image files: " + ", ".join(f"`{x}`" for x in missing) + ". "
+        "This snapshot therefore does not yet provide a self-contained compilable paper.\n\n"
+        "No research-question change has been approved. Archive the then-current paper again immediately before "
+        "any approved change. The historical claims are subject to the publication review.\n", encoding="utf-8")
+
+
+def export():
+    archive_paper()
+    docs, results = REPO / "docs/publication", REPO / "results/development"
+    docs.mkdir(parents=True, exist_ok=True)
+    results.mkdir(parents=True, exist_ok=True)
+    paths, records = {}, []
+
+    def copy(src, dst):
+        if not src.is_file():
+            return
+        if src.stat().st_size > 2_000_000:
+            raise ValueError(f"Unexpected large review artifact: {src.name}")
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        if src.suffix == ".json":
+            json_out(dst, portable_value(json.loads(src.read_text(encoding="utf-8"))))
+        else:
+            dst.write_bytes(src.read_bytes())
+        paths[src.resolve()] = dst
+        records.append({"workspace_source": src.relative_to(WORKSPACE).as_posix(),
+                        "repository_export": dst.relative_to(REPO).as_posix(),
+                        "source_sha256": sha(src), "export_sha256": sha(dst)})
+
+    for name in REPORTS:
+        src = WORKSPACE / name
+        if src.is_file():
+            paths[src.resolve()] = docs / name
+    paths[(WORKSPACE / "report.tex").resolve()] = REPO / "docs/paper_archive/2026-10-05-pre-exploration/report.tex"
+    runs = WORKSPACE / "publication_runs"
+    for run in sorted(runs.iterdir()):
+        if run.is_dir() and (run / "test_metrics.json").is_file():
+            for name in sorted(RUN_FILES):
+                copy(run / name, results / run.name / name)
+    for name in EXTRA_FILES:
+        copy(runs / name, results / name)
+
+    local_only = set()
+    for name in REPORTS:
+        src = WORKSPACE / name
+        if not src.is_file():
+            continue
+        dest = docs / name
+
+        def link(match):
+            label, raw = match.groups()
+            if re.match(r"(?:https?://|mailto:|#)", raw):
+                return match.group(0)
+            location, sep, fragment = raw.partition("#")
+            candidate = (WORKSPACE / location.replace("\\", "/")).resolve()
+            mapped = paths.get(candidate)
+            if mapped is None and candidate.is_relative_to(REPO) and candidate.exists():
+                mapped = candidate
+            if mapped:
+                relative = Path(os.path.relpath(mapped, dest.parent)).as_posix()
+                return f"[{label}]({relative}{sep}{fragment})"
+            local_only.add(location)
+            return f"{label} (local workspace evidence: `{location}`)"
+
+        text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, src.read_text(encoding="utf-8"))
+        dest.write_text(portable_text(text), encoding="utf-8")
+        records.append({"workspace_source": name, "repository_export": dest.relative_to(REPO).as_posix(),
+                        "source_sha256": sha(src), "export_sha256": sha(dest)})
+    json_out(results / "export_manifest.json", {"scope": "Selected derived development evidence, not raw recordings or full run bundles",
+             "transformations": "JSON absolute workspace paths redacted; review links made portable. Source/export hashes are distinct where transformed.",
+             "excluded": "Raw EEG, window caches, checkpoints, local dependencies, credentials, full third-party source copies",
+             "files": records, "local_only_references": sorted(local_only)})
+    (results / "README.md").write_text(
+        "# Development evidence\n\n"
+        "Selected metrics, configurations, trial-level predictions, diagnostic figures, provenance checks and plans "
+        "are exported from the local research workspace. All runs here are exploratory; several are explicitly capped pilots. "
+        "Previously inspected test cohorts must not be presented as untouched confirmatory evidence.\n\n"
+        "[Export manifest](export_manifest.json) records source and exported hashes. Local paths and report links are "
+        "made portable. Checkpoints, raw EEG, full caches, and downloaded third-party sources are excluded. "
+        "Local verification records document completed checks; exact checkpoint replay also requires the retained local "
+        "run bundle. Reproduce training with the maintained CLI and separately obtained datasets.\n", encoding="utf-8")
+    print(json.dumps({"exported_files": len(records), "local_only_references": len(local_only)}))
+
+
+if __name__ == "__main__":
+    parser = ArgumentParser(description=__doc__)
+    parser.parse_args()
+    export()

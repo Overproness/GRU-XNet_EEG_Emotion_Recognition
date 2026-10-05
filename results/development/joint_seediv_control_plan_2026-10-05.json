@@ -1,0 +1,17 @@
+{
+  "stage": "Exploratory follow-up after native-control findings; no adopted research-question change",
+  "question": "Does adding DEAP and GAMEEMO training data help SEED-IV binary recognition under otherwise matched trial-feature controls?",
+  "target": "SEED-IV binary, same five predeclared 9/3/3 subject folds as the native-label diagnostic",
+  "sources": "DEAP and GAMEEMO training participants only from the original seed-42 subject split; their validation/test participants are excluded from all fitting and selection",
+  "models": [
+    "SEED-IV only",
+    "Joint training with one global training-fitted scaler",
+    "Joint training with separate training-fitted scalers for each dataset"
+  ],
+  "common_features": "Named common 14 electrodes; same four-band mean-window-log-power trial features; originals only; existing source-corrected cache",
+  "training": "Class-balanced logistic regression; pooled models also give equal total weight to each dataset; same C candidates [0.01,0.1,1,10]",
+  "selection": "SEED-IV validation trial balanced accuracy only; ties smallest C; no held-out thresholds or calibration",
+  "evaluation": "Previously inspected SEED-IV development folds; same test trials in every comparison; 0.5 decision threshold",
+  "purpose": "Diagnose potential benefit or negative transfer from pooling before selecting a paper contribution",
+  "limitations": "Classical trial features do not establish behavior of neural architectures. Source-specific scaling uses available training participants from all three known datasets, not zero-shot transfer. Source weights and training sample count are declared; semantics, acquisition differences and dataset size cannot be disentangled from the pooling comparison alone."
+}

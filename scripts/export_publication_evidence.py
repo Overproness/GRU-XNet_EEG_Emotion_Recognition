@@ -24,6 +24,7 @@ RUN_FILES = {
 }
 EXTRA_FILES = [
     "deap_control_plan_2026-10-05.json", "exploration_plan_2026-10-05.json",
+    "joint_seediv_control_plan_2026-10-05.json",
     "deap32_cache_consistency.json", "cache_common14/prepared.json", "cache_deap32/prepared.json",
     "provenance/upstream_full_integrity_comparison.json", "provenance/upstream_sample_comparison.json",
     "provenance/deap_change_summary.json", "provenance/existing_cache_binding.json",
@@ -34,6 +35,12 @@ EXTRA_FILES = [
     "native_seediv_diagnostic/comparison.json", "native_seediv_diagnostic/folds.json",
     "native_seediv_diagnostic/config.json", "native_seediv_diagnostic/trial_predictions.csv",
     "native_seediv_diagnostic/verification.json",
+    "native_seediv_diagnostic/reproduction.json", "native_seediv_diagnostic/comparison.png",
+    "cache_native_seediv_features/prepared.json",
+    "joint_seediv_diagnostic/config.json", "joint_seediv_diagnostic/comparison.json",
+    "joint_seediv_diagnostic/folds.json", "joint_seediv_diagnostic/trial_predictions.csv",
+    "joint_seediv_diagnostic/verification.json", "joint_seediv_diagnostic/reproduction.json",
+    "joint_seediv_diagnostic/paired_comparison.json",
 ]
 
 

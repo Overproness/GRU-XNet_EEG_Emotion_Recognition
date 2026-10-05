@@ -136,13 +136,39 @@ python -m gruxnet verify-deap-control --run ../publication_runs/deap_eegnet32_tr
 
 Existing output paths are immutable; choose fresh names to run another experiment. The predeclared control uses 22/5/5 disjoint participants, Adam at a fixed learning rate of 0.001, no augmentation, class/trial-balanced sampling, and a maximum of 100 epochs. Early stopping cannot occur before epoch 25. Checkpoints maximize validation trial balanced accuracy; ties select lower class-balanced validation trial log loss. Test inference follows final checkpoint selection. History includes training-only probe results, gradients, and validation probability spread/class counts. Verification refits the training-only scaler, checks the exact partition and cached arrays, reconstructs checkpoint selection, and reproduces test predictions/metrics.
 
-The workspace run completed **28 epochs**, selected **epoch 13**, and obtained **66.91% training / 56.07% validation / 46.25% test trial balanced accuracy**. Test AUROC is 0.5007, and the subject-bootstrap interval includes chance. Four of five test participants receive a constant class prediction. The training-only scaler, exact participant split, validation checkpoint selection, all 3,000 test probabilities, and all metrics reproduce. See [the control report](../GRU-XNet_DEAP_Control_2026-10-05.md) for the evidence, plots, and interpretation.
+The workspace run completed **28 epochs**, selected **epoch 13**, and obtained **66.91% training / 56.07% validation / 46.25% test trial balanced accuracy**. Test AUROC is 0.5007, and the subject-bootstrap interval includes chance. Four of five test participants receive a constant class prediction. The training-only scaler, exact participant split, validation checkpoint selection, all 3,000 test probabilities, and all metrics reproduce. See [the control report](docs/publication/GRU-XNet_DEAP_Control_2026-10-05.md) for the evidence, plots, and interpretation.
 
 `--normalization window` supports a separately declared, same-model normalization comparison. That additional comparison is not part of the initial one-run plan. The DEAP-only control changes architecture, montage, representation, normalization, and budget together, so its outcome alone cannot attribute a difference specifically to normalization. Its held-out cohort was already inspected in earlier development work; keep its results labeled development evidence.
 
+## Completed exploratory controls
+
+The separately declared matched normalization run completes 25 epochs, selects epoch 4, and gives 46.67% test trial balanced accuracy / AUROC 0.4433. All 3,000 probabilities and validation selection reproduce. The matched change is +0.42 percentage points; its paired subject interval includes zero. This does not resolve DEAP generalization.
+
+```powershell
+python -m gruxnet train-deap-control --cache ../publication_runs/cache_deap32 --output ../publication_runs/deap_eegnet32_windownorm_seed42 --normalization window --epochs 100 --minimum-epochs 25 --patience 15 --batch-size 32 --seed 42 --learning-rate 0.001 --device cuda
+python -m gruxnet verify-deap-control --run ../publication_runs/deap_eegnet32_windownorm_seed42
+python scripts/describe_deap_control.py --run ../publication_runs/deap_eegnet32_windownorm_seed42
+python scripts/compare_deap_normalization.py --reference ../publication_runs/deap_eegnet32_trainchannel_seed42 --alternative ../publication_runs/deap_eegnet32_windownorm_seed42
+```
+
+The native SEED-IV diagnostic uses all 62 electrodes, all four classes, and five fixed 9/3/3 participant rotations. It also evaluates the existing binary label policy and named common-14 electrodes on those folds. Training-only standardized mean-window-log-bandpower features and validation-selected logistic regression give 36.11% / 36.85% four-class balanced accuracy with 62 / 14 electrodes (25% chance); binary gives 63.89% / 67.13% (50% chance). Targets have different trial populations and cannot be compared through raw accuracy.
+
+```powershell
+python scripts/native_seediv_diagnostic.py prepare --data-root ../emotion-recognition-eeg-datasets --cache ../publication_runs/cache_native_seediv_features
+python scripts/native_seediv_diagnostic.py run --cache ../publication_runs/cache_native_seediv_features --output ../publication_runs/native_seediv_diagnostic
+python scripts/verify_native_seediv_diagnostic.py --cache ../publication_runs/cache_native_seediv_features --common-cache ../publication_runs/cache_common14 --output ../publication_runs/native_seediv_diagnostic
+python scripts/joint_seediv_diagnostic.py --native-cache ../publication_runs/cache_native_seediv_features --common-cache ../publication_runs/cache_common14 --output ../publication_runs/joint_seediv_diagnostic
+python scripts/verify_joint_seediv_diagnostic.py --output ../publication_runs/joint_seediv_diagnostic
+python scripts/plot_exploration.py
+```
+
+The pooling control adds only original DEAP/GAMEEMO training participants while retaining the same SEED-IV features, target folds, C candidates and validation subjects. Joint training gives 60.93% (global training scaler) or 60.56% (separate training-only dataset scalers), versus 67.13% target-only. All 140 validation candidates across native/pooling controls and all 6,210 held-out prediction rows reproduce. Common-14 feature values agree exactly with the independently retained waveform cache for all 810 nonneutral SEED-IV trials. [Detailed findings and limitations](docs/publication/GRU-XNet_Exploration_Findings_2026-10-05.md).
+
+These remain exploratory classical controls. They do not establish neural negative transfer, its cause, unseen-dataset performance, or a novel method. Checkpoint selection uses validation; previously inspected test cohorts remain development evidence. The author has approved exploration, **not adoption of a new question**.
+
 ## Planned comparisons
 
-The workspace [GitHub configuration review](../GRU-XNet_GitHub_Configuration_Review_2026-10-05.md) inspects TSception, LibEER, TorchEEG, EEGain, and DeepVANet at fixed commits. It documents preprocessing, optimizer settings, training budgets, label boundaries, and actual split implementations. The DEAP-only EEGNet control above implements its initial raw-EEG/training-fitted-normalization recommendation; separate matched normalization and architecture ablations remain outstanding. Keep existing recovered labels and completed run artifacts unchanged; repository configurations do not replace first-party DEAP authentication.
+The [GitHub configuration review](docs/publication/GRU-XNet_GitHub_Configuration_Review_2026-10-05.md) inspects TSception, LibEER, TorchEEG, EEGain, and DeepVANet at fixed commits. It documents preprocessing, optimizer settings, training budgets, label boundaries, and actual split implementations. The DEAP-only EEGNet control and matched normalization diagnostic are complete; matched neural architecture ablations remain outstanding. Keep existing recovered labels and completed run artifacts unchanged; repository configurations do not replace first-party DEAP authentication.
 
 Use the same predeclared subject folds and training budget for every variant:
 

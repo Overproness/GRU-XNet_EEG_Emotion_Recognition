@@ -1,0 +1,38 @@
+{
+  "created_utc": "2026-10-05T15:45:07.591863+00:00",
+  "development_only": true,
+  "research_question_change_approved": false,
+  "cache_fingerprint": "3442d8ac73a57db69f4b9a56a8f32430b380347dc1224d22e4ff65e196e8f28b",
+  "seed": 42,
+  "models": "Trial-level log-bandpower multinomial logistic regression",
+  "C_values": [
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "folds": "Five fixed rotations: 9 train / 3 validation / 3 test participants",
+  "selection": "Maximum validation balanced accuracy; ties select first (smallest) C",
+  "scaler": "Training trial features only; validation/test never refitted",
+  "source_sha256": "a0516346d73c4924f28e558c95cafbc8288026c16b2b763911e29949e5a79eca",
+  "classes": {
+    "native4": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "binary": [
+      0,
+      1
+    ]
+  },
+  "native_class_order": [
+    "neutral",
+    "sad",
+    "fear",
+    "happy"
+  ],
+  "evaluation_unit": "original trial",
+  "caveats": "Different targets have different chance levels and trial counts; this diagnostic is not neural baseline reproduction, transfer evidence, or a new contribution"
+}

@@ -19,6 +19,8 @@ The course-project scripts, pretrained model, paper PDF, and scores below are hi
 
 Joint training on all three datasets is the historical research question. Alternative questions may be explored; adopting one requires showing the findings and receiving the author's approval. The [readiness record](docs/publication/GRU-XNet_Publication_Readiness_2026-10-05.md) tracks unresolved concerns. The completed [DEAP-only learning control](docs/publication/GRU-XNet_DEAP_Control_2026-10-05.md) is a diagnostic: raw EEGNet with training-only normalization reaches 46.25% held-out trial balanced accuracy, so this configuration supplies no reliable generalization gain. Its source, normalization, partitions, and predictions were verified using the commands in PUBLICATION.md. The [archived manuscript](docs/paper_archive/2026-10-05-pre-exploration/README.md) preserves the current source for backtracking.
 
+**Exploratory findings:** matched per-window normalization gives 46.67% DEAP balanced accuracy, also near chance. A five-fold SEED-IV classical control reaches 67.13% binary trial balanced accuracy with 14 electrodes; adding DEAP/GAMEEMO training data lowers it to 60.93%. These controls motivate investigating negative transfer, while a neural comparison and a new contribution remain unproven. [Findings, limitations and next decisions](docs/publication/GRU-XNet_Exploration_Findings_2026-10-05.md). The maintained test suite has 24 passing tests.
+
 ## Authors
 
 **Muhammad Wasif Shakeel** - [GitHub](https://github.com/mwasifshkeel)  

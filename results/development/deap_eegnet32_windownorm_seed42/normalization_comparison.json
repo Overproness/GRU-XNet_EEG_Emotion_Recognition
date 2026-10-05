@@ -1,0 +1,304 @@
+{
+  "development_only": true,
+  "research_question_change_approved": false,
+  "fixed_settings_verified": [
+    "cache_fingerprint",
+    "model",
+    "parameters",
+    "seed",
+    "epochs",
+    "minimum_epochs",
+    "patience",
+    "batch_size",
+    "optimizer",
+    "scheduler",
+    "augment",
+    "amp",
+    "selection",
+    "early_stopping",
+    "protocol",
+    "sampler",
+    "selected_split_sha256",
+    "prepared_config"
+  ],
+  "evaluation_source_hashes_equal": true,
+  "single_configured_difference": "train-channel versus per-window per-electrode normalization",
+  "realized_budget": "Identical stopping/selection policies, different realized stopping epochs and selected checkpoints",
+  "runs": [
+    {
+      "run": "deap_eegnet32_trainchannel_seed42",
+      "normalization": "train-channel",
+      "best_epoch": 13,
+      "epochs_completed": 28,
+      "train_trial": {
+        "n": 865,
+        "class_counts": [
+          403,
+          462
+        ],
+        "accuracy": 0.6624277456647398,
+        "balanced_accuracy": 0.6690889755405884,
+        "macro_f1": 0.6615116590726347,
+        "auroc": 0.7445404058307283,
+        "confusion_matrix": [
+          [
+            309,
+            94
+          ],
+          [
+            198,
+            264
+          ]
+        ]
+      },
+      "validation_trial": {
+        "n": 199,
+        "class_counts": [
+          73,
+          126
+        ],
+        "accuracy": 0.5276381909547738,
+        "balanced_accuracy": 0.5607197216786257,
+        "macro_f1": 0.5273398019001414,
+        "auroc": 0.570884974994564,
+        "confusion_matrix": [
+          [
+            50,
+            23
+          ],
+          [
+            71,
+            55
+          ]
+        ]
+      },
+      "test_trial": {
+        "n": 200,
+        "class_counts": [
+          80,
+          120
+        ],
+        "accuracy": 0.445,
+        "balanced_accuracy": 0.4625,
+        "macro_f1": 0.4449861246531164,
+        "auroc": 0.5007291666666667,
+        "confusion_matrix": [
+          [
+            44,
+            36
+          ],
+          [
+            75,
+            45
+          ]
+        ]
+      },
+      "test_subject_constant_predictions": 4,
+      "test_subjects": [
+        {
+          "subject_id": "DEAP:S08",
+          "trials": 40,
+          "negative_trials": 18,
+          "positive_trials": 22,
+          "accuracy": 0.425,
+          "balanced_accuracy": 0.4722222222222222,
+          "auroc": 0.643939393939394,
+          "predicted_negative_trials": 39,
+          "predicted_positive_trials": 1,
+          "constant_prediction": false
+        },
+        {
+          "subject_id": "DEAP:S20",
+          "trials": 40,
+          "negative_trials": 17,
+          "positive_trials": 23,
+          "accuracy": 0.425,
+          "balanced_accuracy": 0.5,
+          "auroc": 0.8081841432225063,
+          "predicted_negative_trials": 40,
+          "predicted_positive_trials": 0,
+          "constant_prediction": true
+        },
+        {
+          "subject_id": "DEAP:S27",
+          "trials": 40,
+          "negative_trials": 10,
+          "positive_trials": 30,
+          "accuracy": 0.25,
+          "balanced_accuracy": 0.5,
+          "auroc": 0.3399999999999999,
+          "predicted_negative_trials": 40,
+          "predicted_positive_trials": 0,
+          "constant_prediction": true
+        },
+        {
+          "subject_id": "DEAP:S28",
+          "trials": 40,
+          "negative_trials": 15,
+          "positive_trials": 25,
+          "accuracy": 0.625,
+          "balanced_accuracy": 0.5,
+          "auroc": 0.8026666666666666,
+          "predicted_negative_trials": 0,
+          "predicted_positive_trials": 40,
+          "constant_prediction": true
+        },
+        {
+          "subject_id": "DEAP:S32",
+          "trials": 40,
+          "negative_trials": 20,
+          "positive_trials": 20,
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "auroc": 0.4225,
+          "predicted_negative_trials": 0,
+          "predicted_positive_trials": 40,
+          "constant_prediction": true
+        }
+      ],
+      "test_metrics_sha256": "d9a4373fa0bd138a0c3f7ccbdf3028a6651d5b57a2abce0fd5792c3f0e9ed575"
+    },
+    {
+      "run": "deap_eegnet32_windownorm_seed42",
+      "normalization": "window",
+      "best_epoch": 4,
+      "epochs_completed": 25,
+      "train_trial": {
+        "n": 865,
+        "class_counts": [
+          403,
+          462
+        ],
+        "accuracy": 0.6601156069364161,
+        "balanced_accuracy": 0.656625632432084,
+        "macro_f1": 0.6569571692188158,
+        "auroc": 0.7177983307015564,
+        "confusion_matrix": [
+          [
+            244,
+            159
+          ],
+          [
+            135,
+            327
+          ]
+        ]
+      },
+      "validation_trial": {
+        "n": 199,
+        "class_counts": [
+          73,
+          126
+        ],
+        "accuracy": 0.49748743718592964,
+        "balanced_accuracy": 0.568601869971733,
+        "macro_f1": 0.4906838656838657,
+        "auroc": 0.5630571863448576,
+        "confusion_matrix": [
+          [
+            61,
+            12
+          ],
+          [
+            88,
+            38
+          ]
+        ]
+      },
+      "test_trial": {
+        "n": 200,
+        "class_counts": [
+          80,
+          120
+        ],
+        "accuracy": 0.465,
+        "balanced_accuracy": 0.4666666666666667,
+        "macro_f1": 0.4611064944222004,
+        "auroc": 0.4433333333333333,
+        "confusion_matrix": [
+          [
+            38,
+            42
+          ],
+          [
+            65,
+            55
+          ]
+        ]
+      },
+      "test_subject_constant_predictions": 2,
+      "test_subjects": [
+        {
+          "subject_id": "DEAP:S08",
+          "trials": 40,
+          "negative_trials": 18,
+          "positive_trials": 22,
+          "accuracy": 0.55,
+          "balanced_accuracy": 0.5555555555555556,
+          "auroc": 0.553030303030303,
+          "predicted_negative_trials": 22,
+          "predicted_positive_trials": 18,
+          "constant_prediction": false
+        },
+        {
+          "subject_id": "DEAP:S20",
+          "trials": 40,
+          "negative_trials": 17,
+          "positive_trials": 23,
+          "accuracy": 0.625,
+          "balanced_accuracy": 0.5588235294117647,
+          "auroc": 0.7877237851662403,
+          "predicted_negative_trials": 2,
+          "predicted_positive_trials": 38,
+          "constant_prediction": false
+        },
+        {
+          "subject_id": "DEAP:S27",
+          "trials": 40,
+          "negative_trials": 10,
+          "positive_trials": 30,
+          "accuracy": 0.275,
+          "balanced_accuracy": 0.5166666666666667,
+          "auroc": 0.3666666666666667,
+          "predicted_negative_trials": 39,
+          "predicted_positive_trials": 1,
+          "constant_prediction": false
+        },
+        {
+          "subject_id": "DEAP:S28",
+          "trials": 40,
+          "negative_trials": 15,
+          "positive_trials": 25,
+          "accuracy": 0.375,
+          "balanced_accuracy": 0.5,
+          "auroc": 0.416,
+          "predicted_negative_trials": 40,
+          "predicted_positive_trials": 0,
+          "constant_prediction": true
+        },
+        {
+          "subject_id": "DEAP:S32",
+          "trials": 40,
+          "negative_trials": 20,
+          "positive_trials": 20,
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "auroc": 0.6224999999999999,
+          "predicted_negative_trials": 0,
+          "predicted_positive_trials": 40,
+          "constant_prediction": true
+        }
+      ],
+      "test_metrics_sha256": "e3c44417211f1852435f78a623604a2c58961c60361ba02bda23177dc9fd37b4"
+    }
+  ],
+  "paired_test_balanced_accuracy_difference": 0.004166666666666652,
+  "paired_subject_bootstrap_percentile_95": [
+    -0.037743506493506496,
+    0.0755620526262728
+  ],
+  "bootstrap_draws": 3125,
+  "bootstrap_method": "Exact enumeration of equally weighted five-subject resampling draws; pooled trial BA in each draw",
+  "limitations": "Only one training seed and five test subjects. Previously inspected development test cohort. No test-based calibration. Does not establish equivalence, statistical superiority, cause of all failures, or publication novelty.",
+  "interpretation": "Neither normalization has useful held-out discrimination; changing normalization alone did not resolve generalization on this development cohort"
+}

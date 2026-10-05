@@ -1,0 +1,71 @@
+{
+  "development_only": true,
+  "research_question_change_approved": false,
+  "source_sha256": "14227804e3a420411d1603d2f82b188711739165cf3dcbe19678f09214b03612",
+  "native_cache_fingerprint": "3442d8ac73a57db69f4b9a56a8f32430b380347dc1224d22e4ff65e196e8f28b",
+  "common_cache_fingerprint": "4065723d1804c04582ed0f6c65c4c22981b8dd18676043b3a5c12b0cd3bc07dd",
+  "C_values": [
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "target_validation": "SEED-IV validation subjects only; ties choose smallest C",
+  "external_sources": {
+    "DEAP": {
+      "subjects": [
+        "DEAP:S01",
+        "DEAP:S02",
+        "DEAP:S03",
+        "DEAP:S04",
+        "DEAP:S05",
+        "DEAP:S07",
+        "DEAP:S09",
+        "DEAP:S10",
+        "DEAP:S12",
+        "DEAP:S13",
+        "DEAP:S14",
+        "DEAP:S15",
+        "DEAP:S16",
+        "DEAP:S17",
+        "DEAP:S18",
+        "DEAP:S21",
+        "DEAP:S22",
+        "DEAP:S24",
+        "DEAP:S25",
+        "DEAP:S26",
+        "DEAP:S30",
+        "DEAP:S31"
+      ],
+      "trials": 865
+    },
+    "GAMEEMO": {
+      "subjects": [
+        "GAMEEMO:S01",
+        "GAMEEMO:S03",
+        "GAMEEMO:S04",
+        "GAMEEMO:S05",
+        "GAMEEMO:S08",
+        "GAMEEMO:S10",
+        "GAMEEMO:S13",
+        "GAMEEMO:S14",
+        "GAMEEMO:S15",
+        "GAMEEMO:S16",
+        "GAMEEMO:S17",
+        "GAMEEMO:S18",
+        "GAMEEMO:S19",
+        "GAMEEMO:S20",
+        "GAMEEMO:S21",
+        "GAMEEMO:S22",
+        "GAMEEMO:S24",
+        "GAMEEMO:S26",
+        "GAMEEMO:S27",
+        "GAMEEMO:S28"
+      ],
+      "trials": 71
+    }
+  },
+  "weights": "Equal datasets, then equal classes, then equal original trials; total sample weights normalized to number of training trials",
+  "scaler": "Unweighted original training trials only; global or separate per dataset; validation/test never fitted",
+  "caveats": "Pooling changes training count/domain and label source together; not a causal test of label semantics or neural-model transfer"
+}

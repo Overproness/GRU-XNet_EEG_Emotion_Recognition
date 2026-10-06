@@ -1,0 +1,223 @@
+{
+  "id": "memorization_deap_eegnet_1_42_unexposed_0.001_permuted",
+  "job": {
+    "kind": "memorization",
+    "dataset": "DEAP",
+    "model": "eegnet",
+    "group": 1,
+    "initialization": 42,
+    "arm": "unexposed",
+    "lr": 0.001,
+    "label_mode": "permuted",
+    "updates": 400
+  },
+  "config_sha256": "ff5b522f080951b7f7e6c75c1775840fcd227f2de37d53803c918d3e0cebffc3",
+  "input_fingerprint": "56ffb48039d4d2e40f86b1a61697a90b499acea35253c0e7a47ada8134382626",
+  "initial_state_digest": "23b2ffe375c2b1468230e72f66af655ee250c4b7e55e84028fdf19295c918ca5",
+  "canonical_draw_signature": "15b4f02d11334787166325509897c410887bc60cbddc71ad33047061fc3faeff",
+  "batch_digest": "15b4f02d11334787166325509897c410887bc60cbddc71ad33047061fc3faeff",
+  "split_trials": {
+    "test": [
+      "DEAP:S01:T02",
+      "DEAP:S01:T10",
+      "DEAP:S01:T14",
+      "DEAP:S01:T17",
+      "DEAP:S01:T20",
+      "DEAP:S01:T21",
+      "DEAP:S01:T37",
+      "DEAP:S01:T38",
+      "DEAP:S20:T02",
+      "DEAP:S20:T10",
+      "DEAP:S20:T14",
+      "DEAP:S20:T17",
+      "DEAP:S20:T20",
+      "DEAP:S20:T21",
+      "DEAP:S20:T37",
+      "DEAP:S20:T38",
+      "DEAP:S23:T02",
+      "DEAP:S23:T10",
+      "DEAP:S23:T14",
+      "DEAP:S23:T17",
+      "DEAP:S23:T20",
+      "DEAP:S23:T21",
+      "DEAP:S23:T37",
+      "DEAP:S23:T38",
+      "DEAP:S31:T02",
+      "DEAP:S31:T10",
+      "DEAP:S31:T14",
+      "DEAP:S31:T17",
+      "DEAP:S31:T20",
+      "DEAP:S31:T21",
+      "DEAP:S31:T37",
+      "DEAP:S31:T38"
+    ],
+    "validation": [],
+    "train": [
+      "DEAP:S08:T30",
+      "DEAP:S28:T28",
+      "DEAP:S17:T13",
+      "DEAP:S09:T22",
+      "DEAP:S16:T29",
+      "DEAP:S06:T29",
+      "DEAP:S08:T15",
+      "DEAP:S29:T19",
+      "DEAP:S10:T24",
+      "DEAP:S14:T07",
+      "DEAP:S06:T09",
+      "DEAP:S11:T19"
+    ]
+  },
+  "split_digest": "5dba3d6cf0fc01a210c6c4c488c4e418626b1151b8a1a26bbb071746ed426662",
+  "model_accessed_trials": [
+    "DEAP:S06:T09",
+    "DEAP:S06:T29",
+    "DEAP:S08:T15",
+    "DEAP:S08:T30",
+    "DEAP:S09:T22",
+    "DEAP:S10:T24",
+    "DEAP:S11:T19",
+    "DEAP:S14:T07",
+    "DEAP:S16:T29",
+    "DEAP:S17:T13",
+    "DEAP:S28:T28",
+    "DEAP:S29:T19"
+  ],
+  "targets_digest": "4cce07a25c271e74da8be48f3eac9ad71e7fafa63db542b8b518d8d60faebc3f",
+  "pretraining": {
+    "binary": {
+      "n": 12,
+      "accuracy": 0.5833333333333334,
+      "balanced_accuracy": 0.5833333333333333,
+      "macro_f1": 0.5804195804195804,
+      "balanced_log_loss": 0.6884662508964539,
+      "confusion_matrix": [
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    }
+  },
+  "selected_step": 400,
+  "selected_checkpoint": "final.pt",
+  "selected_state_digest": "a10b5fe9ea621493d5985ce88d18f7c5158bdeb767bf4a649928a90327ae957c",
+  "final_state_digest": "a10b5fe9ea621493d5985ce88d18f7c5158bdeb767bf4a649928a90327ae957c",
+  "checkpoints": {
+    "200": {
+      "state_digest": "7ef786d10a02db17f6e168ac73f9ceeff22687981f546c2cbebdb9f54421e1a1",
+      "training": {
+        "binary": {
+          "n": 12,
+          "accuracy": 0.75,
+          "balanced_accuracy": 0.75,
+          "macro_f1": 0.7333333333333334,
+          "balanced_log_loss": 0.35346370935440063,
+          "confusion_matrix": [
+            [
+              3,
+              3
+            ],
+            [
+              0,
+              6
+            ]
+          ]
+        }
+      },
+      "validation": null
+    },
+    "400": {
+      "state_digest": "a10b5fe9ea621493d5985ce88d18f7c5158bdeb767bf4a649928a90327ae957c",
+      "training": {
+        "binary": {
+          "n": 12,
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "macro_f1": 1.0,
+          "balanced_log_loss": 0.006284382194280624,
+          "confusion_matrix": [
+            [
+              6,
+              0
+            ],
+            [
+              0,
+              6
+            ]
+          ]
+        }
+      },
+      "validation": null
+    }
+  },
+  "gradient_checks": [
+    {
+      "step": 1,
+      "before_clip_L2": {
+        "temporal": 1.3763227169495555,
+        "bn1": 0.0010477494980087798,
+        "spatial": 1.1161492064486307,
+        "bn2": 0.1982501033085774,
+        "depthwise": 1.2069765837799131,
+        "pointwise": 0.45130289330458406,
+        "bn3": 0.2729221187233826,
+        "head": 3.6266461588740975
+      }
+    },
+    {
+      "step": 10,
+      "before_clip_L2": {
+        "temporal": 0.16520074678017277,
+        "bn1": 0.0001840600415712367,
+        "spatial": 0.2484241455015635,
+        "bn2": 0.05201066530702908,
+        "depthwise": 0.29044861568295716,
+        "pointwise": 0.0785682946374925,
+        "bn3": 0.06244269273206461,
+        "head": 1.9663323581203584
+      }
+    },
+    {
+      "step": 200,
+      "before_clip_L2": {
+        "temporal": 0.0019727836087691034,
+        "bn1": 4.2591236000103174e-05,
+        "spatial": 0.004394477025995566,
+        "bn2": 0.0010189258081788706,
+        "depthwise": 0.0025334731120246587,
+        "pointwise": 0.0012406052974343836,
+        "bn3": 0.0010517480469260988,
+        "head": 0.016302126293651017
+      }
+    },
+    {
+      "step": 400,
+      "before_clip_L2": {
+        "temporal": 0.001205557409699205,
+        "bn1": 2.3945656037285028e-05,
+        "spatial": 0.005135067127592782,
+        "bn2": 0.0006235988000199203,
+        "depthwise": 0.001252273881013678,
+        "pointwise": 0.0006889762948473912,
+        "bn3": 0.000558288600389657,
+        "head": 0.010085074437745697
+      }
+    }
+  ],
+  "prior_prefix_replay": null,
+  "parameters": 6450,
+  "elapsed_seconds": 6.908530900022015,
+  "peak_allocated_cuda_bytes": 161433088,
+  "memorization_criterion_met": true,
+  "artifact_sha256": {
+    "predictions_train_step200.csv": "01f0c2bc122cc5a20cfdbb1357c8e9fc19a90dca00c8c6e4fc575775c58d0ad4",
+    "predictions_train_step400.csv": "50acd7d6979682301ff21afa623ad59059ed127d281c99d69db39a4d2d657a33",
+    "final.pt": "fc7f7c0a9bbb386b66dbc3edeedc5344487fb4d5879a1b0c4e1580250137665e",
+    "predictions_train_selected.csv": "50acd7d6979682301ff21afa623ad59059ed127d281c99d69db39a4d2d657a33",
+    "history.json": "07d7e3d7982f9f5054c2ec36df931c05e19bbf593f9e1eb939e2f1a65c8c7260"
+  }
+}

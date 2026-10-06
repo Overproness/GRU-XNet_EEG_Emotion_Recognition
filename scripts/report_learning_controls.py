@@ -71,6 +71,7 @@ def report():
                         ax.fill_between(table.index, table['min'], table['max'], color=color, alpha=.07)
                 ax.set_title(f'{NAMES[model]}, learning rate {lr:g}', fontsize=10)
                 ax.set_ylim(0, 103); ax.grid(alpha=.2); ax.axvline(200, color='gray', linewidth=.7, alpha=.6)
+                ax.axhline(100/(3 if dataset == 'SEEDIV' else 2), color='gray', linewidth=.8, linestyle=':', alpha=.7)
                 if col == 0: ax.set_ylabel('Balanced accuracy (%)')
                 if row == 3: ax.set_xlabel('Optimizer updates')
         label = 'SEED-IV (three classes, session 1)' if dataset == 'SEEDIV' else 'DEAP (individual binary valence)'
@@ -79,7 +80,7 @@ def report():
                    for role, color in (('Training', '#3575a9'), ('Validation', '#d27e23'))
                    for arm, style in (('exposed', '-'), ('unexposed', '--'))]
         fig.legend(handles=handles, loc='upper center', bbox_to_anchor=(.5, .975), ncol=2, frameon=False)
-        fig.text(.5, .008, 'Lines: panel means; shading: panel range, without population uncertainty. Validation videos are unseen in both arms.', ha='center', fontsize=9)
+        fig.text(.5, .008, 'Means and panel ranges; dotted: chance reference. Validation videos are unseen in both arms. No population interval.', ha='center', fontsize=9)
         fig.tight_layout(rect=(0, .025, 1, .92)); fig.savefig(output/f'learning_curves_{dataset.lower()}.png', dpi=150); plt.close(fig)
         fig, axes = plt.subplots(1, 2, figsize=(11, 5), sharex=True, sharey=True)
         bdf = pd.DataFrame(differences)
@@ -122,15 +123,22 @@ def report():
               'recalibrated_memorization_criterion_passes': tiny_result['criterion_after'],
               'inference': 'Descriptive source diagnostics; incomplete validation panels, reused cohorts and unequal representation/parameter counts. No held-out test, convergence or population-generalization claim.'}
     write_json(output/'comparison.json', result)
+    key_results = []
+    for dataset in ('SEEDIV', 'DEAP'):
+        score = source[dataset]['gru']['0.0003']
+        key_results.append(f'- {dataset}, GRU at LR 0.0003: mean source training BA {score["mean_train_BA_200"]*100:.2f}% at 200 updates → {score["mean_train_BA_1200"]*100:.2f}% at 1,200; validation {score["mean_val_BA_200"]*100:.2f}% → {score["mean_val_BA_1200"]*100:.2f}%, balanced validation loss {score["mean_val_logloss_200"]:.3f} → {score["mean_val_logloss_1200"]:.3f}. All eight source panels are retained.')
+    key_results.append(f'- Tiny-batch strict capacity checks pass {tiny_result["criterion_before"]}/16 original states and {tiny_result["criterion_after"]}/16 after source-only BatchNorm recalibration, without changing learned weights. Real and shuffled labels are both retained; this establishes capacity/evaluation-state behavior only.')
     text = '''# Source learning, baseline authentication and normalization findings — 6 October 2026
 
 All **96 declared fits** are complete: sixteen tiny-batch memorization checks and eighty source-training/validation trajectories through 1,200 updates. GRU and author-checked EEGNet include both declared groupings and initializations 42/91. Twelve older full-model 200-update prefixes reproduce their exact selected state and complete source-validation history. Final and selected checkpoints are independently replayed. Separately declared **post-hoc** BatchNorm diagnostics cover all 160 selected/final source states and all sixteen tiny-batch final states; every learned parameter is unchanged and every source moment/probability is independently replayed. The scientific-control suite has **71 passing tests**.
+
+'''+ '\n'.join(key_results)+'''
 
 These are source-only development diagnostics. They **do not evaluate outer-test performance** and do not change the manuscript or main research question. SEED-IV uses session 1 / rotation 0 / fold 0, with 108 source-training and 12 validation trials. DEAP uses rotation 0 / fold 0, with 358 (group 1) or 344 (group 2) training and 32 validation trials. Groupings can change validation people/videos; initializations are compared on the same population within each grouping/arm. These are repeated source panels, not new participants or complete OOF confirmation. Previously inspected cohorts remain development cohorts.
 
 ## Fixed-budget source results
 
-All learning rates are retained. BA is a percentage; balanced log loss is lower-is-better. Each entry is an unweighted descriptive panel mean. GRU/EEGNet have eight panels per rate, the local references two; widths, parameter counts and raw versus STFT representations differ. Scores do not form an architecture leaderboard. The 200/600/1,200 points come from the same uninterrupted trajectory, not separate restarts.
+All learning rates are retained. BA is a percentage; balanced log loss is lower-is-better. Uniform-probability loss is 1.099 for SEED-IV and 0.693 for DEAP. A large loss with near-chance accuracy can indicate confident mistakes without identifying their cause. Each entry is an unweighted descriptive panel mean. GRU/EEGNet have eight panels per rate, the local references two; widths, parameter counts and raw versus STFT representations differ. Scores do not form an architecture leaderboard. The 200/600/1,200 points come from the same uninterrupted trajectory, not separate restarts.
 
 | Dataset | Model | LR | Panels | Train BA 200 | Train BA 600 | Train BA 1,200 | Val BA 200 | Val BA 600 | Val BA 1,200 | Val loss 200 | Val loss 1,200 |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|

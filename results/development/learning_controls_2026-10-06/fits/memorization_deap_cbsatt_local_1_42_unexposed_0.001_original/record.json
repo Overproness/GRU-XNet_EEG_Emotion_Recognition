@@ -1,0 +1,207 @@
+{
+  "id": "memorization_deap_cbsatt_local_1_42_unexposed_0.001_original",
+  "job": {
+    "kind": "memorization",
+    "dataset": "DEAP",
+    "model": "cbsatt_local",
+    "group": 1,
+    "initialization": 42,
+    "arm": "unexposed",
+    "lr": 0.001,
+    "label_mode": "original",
+    "updates": 400
+  },
+  "config_sha256": "ff5b522f080951b7f7e6c75c1775840fcd227f2de37d53803c918d3e0cebffc3",
+  "input_fingerprint": "56ffb48039d4d2e40f86b1a61697a90b499acea35253c0e7a47ada8134382626",
+  "initial_state_digest": "5c78562298d69c85b1107e3b80dde7a2864eb27c9bdebe7fc9d39c4ceeb87ab7",
+  "canonical_draw_signature": "15b4f02d11334787166325509897c410887bc60cbddc71ad33047061fc3faeff",
+  "batch_digest": "15b4f02d11334787166325509897c410887bc60cbddc71ad33047061fc3faeff",
+  "split_trials": {
+    "test": [
+      "DEAP:S01:T02",
+      "DEAP:S01:T10",
+      "DEAP:S01:T14",
+      "DEAP:S01:T17",
+      "DEAP:S01:T20",
+      "DEAP:S01:T21",
+      "DEAP:S01:T37",
+      "DEAP:S01:T38",
+      "DEAP:S20:T02",
+      "DEAP:S20:T10",
+      "DEAP:S20:T14",
+      "DEAP:S20:T17",
+      "DEAP:S20:T20",
+      "DEAP:S20:T21",
+      "DEAP:S20:T37",
+      "DEAP:S20:T38",
+      "DEAP:S23:T02",
+      "DEAP:S23:T10",
+      "DEAP:S23:T14",
+      "DEAP:S23:T17",
+      "DEAP:S23:T20",
+      "DEAP:S23:T21",
+      "DEAP:S23:T37",
+      "DEAP:S23:T38",
+      "DEAP:S31:T02",
+      "DEAP:S31:T10",
+      "DEAP:S31:T14",
+      "DEAP:S31:T17",
+      "DEAP:S31:T20",
+      "DEAP:S31:T21",
+      "DEAP:S31:T37",
+      "DEAP:S31:T38"
+    ],
+    "validation": [],
+    "train": [
+      "DEAP:S08:T30",
+      "DEAP:S28:T28",
+      "DEAP:S17:T13",
+      "DEAP:S09:T22",
+      "DEAP:S16:T29",
+      "DEAP:S06:T29",
+      "DEAP:S08:T15",
+      "DEAP:S29:T19",
+      "DEAP:S10:T24",
+      "DEAP:S14:T07",
+      "DEAP:S06:T09",
+      "DEAP:S11:T19"
+    ]
+  },
+  "split_digest": "5dba3d6cf0fc01a210c6c4c488c4e418626b1151b8a1a26bbb071746ed426662",
+  "model_accessed_trials": [
+    "DEAP:S06:T09",
+    "DEAP:S06:T29",
+    "DEAP:S08:T15",
+    "DEAP:S08:T30",
+    "DEAP:S09:T22",
+    "DEAP:S10:T24",
+    "DEAP:S11:T19",
+    "DEAP:S14:T07",
+    "DEAP:S16:T29",
+    "DEAP:S17:T13",
+    "DEAP:S28:T28",
+    "DEAP:S29:T19"
+  ],
+  "targets_digest": "d4c040c1f6e19af7587cb87e0f05bf9ea165b192c059f8ac982496215756ac38",
+  "pretraining": {
+    "binary": {
+      "n": 12,
+      "accuracy": 0.5833333333333334,
+      "balanced_accuracy": 0.5833333333333334,
+      "macro_f1": 0.4957983193277311,
+      "balanced_log_loss": 0.6940271854400635,
+      "confusion_matrix": [
+        [
+          6,
+          0
+        ],
+        [
+          5,
+          1
+        ]
+      ]
+    }
+  },
+  "selected_step": 400,
+  "selected_checkpoint": "final.pt",
+  "selected_state_digest": "cc030ed3c077d33d4a1a20f6b3b081da2090850a578188e701bd3612e3949b9d",
+  "final_state_digest": "cc030ed3c077d33d4a1a20f6b3b081da2090850a578188e701bd3612e3949b9d",
+  "checkpoints": {
+    "200": {
+      "state_digest": "a29891979bea8be576e56140ed963c964867a043c47e2e7c63f21ab414eb1513",
+      "training": {
+        "binary": {
+          "n": 12,
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "macro_f1": 1.0,
+          "balanced_log_loss": 7.351242174991057e-07,
+          "confusion_matrix": [
+            [
+              6,
+              0
+            ],
+            [
+              0,
+              6
+            ]
+          ]
+        }
+      },
+      "validation": null
+    },
+    "400": {
+      "state_digest": "cc030ed3c077d33d4a1a20f6b3b081da2090850a578188e701bd3612e3949b9d",
+      "training": {
+        "binary": {
+          "n": 12,
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "macro_f1": 1.0,
+          "balanced_log_loss": 2.880891543100006e-07,
+          "confusion_matrix": [
+            [
+              6,
+              0
+            ],
+            [
+              0,
+              6
+            ]
+          ]
+        }
+      },
+      "validation": null
+    }
+  },
+  "gradient_checks": [
+    {
+      "step": 1,
+      "before_clip_L2": {
+        "cnn": 3.8105721916908983,
+        "recurrent": 2.3160882072323536,
+        "attention": 1.179199266532439,
+        "head": 2.447146322705777
+      }
+    },
+    {
+      "step": 10,
+      "before_clip_L2": {
+        "cnn": 0.8536449382817146,
+        "recurrent": 1.1087665417151167,
+        "attention": 0.7033320234754353,
+        "head": 1.3680157667008412
+      }
+    },
+    {
+      "step": 200,
+      "before_clip_L2": {
+        "cnn": 0.0003607103297156968,
+        "recurrent": 0.0006035597774657378,
+        "attention": 7.09166765527474e-05,
+        "head": 0.0007108467890459747
+      }
+    },
+    {
+      "step": 400,
+      "before_clip_L2": {
+        "cnn": 7.40332414103669e-05,
+        "recurrent": 0.00011184611865863905,
+        "attention": 4.405209313886671e-05,
+        "head": 0.0001476347933231893
+      }
+    }
+  ],
+  "prior_prefix_replay": null,
+  "parameters": 3568642,
+  "elapsed_seconds": 23.344523100182414,
+  "peak_allocated_cuda_bytes": 454023168,
+  "memorization_criterion_met": true,
+  "artifact_sha256": {
+    "predictions_train_step200.csv": "471ad4d22b6445f0b56b00cac56bd42e61dc39683d9ba662f0c4bba35d972da2",
+    "predictions_train_step400.csv": "5f64c6f0cfc7be14da6b0a23e853c92d7f22a2106bf6e3e6ca52d290eadf40fc",
+    "final.pt": "880c42504436e0974c71ebf5b8a31aebe54889af7fc12cb8bda38f1a9685d4cc",
+    "predictions_train_selected.csv": "5f64c6f0cfc7be14da6b0a23e853c92d7f22a2106bf6e3e6ca52d290eadf40fc",
+    "history.json": "0a09f88e92e0bcc8ab4f07f14e7761c3a883de83c6db94577d687e3056b6e439"
+  }
+}

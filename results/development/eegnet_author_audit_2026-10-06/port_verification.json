@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "author_commit": "4a512e503198db2010848813ead9afbf8cd54c97",
+  "author_source_sha256": "604c7399a2a0e6c90cd8b4cbbc0f78550a3fb5c64b23f311d9c7db44dac94b02",
+  "source_sha256": {
+    "gruxnet/eegnet_control.py": "86938f01d98a16ea656ca8229b0d355aedd3c60c89c26db9bd41d4d7b851c77e",
+    "scripts/audit_eegnet_author_tf.py": "049b6ed6c3dbf1028a887007ba71910b158a68137a62abf0fdad925a274a764a",
+    "scripts/audit_eegnet_control.py": "b5906c3d8704e9655beedcaf4e1b1580f6a0ff5e0c73eaf850767f9386e3acb6"
+  },
+  "forward_absolute_tolerance": 1e-05,
+  "state_constraint_absolute_tolerance": 1e-06,
+  "models": [
+    {
+      "classes": 2,
+      "parameters": 6450,
+      "maximum_errors": {
+        "evaluation": 5.960464477539063e-08,
+        "training": 1.7881393432617188e-07,
+        "batch_normalization:running_mean": 2.3283064365386963e-10,
+        "batch_normalization:running_var": 5.960464477539063e-08,
+        "batch_normalization_1:running_mean": 5.820766091346741e-11,
+        "batch_normalization_1:running_var": 5.960464477539063e-08,
+        "batch_normalization_2:running_mean": 9.313225746154785e-10,
+        "batch_normalization_2:running_var": 0.0,
+        "depthwise_conv2d:constraint": 0.0,
+        "dense:constraint": 7.450580596923828e-09
+      },
+      "array_sha256": "c50a97c035bfbf8a88d132dbf6089c54ee3a58d5b82c10d461296c710a06b371"
+    },
+    {
+      "classes": 3,
+      "parameters": 9011,
+      "maximum_errors": {
+        "evaluation": 5.960464477539063e-08,
+        "training": 1.7881393432617188e-07,
+        "batch_normalization:running_mean": 0.0,
+        "batch_normalization:running_var": 5.960464477539063e-08,
+        "batch_normalization_1:running_mean": 5.820766091346741e-11,
+        "batch_normalization_1:running_var": 2.9802322387695312e-08,
+        "batch_normalization_2:running_mean": 1.862645149230957e-09,
+        "batch_normalization_2:running_var": 0.0,
+        "depthwise_conv2d:constraint": 0.0,
+        "dense:constraint": 7.450580596923828e-09
+      },
+      "array_sha256": "c207e0bc1df3a111efa3d71e818eee6bd594fd555964893cf35c2a69d57685f6"
+    }
+  ],
+  "synthetic_resource_pilot": [
+    {
+      "model": "gru",
+      "seconds_per_synthetic_step": 0.06239326000213623,
+      "peak_allocated_cuda_bytes": 565108736
+    },
+    {
+      "model": "lstm",
+      "seconds_per_synthetic_step": 0.06402440001256764,
+      "peak_allocated_cuda_bytes": 604909568
+    },
+    {
+      "model": "cbsatt_local",
+      "seconds_per_synthetic_step": 0.05753365997225046,
+      "peak_allocated_cuda_bytes": 437850112
+    },
+    {
+      "model": "eegnet",
+      "seconds_per_synthetic_step": 0.012605279963463546,
+      "peak_allocated_cuda_bytes": 161439744
+    }
+  ],
+  "scope": "Executed pinned author function versus weight-mapped port: eval and dropout-zero training outputs, BatchNorm moving-state updates, max-norm constraints and parameter counts. Synthetic-step resource pilot only. Dropout RNG, initial random draws, optimizer paths and published scores are not reproduced."
+}

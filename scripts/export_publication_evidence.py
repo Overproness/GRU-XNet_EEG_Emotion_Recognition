@@ -23,6 +23,8 @@ REPORTS += ["GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md",
 REPORTS += ["GRU-XNet_Repeated_Material_Findings_2026-10-06.md"]
 REPORTS += ["GRU-XNet_Full_Context_Findings_2026-10-06.md"]
 REPORTS += ["GRU-XNet_Context_Alignment_Research_Update_2026-10-06.md"]
+REPORTS += ["GRU-XNet_Learning_Control_Research_Update_2026-10-06.md",
+            "GRU-XNet_Learning_Control_Findings_2026-10-06.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",
@@ -31,6 +33,8 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
+    *[f"eegnet_author_audit_2026-10-06/{name}" for name in ("download_manifest.json", "tensorflow_execution.json", "port_verification.json")],
+    *[f"learning_controls_2026-10-06/{name}" for name in ("plan.json", "config.json", "records.json", "records_seediv.json", "records_deap.json", "waveform_binding_seediv.json", "waveform_binding_deap.json", "verification.json", "public_verification.json", "summary.csv", "comparison.json", "learning_curves_seediv.png", "learning_curves_deap.png")],
     "full_context_public_reanalysis_2026-10-06.json",
     "within_video_alignment_plan_2026-10-06.json",
     *[f"within_video_alignment/{kind}_{dataset}.{ext}" for dataset in ("seediv", "deap") for kind,ext in (("comparison","json"),("verification","json"),("pairs","csv"))],
@@ -218,6 +222,15 @@ def export():
                 copy(run / name, results / run.name / name)
     for name in EXTRA_FILES:
         copy(runs / name, results / name)
+    learning_fits = runs/'learning_controls_2026-10-06/fits'
+    if learning_fits.is_dir():
+        # Explicit scientific artifact allowlist; checkpoints remain local.
+        for folder in sorted(learning_fits.iterdir()):
+            if not folder.is_dir() or not (folder/'record.json').is_file(): continue
+            for name in ('record.json', 'history.json',
+                         *[f'predictions_{part}_step{step}.csv' for part in ('train', 'validation') for step in (200, 400, 600, 1200)],
+                         *[f'predictions_{part}_selected.csv' for part in ('train', 'validation')]):
+                copy(folder/name, results/'learning_controls_2026-10-06/fits'/folder.name/name)
 
     local_only = set()
     for name in REPORTS:

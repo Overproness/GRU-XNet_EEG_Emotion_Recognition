@@ -6,6 +6,26 @@ Joint training on all three datasets is the historical research question. The au
 
 The [publication readiness record](docs/publication/GRU-XNet_Publication_Readiness_2026-10-05.md) distinguishes repaired implementation problems from outstanding scientific evidence. Review reports and selected development artifacts are preserved in `docs/publication/` and `results/development/`. These are development results, not a completed conference study. Raw EEG and full local run directories remain outside Git.
 
+## Full-width/context controls (6 October 2026, running)
+
+The [full protocol](docs/publication/Full_Context_Control_Protocol_2026-10-06.md) freezes one complete participant/video grouping, 680 full-width neural fits and 170 context calibration cells. Training priors exclude all labels from the receiving participant. Four neural models and two context-only controls use identical role assignments, with source-only normalization and validation selection. The 200-update, 12-trial budget is a matched first pass, without a convergence claim. The suite has 60 passing tests.
+
+Revision 1 stopped after 15 completed fits when the local reference's training dropout/pooling order was found to differ. Its source and excluded records are preserved. Revision 2 additionally verifies training dropout placement and restarts every model; do not combine the preflight fits with final results. Independent SciPy checks reproduce all 2,344 input spectrograms exactly. The corrected study uses the original full CNN/recurrent widths with declared common14/40-second input adaptations; it does not reproduce a published CBSAtt score or the historical 95.91% experiment.
+
+For a fresh local study with the preceding verified waveform/feature caches, declare once, prepare both corpora, audit inputs and training-mode model fidelity, and run:
+
+```powershell
+python scripts/full_context_controls_v2.py plan --root ../publication_runs
+python scripts/full_context_controls_v2.py prepare --root ../publication_runs --dataset SEEDIV
+python scripts/full_context_controls_v2.py prepare --root ../publication_runs --dataset DEAP
+python scripts/audit_full_context_inputs.py
+python scripts/audit_full_context_models_v2.py
+python scripts/full_context_controls_v2.py batch --root ../publication_runs
+python scripts/report_full_context.py
+```
+
+Existing declarations and prepared caches are protected. Resume the current study with `batch`; it accepts only hash-matching completed fit records. Once complete, each corpus can be independently checked with `verify --root ../publication_runs --dataset SEEDIV` (or `DEAP`) and recomputed with `analyze`. Full checkpoint replay requires local data and selected weights. The bounded public export excludes both and retains complete probabilities, metric/selection histories, source/input/split hashes, context coefficients and numerical verification records. No manuscript or research-question change follows automatically.
+
 ## Local setup
 
 Run from this repository directory in PowerShell:

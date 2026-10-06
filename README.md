@@ -35,6 +35,10 @@ Joint training on all three datasets is the historical research question. Altern
 
 SEED transformer three-class BA changes from 43.27% shared to 39.07% unseen videos, difference -4.20 pp, crossed interval [-7.39,-1.07]. DEAP transformer binary BA is 52.28% versus 50.66%, difference -1.61 pp, interval [-4.97,+1.73]. All DEAP EEG-model exposure intervals span zero; neither corpus has a clear unseen-video transformer advantage over the MLP. A source-label-only DEAP video prior reaches 77.54% with shared videos and 49.67% unseen, without EEG. This shows contextual label predictability, not a proven neural mechanism. DEAP preparation and full source replay reproduce all 1,264 waveforms/features exactly; first-party signal authentication remains outstanding. The research question/manuscript are unchanged, and full GRU-XNet ablations, unseen-corpus validation and a justified new contribution remain unfinished.
 
+## Full-width EEG and contextual controls (in progress)
+
+The [predeclared protocol](docs/publication/Full_Context_Control_Protocol_2026-10-06.md) compares full-width dynamic GRU-XNet, a matched BiLSTM swap, the local CBSAtt reference and EEG-plus-context on all folds of one fixed SEED-IV/DEAP grouping. A raw video prior and learned context-only calibration test whether EEG adds information beyond source-label context. Training priors exclude the receiving participant's labels. Revision 2 preserves the local reference's pooling-before-dropout training behavior; 15 partial revision-1 fits are recorded as excluded preflight evidence. The suite has **60 passing tests**. The complete 680-fit study is running; results are provisional until selected checkpoints and context candidates have been independently replayed. The manuscript and research question remain unchanged.
+
 ## Authors
 
 **Muhammad Wasif Shakeel** - [GitHub](https://github.com/mwasifshkeel)  

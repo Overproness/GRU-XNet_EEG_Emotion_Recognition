@@ -60,5 +60,14 @@ class FullContextTests(unittest.TestCase):
         with torch.no_grad(): model(torch.randn(2,14,37,79))
         handle.remove(); self.assertEqual(captured,[(2,14*128,1,1)])
 
+    def test_crossed_log_loss_uses_observed_cells_and_class_denominators(self):
+        from gruxnet.full_context_controls_v2 import statistic
+        rows=pd.DataFrame({'subject_id':['a','a','b'],'material_key':['v1','v2','v1'],
+                           'label':[0,1,1],'p_0':[.9,.2,.3],'p_1':[.1,.8,.7]})
+        sw=np.array([[2.,0.],[1.,1.]]); mw=np.array([[1.,1.],[2.,0.]])
+        point,draws=statistic(rows,'DEAP','binary',['a','b'],['v1','v2'],sw,mw,'logloss')
+        self.assertAlmostEqual(point,(-np.log(.9)+(-np.log(.8)-np.log(.7))/2)/2)
+        np.testing.assert_allclose(draws,[(-np.log(.9)-np.log(.8))/2,(-np.log(.9)-np.log(.7))/2],atol=1e-14)
+
 
 if __name__ == '__main__': unittest.main()

@@ -1,0 +1,68 @@
+{
+  "created_utc": "2026-10-06T00:29:59.971032+00:00",
+  "development_only": true,
+  "research_question_change_approved": false,
+  "target": "SEED-IV, all 1080 original trials including neutral",
+  "conditions": [
+    [
+      "mean_mlp",
+      "absolute",
+      "coarse3"
+    ],
+    [
+      "mean_mlp",
+      "absolute",
+      "native4"
+    ],
+    [
+      "mean_mlp",
+      "relative",
+      "coarse3"
+    ],
+    [
+      "mean_mlp",
+      "relative",
+      "native4"
+    ],
+    [
+      "transformer",
+      "absolute",
+      "coarse3"
+    ],
+    [
+      "transformer",
+      "absolute",
+      "native4"
+    ],
+    [
+      "transformer",
+      "relative",
+      "coarse3"
+    ],
+    [
+      "transformer",
+      "relative",
+      "native4"
+    ]
+  ],
+  "initialization_seeds": [
+    42,
+    43,
+    44
+  ],
+  "fold_seed": 42,
+  "folds": "Same five 9 train / 3 validation / 3 test participant rotations as earlier native controls",
+  "observation": "Fixed first 40 seconds (10 four-second bandpower tokens) per trial; full-trial offline filter context retained",
+  "features": "14 common physical electrodes, four half-open bands per channel; absolute ln power or per-window ln fraction of power in the four bands",
+  "normalization": "Per-feature StandardScaler fitted on training trial/windows only, shared across label/architecture arms",
+  "models": "Mean MLP 56->128->86->3/4 vs two-layer 32-wide transformer, four heads, feedforward 64; fixed sinusoidal positions in seconds; mean token pooling; LayerNorm/GELU/dropout .2. Coarse heads: 19079 vs 19075 parameters",
+  "labels": "Coarse3: neutral / negative (sad+fear) / positive (happy); native4: neutral / sad / fear / happy. Identical training trials, 20 draws of each coarse class per batch; native classes intentionally not equally sampled",
+  "initialization": "Same backbone and identical initial grouped probabilities within architecture; native negative rows duplicate coarse row with -ln2 bias. Reset stochastic training RNG after model construction",
+  "optimization": "600 AdamW updates, batch 60, lr .001, weight decay .01, gradient clip 1; deterministic CUDA math SDPA; no AMP/augmentation/scheduler/early stopping",
+  "selection": "Every 25 updates: maximum validation common THREE-class trial BA, then minimum common three-class balanced log loss; first checkpoint for exact ties. Test only after selection",
+  "evaluation": "Primary common THREE-class valence all 1080; secondary binary valence 810 nonneutral via conditional positive/(negative+positive); native four-class is secondary descriptive within native objective",
+  "comparisons": "Paired transformer-minus-MLP, relative-minus-absolute, native-minus-coarse for all factorial strata; mean across three initializations. Participant-block percentile bootstrap 10000 draws seeded 20261006, fixed seeds. No correction: exploratory, multiple comparisons",
+  "linear_controls": "Coarse3 multinomial logistic: absolute/relative prefix mean features and scalar full-trial window-count diagnostic, identical folds; C .01/.1/1/10; class_weight balanced; training-only scaler; validation common three-class BA then balanced log loss; 60 candidate fits. Length-only model demonstrates label-duration association, not proof previous neural models used it",
+  "limitations": "Previously inspected development cohort, one fold grouping, only one corpus, no pooled/unseen-dataset experiment; bandpower transformer is not a foundation model or raw-waveform Conformer reproduction; sampling/loss changed vs earlier binary experiments",
+  "decision_gate": "Show findings before proposing a changed question; archive then-current paper and obtain explicit approval before adopting any change"
+}

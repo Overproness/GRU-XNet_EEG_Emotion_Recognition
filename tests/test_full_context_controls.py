@@ -53,5 +53,12 @@ class FullContextTests(unittest.TestCase):
         z = spectrogram(x); self.assertEqual(tuple(z.shape),(1,14,37,79))
         self.assertGreater(float(z[:,:,:,45:].sum()), float(z[:,:,:,:30].sum()))
 
+    def test_corrected_local_reference_dropout_follows_global_pooling(self):
+        from gruxnet.full_context_models_v2 import FullControl as Corrected
+        model = Corrected('cbsatt_local',2).train(); captured=[]
+        handle=model.cnn.drop.register_forward_pre_hook(lambda _,args: captured.append(tuple(args[0].shape)))
+        with torch.no_grad(): model(torch.randn(2,14,37,79))
+        handle.remove(); self.assertEqual(captured,[(2,14*128,1,1)])
+
 
 if __name__ == '__main__': unittest.main()

@@ -30,6 +30,11 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
+    "full_context_v2_plan_2026-10-06.json", "full_context_v2_model_audit.json",
+    *[f"full_context_seediv_v1_dropout_preflight/{name}" for name in ("EXCLUDED.json", "config.json", "preflight_records.json")],
+    *[f"full_context_v2_{dataset}/{name}" for dataset in ("seediv", "deap") for name in ("config.json", "plan.json", "folds.json", "model_index.json", "context_records.json", "verification.json", "analysis_verification.json", "comparison.json", "diagnostics.csv", "comparison.png", "validation_curves.png", "README.md")],
+    *[f"full_context_v2_{dataset}/metrics_session{session}_rotation{rotation}.json" for dataset,sessions,rotations in (("seediv",(1,2,3),(0,1,2)), ("deap",(1,),(0,1,2,3,4))) for session in sessions for rotation in rotations],
+    *[f"full_context_v2_{dataset}/predictions_{model}_{arm}.csv" for dataset in ("seediv", "deap") for model in ("gru", "lstm", "cbsatt_local", "gru_context", "prior", "context_logistic") for arm in ("exposed", "unexposed")],
     "full_context_plan_2026-10-06.json", "full_context_resource_pilot_2026-10-06.json",
     *[f"cache_full_context_{dataset}/{name}" for dataset in ("seediv", "deap") for name in ("prepared.json", "input_audit.json")],
     *[f"full_context_{dataset}/{name}" for dataset in ("seediv", "deap") for name in ("config.json", "plan.json", "folds.json", "model_index.json", "context_records.json", "verification.json", "analysis_verification.json", "comparison.json", "diagnostics.csv", "comparison.png", "validation_curves.png", "README.md")],

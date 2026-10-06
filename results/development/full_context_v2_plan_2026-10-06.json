@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-10-06T05:20:01.602853+00:00",
+  "development_only": true,
+  "research_question_change_approved": false,
+  "group": 1,
+  "revision": 2,
+  "supersedes": "Revision1 stopped after15 fits because localCBSAtt dropout preceded pooling; partial fits excluded, no primary results used to change protocol.",
+  "spectrogram_precision": "STFT and log1p computed in float64, then stored and modeled in float32; independent SciPy replay before fitting.",
+  "datasets": [
+    "SEEDIV",
+    "DEAP"
+  ],
+  "neural_models": [
+    "gru",
+    "lstm",
+    "cbsatt_local",
+    "gru_context"
+  ],
+  "neural_fits": {
+    "SEEDIV": 360,
+    "DEAP": 320,
+    "total": 680
+  },
+  "observation": "Same first40s common14 electrodes as preceding feature controls; offline full-trial4..40Hz filtering before prefix. Hann STFT128,hop64,centerFalse; bins4 through40Hz inclusive,log1p(abs/64); [14,37,79]. No amplitude normalization within test participant, interpolation, augmentation, AMP or target adaptation. Channel/frequency mean/std over training trials and time only, floor1e-6. Full prefix directly represented, recurrent input9 ordered CNN time steps.",
+  "architecture": "Original dynamic GRU-XNet full widths32/64/128, separate electrode CNN parameters and BatchNorm, three2x2 pools, ReLU/dropout.5, two-layer bidirectional128 GRU, custom4head256attention/residual/LayerNorm, classifier256/128. Grouped vectorization numerically compared with exact local original. Matched BiLSTM changes recurrence only (same hidden width/layers, unequal parameter counts explicitly reported). Local CBSAtt reference preserves original global pooling, one-step single-layer BiLSTM, attention with residualLayerNorm and128classifier. Local reference reproduction is not certified author-code or published-score reproduction. Physical-input/common14/coarse3 adaptations differ from historical129x126/maxchannels/pooledaugmented experiment.",
+  "partitions": "Reuse only predeclared grouping1 (participant20261007,material20261017), every SEED3session*3rotation*5fold or DEAP5rotation*8fold, both exposed/unexposed arms. Same exact matching and validation/test trials as completed feature controls. One initialization42+1000fold+10000rotation; no selection between groupings. No pooled-corpus experiment.",
+  "optimization": "200 AdamWupdates,12 balanced trial draws (4/classSEED,6/classDEAP),lr.001,wd.01,clip1,FP32 deterministicCUDA. Same canonical participant/class/rank draw stream per cell across all neural models/arms; reset trainingRNGinit+1000000. Validation every10,max primary trialBA then min balancedlogloss, first tie. Test predictions produced only after checkpoint selection. Budget is first-pass matched control, not claim of convergence; no test-driven extension. GRU andGRUcontext identical initial EEG state.",
+  "context": "Label-only material prior: Laplace1 per-class per-video counts, unseen key uses Laplace1 global training class counts. For every training row remove ALL rows belonging to that participant before constructing its prior, including global fallback. Validation/test priors use only outer training participants, never validation/test labels. GRUcontext adds fixed log prior to full GRU logits, no extra parameters; model must learn EEG residual. Diagnostic raw prior and learned balanced logistic context-only calibration(logprior inputs,training-onlyscaler,C.01/.1/1/10 selected on same sourcevalidation) retained. Known training videos versus unseen validation/test prior distributions explicitly acknowledged.",
+  "evaluation": "PrimarySEEDcoarse3/all1080 andDEAPbinary/all1264. SecondarySEEDconditionalbinary/810 excludesneutral. Complete once-per-trial OOF; do not average unequal foldBAs. Report all models/arms, train/validation curves, selected step and parameter/resource counts. EEG adds information only if EEG+context improves beyond context controls, with uncertainty and conditional/finite-budget limitations. Accuracy alone is insufficient; primary paired balanced logloss andBA contrasts.",
+  "uncertainty": "10000 paired participant and crossed participant/video percentile draws seed20261006, same previous weights and observed-cell denominators; SEED6videos per12session/native strata, DEAP40unstratified videos. Conditional fixed fits and one grouping, unadjusted exploratory comparisons. Include every model unexposed-minus-exposed, LSTM-minusGRU, localCBSAtt-minusGRU, GRUcontext-minusGRU and GRUcontext-minusboth context controls for both arms and tasks. Negative logloss difference favors first model.",
+  "gate": "No manuscript/research-question change; show findings and obtain explicit author approval and archive then-current paper before adopting a pivot."
+}

@@ -29,7 +29,7 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
-    "repeated_material_plan_2026-10-06.json", "cache_temporal_deap/prepared.json",
+    "repeated_material_plan_2026-10-06.json", "cache_temporal_deap/prepared.json", "cache_temporal_deap/raw_reproduction.json",
     "repeated_material_seediv_feasibility_2026-10-06.json", "repeated_material_deap_feasibility_2026-10-06.json",
     *[f"repeated_material_{dataset}/{name}" for dataset in ("seediv", "deap") for name in ("config.json", "plan.json", "feasibility.json", "model_index.json", "comparison.json", "verification.json", "analysis_verification.json", "environment.json", "comparison.png", "paired_comparison.png", "training_diagnostics.csv", "all_cells.csv", "all_groups.csv", "README.md")],
     *[f"repeated_material_{dataset}/{kind}_group{group}.{ext}" for dataset in ("seediv", "deap") for group in (1, 2) for kind, ext in (("folds", "json"), ("material_assignments", "csv"))],

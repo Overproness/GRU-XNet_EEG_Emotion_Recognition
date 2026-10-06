@@ -241,6 +241,8 @@ The [new protocol](docs/publication/Repeated_Material_Control_Protocol_2026-10-0
 
 The batch schedules 680 neural fits, 880 selected linear heads, 3,520 linear candidates and 160 training-label-only DEAP video-prior diagnostics. Full checkpoint/candidate replay precedes conclusions. The maintained scientific-control suite now has 53 passing tests. The manuscript and research question remain unchanged. No completed results from this batch are claimed here yet.
 
+The [additional DEAP source replay](results/development/cache_temporal_deap/raw_reproduction.json) has passed: all 1,264 retained full waveforms and first-forty-second features regenerate exactly from the downloaded source files and corrected spreadsheet loader, with all sixteen midpoint exclusions checked. This verifies cache computation without authenticating first-party signals or changing labels.
+
 ```powershell
 # Existing verified common14, native temporal and frozen SEED features are prerequisites.
 python scripts/repeated_material_controls.py prepare-deap --common-cache ../publication_runs/cache_common14 --cache ../publication_runs/cache_temporal_deap

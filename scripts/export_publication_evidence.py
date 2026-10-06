@@ -31,6 +31,7 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
+    "full_context_public_reanalysis_2026-10-06.json",
     "within_video_alignment_plan_2026-10-06.json",
     *[f"within_video_alignment/{kind}_{dataset}.{ext}" for dataset in ("seediv", "deap") for kind,ext in (("comparison","json"),("verification","json"),("pairs","csv"))],
     "full_context_v2_plan_2026-10-06.json", "full_context_v2_model_audit.json",

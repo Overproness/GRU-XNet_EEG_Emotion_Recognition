@@ -86,10 +86,12 @@ def report():
     summary=[]
     for (dataset,name,arm),part in diagnostics.groupby(['dataset','model','arm'],sort=False):
         summary.append(f'| {dataset} | {NAMES[name]} | {arm} | {int(part.parameters.iloc[0]):,} | {part.selected_step.median():.0f} | {int(part.selected_step.eq(200).sum())}/{len(part)} | {part.selected_training_BA.mean()*100:.2f} | {part.selected_validation_BA.mean()*100:.2f} |')
-    contrasts=[]
+    contrasts=[]; architecture=[]
     for dataset,value in values.items():
         task='coarse3' if dataset=='SEEDIV' else 'binary'
         for c in value['contrasts']:
+            if c['task']==task and c['model_a'] in ('lstm','cbsatt_local') and c['model_b']=='gru':
+                architecture.append(f'| {dataset} | {NAMES[c["model_a"]]} | {c["arm_a"]} | {c["statistic"]} | {interval(c,c["statistic"]=="BA")} |')
             if c['task']!=task or c['model_a']!='gru_context' or c['model_b'] not in ('prior','context_logistic'): continue
             contrasts.append(f'| {dataset} | {c["arm_a"]} | {NAMES[c["model_b"]]} | {c["statistic"]} | {interval(c,c["statistic"]=="BA")} |')
     exposure=[]
@@ -109,6 +111,14 @@ Balanced accuracy is a percentage; balanced log loss is in natural-log units (lo
 | Dataset | Model | Shared-video BA | Unseen-video BA | Shared log loss | Unseen log loss |
 |---|---|---:|---:|---:|---:|
 '''+ '\n'.join(rows)+'''
+
+## Matched reference-model contrasts
+
+Each reference minus EEG-only GRU-XNet, using paired crossed participant/video percentile ranges. Positive balanced-accuracy differences (percentage points) or negative balanced-log-loss differences favor the reference. An interval spanning zero does not establish equivalence. The single base initialization scheme and fixed training budget leave optimization and initialization robustness unresolved; CNN/recurrent widths are matched for the BiLSTM swap, but parameter counts differ.
+
+| Dataset | Reference | Arm | Statistic | Reference minus GRU [95% interval] |
+|---|---|---|---|---|
+'''+ '\n'.join(architecture)+'''
 
 ## Does EEG improve on context alone?
 

@@ -22,6 +22,7 @@ REPORTS += ["GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md",
             "GRU-XNet_Material_Generalization_Research_Update_2026-10-06.md"]
 REPORTS += ["GRU-XNet_Repeated_Material_Findings_2026-10-06.md"]
 REPORTS += ["GRU-XNet_Full_Context_Findings_2026-10-06.md"]
+REPORTS += ["GRU-XNet_Context_Alignment_Research_Update_2026-10-06.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",

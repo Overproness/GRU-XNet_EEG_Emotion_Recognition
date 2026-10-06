@@ -142,7 +142,7 @@ Unseen-video minus shared-video balanced accuracy; all six models retained. The 
 |---|---|---:|
 '''+ '\n'.join(exposure)+'''
 
-All architecture contrasts, both primary and secondary SEED-IV tasks, and both uncertainty calculations are preserved in the machine-readable comparisons, including nonsignificant results. SEED-IV secondary binary results condition positive probability on positive/negative mass and exclude all 270 neutral trials.
+All architecture contrasts, both primary and secondary SEED-IV tasks, and both uncertainty calculations are preserved in the machine-readable comparisons, including nonsignificant results. SEED-IV secondary binary results condition positive probability on positive/negative mass and exclude all 270 neutral trials. The resampling ranges are exploratory: nominal coverage has not been demonstrated for these small fixed partitions and dyadic dependence, and no uniformly valid bootstrap claim is made.
 
 ## Budget and training behavior
 
@@ -169,6 +169,7 @@ These development results do not settle full-model convergence, independent opti
 ## Evidence and reproduction
 
 - [Predeclared protocol](GRU-XNet_EEG_Emotion_Recognition/docs/publication/Full_Context_Control_Protocol_2026-10-06.md)
+- [Additional primary prior work and inference limits](GRU-XNet_Context_Alignment_Research_Update_2026-10-06.md)
 - [Machine-readable plan](publication_runs/full_context_v2_plan_2026-10-06.json)
 - [Within-video declaration](publication_runs/within_video_alignment_plan_2026-10-06.json), [DEAP alignment contrasts](publication_runs/within_video_alignment/comparison_deap.json), [SEED-IV sanity controls](publication_runs/within_video_alignment/comparison_seediv.json)
 - [SEED-IV complete contrasts](publication_runs/full_context_v2_seediv/comparison.json), [verification](publication_runs/full_context_v2_seediv/verification.json), [diagnostics](publication_runs/full_context_v2_seediv/diagnostics.csv), [scores](publication_runs/full_context_v2_seediv/comparison.png), [validation curves](publication_runs/full_context_v2_seediv/validation_curves.png)

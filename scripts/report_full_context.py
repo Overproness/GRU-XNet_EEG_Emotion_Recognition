@@ -25,7 +25,19 @@ def interval(c, percentage=False):
 
 
 def report():
-    values={}; checks={}; rows=[]; diagnostic=[]
+    values={}; checks={}; rows=[]; diagnostic=[]; alignment=[]
+    for dataset in ('SEEDIV','DEAP'):
+        folder=ROOT/'within_video_alignment'
+        if not json.loads((folder/f'verification_{dataset.lower()}.json').read_text())['passed']: raise ValueError('Alignment replay required before report')
+        result=json.loads((folder/f'comparison_{dataset.lower()}.json').read_text())
+        if result['eligible_trials']!=result['total_trials']: raise ValueError('Report the diagnostic eligible-cohort exclusions explicitly')
+        if dataset=='DEAP':
+            for model in NEURAL:
+                for arm in ARMS:
+                    for which in ('BA','logloss'):
+                        c=result['models'][model][arm]['binary_'+which]; scale=100 if which=='BA' else 1
+                        lo,hi=c['crossed_dyadic_percentile_95']
+                        alignment.append(f'| {NAMES[model]} | {arm} | {which} | {c["difference"]*scale:+.2f} [{lo*scale:+.2f}, {hi*scale:+.2f}] | {c["nonestimable_bootstrap_draws"]} |')
     for dataset in ('SEEDIV','DEAP'):
         folder=ROOT/f'full_context_v2_{dataset.lower()}'
         verification=json.loads((folder/'verification.json').read_text())
@@ -110,6 +122,18 @@ These are EEG-plus-context minus each context-only comparator, with paired cross
 
 SEED-IV's emotional labels are assigned to the videos and shared across participants: a known video can identify its target using training labels, without EEG. This is an intended contextual diagnostic, not a deployable EEG classifier or evidence that an EEG model used video identity. DEAP videos can receive both individual valence classes, so normative context remains imperfect. Neither dataset supplies test ratings to the models. Cross-fitting removes direct own-label leakage, but training videos have known priors while validation videos are unseen; context features consequently shift in distribution across roles. A residual model may fail to improve because of optimization, budget or that shift, even if EEG contains information.
 
+## Correct individual EEG versus exchanged EEG within the same video
+
+This no-refit supplement was declared while the full-model batch was running, before aggregate primary results. For every trial, compare its selected prediction with the scores obtained from **every other held-out participant who watched the same video in the same model/cell**. The video's source-only context and normalizer are identical, so exchanging verified donor probabilities exactly represents EEG exchange with recipient labels/context retained. Average correctness/log loss across donors, without ensembling probabilities. All 2344 trials have at least one other held-out donor, so the diagnostic excludes none.
+
+These DEAP differences are correctly aligned minus exchanged EEG. Positive BA (percentage points) and negative log loss favor the correctly paired recording. Intervals use paired dyadic recipient-and-donor participant weights and video weights, with identical observed-class denominators. Nonestimable draws are disclosed rather than replaced. All six models, both arms and both SEED tasks are retained in the machine-readable comparisons.
+
+| Model | Arm | Statistic | Aligned minus exchanged [crossed dyadic 95% interval] | Nonestimable draws |
+|---|---|---|---:|---:|
+'''+ '\n'.join(alignment)+'''
+
+Both source-only context controls are invariant to exchange. SEED-IV's assigned video labels imply zero aggregate differences for all models, including the symmetric pair-weighted bootstrap; that mathematical sanity check passes. This does not rule out useful EEG for classifying *unseen* SEED-IV videos. On DEAP, an alignment effect would support recording/rating association conditional on video in these fits. It could also involve stable participant traits, demographics or artifacts, and would not identify a causal physiological emotion mechanism. It uses a limited donor cohort and one fixed development partition.
+
 ## Material sensitivity
 
 Unseen-video minus shared-video balanced accuracy; all six models retained. The arm change replaces training recordings/content and can change difficulty, order or subject responses. It does not isolate a causal effect of identity and is not evidence of joint multi-corpus negative transfer.
@@ -146,6 +170,7 @@ These development results do not settle full-model convergence, independent opti
 
 - [Predeclared protocol](GRU-XNet_EEG_Emotion_Recognition/docs/publication/Full_Context_Control_Protocol_2026-10-06.md)
 - [Machine-readable plan](publication_runs/full_context_v2_plan_2026-10-06.json)
+- [Within-video declaration](publication_runs/within_video_alignment_plan_2026-10-06.json), [DEAP alignment contrasts](publication_runs/within_video_alignment/comparison_deap.json), [SEED-IV sanity controls](publication_runs/within_video_alignment/comparison_seediv.json)
 - [SEED-IV complete contrasts](publication_runs/full_context_v2_seediv/comparison.json), [verification](publication_runs/full_context_v2_seediv/verification.json), [diagnostics](publication_runs/full_context_v2_seediv/diagnostics.csv), [scores](publication_runs/full_context_v2_seediv/comparison.png), [validation curves](publication_runs/full_context_v2_seediv/validation_curves.png)
 - [DEAP complete contrasts](publication_runs/full_context_v2_deap/comparison.json), [verification](publication_runs/full_context_v2_deap/verification.json), [diagnostics](publication_runs/full_context_v2_deap/diagnostics.csv), [scores](publication_runs/full_context_v2_deap/comparison.png), [validation curves](publication_runs/full_context_v2_deap/validation_curves.png)
 

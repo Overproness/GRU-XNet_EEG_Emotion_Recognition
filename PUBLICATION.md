@@ -6,13 +6,15 @@ Joint training on all three datasets is the historical research question. The au
 
 The [publication readiness record](docs/publication/GRU-XNet_Publication_Readiness_2026-10-05.md) distinguishes repaired implementation problems from outstanding scientific evidence. Review reports and selected development artifacts are preserved in `docs/publication/` and `results/development/`. These are development results, not a completed conference study. Raw EEG and full local run directories remain outside Git.
 
-## Full-width/context controls (6 October 2026, running)
+## Full-width/context controls (6 October 2026, verified first pass)
 
-The [full protocol](docs/publication/Full_Context_Control_Protocol_2026-10-06.md) freezes one complete participant/video grouping, 680 full-width neural fits and 170 context calibration cells. Training priors exclude all labels from the receiving participant. Four neural models and two context-only controls use identical role assignments, with source-only normalization and validation selection. The 200-update, 12-trial budget is a matched first pass, without a convergence claim. The suite has 60 passing tests.
+The [full findings](docs/publication/GRU-XNet_Full_Context_Findings_2026-10-06.md) and [protocol](docs/publication/Full_Context_Control_Protocol_2026-10-06.md) cover all 680 full-width neural fits, 170 context cells and 680 independently refitted regularization candidates. Training priors exclude every label from the receiving participant. Four neural models and two context-only controls share role assignments, source-only normalization and validation selection. All selected checkpoints replay, all 96 primary/168 within-video contrasts recompute, and the suite has 64 passing tests. The 200-update/12-trial budget is a matched first pass, without a convergence claim.
 
-Revision 1 stopped after 15 completed fits when the local reference's training dropout/pooling order was found to differ. Its source and excluded records are preserved. Revision 2 additionally verifies training dropout placement and restarts every model; do not combine the preflight fits with final results. Independent SciPy checks reproduce all 2,344 input spectrograms exactly. The corrected study uses the original full CNN/recurrent widths with declared common14/40-second input adaptations; it does not reproduce a published CBSAtt score or the historical 95.91% experiment.
+The primary comparisons establish no consistent GRU advantage or reliable incremental EEG gain over both context-only controls. SEED-IV known-video labels give 100% without EEG; DEAP's shared-video raw prior gives 77.36% versus 78.10% for EEG-plus-context (+0.74 pp, crossed exploratory range [-0.94,+3.11]). All DEAP neural within-video alignment intervals include zero. These results are conditional on one grouping/base initialization scheme and do not prove that EEG lacks information or that joint training causes negative transfer.
 
-For a fresh local study with the preceding verified waveform/feature caches, declare once, prepare both corpora, audit inputs and training-mode model fidelity, and run:
+Revision 1 stopped after 15 completed fits when the local reference's training dropout/pooling order was found to differ. Its source and excluded records are preserved. Revision 2 verifies training dropout placement and restarts every model. Independent SciPy checks reproduce all 2,344 input spectrograms exactly. The corrected study uses original full CNN/recurrent widths with declared common14/40-second input adaptations; local CBSAtt is an implementation control, without authenticated published-method fidelity. Neither published CBSAtt scores nor historical 95.91% are reproduced here.
+
+For a fresh local study with the preceding verified waveform/feature caches, declare once, prepare both corpora, audit inputs and training-mode model fidelity, and declare the no-refit supplement before fitting:
 
 ```powershell
 python scripts/full_context_controls_v2.py plan --root ../publication_runs
@@ -20,11 +22,22 @@ python scripts/full_context_controls_v2.py prepare --root ../publication_runs --
 python scripts/full_context_controls_v2.py prepare --root ../publication_runs --dataset DEAP
 python scripts/audit_full_context_inputs.py
 python scripts/audit_full_context_models_v2.py
+python scripts/within_video_alignment.py plan
 python scripts/full_context_controls_v2.py batch --root ../publication_runs
+python scripts/within_video_alignment.py analyze
 python scripts/report_full_context.py
 ```
 
-Existing declarations and prepared caches are protected. Resume the current study with `batch`; it accepts only hash-matching completed fit records. Once complete, each corpus can be independently checked with `verify --root ../publication_runs --dataset SEEDIV` (or `DEAP`) and recomputed with `analyze`. Full checkpoint replay requires local data and selected weights. The bounded public export excludes both and retains complete probabilities, metric/selection histories, source/input/split hashes, context coefficients and numerical verification records. No manuscript or research-question change follows automatically.
+Existing declarations/caches are protected. Resume the current study with `batch`; it accepts only hash-matching completed fit records. Each corpus can be independently replayed with `verify --root ../publication_runs --dataset SEEDIV` (or `DEAP`) and its primary analysis recomputed with `analyze`. Full neural replay requires local data and selected weights.
+
+The public export retains all probabilities, metric/selection histories, source/input/split hashes, context coefficients and verification records. A public checkout needs neither raw EEG nor checkpoints for these two checks:
+
+```powershell
+python scripts/verify_publication_export.py --export-only
+python scripts/verify_full_context_export.py
+```
+
+The first checks exported artifact integrity and links. The second checks fitting-source bindings, independently calculates point accuracy/log loss from probabilities and recomputes all declared primary and exchange analyses. It does not replay neural inference or authenticate first-party recordings. No manuscript or research-question change follows automatically. Source-only learning-quality/convergence diagnostics, authenticated baselines and independent full-model confirmation remain the next priorities.
 
 ## Local setup
 

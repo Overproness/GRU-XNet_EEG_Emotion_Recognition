@@ -1,0 +1,801 @@
+{
+  "development_only": true,
+  "research_question_change_approved": false,
+  "dataset": "DEAP",
+  "group": 1,
+  "models": {
+    "gru": {
+      "exposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.507120253164557,
+          "balanced_accuracy": 0.4928413201642076,
+          "macro_f1": 0.49099168687151395,
+          "balanced_log_loss": 0.6962133601195422,
+          "confusion_matrix": [
+            [
+              208,
+              348
+            ],
+            [
+              275,
+              433
+            ]
+          ]
+        }
+      },
+      "unexposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.47072784810126583,
+          "balanced_accuracy": 0.4653751575011178,
+          "macro_f1": 0.4653302705481336,
+          "balanced_log_loss": 0.6986667383817464,
+          "confusion_matrix": [
+            [
+              234,
+              322
+            ],
+            [
+              347,
+              361
+            ]
+          ]
+        }
+      }
+    },
+    "lstm": {
+      "exposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.4833860759493671,
+          "balanced_accuracy": 0.48208043734503925,
+          "macro_f1": 0.480926995139382,
+          "balanced_log_loss": 0.7002246404886604,
+          "confusion_matrix": [
+            [
+              262,
+              294
+            ],
+            [
+              359,
+              349
+            ]
+          ]
+        }
+      },
+      "unexposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.47705696202531644,
+          "balanced_accuracy": 0.48338109173678007,
+          "macro_f1": 0.4770409233078396,
+          "balanced_log_loss": 0.6989473658236973,
+          "confusion_matrix": [
+            [
+              298,
+              258
+            ],
+            [
+              403,
+              305
+            ]
+          ]
+        }
+      }
+    },
+    "cbsatt_local": {
+      "exposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.4865506329113924,
+          "balanced_accuracy": 0.49050420680404827,
+          "macro_f1": 0.486200423773665,
+          "balanced_log_loss": 0.7060749821618648,
+          "confusion_matrix": [
+            [
+              291,
+              265
+            ],
+            [
+              384,
+              324
+            ]
+          ]
+        }
+      },
+      "unexposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.5110759493670886,
+          "balanced_accuracy": 0.5110454009673617,
+          "macro_f1": 0.509207017790768,
+          "balanced_log_loss": 0.7083941444225622,
+          "confusion_matrix": [
+            [
+              284,
+              272
+            ],
+            [
+              346,
+              362
+            ]
+          ]
+        }
+      }
+    },
+    "gru_context": {
+      "exposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.7784810126582279,
+          "balanced_accuracy": 0.7810226395155062,
+          "macro_f1": 0.7773012373272121,
+          "balanced_log_loss": 0.4965584778580806,
+          "confusion_matrix": [
+            [
+              446,
+              110
+            ],
+            [
+              170,
+              538
+            ]
+          ]
+        }
+      },
+      "unexposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.4833860759493671,
+          "balanced_accuracy": 0.4764815266430923,
+          "macro_f1": 0.4764969990568736,
+          "balanced_log_loss": 0.6972474889739909,
+          "confusion_matrix": [
+            [
+              233,
+              323
+            ],
+            [
+              330,
+              378
+            ]
+          ]
+        }
+      }
+    },
+    "prior": {
+      "exposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.7745253164556962,
+          "balanced_accuracy": 0.7736302483436979,
+          "macro_f1": 0.7722259000092946,
+          "balanced_log_loss": 0.4974799214818887,
+          "confusion_matrix": [
+            [
+              426,
+              130
+            ],
+            [
+              155,
+              553
+            ]
+          ]
+        }
+      },
+      "unexposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.560126582278481,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.359026369168357,
+          "balanced_log_loss": 0.7064533202687738,
+          "confusion_matrix": [
+            [
+              0,
+              556
+            ],
+            [
+              0,
+              708
+            ]
+          ]
+        }
+      }
+    },
+    "context_logistic": {
+      "exposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.7753164556962026,
+          "balanced_accuracy": 0.777811648985896,
+          "macro_f1": 0.7741198264318866,
+          "balanced_log_loss": 0.5184879525442121,
+          "confusion_matrix": [
+            [
+              444,
+              112
+            ],
+            [
+              172,
+              536
+            ]
+          ]
+        }
+      },
+      "unexposed": {
+        "binary": {
+          "n": 1264,
+          "accuracy": 0.5300632911392406,
+          "balanced_accuracy": 0.487836849164736,
+          "macro_f1": 0.4352100089365505,
+          "balanced_log_loss": 0.693897740676535,
+          "confusion_matrix": [
+            [
+              76,
+              480
+            ],
+            [
+              114,
+              594
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "contrasts": [
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "gru",
+      "arm_a": "unexposed",
+      "model_b": "gru",
+      "arm_b": "exposed",
+      "difference": -0.02746616266308982,
+      "crossed_percentile_95": [
+        -0.08998638911646668,
+        0.03511930464497102
+      ],
+      "participant_percentile_95": [
+        -0.05617705177427152,
+        0.0010273323542763569
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "lstm",
+      "arm_a": "unexposed",
+      "model_b": "lstm",
+      "arm_b": "exposed",
+      "difference": 0.0013006543917408186,
+      "crossed_percentile_95": [
+        -0.06109959893561426,
+        0.06268606959492681
+      ],
+      "participant_percentile_95": [
+        -0.03595943367138843,
+        0.03742868029525062
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "cbsatt_local",
+      "arm_a": "unexposed",
+      "model_b": "cbsatt_local",
+      "arm_b": "exposed",
+      "difference": 0.02054119416331346,
+      "crossed_percentile_95": [
+        -0.028819538050008947,
+        0.06959045588186835
+      ],
+      "participant_percentile_95": [
+        -0.005721555791107153,
+        0.04550434964699639
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "gru_context",
+      "arm_a": "unexposed",
+      "model_b": "gru_context",
+      "arm_b": "exposed",
+      "difference": -0.3045411128724139,
+      "crossed_percentile_95": [
+        -0.3713199356384415,
+        -0.2208000622266563
+      ],
+      "participant_percentile_95": [
+        -0.34202201001382365,
+        -0.26633654888513614
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "prior",
+      "arm_a": "unexposed",
+      "model_b": "prior",
+      "arm_b": "exposed",
+      "difference": -0.27363024834369787,
+      "crossed_percentile_95": [
+        -0.3349248882385261,
+        -0.19872941754233045
+      ],
+      "participant_percentile_95": [
+        -0.30736326538402375,
+        -0.23616035905539637
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "context_logistic",
+      "arm_a": "unexposed",
+      "model_b": "context_logistic",
+      "arm_b": "exposed",
+      "difference": -0.28997479982116003,
+      "crossed_percentile_95": [
+        -0.3582889216940973,
+        -0.208495834772588
+      ],
+      "participant_percentile_95": [
+        -0.326434312976036,
+        -0.24941132828231433
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "lstm",
+      "arm_a": "exposed",
+      "model_b": "gru",
+      "arm_b": "exposed",
+      "difference": -0.010760882819168371,
+      "crossed_percentile_95": [
+        -0.06995538654863248,
+        0.051616570900572124
+      ],
+      "participant_percentile_95": [
+        -0.04738390445427887,
+        0.026761818649949854
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "lstm",
+      "arm_a": "unexposed",
+      "model_b": "gru",
+      "arm_b": "unexposed",
+      "difference": 0.01800593423566227,
+      "crossed_percentile_95": [
+        -0.02692914255334606,
+        0.06435428448927512
+      ],
+      "participant_percentile_95": [
+        -0.0013144609097498073,
+        0.03688052332236918
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "cbsatt_local",
+      "arm_a": "exposed",
+      "model_b": "gru",
+      "arm_b": "exposed",
+      "difference": -0.0023371133601593486,
+      "crossed_percentile_95": [
+        -0.0693374383461924,
+        0.06917112016136315
+      ],
+      "participant_percentile_95": [
+        -0.04200675568474788,
+        0.0355597623310325
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "cbsatt_local",
+      "arm_a": "unexposed",
+      "model_b": "gru",
+      "arm_b": "unexposed",
+      "difference": 0.04567024346624393,
+      "crossed_percentile_95": [
+        -0.012186797485372573,
+        0.10452506504224458
+      ],
+      "participant_percentile_95": [
+        0.01475572211764682,
+        0.07678831013180513
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "gru_context",
+      "arm_a": "exposed",
+      "model_b": "gru",
+      "arm_b": "exposed",
+      "difference": 0.2881813193512986,
+      "crossed_percentile_95": [
+        0.206373542721063,
+        0.36083174201120427
+      ],
+      "participant_percentile_95": [
+        0.2431113616413193,
+        0.33010711829374345
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "gru_context",
+      "arm_a": "unexposed",
+      "model_b": "gru",
+      "arm_b": "unexposed",
+      "difference": 0.011106369141974493,
+      "crossed_percentile_95": [
+        -0.049001807185067144,
+        0.07333064456361456
+      ],
+      "participant_percentile_95": [
+        -0.02243244604711557,
+        0.04446248894976215
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "gru_context",
+      "arm_a": "exposed",
+      "model_b": "prior",
+      "arm_b": "exposed",
+      "difference": 0.0073923911718083435,
+      "crossed_percentile_95": [
+        -0.009389820099636428,
+        0.03112126054943372
+      ],
+      "participant_percentile_95": [
+        -0.0031597773412290696,
+        0.01787805077689368
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "gru_context",
+      "arm_a": "unexposed",
+      "model_b": "prior",
+      "arm_b": "unexposed",
+      "difference": -0.02351847335690771,
+      "crossed_percentile_95": [
+        -0.0677500532207133,
+        0.022075325809838314
+      ],
+      "participant_percentile_95": [
+        -0.04889015587522486,
+        0.0016676823533248863
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "gru_context",
+      "arm_a": "exposed",
+      "model_b": "context_logistic",
+      "arm_b": "exposed",
+      "difference": 0.003210990529610158,
+      "crossed_percentile_95": [
+        -0.009946425344501344,
+        0.019048917405652722
+      ],
+      "participant_percentile_95": [
+        -0.004734977832411,
+        0.010948688206033546
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "BA",
+      "model_a": "gru_context",
+      "arm_a": "unexposed",
+      "model_b": "context_logistic",
+      "arm_b": "unexposed",
+      "difference": -0.01135532252164373,
+      "crossed_percentile_95": [
+        -0.07498373566370344,
+        0.04943798132125098
+      ],
+      "participant_percentile_95": [
+        -0.04640169239452338,
+        0.022038766128870135
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "gru",
+      "arm_a": "unexposed",
+      "model_b": "gru",
+      "arm_b": "exposed",
+      "difference": 0.0024533782622042644,
+      "crossed_percentile_95": [
+        -0.0045567339788923356,
+        0.009578068909359081
+      ],
+      "participant_percentile_95": [
+        -0.0013731735083682165,
+        0.006243453971057834
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "lstm",
+      "arm_a": "unexposed",
+      "model_b": "lstm",
+      "arm_b": "exposed",
+      "difference": -0.0012772746649630795,
+      "crossed_percentile_95": [
+        -0.010387957586017354,
+        0.007518383286922258
+      ],
+      "participant_percentile_95": [
+        -0.006741155335679458,
+        0.0038271080166415537
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "cbsatt_local",
+      "arm_a": "unexposed",
+      "model_b": "cbsatt_local",
+      "arm_b": "exposed",
+      "difference": 0.002319162260697394,
+      "crossed_percentile_95": [
+        -0.017115771425047957,
+        0.022371811860372976
+      ],
+      "participant_percentile_95": [
+        -0.01025584754605383,
+        0.01445223045509043
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "gru_context",
+      "arm_a": "unexposed",
+      "model_b": "gru_context",
+      "arm_b": "exposed",
+      "difference": 0.2006890111159103,
+      "crossed_percentile_95": [
+        0.11212555599603805,
+        0.27568801628445805
+      ],
+      "participant_percentile_95": [
+        0.14023761790656872,
+        0.251089468051396
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "prior",
+      "arm_a": "unexposed",
+      "model_b": "prior",
+      "arm_b": "exposed",
+      "difference": 0.20897339878688515,
+      "crossed_percentile_95": [
+        0.11983364134820541,
+        0.2848271771189197
+      ],
+      "participant_percentile_95": [
+        0.14982457232054053,
+        0.25872966056982405
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "context_logistic",
+      "arm_a": "unexposed",
+      "model_b": "context_logistic",
+      "arm_b": "exposed",
+      "difference": 0.17540978813232289,
+      "crossed_percentile_95": [
+        0.10396141917269718,
+        0.23743950116939386
+      ],
+      "participant_percentile_95": [
+        0.12836435580189848,
+        0.21530157809642034
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "lstm",
+      "arm_a": "exposed",
+      "model_b": "gru",
+      "arm_b": "exposed",
+      "difference": 0.004011280369118242,
+      "crossed_percentile_95": [
+        -0.00454802142492977,
+        0.014355967829051084
+      ],
+      "participant_percentile_95": [
+        -0.001044354516938939,
+        0.009445566709365118
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "lstm",
+      "arm_a": "unexposed",
+      "model_b": "gru",
+      "arm_b": "unexposed",
+      "difference": 0.00028062744195089806,
+      "crossed_percentile_95": [
+        -0.008367289525335614,
+        0.00935848139072384
+      ],
+      "participant_percentile_95": [
+        -0.005392797112348321,
+        0.006004074601839441
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "cbsatt_local",
+      "arm_a": "exposed",
+      "model_b": "gru",
+      "arm_b": "exposed",
+      "difference": 0.00986162204232266,
+      "crossed_percentile_95": [
+        -0.005869967023325512,
+        0.026829288463878255
+      ],
+      "participant_percentile_95": [
+        -0.000725900001830429,
+        0.02162738202715222
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "cbsatt_local",
+      "arm_a": "unexposed",
+      "model_b": "gru",
+      "arm_b": "unexposed",
+      "difference": 0.00972740604081579,
+      "crossed_percentile_95": [
+        -0.008244132605919982,
+        0.028026926037946803
+      ],
+      "participant_percentile_95": [
+        -0.0014081389631703327,
+        0.021052600523325984
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "gru_context",
+      "arm_a": "exposed",
+      "model_b": "gru",
+      "arm_b": "exposed",
+      "difference": -0.19965488226146155,
+      "crossed_percentile_95": [
+        -0.27387378226856796,
+        -0.11052515047542952
+      ],
+      "participant_percentile_95": [
+        -0.2500790825906345,
+        -0.13846876385826493
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "gru_context",
+      "arm_a": "unexposed",
+      "model_b": "gru",
+      "arm_b": "unexposed",
+      "difference": -0.0014192494077555073,
+      "crossed_percentile_95": [
+        -0.012235567532901856,
+        0.008958221597696832
+      ],
+      "participant_percentile_95": [
+        -0.007595799847335783,
+        0.004597547281005372
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "gru_context",
+      "arm_a": "exposed",
+      "model_b": "prior",
+      "arm_b": "exposed",
+      "difference": -0.0009214436238080825,
+      "crossed_percentile_95": [
+        -0.017892951648878136,
+        0.015702331069064806
+      ],
+      "participant_percentile_95": [
+        -0.006381672090573574,
+        0.004982453943071098
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "gru_context",
+      "arm_a": "unexposed",
+      "model_b": "prior",
+      "arm_b": "unexposed",
+      "difference": -0.009205831294782918,
+      "crossed_percentile_95": [
+        -0.021186943557262045,
+        0.0024798975552406785
+      ],
+      "participant_percentile_95": [
+        -0.01323533309853058,
+        -0.004681374741209
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "gru_context",
+      "arm_a": "exposed",
+      "model_b": "context_logistic",
+      "arm_b": "exposed",
+      "difference": -0.02192947468613149,
+      "crossed_percentile_95": [
+        -0.04367659303113998,
+        0.004363834248910109
+      ],
+      "participant_percentile_95": [
+        -0.036607819101051556,
+        -0.004960587295459235
+      ]
+    },
+    {
+      "task": "binary",
+      "statistic": "logloss",
+      "model_a": "gru_context",
+      "arm_a": "unexposed",
+      "model_b": "context_logistic",
+      "arm_b": "unexposed",
+      "difference": 0.0033497482974559345,
+      "crossed_percentile_95": [
+        -0.0041093588876642525,
+        0.010737296488981307
+      ],
+      "participant_percentile_95": [
+        -0.00035118799141836953,
+        0.00717273488363584
+      ]
+    }
+  ],
+  "bootstrap": {
+    "draws": 10000,
+    "seed": 20261006,
+    "subject_weight_digest": "97996ccfa8821f6a19828ba7f657084a6bc51324ceb5ca065e6259b439885e23",
+    "material_weight_digest": "1ef27cbef7b8c174dcda43db491d78296dcda8e322ae09768fae00b366b6ce80",
+    "scope": "Paired observed-cell subject and crossed person/video percentile intervals, conditional fixed models/one grouping/cohorts; unadjusted exploratory. BA positive/logloss negative favors modelA."
+  }
+}

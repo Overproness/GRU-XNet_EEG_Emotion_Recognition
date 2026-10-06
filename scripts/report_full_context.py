@@ -65,10 +65,13 @@ def report():
                 axes[j].barh(pos+(k-.5)*width,vals,height=width,label='Shared videos' if arm=='exposed' else 'Unseen videos',color=('#3877ad','#de9541')[k])
             axes[j].set_yticks(pos,[NAMES[n] for n in ALL]); axes[j].invert_yaxis()
             axes[j].set_xlabel('Trial balanced accuracy (%)' if j==0 else 'Balanced log loss (lower is better)')
-            axes[j].grid(axis='x',alpha=.2); axes[j].legend(fontsize=8)
+            axes[j].grid(axis='x',alpha=.2)
             if j==0: axes[j].set_xlim(0,105)
-        fig.suptitle(f'{dataset}: full-width models, fixed grouping 1 / 200 updates')
-        fig.tight_layout(); fig.savefig(folder/'comparison.png',dpi=150); plt.close(fig)
+        label='SEED-IV (3 classes)' if dataset=='SEEDIV' else 'DEAP (binary valence)'
+        fig.suptitle(f'{label}: full-width models, grouping 1 / 200 updates',y=.99)
+        handles,labels=axes[0].get_legend_handles_labels()
+        fig.legend(handles,labels,loc='upper center',bbox_to_anchor=(.5,.95),ncol=2,frameon=False,fontsize=9)
+        fig.tight_layout(rect=(0,0,1,.90)); fig.savefig(folder/'comparison.png',dpi=150); plt.close(fig)
         fig,axes=plt.subplots(2,2,figsize=(11,7)); steps=list(range(10,201,10))
         for ax,name in zip(axes.flat,NEURAL):
             for arm,color in zip(ARMS,('#3877ad','#de9541')):
@@ -103,6 +106,8 @@ def report():
     text='''# Full-width GRU-XNet and contextual-prior findings — 6 October 2026
 
 All 680 full-model fits are complete and independently replayed: 360 SEED-IV and 320 DEAP. There are also 170 source-only context calibration cells, with all 680 regularization candidates independently refitted. The study changes neither the manuscript nor the main research question. It is one predeclared participant/video grouping with a fixed 200-update training budget, not a historical-score reproduction or a submission-ready result.
+
+The primary matched reference comparisons establish no consistent GRU-XNet advantage: all sixteen reference-versus-GRU accuracy/log-loss intervals include zero. On shared DEAP videos, EEG-plus-context gives 78.10% balanced accuracy versus 77.36% for the raw video prior; its +0.74 percentage-point interval is [-0.94,+3.11]. All eight DEAP EEG-plus-context contrasts against the two context-only comparators, and all sixteen neural within-video alignment intervals, include zero. These fits do not establish useful incremental EEG prediction. The fixed budget, adapted inputs and one base initialization scheme leave better optimization and representations open; this is not a conclusion that EEG lacks information.
 
 ## Matched primary results
 
@@ -168,7 +173,7 @@ The dynamic model retains the full original 32/64/128 independent electrode CNN 
 
 Inputs are adapted to the same physical common14 channels and 40-second offline prefix, with real 4–40 Hz bins and 79 STFT frames, producing nine ordered recurrent steps after three pools. This differs from the historical interpolated 129×126/max-channel/augmented pooled configuration. Grouped convolutions preserve distinct weights and BatchNorm statistics per electrode. Weight-mapped forward outputs for both binary and three-class heads match the original local implementations within the predeclared tolerance. All 2344 input spectrograms independently match SciPy exactly after double-precision transform calculation and float32 storage; the original tolerance was retained through the preflight precision correction.
 
-Every fit binds its input and source hashes, original trial split, canonical training draws, initial state, training-only scaler, participant-excluded context, history, selected checkpoint and predictions. Independent verification reconstructs all these, replays selected training/validation/test predictions and selection rules, refits every context candidate and checks once-per-trial out-of-fold coverage. This is selected-checkpoint replay, not rerunning every neural optimization trajectory. Largest neural probability error: SEED-IV {checks['SEEDIV']['maximum_neural_probability_error']:.3g}; DEAP {checks['DEAP']['maximum_neural_probability_error']:.3g}. Analysis was independently recomputed exactly before reporting.
+Every fit binds its input and source hashes, original trial split, canonical training draws, initial state, training-only scaler, participant-excluded context, history, selected checkpoint and predictions. Independent verification reconstructs all these, replays selected training/validation/test predictions and selection rules, refits every context candidate and checks once-per-trial out-of-fold coverage. This is selected-checkpoint replay, not rerunning every neural optimization trajectory. Largest neural probability error: SEED-IV {checks['SEEDIV']['maximum_neural_probability_error']:.3g}; DEAP {checks['DEAP']['maximum_neural_probability_error']:.3g}. Analysis was independently recomputed exactly before reporting. The scientific-control suite has 64 passing tests (`python -m pytest -q`); software tests alone do not establish scientific validity or novelty.
 
 The first partial batch was stopped after 15 completed fits when a training-mode CBSAtt dropout/pooling discrepancy was found. Revision 2 corrects the ordering and adds training-mode checks. The partial fits and original source hashes are preserved as excluded preflight evidence; all 680 reported fits were restarted under the corrected declaration without changing splits, budgets or hyperparameters.
 

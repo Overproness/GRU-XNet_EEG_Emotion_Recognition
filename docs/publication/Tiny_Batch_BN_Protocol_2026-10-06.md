@@ -1,0 +1,9 @@
+# Post-hoc balanced tiny-batch BatchNorm check — 6 October 2026
+
+This supplement was declared after fifty source fits had completed. The author-checked EEGNet SEED memorization runs had sampled training-mode losses 0.0031/0.0108, but inference losses 6.97/3.60. Those observations motivated this explicitly post-hoc check. The declaration binds the existing source protocol, all relevant code and the completed fits available at declaration. No outer-test outcome is used.
+
+Evaluate all sixteen original final memorization states: four models, both corpora and real/shuffled labels. Keep each fit's same twelve class-balanced training trials, targets, input normalizer and every learned parameter. Recalculate BatchNorm running means and variances in three feed-forward passes with dropout disabled, using the already frozen source-population moment routine. Unlike the full-training-population diagnostic, this balanced tiny check does not change class priors. It does not isolate moving-average lag from dropout/inference activation-distribution changes.
+
+Retain original and recalibrated source-training probabilities and moments for every case. Apply the unchanged descriptive criterion: BA at least 95% and balanced log loss below 0.15. No optimizer update, checkpoint reselection, validation evaluation or outer-test evaluation occurs. Exact local replay checks all moment arrays, unchanged learned parameters and original/after probabilities. The public verifier checks memberships, hashes, metrics and criteria without raw EEG or checkpoints.
+
+This is a capacity/evaluation-state diagnostic, without a claim of physiological emotion information, optimization convergence, population generalization, a novel normalization method or a changed paper question. Preserve all failed outcomes. The machine-readable plan is in `results/development/memo_bn_check_2026-10-06/plan.json`; bounded public results will be exported after local replay.

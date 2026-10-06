@@ -39,6 +39,44 @@ python scripts/verify_full_context_export.py
 
 The first checks exported artifact integrity and links. The second checks fitting-source bindings, independently calculates point accuracy/log loss from probabilities and recomputes all declared primary and exchange analyses. It does not replay neural inference or authenticate first-party recordings. No manuscript or research-question change follows automatically. Source-only learning-quality/convergence diagnostics, authenticated baselines and independent full-model confirmation remain the next priorities.
 
+## Source learning and authenticated baseline diagnostics (6 October 2026)
+
+The [frozen source protocol](docs/publication/Learning_Control_Protocol_2026-10-06.md) declares 96 fits: sixteen real/permuted tiny-batch capacity checks and eighty source learning curves through 1,200 updates. Both rates (0.001/0.0003) are retained. GRU and EEGNet use two groupings and two initializations; local CBSAtt and matched BiLSTM use one grouping/initialization. These are partial source panels, with validation videos unseen in both arms. They do not produce new outer-test scores or select a global recipe for later folds.
+
+EEGNet is checked against the executed, pinned original authors' TensorFlow function. The [authentication record](docs/publication/GRU-XNet_Learning_Control_Research_Update_2026-10-06.md) explains exact operator/BatchNorm/constraint checks and the limits of score/optimizer fidelity. Reconstruct its local author-source download using `python scripts/download_eegnet_author.py`. The CPU TensorFlow audit uses `scripts/audit_eegnet_author_tf.py`; it expects a compatible TensorFlow environment and the isolated local NumPy compatibility copy described in that record. Then run `python scripts/audit_eegnet_control.py` in the PyTorch environment. Neither original author code nor compatibility packages are distributed in this export.
+
+For a fresh source study with the previously verified waveform/STFT caches and author audits:
+
+```powershell
+python scripts/learning_controls.py plan
+python scripts/learning_controls.py run
+python scripts/audit_learning_controls.py
+```
+
+Existing source declarations protect all fitting dependencies. Resume with `run`; do not replace the declaration or alter fitting sources. Two separate normalization supplements are explicitly post-hoc: [full training populations](docs/publication/Source_BN_Diagnostic_Protocol_2026-10-06.md), declared after nine fits, and [class-balanced tiny populations](docs/publication/Tiny_Batch_BN_Protocol_2026-10-06.md), declared after fifty fits. Each plan records the actual inspected evidence. Complete source replay is required before either supplement runs. Both retain learned weights and original checkpoint choices, reconstruct source moments with dropout off, and preserve failed outcomes. A reproduction must preserve this timing or clearly declare its own different timing.
+
+```powershell
+python scripts/source_bn_diagnostic.py run
+python scripts/source_bn_diagnostic.py verify
+python scripts/memo_bn_check.py run
+python scripts/memo_bn_check.py verify
+python scripts/verify_source_bn_export.py --root ../publication_runs
+python scripts/verify_memo_bn_export.py --root ../publication_runs
+python scripts/report_learning_controls.py
+python scripts/verify_learning_report.py --root ../publication_runs
+```
+
+The `plan` commands for the two supplements are used once at their recorded declaration times, before `run`; existing plans must not be overwritten. Exact moment/checkpoint replay requires local data and weights. After final export, a public checkout can independently recompute probability metrics, every normalization comparison and report means:
+
+```powershell
+python scripts/audit_learning_controls.py --export-only
+python scripts/verify_source_bn_export.py
+python scripts/verify_memo_bn_export.py
+python scripts/verify_learning_report.py
+```
+
+The source-only diagnostics do not establish optimization convergence, novel architecture or generalization. Broad confirmation still needs a separate declaration with per-outer-fold source selection, full population coverage and initialization/grouping repeats. No manuscript or research-question change follows automatically.
+
 ## Local setup
 
 Run from this repository directory in PowerShell:

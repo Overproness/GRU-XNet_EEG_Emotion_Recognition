@@ -10,6 +10,7 @@ sys.path.insert(0, str(REPO))
 from gruxnet.data import digest, sha256, write_json
 from gruxnet.learning_controls import identifier
 from scripts.audit_learning_controls import independent_metrics
+from scripts.verify_memo_bn_export import analyze as tiny_comparison
 
 
 def verify(root):
@@ -36,6 +37,9 @@ def verify(root):
     df = pd.DataFrame(rows); checked = 0
     if comparison['fits'] != 96 or comparison['memorization_criterion_passes'] != capacity_passes:
         raise ValueError('Reported study counts disagree')
+    tiny = tiny_comparison(root, write=False)
+    if comparison['tiny_normalization_cases'] != len(tiny['cases']) or comparison['recalibrated_memorization_criterion_passes'] != tiny['criterion_after']:
+        raise ValueError('Reported recalibrated capacity counts disagree')
     for (dataset, model, lr), part in df.groupby(['dataset', 'model', 'lr']):
         expected = comparison['means'][dataset][model][str(lr)]
         if expected['source_panels'] != len(part) or expected['selected_after_200'] != int(part.selected_step.gt(200).sum()):
@@ -48,6 +52,7 @@ def verify(root):
                     checked += 1
     result = {'passed': True, 'aggregate_point_metrics_recomputed': checked, 'complete_source_fits': len(rows),
               'memorization_fits': 16, 'capacity_criterion_passes': capacity_passes,
+              'tiny_recalibrated_capacity_criterion_passes': tiny['criterion_after'],
               'source_sha256': sha256(Path(__file__)), 'input_digest': digest(hashes),
               'scope': 'All descriptive source-report aggregate BA/logloss means independently computed from original probability tables; no population inference or EEG/checkpoint replay.'}
     write_json(output/'report_verification.json', result); print(json.dumps(result, indent=2))

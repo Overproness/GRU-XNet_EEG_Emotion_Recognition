@@ -17,13 +17,16 @@ NAMES = {'gru': 'GRU-XNet', 'lstm': 'Matched BiLSTM', 'cbsatt_local': 'Local CBS
 
 def report():
     output = ROOT/'learning_controls_2026-10-06'; bn = ROOT/'source_bn_diagnostic_2026-10-06'
+    tiny = ROOT/'memo_bn_check_2026-10-06'
     verified = json.loads((output/'verification.json').read_text())
     normalization = json.loads((bn/'verification.json').read_text())
-    if not verified['passed'] or not verified['complete'] or not normalization['passed']:
+    tiny_proof = json.loads((tiny/'verification.json').read_text())
+    if not verified['passed'] or not verified['complete'] or not normalization['passed'] or not tiny_proof['passed']:
         raise ValueError('Complete original and normalization replay required')
     records = json.loads((output/'records.json').read_text())
     if len(records) != 96: raise ValueError('All declared fits required')
     differences = json.loads((bn/'comparison.json').read_text())['cases']
+    tiny_result = json.loads((tiny/'comparison.json').read_text())
     rows = []; memorization = []; curve_rows = []
     for r in records:
         job = r['job']; dataset = job['dataset']; task = 'coarse3' if dataset == 'SEEDIV' else 'binary'
@@ -99,6 +102,9 @@ def report():
     for (dataset, model, group, arm, lr), chunk in main[main.model.isin(['gru', 'eegnet'])].groupby(['dataset', 'model', 'group', 'arm', 'lr'], sort=False):
         values = chunk.set_index('initialization')
         repeat_rows.append(f'| {dataset} | {NAMES[model]} | {group} | {arm} | {lr:g} | {values.at[42,"validation_BA_1200"]*100:.2f} | {values.at[91,"validation_BA_1200"]*100:.2f} |')
+    tiny_rows = []
+    for case in tiny_result['cases']:
+        tiny_rows.append(f'| {case["dataset"]} | {NAMES[case["model"]]} | {case["label_mode"]} | {case["before_BA"]*100:.2f} | {case["after_BA"]*100:.2f} | {case["before_logloss"]:.4g} | {case["after_logloss"]:.4g} | {"yes" if case["criterion_after"] else "no"} |')
     source = {dataset: {} for dataset in ('SEEDIV', 'DEAP')}
     for (dataset, model, lr), part in main.groupby(['dataset', 'model', 'lr'], sort=False):
         source[dataset].setdefault(model, {})[str(lr)] = {
@@ -112,11 +118,13 @@ def report():
             'selected_after_200': int(part.selected_step.gt(200).sum())}
     result = {'development_only': True, 'source_only': True, 'research_question_change_approved': False,
               'fits': len(records), 'memorization_criterion_passes': sum(r['memorization_criterion_met'] is True for r in records),
-              'means': source, 'normalization_cases': 160, 'inference': 'Descriptive source diagnostics; incomplete validation panels, reused cohorts and unequal representation/parameter counts. No held-out test, convergence or population-generalization claim.'}
+              'means': source, 'normalization_cases': 160, 'tiny_normalization_cases': 16,
+              'recalibrated_memorization_criterion_passes': tiny_result['criterion_after'],
+              'inference': 'Descriptive source diagnostics; incomplete validation panels, reused cohorts and unequal representation/parameter counts. No held-out test, convergence or population-generalization claim.'}
     write_json(output/'comparison.json', result)
     text = '''# Source learning, baseline authentication and normalization findings — 6 October 2026
 
-All **96 declared fits** are complete: sixteen tiny-batch memorization checks and eighty source-training/validation trajectories through 1,200 updates. GRU and author-checked EEGNet include both declared groupings and initializations 42/91. Twelve older full-model 200-update prefixes reproduce their exact selected state and complete source-validation history. Final and selected checkpoints are independently replayed. A separately declared **post-hoc** BatchNorm diagnostic covers all 160 selected/final source states; every learned parameter is unchanged and every source moment/probability is independently replayed. The scientific-control suite has **71 passing tests**.
+All **96 declared fits** are complete: sixteen tiny-batch memorization checks and eighty source-training/validation trajectories through 1,200 updates. GRU and author-checked EEGNet include both declared groupings and initializations 42/91. Twelve older full-model 200-update prefixes reproduce their exact selected state and complete source-validation history. Final and selected checkpoints are independently replayed. Separately declared **post-hoc** BatchNorm diagnostics cover all 160 selected/final source states and all sixteen tiny-batch final states; every learned parameter is unchanged and every source moment/probability is independently replayed. The scientific-control suite has **71 passing tests**.
 
 These are source-only development diagnostics. They **do not evaluate outer-test performance** and do not change the manuscript or main research question. SEED-IV uses session 1 / rotation 0 / fold 0, with 108 source-training and 12 validation trials. DEAP uses rotation 0 / fold 0, with 358 (group 1) or 344 (group 2) training and 32 validation trials. Groupings can change validation people/videos; initializations are compared on the same population within each grouping/arm. These are repeated source panels, not new participants or complete OOF confirmation. Previously inspected cohorts remain development cohorts.
 
@@ -142,6 +150,14 @@ Twelve distinct source training trials, class-balanced, are fit for 400 updates 
 |---|---|---|---:|---:|---|
 '''+ '\n'.join(memorization)+'''
 
+## Balanced tiny-batch normalization check
+
+The EEGNet SEED tiny-batch sampled training-mode losses reached 0.0031/0.0108 while ordinary inference losses were 6.97/3.60. A separate supplement was declared after fifty source fits had completed, explicitly retaining this post-hoc observation. It uses the same twelve class-balanced trials, fixed labels, input scaling and final learned weights as each original tiny fit. Three-pass source moments are calculated with dropout off. Unlike full-population recalibration below, the tiny-batch check does not change the class prior; it still cannot separate moving-average lag from dropout/inference activation-distribution differences. Every architecture, corpus and real/shuffled target case is retained.
+
+| Dataset | Model | Targets | Original BA (%) | Recalibrated BA (%) | Original loss | Recalibrated loss | Recalibrated strict criterion |
+|---|---|---|---:|---:|---:|---:|---|
+'''+ '\n'.join(tiny_rows)+'''
+
 ## Running normalization statistics versus learned weights
 
 This supplement was declared after nine completed source fits were available and some source curves had been inspected; it is explicitly post-hoc. It changes only BatchNorm running means/variances. Dropout is off, all actual source training trials receive equal weight, and moment calculation uses float64 sums/squares in three feed-forward passes. It differs from balanced mini-batch statistics used during optimization. Every learned parameter, original normalizer and originally selected optimizer checkpoint is retained. Validation/test inputs do not enter moments and no new checkpoint is selected after recalibration.
@@ -166,6 +182,8 @@ The author-code EEGNet check executes the pinned original TensorFlow function an
 
 Independent source replay checks all source/data/config/split/scaler/draw/initial/checkpoint bindings, the final and source-selected predictions and selection rule, and source/test disjointness. It checks {verified['probability_metric_sets_checked']} exported probability metric sets and performs {verified['checkpoint_states_replayed']} final/selected state replays, including repeats when states coincide. The largest neural probability error is {verified['maximum_neural_probability_error']:.3g}. All twelve old prefixes pass without reading previous test probabilities. The post-hoc normalization replay reconstructs all float32 moment arrays exactly and reaches maximum probability error {normalization['maximum_probability_error']:.3g}. Replay is not a rerun of all optimizer updates or authentication of first-party EEG.
 
+The sixteen tiny-batch recalibrations also reconstruct source moments exactly and replay original/after probabilities with maximum error {tiny_proof['maximum_probability_error']:.3g}; the strict capacity criterion passes {tiny_result['criterion_before']}/16 original states and {tiny_result['criterion_after']}/16 recalibrated states. Public probability checks independently recompute all 640 full-population before/after metric sets and all 32 tiny-batch metric sets, with no raw EEG or checkpoint access.
+
 Recorded original fitting time is {df.elapsed_seconds.sum()/60:.2f} minutes; maximum PyTorch-allocated CUDA memory is {df.peak_allocated_cuda_bytes.max()/2**20:.2f} MiB. These exclude preparation, driver/background allocations, software tests and independent replay/normalization diagnostics. Checkpoints, waveform caches, isolated compatibility dependencies and downloaded third-party source remain local; bounded probabilities, source records and charts are exported.
 
 ## Publication consequence and next valid experiments
@@ -182,8 +200,9 @@ Changing the paper's main question requires a concrete evidence-backed proposal,
 - [Complete source comparison](publication_runs/learning_controls_2026-10-06/comparison.json), [per-fit summary](publication_runs/learning_controls_2026-10-06/summary.csv), [SEED-IV curves](publication_runs/learning_controls_2026-10-06/learning_curves_seediv.png), [DEAP curves](publication_runs/learning_controls_2026-10-06/learning_curves_deap.png)
 - [Post-hoc normalization protocol](GRU-XNet_EEG_Emotion_Recognition/docs/publication/Source_BN_Diagnostic_Protocol_2026-10-06.md), [declaration](publication_runs/source_bn_diagnostic_2026-10-06/plan.json), [replay](publication_runs/source_bn_diagnostic_2026-10-06/verification.json), [all differences](publication_runs/source_bn_diagnostic_2026-10-06/comparison.json)
 - [SEED-IV normalization plot](publication_runs/source_bn_diagnostic_2026-10-06/calibration_seediv.png), [DEAP normalization plot](publication_runs/source_bn_diagnostic_2026-10-06/calibration_deap.png)
+- [Tiny-batch post-hoc declaration](publication_runs/memo_bn_check_2026-10-06/plan.json), [local replay](publication_runs/memo_bn_check_2026-10-06/verification.json), [all tiny contrasts](publication_runs/memo_bn_check_2026-10-06/comparison.json), [public check](publication_runs/memo_bn_check_2026-10-06/public_verification.json)
 
-On a fresh local study with the previous verified caches and author audit, declare with `python scripts/learning_controls.py plan` before `run`. After completion run `python scripts/audit_learning_controls.py`, then the separately declared `source_bn_diagnostic.py run` and `verify`, and `python scripts/verify_source_bn_export.py --root ../publication_runs` before `python scripts/report_learning_controls.py`. Preserve the post-hoc timing in any reproduction. A public checkout can use `python scripts/audit_learning_controls.py --export-only` and `python scripts/verify_source_bn_export.py` without raw EEG or neural checkpoints. On Windows, Git may require repository-local `core.longpaths=true` for this existing long workspace path.
+On a fresh local study with the previous verified caches and author audit, declare with `python scripts/learning_controls.py plan` before `run`. After completion run `python scripts/audit_learning_controls.py`, then the separately declared `source_bn_diagnostic.py run`/`verify` and `memo_bn_check.py run`/`verify`. Run `python scripts/verify_source_bn_export.py --root ../publication_runs` and `python scripts/verify_memo_bn_export.py --root ../publication_runs` before `python scripts/report_learning_controls.py`, then `python scripts/verify_learning_report.py --root ../publication_runs`. Preserve the post-hoc timing in any reproduction. A public checkout can use `python scripts/audit_learning_controls.py --export-only`, `python scripts/verify_source_bn_export.py`, `python scripts/verify_memo_bn_export.py` and `python scripts/verify_learning_report.py` without raw EEG or neural checkpoints. On Windows, Git may require repository-local `core.longpaths=true` for this existing long workspace path.
 '''
     (REPO.parent/'GRU-XNet_Learning_Control_Findings_2026-10-06.md').write_text(text, encoding='utf-8')
     print(json.dumps(result, indent=2))

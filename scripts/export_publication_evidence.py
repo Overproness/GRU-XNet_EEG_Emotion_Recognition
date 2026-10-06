@@ -33,7 +33,7 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
-    *[f"memo_bn_check_2026-10-06/{name}" for name in ("plan.json", "records.json", "verification.json", "public_verification.json")],
+    *[f"memo_bn_check_2026-10-06/{name}" for name in ("plan.json", "records.json", "verification.json", "public_verification.json", "comparison.json", "summary.csv")],
     *[f"source_bn_diagnostic_2026-10-06/{name}" for name in ("plan.json", "records.json", "verification.json", "public_verification.json", "comparison.json", "summary.csv", "calibration_seediv.png", "calibration_deap.png")],
     *[f"eegnet_author_audit_2026-10-06/{name}" for name in ("download_manifest.json", "tensorflow_execution.json", "port_verification.json")],
     *[f"learning_controls_2026-10-06/{name}" for name in ("plan.json", "config.json", "records.json", "records_seediv.json", "records_deap.json", "waveform_binding_seediv.json", "waveform_binding_deap.json", "verification.json", "public_verification.json", "report_verification.json", "summary.csv", "comparison.json", "learning_curves_seediv.png", "learning_curves_deap.png")],

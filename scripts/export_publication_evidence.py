@@ -33,9 +33,10 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
+    *[f"memo_bn_check_2026-10-06/{name}" for name in ("plan.json", "records.json", "verification.json", "public_verification.json")],
     *[f"source_bn_diagnostic_2026-10-06/{name}" for name in ("plan.json", "records.json", "verification.json", "public_verification.json", "comparison.json", "summary.csv", "calibration_seediv.png", "calibration_deap.png")],
     *[f"eegnet_author_audit_2026-10-06/{name}" for name in ("download_manifest.json", "tensorflow_execution.json", "port_verification.json")],
-    *[f"learning_controls_2026-10-06/{name}" for name in ("plan.json", "config.json", "records.json", "records_seediv.json", "records_deap.json", "waveform_binding_seediv.json", "waveform_binding_deap.json", "verification.json", "public_verification.json", "summary.csv", "comparison.json", "learning_curves_seediv.png", "learning_curves_deap.png")],
+    *[f"learning_controls_2026-10-06/{name}" for name in ("plan.json", "config.json", "records.json", "records_seediv.json", "records_deap.json", "waveform_binding_seediv.json", "waveform_binding_deap.json", "verification.json", "public_verification.json", "report_verification.json", "summary.csv", "comparison.json", "learning_curves_seediv.png", "learning_curves_deap.png")],
     "full_context_public_reanalysis_2026-10-06.json",
     "within_video_alignment_plan_2026-10-06.json",
     *[f"within_video_alignment/{kind}_{dataset}.{ext}" for dataset in ("seediv", "deap") for kind,ext in (("comparison","json"),("verification","json"),("pairs","csv"))],
@@ -238,6 +239,12 @@ def export():
             if not folder.is_dir() or not (folder/'record.json').is_file(): continue
             for name in ('record.json', 'predictions_train.csv', 'predictions_validation.csv'):
                 copy(folder/name, results/'source_bn_diagnostic_2026-10-06/fits'/folder.name/name)
+    memo_fits = runs/'memo_bn_check_2026-10-06/fits'
+    if memo_fits.is_dir():
+        for folder in sorted(memo_fits.iterdir()):
+            if not folder.is_dir() or not (folder/'record.json').is_file(): continue
+            for name in ('record.json', 'predictions_train.csv'):
+                copy(folder/name, results/'memo_bn_check_2026-10-06/fits'/folder.name/name)
 
     local_only = set()
     for name in REPORTS:

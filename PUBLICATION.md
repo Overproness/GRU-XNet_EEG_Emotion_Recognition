@@ -234,3 +234,19 @@ python scripts/verify_publication_export.py --export-only
 ```
 
 Follow the matched protocol for fresh fitting and commit its plan first. Completed paths refuse refitting; old experiment sources remain unchanged. The [focused research update](docs/publication/GRU-XNet_Material_Generalization_Research_Update_2026-10-06.md) adds stimulus-aware SSL, an audited ACM Multimedia alignment method, efficient EEG pretraining and explicit target-access qualifications. The metadata audit fits no model: DEAP has forty video IDs and individual labels, whereas GAMEEMO has four interactive conditions with sparse class coverage. These require different extension protocols. All 47 scientific-control tests pass. Repeated groupings/LODO, matched full GRU-XNet ablations, first-party source authentication and a revised paper remain unfinished.
+
+## Repeated groupings and DEAP control in progress
+
+The [new protocol](docs/publication/Repeated_Material_Control_Protocol_2026-10-06.md) and [plan](results/development/repeated_material_plan_2026-10-06.json) were pushed before fitting in commit f5bbdfa. All ninety SEED-IV and eighty DEAP split pairs passed feasibility checks. Two additional SEED participant/material groupings and two DEAP groupings are fixed before results. DEAP uses corrected individual spreadsheet ratings, exact participant/class training-count matching, identical held-out trials and validation videos absent from both training arms. Repeated partitions reuse the same people/videos; they are sensitivity checks, not new independent replications. One fixed initialization holds optimizer randomness constant; original SEED initialization42 is reused separately from its earlier three-seed mean.
+
+The batch schedules 680 neural fits, 880 selected linear heads, 3,520 linear candidates and 160 training-label-only DEAP video-prior diagnostics. Full checkpoint/candidate replay precedes conclusions. The maintained scientific-control suite now has 53 passing tests. The manuscript and research question remain unchanged. No completed results from this batch are claimed here yet.
+
+```powershell
+# Existing verified common14, native temporal and frozen SEED features are prerequisites.
+python scripts/repeated_material_controls.py prepare-deap --common-cache ../publication_runs/cache_common14 --cache ../publication_runs/cache_temporal_deap
+python scripts/repeated_material_controls.py plan --plan ../publication_runs/repeated_material_plan_2026-10-06.json
+python scripts/repeated_material_controls.py freeze --workspace .. --plan ../publication_runs/repeated_material_plan_2026-10-06.json
+# Review/commit/push the plan and splits before fitting; use fresh local output directories.
+python scripts/repeated_material_controls.py batch --workspace .. --plan ../publication_runs/repeated_material_plan_2026-10-06.json
+python scripts/report_repeated_material.py --workspace ..
+```

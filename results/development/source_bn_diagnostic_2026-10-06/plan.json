@@ -1,0 +1,699 @@
+{
+  "created_utc": "2026-10-06T09:31:38.613401+00:00",
+  "post_hoc": true,
+  "reason": "Declared after inspecting early source training/validation curves showing fluctuating evaluation-mode training accuracy and worsening validation log loss. No outer-test outcomes consulted. Tests whether population BN moments contribute; no claim of original pre-specification.",
+  "known_completed_fits_at_declaration": [
+    {
+      "id": "memorization_seediv_gru_1_42_unexposed_0.001_original",
+      "record_sha256": "6b7293e60e46bad2636d9c32b6e6b8525903b56380b64dbe72362173b9418519"
+    },
+    {
+      "id": "memorization_seediv_gru_1_42_unexposed_0.001_permuted",
+      "record_sha256": "ff1f03779c89f55443f60f845047e6e4553e24d089f7b73bc449d504e158becd"
+    },
+    {
+      "id": "source_curve_seediv_gru_1_42_exposed_0.0003_original",
+      "record_sha256": "782571d5c17cec2c6a16c7e2b1a34f5afe6f80a51bff33ad7df00fbadbddece3"
+    },
+    {
+      "id": "source_curve_seediv_gru_1_42_exposed_0.001_original",
+      "record_sha256": "66dbbe201ad9b7f22e97cba0782150d785c22b0df6065eca6bcfc825a7dd13fc"
+    },
+    {
+      "id": "source_curve_seediv_gru_1_42_unexposed_0.0003_original",
+      "record_sha256": "c136b3e6e056ad3387817c10ec6f32265ba277f7a5c17c874c372452cf1e8ef2"
+    },
+    {
+      "id": "source_curve_seediv_gru_1_42_unexposed_0.001_original",
+      "record_sha256": "b910cce6cae1dd5c578c163a9233880c950b7c12d73d1cbee54ec62dc70df1bb"
+    },
+    {
+      "id": "source_curve_seediv_gru_1_91_exposed_0.0003_original",
+      "record_sha256": "507f5f629d9847ab70c3940d7d587018f16bc450912b21f3d090b1849df1d0a8"
+    },
+    {
+      "id": "source_curve_seediv_gru_1_91_exposed_0.001_original",
+      "record_sha256": "8715adf5b28d79c8ce202c31afb490dd3d7cab466979271fe2d5e245d0268b4d"
+    },
+    {
+      "id": "source_curve_seediv_gru_1_91_unexposed_0.001_original",
+      "record_sha256": "55ea946eb9ba4120cbfea21092d25a02f976de7eaf69a5ca3ba807f517f76ea1"
+    }
+  ],
+  "upstream_plan_sha256": "c9e857d4ed86032bb3a352e196d7e096ae074a0680e674f5f84ba80ee29326aa",
+  "source_sha256": {
+    "scripts/source_bn_diagnostic.py": "3fef51550d7ef7cc1dd9f8caa89b3600fcb58d59d358d511a09dce0f7a207536",
+    "scripts/audit_learning_controls.py": "57dbccb6f87719c77933db46060ab3c72244c15e672644bb4a718932e2674664",
+    "gruxnet/learning_controls.py": "5fc45709052759722cd578655caa064a777428378dc996d5489afe53102d7ba2",
+    "gruxnet/eegnet_control.py": "86938f01d98a16ea656ca8229b0d355aedd3c60c89c26db9bd41d4d7b851c77e",
+    "gruxnet/full_context_models_v2.py": "be0bbc0f24ea57f83fdd4260080a09342ce95fa8158243676e45d1af4477b884"
+  },
+  "evaluations": 160,
+  "jobs": [
+    {
+      "fit_id": "source_curve_seediv_gru_1_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_91_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_91_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_91_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_91_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_91_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_91_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_91_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_1_91_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_91_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_91_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_91_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_91_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_91_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_91_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_91_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_gru_2_91_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_lstm_1_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_lstm_1_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_lstm_1_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_lstm_1_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_lstm_1_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_lstm_1_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_lstm_1_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_lstm_1_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_cbsatt_local_1_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_cbsatt_local_1_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_cbsatt_local_1_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_cbsatt_local_1_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_cbsatt_local_1_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_cbsatt_local_1_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_cbsatt_local_1_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_cbsatt_local_1_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_91_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_91_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_91_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_91_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_91_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_91_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_91_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_1_91_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_91_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_91_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_91_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_91_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_91_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_91_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_91_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_seediv_eegnet_2_91_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_91_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_91_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_91_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_91_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_91_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_91_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_91_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_1_91_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_91_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_91_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_91_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_91_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_91_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_91_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_91_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_gru_2_91_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_lstm_1_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_lstm_1_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_lstm_1_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_lstm_1_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_lstm_1_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_lstm_1_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_lstm_1_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_lstm_1_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_cbsatt_local_1_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_cbsatt_local_1_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_cbsatt_local_1_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_cbsatt_local_1_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_cbsatt_local_1_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_cbsatt_local_1_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_cbsatt_local_1_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_cbsatt_local_1_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_91_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_91_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_91_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_91_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_91_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_91_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_91_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_1_91_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_42_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_42_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_42_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_42_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_42_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_42_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_42_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_42_unexposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_91_exposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_91_exposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_91_exposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_91_exposed_0.0003_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_91_unexposed_0.001_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_91_unexposed_0.001_original",
+      "stage": "final"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_91_unexposed_0.0003_original",
+      "stage": "selected"
+    },
+    {
+      "fit_id": "source_curve_deap_eegnet_2_91_unexposed_0.0003_original",
+      "stage": "final"
+    }
+  ],
+  "procedure": "Keep all learned parameters and upstream selected checkpoint unchanged. Disable dropout/eval mode throughout. For three BN layers in feed-forward order, pass only all actual source training rows and collect pre-BN activation sums/squares in float64 across rows/spatial/time. Set running mean and population variance(E[x2]-E[x]^2, floor1e-12). Later layers see earlier recalibrated moments. Every original trial has equal weight; use original possibly imbalanced source-trial population, not balanced sampled batches. Do not update affine parameters, optimizer, labels, scalers or checkpoint selection; no validation/test inputs enter moments.",
+  "evaluation": "Compare source-train and source-validation BA/logloss before/after separately for each selected/final state, retaining every model/LR/group/initialization/arm. Save changed BN moments, full probabilities and source-trial identities. No outer-test evaluation, model preference or new source-global recipe chosen.",
+  "verification": "Verify learned parameters unchanged and originals reproduced; independently reconstruct all source moments, require bit-exact float32 stored moments and replay all after-calibration probabilities. Compute metrics independently. Public checks validate probabilities/record contrasts without EEG/weights; not full calibration reconstruction.",
+  "inference": "Exploratory diagnostic conditional on source panels; no population interval, optimization convergence, novel BN method or test-generalization claim. Broad confirmation needs a separate fold-valid declaration.",
+  "research_question_change_approved": false
+}

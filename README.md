@@ -45,13 +45,13 @@ Training priors exclude the receiving participant's labels; test priors use sour
 
 The manuscript and main research question remain unchanged. Source-only learning/convergence diagnostics, stronger authenticated baselines, independent full-model confirmation, joint/LODO validation and final novelty assessment remain necessary; the paper is not submission-ready.
 
-## Authors
-
 ## Source-only learning diagnostics (declared, 6 October 2026)
 
 The [frozen diagnostic protocol](docs/publication/Learning_Control_Protocol_2026-10-06.md) adds 16 real/permuted-label memorization fits and 80 training/validation learning curves, retaining two learning rates and extending uninterrupted trajectories through 1,200 updates. GRU and EEGNet repeat a two-grouping by two-initialization source-panel factorial. Outer-test rows are excluded from model/scaler/selection access; these partial panels are development diagnostics, without new test-performance claims.
 
 The EEGNet port is numerically checked against the pinned authors' executed TensorFlow function, including training-mode BatchNorm and constraints. [Baseline authentication and additional overlapping prior work](docs/publication/GRU-XNet_Learning_Control_Research_Update_2026-10-06.md). All previous fitting sources and results remain frozen. Findings will be reported after checkpoint replay; broader held-out confirmation remains a separate phase.
+
+## Authors
 
 **Muhammad Wasif Shakeel** - [GitHub](https://github.com/mwasifshkeel)  
 **Muhammad Muntazar** - [GitHub](https://github.com/overproness)

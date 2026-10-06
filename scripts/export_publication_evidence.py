@@ -33,6 +33,7 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
+    *[f"source_bn_diagnostic_2026-10-06/{name}" for name in ("plan.json", "records.json", "verification.json", "public_verification.json", "comparison.json", "summary.csv", "calibration_seediv.png", "calibration_deap.png")],
     *[f"eegnet_author_audit_2026-10-06/{name}" for name in ("download_manifest.json", "tensorflow_execution.json", "port_verification.json")],
     *[f"learning_controls_2026-10-06/{name}" for name in ("plan.json", "config.json", "records.json", "records_seediv.json", "records_deap.json", "waveform_binding_seediv.json", "waveform_binding_deap.json", "verification.json", "public_verification.json", "summary.csv", "comparison.json", "learning_curves_seediv.png", "learning_curves_deap.png")],
     "full_context_public_reanalysis_2026-10-06.json",
@@ -231,6 +232,12 @@ def export():
                          *[f'predictions_{part}_step{step}.csv' for part in ('train', 'validation') for step in (200, 400, 600, 1200)],
                          *[f'predictions_{part}_selected.csv' for part in ('train', 'validation')]):
                 copy(folder/name, results/'learning_controls_2026-10-06/fits'/folder.name/name)
+    bn_fits = runs/'source_bn_diagnostic_2026-10-06/fits'
+    if bn_fits.is_dir():
+        for folder in sorted(bn_fits.iterdir()):
+            if not folder.is_dir() or not (folder/'record.json').is_file(): continue
+            for name in ('record.json', 'predictions_train.csv', 'predictions_validation.csv'):
+                copy(folder/name, results/'source_bn_diagnostic_2026-10-06/fits'/folder.name/name)
 
     local_only = set()
     for name in REPORTS:

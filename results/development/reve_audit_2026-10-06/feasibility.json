@@ -1,0 +1,39 @@
+{
+  "label_access": "None; first fixed trial only, input feasibility and batching, no classifier fitted or score inspected",
+  "input_fingerprint": "27d0a5a483b4d2ef8de805c4395222d5aca6195a9f9db932c00d2e0b9816f28f",
+  "parameters": 69189632,
+  "dtype": "float32; author SDPA backend selection, no autocast",
+  "device_name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "tests": [
+    {
+      "batch_windows": 1,
+      "elapsed_seconds": 0.344168399926275,
+      "peak_allocated_cuda_bytes": 318729216,
+      "peak_reserved_cuda_bytes": 333447168,
+      "max_batch_probability_free_embedding_difference": 0.0
+    },
+    {
+      "batch_windows": 2,
+      "elapsed_seconds": 0.0793389999307692,
+      "peak_allocated_cuda_bytes": 320452608,
+      "peak_reserved_cuda_bytes": 333447168,
+      "max_batch_probability_free_embedding_difference": 4.76837158203125e-06
+    },
+    {
+      "batch_windows": 4,
+      "elapsed_seconds": 0.04479469987563789,
+      "peak_allocated_cuda_bytes": 323900416,
+      "peak_reserved_cuda_bytes": 335544320,
+      "max_batch_probability_free_embedding_difference": 4.76837158203125e-06
+    },
+    {
+      "batch_windows": 10,
+      "elapsed_seconds": 0.031224099919199944,
+      "peak_allocated_cuda_bytes": 333097472,
+      "peak_reserved_cuda_bytes": 356515840,
+      "max_batch_probability_free_embedding_difference": 7.62939453125e-06
+    }
+  ],
+  "chosen_batch_windows": 10,
+  "reason": "Ten 4-second windows of one trial; fixed before outcome evaluation; memory fits 6GB"
+}

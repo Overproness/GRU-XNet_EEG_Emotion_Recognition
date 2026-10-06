@@ -16,7 +16,8 @@ REPORTS = [f"GRU-XNet_{name}_{DATE}.md" for name in (
     "First_Party_DEAP_Check", "GitHub_Configuration_Review", "DEAP_Control",
     "Publication_Readiness", "Exploration_Findings", "Neural_Transfer_Investigation", "Multitarget_Transfer_Findings")]
 REPORTS += ["GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md",
-            "GRU-XNet_Transformer_Research_Update_2026-10-06.md"]
+            "GRU-XNet_Transformer_Research_Update_2026-10-06.md",
+            "GRU-XNet_Session_Pretraining_Findings_2026-10-06.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",
@@ -25,6 +26,12 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
+    "reve_probe_plan_2026-10-06.json", "cache_reve_input_seediv/prepared.json",
+    *[f"reve_audit_2026-10-06/{name}" for name in ("download_manifest.json", "code_review.json", "feasibility.json")],
+    *[f"reve_frozen_seediv/{name}" for name in ("plan.json", "features.json", "folds.json", "comparison.json", "verification.json", "environment.json", "comparison.png")],
+    *[f"reve_frozen_seediv/linear_{model}_source{source}.json"
+      for model in ("reve_pretrained","reve_random42") for source in (0,1,2,3)],
+    *[f"reve_frozen_seediv/predictions_{model}.csv" for model in ("reve_pretrained","reve_random42")],
     "session_stimulus_plan_2026-10-06.json",
     *[f"session_stimulus_seediv/{name}" for name in (
         "config.json", "plan.json", "folds.json", "model_metrics.json", "comparison.json", "verification.json", "environment.json", "comparison.png")],

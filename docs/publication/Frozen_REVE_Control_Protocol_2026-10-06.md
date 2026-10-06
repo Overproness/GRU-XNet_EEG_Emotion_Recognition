@@ -1,0 +1,36 @@
+# Frozen pretrained EEG development control
+
+This experiment assesses an existing EEG foundation encoder before considering a change to the paper's question. It is exploratory, uses previously inspected SEED-IV participants and requires no research-question pivot. The author must approve a proposed pivot after seeing evidence; archive the then-current manuscript immediately before that approved change.
+
+Use official [REVE-Base](https://huggingface.co/brain-bzh/reve-base) at commit `dc2a075c287bb2f6c04ee5875bd79535a0f7dba6` and the [position bank](https://huggingface.co/brain-bzh/reve-positions) at `befa5b57a455b77cf302daf610c2e9ed8140bace`. Verify both safetensors SHA-256 digests and all downloaded assets. Manually review the four author Python files before explicit local import. Read safetensors with strict state loading; do not use an online remote-code loader. Downloaded code, weights, waveforms and embeddings remain local.
+
+The [paper](https://arxiv.org/html/2510.21585v1) Appendix B names its pretraining sources; the [open-subset card](https://huggingface.co/datasets/brain-bzh/reve-dataset) explicitly represents only part of the complete corpus. Neither reviewed listing names SEED, DEAP or GAMEEMO. That supports a limited provenance check; it does not independently prove exclusion at the recording or participant level. Preserve this limitation in any comparison. The pinned REVE Responsible Use License v1.0 permits this research. This is a checkpoint probe, not a recreation of the authors' FACED experiment.
+
+Compare a frozen pretrained encoder with **the identical official architecture initialized at seed 42 and frozen**. Share the official physical electrode positions and all input processing. No gradient updates, task-specific attention pooling, target-population statistics or unlabeled held-out participant calibration enter either encoder. This isolates the effect of the supplied weights within this particular adapter, subject to the limitation of a single random encoder initialization.
+
+Regenerate all 1,080 common14 raw prefixes from the 45 SHA-bound SEED-IV recordings. Require exact agreement with all 1,080 verified prior bandpower sequences. Use the same first 40 seconds per original trial; full-trial zero-phase filtering 4–40 Hz and physical resampling to 128 Hz precede the prefix. This remains offline processing, not strictly causal 40-second acquisition.
+
+For each prefix, resample 128→200 Hz with polyphase 25/16, then normalize each channel with mean and population standard deviation computed only from that 40-second observation (float64 statistics, scale floor 1e-8), clip at ±15 and cast float32. Split into ten nonoverlapping four-second windows. This stateless adapter differs from the authors' broader pretraining bandpass and recording-session normalization and must be described as such.
+
+The author patcher uses 200 samples with 20-sample overlap: four patches from each 800-sample window, starting at 0/180/360/540. Therefore the last **60 samples (0.30 seconds) of each window are not directly embedded**. There are 56 electrode/patch tokens per window and 37 seconds of direct patch coverage within the 40-second normalized observation. Mean the final-layer electrode/patch tokens to 512 features, then mean all ten windows to one 512-dimensional trial vector. This does not model order between the ten windows. Hardware feasibility and batch invariance are checked on the first fixed trial without labels or classifier scores; use ten windows per batch if that pilot fits 6GB. Keep float32 and the official SDPA selection, without AMP.
+
+Train a class-balanced multinomial logistic head with a scaler fitted only to training participants' embeddings. Select C=0.01/0.1/1/10 using validation three-class balanced accuracy then balanced log loss, with the first exact tie. Evaluate neutral / negative (sadness+fear) / positive on all trials; secondary binary evaluation excludes neutral and conditions negative/positive probabilities on the same 810 trials.
+
+Use the same five participant rotations (nine training, three validation, three test). Evaluate both mixed-session fitting and the three single-source-session protocols from [the session control](Session_Stimulus_Control_Protocol_2026-10-06.md). In the latter, fit and select only the source session, select once and test all three sessions of the same held-out people. Two encoders × four protocols × five folds produce **160 candidate heads, 40 selected heads and 8,640 test probability rows**. Compare same-session versus two cyclic unseen-source directions on identical target trials, and report mixed-session fitting separately.
+
+Report pretrained-minus-random contrasts on both tasks for mixed, same-session and mean-unseen protocols. Use 10,000 paired participant-block percentile draws with seed 20261006; average repeated directions within each draw. Intervals are exploratory, unadjusted and conditional on the fixed folds. Changing session changes material and recording conditions together; no causal stimulus-effect or unseen-corpus claim follows. Cross-comparison with bandpower also changes normalization, representation and model size; the paired random encoder is the direct pretraining control.
+
+```powershell
+conda activate pytorch
+python scripts/prepare_reve_assets.py --output ../publication_runs/reve_audit_2026-10-06 --weights
+python scripts/reve_frozen_probe.py audit --assets ../publication_runs/reve_audit_2026-10-06
+python scripts/reve_frozen_probe.py prepare --data-root ../emotion-recognition-eeg-datasets --temporal-cache ../publication_runs/cache_temporal_native_seediv --cache ../publication_runs/cache_reve_input_seediv
+python scripts/reve_frozen_probe.py pilot --assets ../publication_runs/reve_audit_2026-10-06 --cache ../publication_runs/cache_reve_input_seediv
+python scripts/reve_frozen_probe.py plan --plan ../publication_runs/reve_probe_plan_2026-10-06.json
+# Commit this declaration before extraction or fitting heads.
+python scripts/reve_frozen_probe.py extract --assets ../publication_runs/reve_audit_2026-10-06 --cache ../publication_runs/cache_reve_input_seediv --output ../publication_runs/reve_frozen_seediv --plan ../publication_runs/reve_probe_plan_2026-10-06.json
+python scripts/reve_frozen_probe.py run --output ../publication_runs/reve_frozen_seediv
+python scripts/reve_frozen_probe.py verify --assets ../publication_runs/reve_audit_2026-10-06 --cache ../publication_runs/cache_reve_input_seediv --output ../publication_runs/reve_frozen_seediv
+```
+
+Verification checks all input/feature/asset/source hashes, unchanged encoder states, selected coefficients, train-only scalers, selection, complete OOF coverage and bootstrap aggregates. Recompute ten fixed trial embeddings per encoder spanning the cohort. Full embedding recomputation is not repeated by that verification command. This frozen control does not measure fine-tuning quality or the best performance REVE might achieve under another valid adapter.

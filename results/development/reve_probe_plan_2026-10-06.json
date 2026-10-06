@@ -1,0 +1,24 @@
+{
+  "development_only": true,
+  "research_question_change_approved": false,
+  "checkpoint_revisions": {
+    "brain-bzh/reve-base": "dc2a075c287bb2f6c04ee5875bd79535a0f7dba6",
+    "brain-bzh/reve-positions": "befa5b57a455b77cf302daf610c2e9ed8140bace"
+  },
+  "encoder_conditions": [
+    "reve_pretrained",
+    "reve_random42"
+  ],
+  "encoder_access": "Frozen eval encoder, no task gradient, no target-population calibration",
+  "random_control": "Same official architecture, constructor seed42, frozen; one random encoder initialization, shared official positions",
+  "input": "All1080 SEEDIV common14 trials, first40 seconds; exact prior bandpower prefix match. Offline full-original-trial filter4..40Hz then128Hz precedes prefix",
+  "adapter": "Polyphase128->200Hz across each fixed prefix; per-observation per-channel population mean/std (float64), floor1e-8, clip+-15. Split into10 disjoint4s800-sample windows. Each window14electrodes*4author1s patches at180sample stride=56tokens; final60samples(0.30s) of each window unused by patcher,37s direct patch coverage within40s normalized observation",
+  "pooling": "Mean final-layer channel/patch tokens to512/window, then arithmetic mean10windows to512/trial; no task attention-pooling parameters",
+  "feasibility": "Batch10 windows, float32 without AMP, fixed after outcome-free first-input memory/batch-invariance pilot",
+  "heads": "Training-only feature scaler and coarse3 class-balanced multinomial logistic; C.01/.1/1/10, validation3BA then balanced logloss, first tie",
+  "protocols": "Same five9/3/3 participant folds: mixed all3sessions and each single source session. Single-source selection sees source only and tests each of3sessions; exact same target trials as session controls",
+  "budget": "40 selected heads,160 candidates,8640 test probability rows across pretrained/random encoders; fixed encoder seed42",
+  "metrics": "Primary3class BA/all1080, secondary conditionalbinary810; same-session diagonal, two cyclic unseen-source directions, average directions; mixed-session result separate",
+  "uncertainty": "10000 paired participant-block draws seed20261006. Pretrained-minus-random contrasts in mixed/same/unseen protocols, unadjusted, fixedfolds/developmentcohort; one random initialization limits attribution",
+  "limitations": "Published sources do not independently certify full checkpoint corpus exclusion. Adapter narrows pretraining bandwidth, uses trial instead of session zscore and mean-pools short windows. This is an authored frozen probe, not published FACED result replication or finetuning. No unseen-corpus claim"
+}

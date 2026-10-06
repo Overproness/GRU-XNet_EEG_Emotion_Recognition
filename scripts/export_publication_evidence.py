@@ -27,10 +27,10 @@ RUN_FILES = {
 }
 EXTRA_FILES = [
     "session_material_sensitivity_plan_2026-10-06.json",
-    *[f"session_material_sensitivity/{name}" for name in ("comparison.json","verification.json")],
+    *[f"session_material_sensitivity/{name}" for name in ("comparison.json","verification.json","comparison.png","session_cells.png")],
     "reve_probe_plan_2026-10-06.json", "cache_reve_input_seediv/prepared.json",
     *[f"reve_audit_2026-10-06/{name}" for name in ("download_manifest.json", "code_review.json", "feasibility.json")],
-    *[f"reve_frozen_seediv/{name}" for name in ("plan.json", "features.json", "folds.json", "comparison.json", "verification.json", "environment.json", "comparison.png")],
+    *[f"reve_frozen_seediv/{name}" for name in ("plan.json", "features.json", "folds.json", "comparison.json", "verification.json", "verification_diagnostic.json", "environment.json", "comparison.png")],
     *[f"reve_frozen_seediv/linear_{model}_source{source}.json"
       for model in ("reve_pretrained","reve_random42") for source in (0,1,2,3)],
     *[f"reve_frozen_seediv/predictions_{model}.csv" for model in ("reve_pretrained","reve_random42")],

@@ -1,0 +1,536 @@
+{
+  "plan": {
+    "development_only": true,
+    "research_question_change_approved": false,
+    "timing": "Added after initial session results were inspected; before REVE classifier outcomes. Exploratory sensitivity, not original preregistration",
+    "units": "15 participants crossed with72 published-design material keys(session,trialposition); original video hashes unavailable",
+    "resampling": "10000 paired draws seed20261006. Resample15 participants, then independently6 material keys with replacement in each of12 session/native-emotion strata. Same draw weights across models/protocols",
+    "averaging": "Average correctness over encoder training seeds and two unseen-source directions for each participant/material before resampling; keep labels/population and source checkpoints fixed",
+    "contrasts": "Same minus unseen reported as unseen-minus-same per model; Transformer-minus-MLP same/unseen; pretrained-minus-random mixed/same/unseen; both common3 and conditionalbinary",
+    "limitations": "Unadjusted percentile intervals conditional on these3sessions, fixed training folds/checkpoints and observed clip proxies; not causal identification, refit uncertainty, new session population or confirmed film identity"
+  },
+  "plan_sha256": "0825b860650ab5076fbdb17d7f29d2c7fc3168387c93a63c3af53ef9527fa9fa",
+  "source_sha256": "80a731577c54b47563ed80f9c6db8dc471b4c13b8f446e8a7aeef17679576d84",
+  "prediction_hashes": {
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\session_stimulus_seediv\\predictions_bandpower.csv": "60075c0bc5d43126645d145be4b3d0590fe06de90c464330e8436e695d935dbc",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\session_stimulus_seediv\\predictions_duration.csv": "7e42bd3a99aa48955c8a1605006668fb430d1778618eed79c7d5da8e1ab5057f",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\session_stimulus_seediv\\predictions_mean_mlp_source1.csv": "8b341eabaf5f5c0fe4744a12d986c2499f753d6d0383ac9c0ee6aa6876c66a64",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\session_stimulus_seediv\\predictions_mean_mlp_source2.csv": "2a17f8566df79f9ce2c2e6de34cff21982902836bcf6e651182564f4c105df7c",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\session_stimulus_seediv\\predictions_mean_mlp_source3.csv": "817be8d684584c05355513bd503b248ca0769dff828512976377538755ca776c",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\session_stimulus_seediv\\predictions_transformer_source1.csv": "6fee3a03a67a7376c7988e5c0fdfb7f2887113733dfea3380c9fe3ee897c36b6",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\session_stimulus_seediv\\predictions_transformer_source2.csv": "fbf5c3ad499f77c96ff3ee75c323de2507af91a50fdd27aff4bb5088fea21c95",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\session_stimulus_seediv\\predictions_transformer_source3.csv": "8ddccf8654450af3832c9922624edb6e10a3a669a23d02a42e2fb961be7fa8df",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\reve_frozen_seediv\\predictions_reve_pretrained.csv": "ea6d33ed9eef2dfde1d02f24f2691d8cee9df363bbeee01f4fa671f0b7d4860f",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\reve_frozen_seediv\\predictions_reve_random42.csv": "a698b23d24ab9fd12c1dd71fbf4da7f5ef7abc407afa5a11781e689f818fc7d2",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\session_stimulus_seediv\\comparison.json": "0314f83b2dda60c1098ef722417da1a48a7e53c6947ffd2af553b96204d248af",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\session_stimulus_seediv\\verification.json": "ac1e212dd3a43c7c36ab5c3ef98fec0390e7ff515c541247022a1718fac7adce",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\reve_frozen_seediv\\comparison.json": "6f4cfb38957660e6c6d1b4e3b74b86ce82c57a9458c030827db4d6fb227fb196",
+    "D:\\OneDrive - National University of Sciences & Technology\\Study\\Semester 5\\Deep Learning\\Project\\Implementation\\publication_runs\\reve_frozen_seediv\\verification.json": "994dbc326c396f2a5675cf41f8165de48e57b0f11090b79a420ed3109d3a32a1"
+  },
+  "subject_weight_digest": "d60006cde6ac7f88392c91d5e6ea1c58b4508307987e8534d2d84da79ccf5f12",
+  "material_weight_digest": "0eac7641c9702a4fd1b692b837456fd9cdf929854eb787d6cf7c91cbdf3f51e5",
+  "models": {
+    "mean_mlp": {
+      "same_session": {
+        "coarse3": {
+          "BA": 0.4314814814814814,
+          "crossed_percentile_95": [
+            0.38765432098765434,
+            0.4777777777777778
+          ]
+        },
+        "binary": {
+          "BA": 0.6160493827160494,
+          "crossed_percentile_95": [
+            0.5626543209876543,
+            0.6669753086419754
+          ]
+        }
+      },
+      "mean_unseen": {
+        "coarse3": {
+          "BA": 0.39938271604938275,
+          "crossed_percentile_95": [
+            0.3702674897119342,
+            0.4305555555555556
+          ]
+        },
+        "binary": {
+          "BA": 0.6075617283950617,
+          "crossed_percentile_95": [
+            0.5657368827160493,
+            0.652469135802469
+          ]
+        }
+      }
+    },
+    "transformer": {
+      "same_session": {
+        "coarse3": {
+          "BA": 0.45637860082304527,
+          "crossed_percentile_95": [
+            0.41646090534979424,
+            0.499182098765432
+          ]
+        },
+        "binary": {
+          "BA": 0.6197530864197531,
+          "crossed_percentile_95": [
+            0.5641975308641975,
+            0.678395061728395
+          ]
+        }
+      },
+      "mean_unseen": {
+        "coarse3": {
+          "BA": 0.3989711934156379,
+          "crossed_percentile_95": [
+            0.3665612139917695,
+            0.43456790123456795
+          ]
+        },
+        "binary": {
+          "BA": 0.5901234567901235,
+          "crossed_percentile_95": [
+            0.551693672839506,
+            0.6320987654320986
+          ]
+        }
+      }
+    },
+    "bandpower": {
+      "same_session": {
+        "coarse3": {
+          "BA": 0.41604938271604935,
+          "crossed_percentile_95": [
+            0.3783950617283951,
+            0.4586419753086419
+          ]
+        },
+        "binary": {
+          "BA": 0.6092592592592593,
+          "crossed_percentile_95": [
+            0.5574074074074074,
+            0.6638888888888889
+          ]
+        }
+      },
+      "mean_unseen": {
+        "coarse3": {
+          "BA": 0.3848765432098766,
+          "crossed_percentile_95": [
+            0.3527777777777778,
+            0.42037037037037034
+          ]
+        },
+        "binary": {
+          "BA": 0.6027777777777779,
+          "crossed_percentile_95": [
+            0.5560185185185186,
+            0.6523148148148148
+          ]
+        }
+      }
+    },
+    "duration": {
+      "same_session": {
+        "coarse3": {
+          "BA": 0.48148148148148145,
+          "crossed_percentile_95": [
+            0.3796296296296296,
+            0.5833333333333334
+          ]
+        },
+        "binary": {
+          "BA": 0.5416666666666667,
+          "crossed_percentile_95": [
+            0.41666666666666663,
+            0.6805555555555556
+          ]
+        }
+      },
+      "mean_unseen": {
+        "coarse3": {
+          "BA": 0.47685185185185186,
+          "crossed_percentile_95": [
+            0.40277777777777773,
+            0.5509259259259259
+          ]
+        },
+        "binary": {
+          "BA": 0.5625,
+          "crossed_percentile_95": [
+            0.47916666666666663,
+            0.6388888888888888
+          ]
+        }
+      }
+    },
+    "reve_pretrained": {
+      "same_session": {
+        "coarse3": {
+          "BA": 0.43950617283950616,
+          "crossed_percentile_95": [
+            0.3938271604938272,
+            0.4895061728395062
+          ]
+        },
+        "binary": {
+          "BA": 0.6157407407407407,
+          "crossed_percentile_95": [
+            0.5675925925925926,
+            0.6657407407407407
+          ]
+        }
+      },
+      "mean_unseen": {
+        "coarse3": {
+          "BA": 0.391358024691358,
+          "crossed_percentile_95": [
+            0.3537037037037037,
+            0.4327160493827161
+          ]
+        },
+        "binary": {
+          "BA": 0.5912037037037037,
+          "crossed_percentile_95": [
+            0.55,
+            0.6337962962962963
+          ]
+        }
+      },
+      "mixed_sessions": {
+        "coarse3": {
+          "BA": 0.4308641975308642,
+          "crossed_percentile_95": [
+            0.37777777777777777,
+            0.4901234567901234
+          ]
+        },
+        "binary": {
+          "BA": 0.6055555555555556,
+          "crossed_percentile_95": [
+            0.5564814814814815,
+            0.6574074074074074
+          ]
+        }
+      }
+    },
+    "reve_random42": {
+      "same_session": {
+        "coarse3": {
+          "BA": 0.32469135802469135,
+          "crossed_percentile_95": [
+            0.27901234567901234,
+            0.37222222222222223
+          ]
+        },
+        "binary": {
+          "BA": 0.5092592592592593,
+          "crossed_percentile_95": [
+            0.4546296296296296,
+            0.5666666666666667
+          ]
+        }
+      },
+      "mean_unseen": {
+        "coarse3": {
+          "BA": 0.3333333333333333,
+          "crossed_percentile_95": [
+            0.2990740740740741,
+            0.36759259259259264
+          ]
+        },
+        "binary": {
+          "BA": 0.48518518518518516,
+          "crossed_percentile_95": [
+            0.44259259259259254,
+            0.5296296296296297
+          ]
+        }
+      },
+      "mixed_sessions": {
+        "coarse3": {
+          "BA": 0.34259259259259256,
+          "crossed_percentile_95": [
+            0.29876543209876544,
+            0.387037037037037
+          ]
+        },
+        "binary": {
+          "BA": 0.500925925925926,
+          "crossed_percentile_95": [
+            0.4361111111111111,
+            0.5639120370370367
+          ]
+        }
+      }
+    }
+  },
+  "contrasts": [
+    {
+      "model_a": "mean_mlp",
+      "protocol_a": "mean_unseen",
+      "model_b": "mean_mlp",
+      "protocol_b": "same_session",
+      "task": "coarse3",
+      "BA_difference": -0.032098765432098664,
+      "crossed_percentile_95": [
+        -0.06779835390946504,
+        0.004526748971193484
+      ]
+    },
+    {
+      "model_a": "transformer",
+      "protocol_a": "mean_unseen",
+      "model_b": "transformer",
+      "protocol_b": "same_session",
+      "task": "coarse3",
+      "BA_difference": -0.05740740740740735,
+      "crossed_percentile_95": [
+        -0.09506172839506166,
+        -0.022119341563786088
+      ]
+    },
+    {
+      "model_a": "bandpower",
+      "protocol_a": "mean_unseen",
+      "model_b": "bandpower",
+      "protocol_b": "same_session",
+      "task": "coarse3",
+      "BA_difference": -0.031172839506172778,
+      "crossed_percentile_95": [
+        -0.07283950617283952,
+        0.008333333333333304
+      ]
+    },
+    {
+      "model_a": "duration",
+      "protocol_a": "mean_unseen",
+      "model_b": "duration",
+      "protocol_b": "same_session",
+      "task": "coarse3",
+      "BA_difference": -0.004629629629629595,
+      "crossed_percentile_95": [
+        -0.12962962962962965,
+        0.125
+      ]
+    },
+    {
+      "model_a": "reve_pretrained",
+      "protocol_a": "mean_unseen",
+      "model_b": "reve_pretrained",
+      "protocol_b": "same_session",
+      "task": "coarse3",
+      "BA_difference": -0.04814814814814816,
+      "crossed_percentile_95": [
+        -0.09413580246913578,
+        -0.0021604938271604923
+      ]
+    },
+    {
+      "model_a": "reve_random42",
+      "protocol_a": "mean_unseen",
+      "model_b": "reve_random42",
+      "protocol_b": "same_session",
+      "task": "coarse3",
+      "BA_difference": 0.00864197530864197,
+      "crossed_percentile_95": [
+        -0.0537037037037037,
+        0.06728395061728393
+      ]
+    },
+    {
+      "model_a": "transformer",
+      "protocol_a": "same_session",
+      "model_b": "mean_mlp",
+      "protocol_b": "same_session",
+      "task": "coarse3",
+      "BA_difference": 0.024897119341563856,
+      "crossed_percentile_95": [
+        -0.008024691358024694,
+        0.05967078189300412
+      ]
+    },
+    {
+      "model_a": "transformer",
+      "protocol_a": "mean_unseen",
+      "model_b": "mean_mlp",
+      "protocol_b": "mean_unseen",
+      "task": "coarse3",
+      "BA_difference": -0.0004115226337448319,
+      "crossed_percentile_95": [
+        -0.023251028806584417,
+        0.022222222222222143
+      ]
+    },
+    {
+      "model_a": "reve_pretrained",
+      "protocol_a": "mixed_sessions",
+      "model_b": "reve_random42",
+      "protocol_b": "mixed_sessions",
+      "task": "coarse3",
+      "BA_difference": 0.08827160493827163,
+      "crossed_percentile_95": [
+        0.016666666666666663,
+        0.1635802469135802
+      ]
+    },
+    {
+      "model_a": "reve_pretrained",
+      "protocol_a": "same_session",
+      "model_b": "reve_random42",
+      "protocol_b": "same_session",
+      "task": "coarse3",
+      "BA_difference": 0.11481481481481481,
+      "crossed_percentile_95": [
+        0.04814814814814822,
+        0.18271604938271602
+      ]
+    },
+    {
+      "model_a": "reve_pretrained",
+      "protocol_a": "mean_unseen",
+      "model_b": "reve_random42",
+      "protocol_b": "mean_unseen",
+      "task": "coarse3",
+      "BA_difference": 0.05802469135802468,
+      "crossed_percentile_95": [
+        0.006172839506172867,
+        0.1108024691358025
+      ]
+    },
+    {
+      "model_a": "mean_mlp",
+      "protocol_a": "mean_unseen",
+      "model_b": "mean_mlp",
+      "protocol_b": "same_session",
+      "task": "binary",
+      "BA_difference": -0.008487654320987637,
+      "crossed_percentile_95": [
+        -0.04707175925925929,
+        0.03133101851851863
+      ]
+    },
+    {
+      "model_a": "transformer",
+      "protocol_a": "mean_unseen",
+      "model_b": "transformer",
+      "protocol_b": "same_session",
+      "task": "binary",
+      "BA_difference": -0.029629629629629672,
+      "crossed_percentile_95": [
+        -0.06620756172839512,
+        0.005559413580246946
+      ]
+    },
+    {
+      "model_a": "bandpower",
+      "protocol_a": "mean_unseen",
+      "model_b": "bandpower",
+      "protocol_b": "same_session",
+      "task": "binary",
+      "BA_difference": -0.0064814814814814214,
+      "crossed_percentile_95": [
+        -0.04583333333333339,
+        0.03334490740740734
+      ]
+    },
+    {
+      "model_a": "duration",
+      "protocol_a": "mean_unseen",
+      "model_b": "duration",
+      "protocol_b": "same_session",
+      "task": "binary",
+      "BA_difference": 0.02083333333333326,
+      "crossed_percentile_95": [
+        -0.18055555555555558,
+        0.2152777777777778
+      ]
+    },
+    {
+      "model_a": "reve_pretrained",
+      "protocol_a": "mean_unseen",
+      "model_b": "reve_pretrained",
+      "protocol_b": "same_session",
+      "task": "binary",
+      "BA_difference": -0.024537037037037024,
+      "crossed_percentile_95": [
+        -0.07777777777777772,
+        0.029629629629629672
+      ]
+    },
+    {
+      "model_a": "reve_random42",
+      "protocol_a": "mean_unseen",
+      "model_b": "reve_random42",
+      "protocol_b": "same_session",
+      "task": "binary",
+      "BA_difference": -0.024074074074074137,
+      "crossed_percentile_95": [
+        -0.10185185185185186,
+        0.052314814814814814
+      ]
+    },
+    {
+      "model_a": "transformer",
+      "protocol_a": "same_session",
+      "model_b": "mean_mlp",
+      "protocol_b": "same_session",
+      "task": "binary",
+      "BA_difference": 0.0037037037037037646,
+      "crossed_percentile_95": [
+        -0.033333333333333326,
+        0.04290123456790118
+      ]
+    },
+    {
+      "model_a": "transformer",
+      "protocol_a": "mean_unseen",
+      "model_b": "mean_mlp",
+      "protocol_b": "mean_unseen",
+      "task": "binary",
+      "BA_difference": -0.01743827160493827,
+      "crossed_percentile_95": [
+        -0.0405864197530863,
+        0.004938271604938427
+      ]
+    },
+    {
+      "model_a": "reve_pretrained",
+      "protocol_a": "mixed_sessions",
+      "model_b": "reve_random42",
+      "protocol_b": "mixed_sessions",
+      "task": "binary",
+      "BA_difference": 0.10462962962962963,
+      "crossed_percentile_95": [
+        0.03518518518518521,
+        0.17314814814814816
+      ]
+    },
+    {
+      "model_a": "reve_pretrained",
+      "protocol_a": "same_session",
+      "model_b": "reve_random42",
+      "protocol_b": "same_session",
+      "task": "binary",
+      "BA_difference": 0.1064814814814814,
+      "crossed_percentile_95": [
+        0.03518518518518521,
+        0.17685185185185182
+      ]
+    },
+    {
+      "model_a": "reve_pretrained",
+      "protocol_a": "mean_unseen",
+      "model_b": "reve_random42",
+      "protocol_b": "mean_unseen",
+      "task": "binary",
+      "BA_difference": 0.10601851851851851,
+      "crossed_percentile_95": [
+        0.04398148148148151,
+        0.16805555555555562
+      ]
+    }
+  ]
+}

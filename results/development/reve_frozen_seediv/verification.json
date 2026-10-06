@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "selected_heads_replayed": 40,
+  "candidates_independently_refitted": 160,
+  "test_probability_rows": 8640,
+  "heads": {
+    "reve_pretrained": {
+      "selected_models_replayed": 20,
+      "candidates_independently_refitted": 80,
+      "test_probability_rows": 4320,
+      "max_probability_error": 1.1102230246251565e-16,
+      "max_refit_coefficient_error": 0.0
+    },
+    "reve_random42": {
+      "selected_models_replayed": 20,
+      "candidates_independently_refitted": 80,
+      "test_probability_rows": 4320,
+      "max_probability_error": 1.1102230246251565e-16,
+      "max_refit_coefficient_error": 0.0
+    }
+  },
+  "embedding_replay_trial_indices": [
+    0,
+    71,
+    144,
+    287,
+    432,
+    575,
+    720,
+    863,
+    1008,
+    1079
+  ],
+  "embedding_max_errors": {
+    "reve_pretrained": 0.0,
+    "reve_random42": 0.0
+  },
+  "verification_source_sha256": "4ea2b065963d6f272750dddf1e2d139a136f1a7ce6328f90ae7ae755e1529420",
+  "numerical_correction": "Use scipy.special.softmax, as sklearn multinomial probabilities do. Original logsumexp-normalized reconstruction differed by <=1.78e-15 in probabilities and 2.58e-8 in one conditional-binary validation logloss. All classification metrics/selection/data/weights unchanged; strict1e-10 logloss tolerance retained",
+  "scope": "All bound inputs/features/source/assets; exact frozen state hash,20 sampled embeddings,160 candidate refits,40 selected coefficient/scaler/selection replays,8640 test probabilities,OOF/bootstrap summaries; full1080embeddings not recomputed twice"
+}

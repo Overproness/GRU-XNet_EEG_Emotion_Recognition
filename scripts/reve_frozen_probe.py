@@ -21,5 +21,7 @@ if __name__=="__main__":
     elif a.action=="extract": result=probe.extract(a.assets.resolve(),a.cache,a.output,a.plan)
     elif a.action=="run": result=probe.run(a.output)
     elif a.action=="analyze": result=probe.analyze(a.output)
-    else: result=probe.verify(a.assets.resolve(),a.cache,a.output)
+    else:
+        from scripts.verify_reve_frozen_probe import verify
+        result=verify(a.assets.resolve(),a.cache,a.output)
     print(json.dumps(result,indent=2))

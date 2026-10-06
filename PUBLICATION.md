@@ -215,4 +215,22 @@ python scripts/analyze_session_material_sensitivity.py verify --session-run ../p
 python scripts/report_session_pretraining.py --runs ../publication_runs --destination ../GRU-XNet_Session_Pretraining_Findings_2026-10-06.md
 ```
 
-Follow the two protocols for downloading/reviewing assets, declaring plans and preparing inputs before fresh fitting. The maintained REVE verifier independently refits all 160 candidate heads and replays all 40 selected heads, exact frozen state hashes and 20 sampled embeddings. Matching sklearn's softmax resolves the original verifier's amplified rounding difference without altering fitted data/metrics or widening its tolerance. Across both new phases 34,560 test probability rows replay, and the crossed bootstrap deterministically recomputes. Original experiment modules remain bound and unchanged. The current scientific-control test suite has 43 passing tests; manuscript revision and a research-question pivot still require the previously recorded evidence/approval gate.
+Follow the two protocols for downloading/reviewing assets, declaring plans and preparing inputs before fresh fitting. The maintained REVE verifier independently refits all 160 candidate heads and replays all 40 selected heads, exact frozen state hashes and 20 sampled embeddings. Matching sklearn's softmax resolves the original verifier's amplified rounding difference without altering fitted data/metrics or widening its tolerance. Across both new phases 34,560 test probability rows replay, and the crossed bootstrap deterministically recomputes. Original experiment modules remain bound and unchanged. That phase completed with 43 passing tests; a research-question pivot still requires the previously recorded evidence/approval gate.
+
+## Completed matched within-session material controls
+
+The [predeclared protocol](docs/publication/Within_Session_Material_Control_Protocol_2026-10-06.md) holds session, participant groups, training size and exact validation/test trials fixed while changing test-material exposure among training people. Three material rotations and five participant rotations cover every original trial once per model/arm/seed. Both arms use 108 training, twelve validation and 24 identical test trials per fit. Selection can be noisy with these small validation sets; the cohort remains development evidence.
+
+All 540 MLP/transformer fits and 360 selected classical heads are complete. The verifier replays every selected neural checkpoint and train/validation/test metric, independently refits all 1,440 classical candidates, exactly reproduces selected coefficients, and checks all 21,600 probabilities and the complete paired bootstrap. [All findings and twenty contrasts](docs/publication/GRU-XNet_Within_Session_Material_Findings_2026-10-06.md). Transformer three-class BA changes from 43.35% to 39.92%, with crossed interval [-7.88,+0.56] pp for unseen-minus-shared. All twelve exposure intervals span zero; this does not establish equivalence. There is no clear unseen-material transformer advantage. No new paper question is adopted.
+
+```powershell
+python scripts/within_session_material_controls.py verify --cache ../publication_runs/cache_temporal_native_seediv --reve-run ../publication_runs/reve_frozen_seediv --output ../publication_runs/within_session_material_seediv --device cuda
+python scripts/report_within_session_material.py --run ../publication_runs/within_session_material_seediv --destination ../GRU-XNet_Within_Session_Material_Findings_2026-10-06.md
+python -m scripts.audit_material_populations --cache ../publication_runs/cache_common14_trial_features --output ../publication_runs/material_population_audit
+python scripts/export_publication_evidence.py
+python scripts/verify_publication_export.py
+# For a public checkout without the original local workspace:
+python scripts/verify_publication_export.py --export-only
+```
+
+Follow the matched protocol for fresh fitting and commit its plan first. Completed paths refuse refitting; old experiment sources remain unchanged. The [focused research update](docs/publication/GRU-XNet_Material_Generalization_Research_Update_2026-10-06.md) adds stimulus-aware SSL, an audited ACM Multimedia alignment method, efficient EEG pretraining and explicit target-access qualifications. The metadata audit fits no model: DEAP has forty video IDs and individual labels, whereas GAMEEMO has four interactive conditions with sparse class coverage. These require different extension protocols. All 47 scientific-control tests pass. Repeated groupings/LODO, matched full GRU-XNet ablations, first-party source authentication and a revised paper remain unfinished.

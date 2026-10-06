@@ -52,6 +52,14 @@ def render(run,destination):
     comparison=read(run/"comparison.json"); models=comparison["models"]
     if set(models)!=set(NAMES) or len(comparison["contrasts"])!=20:
         raise ValueError("Incomplete model or contrast population")
+    exposure=[c for c in comparison["contrasts"] if c["model_a"]==c["model_b"]]
+    crossed_zero=sum(c["crossed_percentile_95"][0]<=0<=c["crossed_percentile_95"][1] for c in exposure)
+    def contrast(a,arm,b,other,task="coarse3"):
+        return next(c for c in comparison["contrasts"] if
+                    (c["model_a"],c["arm_a"],c["model_b"],c["arm_b"],c["task"])==(a,arm,b,other,task))
+    transformer_drop=contrast("transformer","unexposed","transformer","exposed")
+    transformer_advantage=contrast("transformer","unexposed","mean_mlp","unexposed")
+    pretrained_advantage=contrast("reve_pretrained","unexposed","reve_random42","unexposed")
     records=[]
     for name in ("mean_mlp","transformer"):
         for session in (1,2,3):
@@ -139,6 +147,10 @@ def render(run,destination):
 
 **Completed and verified:** 540 neural fits, 360 selected linear heads, all 1,440 independently refitted linear candidates and 21,600 test probability rows. The primary question here is whether performance changes when test stimulus materials are absent from training, while holding participant groups, session, training size and test trials fixed. This is SEED-IV development evidence. **The manuscript and research question remain unchanged; no pivot is approved.**
 
+**Research assessment:** all {crossed_zero} of {len(exposure)} material-exposure contrast intervals include zero when both people and materials are resampled. The transformer falls from {pct(models['transformer']['exposed']['coarse3']['mean_BA'])} to {pct(models['transformer']['unexposed']['coarse3']['mean_BA'])}, difference {pp(transformer_drop['BA_difference'])} pp, crossed interval {ci(transformer_drop['crossed_percentile_95'])}. These data allow a meaningful drop as well as a small or absent average effect; they do not establish equivalence. They do not support adopting a strong material-generalization or negative-transfer contribution yet.
+
+On unseen materials, transformer-minus-MLP is {pp(transformer_advantage['BA_difference'])} pp with crossed interval {ci(transformer_advantage['crossed_percentile_95'])}. Frozen pretrained-minus-random REVE is {pp(pretrained_advantage['BA_difference'])} pp with crossed interval {ci(pretrained_advantage['crossed_percentile_95'])}; its unseen-material advantage is uncertain under this analysis, despite a positive point estimate. The current controls establish no clear new model advantage.
+
 ## Identical comparison population
 
 The [protocol]({link(REPO/'docs/publication/Within_Session_Material_Control_Protocol_2026-10-06.md')}) and [plan]({link(run/'plan.json')}) were saved and pushed before fitting. Use all 1,080 original trials from 15 people, three sessions and 72 design-supported material keys. Each fit uses one session and disjoint nine/three/three training/validation/test people. Both arms have **108 training, 12 validation and 24 identical test trials**, with equal native-emotion counts and training people. Test clips are present among other training people in the shared-material arm, and excluded from training and selection in the unseen-material arm. Validation clips are disjoint from both training and test clips in both arms.
@@ -186,6 +198,8 @@ This comparison reduces the preceding recording-session confound by keeping both
 Earlier session-control fits used 216 training and 72 validation trials; this experiment uses 108 and 12. Cross-phase score changes cannot be attributed only to material generalization. Within-phase pairs have equal access and size. These results do not test one jointly selected three-corpus model, unseen-corpus transfer or a new mitigation method.
 
 The [focused prior-work audit]({link(WORKSPACE/'GRU-XNet_Material_Generalization_Research_Update_2026-10-06.md')}) records the EMBC 2021 subject/material precedent and recent stimulus-aware, data-centric and brain-region-transformer work. Holding out materials or adding a transformer alone is not an established novel contribution. Use the entire result to decide whether further robustness experiments are warranted; do not adopt a paper pivot automatically.
+
+The earlier transformer session-transfer difference was -5.74 pp with crossed interval [-9.51,-2.21]. The present within-session estimate is smaller and less precise, but training/validation size and material access also differ between phases. It would be incorrect to infer that recording-day shift alone caused the earlier drop. Repeat independent material/participant groupings and extend a compatible binary control to DEAP before deciding whether a systematic robustness contribution is supported. The metadata audit identifies GAMEEMO's sparse game-condition and class coverage constraints; that extension needs a different explicitly declared protocol. No further grouping or corpus experiment is represented as completed here.
 
 The [readiness checklist]({link(WORKSPACE/'GRU-XNet_Publication_Readiness_2026-10-05.md')}) still tracks unfinished matched full GRU-XNet ablations, broader repeated subject/LODO comparisons, first-party DEAP authentication, historical provenance, novelty assessment and a revised compilable paper. The manuscript remains [archived]({link(REPO/'docs/paper_archive/2026-10-05-pre-exploration/README.md')}). Show a concrete proposed research question with evidence, obtain author approval, and archive the then-current paper immediately before adopting any change.
 """

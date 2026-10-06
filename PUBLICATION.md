@@ -186,3 +186,18 @@ Use the same predeclared subject folds and training budget for every variant:
 Start with paired subject folds at seeds 42/43/44, then all three LODO targets. Choose hyperparameters on validation data and freeze the protocol before the final comparison. Report parameter count, time, peak allocation, per-dataset metrics, fold distributions, and confidence intervals. Foundation-model or graph baselines can follow after the corrected baseline is stable. Historical tables are not evidence that these ablations have already run.
 
 The initial pilot is a software check, not publication evidence. Its 50% balanced accuracy does not support the old performance claim. See the workspace implementation report for the completed longer run, v2 pilots, and remaining work. These development runs have inspected test results and should not be treated as a pristine confirmatory study after further tuning.
+
+## Completed transformer and native-label controls (6 October 2026)
+
+The [separate protocol](docs/publication/Temporal_Native_Control_Protocol_2026-10-06.md) completes 120 SEED-IV runs across architecture, representation and label granularity, five participant rotations and three initialization seeds. Both objectives train on all 1,080 original trials with identical batch streams, including neutral, and use fixed first-40-second inputs. Three-class common valence is primary; conditional binary valence is secondary. The tiny bandpower transformer is independently written and is not a raw-waveform Conformer or pretrained EEG-model reproduction.
+
+The [verified findings](docs/publication/GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md) show 44.24% versus 42.00% common three-class BA for absolute/coarse transformer versus MLP, with an exploratory unadjusted participant interval of +0.14 to +4.47 percentage points. All native-label objective intervals include zero. The absolute logistic binary point estimate (64.63%) is higher than the neural binary means. Existing binary/full-trial experiments change several factors relative to this phase and are not an exact architecture comparison. This does not establish negative-transfer mitigation or a new contribution.
+
+```powershell
+python scripts/temporal_native_controls.py run --cache ../publication_runs/cache_temporal_native_seediv --output ../publication_runs/temporal_native_seediv --plan ../publication_runs/temporal_native_plan_2026-10-06.json --device cuda
+python scripts/temporal_native_controls.py verify --cache ../publication_runs/cache_temporal_native_seediv --output ../publication_runs/temporal_native_seediv --device cuda
+python scripts/plot_temporal_controls.py --output ../publication_runs/temporal_native_seediv
+python scripts/describe_temporal_controls.py --output ../publication_runs/temporal_native_seediv --cache ../publication_runs/cache_temporal_native_seediv --destination ../GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md
+```
+
+Use the protocol's preparation commands before a fresh run; completed outputs refuse refitting. Verification replays all 120 checkpoints and 15 linear coefficient models, checks training-only scalers, all 25,920 neural and 3,240 linear probabilities, paired draw streams, validation selection and OOF/bootstrap aggregates. It does not independently refit the 60 linear candidates. Source preprocessing/checkpoint versions are bound, and earlier experiment modules remain unchanged. The [additional research review](docs/publication/GRU-XNet_Transformer_Research_Update_2026-10-06.md) includes explicit prior work on heterogeneous transformer pretraining and shared stimulus material. Research-question adoption still requires the author's approval and a then-current manuscript archive.

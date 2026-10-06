@@ -28,7 +28,7 @@ EXTRA_FILES = [
     "temporal_native_plan_2026-10-06.json", "cache_temporal_native_seediv/prepared.json",
     *[f"temporal_native_seediv/{name}" for name in (
         "config.json", "plan.json", "folds.json", "model_metrics.json", "comparison.json",
-        "linear_predictions.csv", "linear_models.json", "verification.json", "comparison.png", "paired_comparison.png")],
+        "linear_predictions.csv", "linear_models.json", "verification.json", "environment.json", "comparison.png", "paired_comparison.png")],
     *[f"temporal_native_seediv/predictions_{architecture}_{representation}_{objective}.csv"
       for architecture in ("mean_mlp", "transformer") for representation in ("absolute", "relative")
       for objective in ("coarse3", "native4")],

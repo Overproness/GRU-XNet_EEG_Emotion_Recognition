@@ -51,3 +51,11 @@ The author has no fixed conference or deadline and is willing to wait for a stro
 ## Decision gate
 
 **No research-question change has been approved or adopted.** The next deliverable is exploratory evidence and a concrete recommendation, together with regular GitHub milestones. The original manuscript remains available for backtracking. A manuscript snapshot is preservation, not approval of a pivot.
+
+## Update: 6 October 2026
+
+The [transformer/native-label phase](GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md) is complete: 120 new neural runs, 15 selected linear controls, checkpoint/coefficient replay and 29,160 prediction rows verified. The maintained suite now has 37 passing tests. On fixed 40-second SEED-IV inputs, the absolute/coarse transformer gives 44.24% common three-class BA versus 42.00% MLP; the unadjusted paired participant interval is +0.14 to +4.47 percentage points. This is a modest exploratory temporal-model signal. All eight native-minus-coarse objective intervals include zero, and the binary logistic mean exceeds the neural means. No native-label mitigation of pooling harm has been tested: these runs use SEED-IV alone.
+
+All 1,080 regenerated full-trial features and all 810 overlapping retained waveforms agree exactly. Input duration is fixed to avoid direct sequence-length variation; filtering still uses full-trial offline context. A duration-only classifier measures label-duration association without establishing that older models used that shortcut. Holding participants out does not also hold stimulus material out.
+
+The [new primary-source supplement](GRU-XNet_Transformer_Research_Update_2026-10-06.md) adds EEG-Conformer, One Model for All, PESD, an EMBC 2021 material-disjoint study, and a July 2026 evaluation preprint. These further constrain novelty claims. A useful next validation separates both people and stimulus/session material and audits a pretrained baseline's target access, checkpoint overlap and hardware feasibility. Full LODO, the architecture ablation suite, final novelty assessment, first-party DEAP recording authentication and a revised/compiled manuscript remain incomplete. **The paper is not submission-ready; no new question is adopted.**

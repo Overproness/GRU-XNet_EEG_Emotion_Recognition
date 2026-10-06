@@ -1,0 +1,42 @@
+{
+  "created_utc": "2026-10-06T01:47:36.001828+00:00",
+  "development_only": true,
+  "research_question_change_approved": false,
+  "cohort": "Same1080 SEEDIV original trials,15people,3sessions,72published-design material keys; original video hashes unavailable",
+  "input": "Existing common14 first40s absolute log-bandpower sequences; full-original-trial offline preprocessing. Reuse verified frozen REVE512 features and declared adapter (37s direct patches within40s normalized observation)",
+  "material_order": "Within each session/native-emotion stratum sort six material keys, independently permute with one RNG seed20261006 in sorted stratum order; assignment fixed before fitting, not selected by results",
+  "material_rotations": "r=0/1/2; cyclic rank order[(2r+i)%6 for i=0..5]. Test first2ranks/emotion; validation third; unexposed training final3; exposed training first2+fourth. One training clip/emotion shared,2replaced; all24session clips tested once over3rotations",
+  "participants": "Same five seed42 9/3/3 rotations; test and validation participants excluded from training across all sessions",
+  "matched_population": "Only one identical recording session in each pair;108training trials,12validation trials,24identical test trials. Training participants/native class counts and available budget identical. Validation clip unseen in both arms; no held-out population calibration",
+  "neural_models": [
+    "mean_mlp",
+    "transformer"
+  ],
+  "initialization_seeds": [
+    42,
+    43,
+    44
+  ],
+  "neural_fits": 540,
+  "neural_sampling": "600balanced60-trial batches,20percoarseclass. Pair participant/native-emotion/within-selected-emotion-trial-rank stream and initial model weights across arms/architectures/sessions for given fold,rotation,seed. RNG=seed+1000fold+10000rotation; reset stochastic model RNG+1000000",
+  "neural_training": "Unchanged TemporalControl meanMLP19079/transformer19075parameters; AdamWlr.001wd.01clip1,600updates,validationevery25,source-validation3BA thenbalancedlogloss thenfirsttie; deterministicCUDAmathSDPA; noAMP/augmentation/scheduler/earlystop",
+  "scaling": "Neural per-feature StandardScaler only chosen training windows; each linear feature scaler only chosen training trials. No statistic pooled over val/test people or clips",
+  "linear_features": [
+    "bandpower",
+    "duration",
+    "reve_pretrained",
+    "reve_random42"
+  ],
+  "linear_selected_heads": 360,
+  "linear_candidates": 1440,
+  "linear_training": "Coarse3 balanced multinomial logistic,C.01/.1/1/10,max_iter2000tol1e-6; validation3BAthenbalancedlogloss,firsttie. Source/participant/material access identical to neural; frozenREVE encoders unchanged, one random encoder seed42",
+  "test_probability_rows": {
+    "neural": 12960,
+    "linear": 8640,
+    "total": 21600
+  },
+  "evaluation": "Primary3classvalence/all1080; secondaryconditionalbinary/810. Each model/arm/seed tests each original trial once across participant folds and material rotations. Average neural seeds, never select a winner by test results",
+  "uncertainty": "10000pairedparticipant and crossedparticipant/material percentile draws seed20261006; six material draws per12session/nativeemotion strata. Same weights across arms/models, average seed correctness within each cell, conditionalfixedmodels/folds/sessions; unadjusted exploratory intervals",
+  "contrasts": "Unexposed-minus-exposed foreach6models; transformer-minus-MLP foreacharm; pretrained-minus-randomforeacharm; bothtasks,20contrasts. Report all seeds,session/rotation cells and validation noise",
+  "scope": "Within-session exposure protocol controls training size and session index, not pure causal videoidentity. Train clip difficulty/order/content/duration still change; cohort already inspected. No unseen-corpus/pooledtraining/new-method claim; independent full REVE checkpoint exclusion remains uncertified"
+}

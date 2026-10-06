@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-06T05:37:34.581622+00:00",
+  "development_only": true,
+  "research_question_change_approved": false,
+  "source_sha256": "d5576298c3591db38d8904fa5d7cd67eaa48577966adf51cb7700bc682fb730e",
+  "timing": "Supplement declared while corrected full-model fits are running, before aggregate primary results are computed; no fitting, checkpoint selection or primary-protocol change.",
+  "population": "Both corpora, all6 full-study models, both arms, all primary and secondary tasks; reuse only verified selected OOF probabilities from grouping1.",
+  "exchange": "For each recipient trial, average classification correctness and target log loss over EVERY other held-out participant who saw the SAME video in the SAME selected model/cell. Each donor receives1/(k-1) weight. Context/normalizer/model are identical within a cell and video, so reuse donor probabilities is exactly test-time EEG exchange with recipient context held fixed. Average scores, not probabilities or ensemble classifications. Require >=2 held-out people/video; otherwise report noneligible trials explicitly and all metrics use the same eligible cohort.",
+  "controls": "Source-only raw/calibrated video priors must be invariant to exchange. SEED assigned video labels imply zero aggregate matched-minus-exchanged differences, including symmetric pair-weighted bootstrap, serving as a mathematical sanity control. DEAP individual ratings can differ within video.",
+  "uncertainty": "10000 preexisting seed20261006 person/video weight draws. Dyadic weights w_recipient*w_donor*w_video/(k-1), SAME weights/eligible pairs/class denominators for aligned and exchanged metrics. Person weights apply to both recipient and donor, preserving shared-person dependence; video draws unstratifiedDEAP/native-stratifiedSEED. Report any draw losing class coverage, omit only nonestimable draws and disclose count; no resampling until significant. Conditional fixedfits/partition/donor cohort, unadjusted exploratory percentile intervals.",
+  "contrasts": "Aligned minus within-video exchanged BA and balancedlogloss for ALLmodels/arms/tasks; BApositive/loglossnegative favors aligned individualEEG. Also report all EEG-model alignment differences versus both context-only controls; all context-only alignment differences must be zero.",
+  "interpretation": "Association of correctly paired individual EEG and ratings conditional on video/cell, not a physiological mechanism or proof of causal emotion recognition. Exchanging participants also changes artifacts, stable participant traits and demographics. Limited held-out donors and one development grouping; no new samples and no main-question pivot."
+}

@@ -28,6 +28,7 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
+    "material_prior_source_audit_2026-10-06/manifest.json",
     "material_population_audit/feasibility.json", "material_population_audit/material_label_counts.csv", "material_population_audit/verification.json",
     "within_session_material_plan_2026-10-06.json",
     *[f"within_session_material_seediv/{name}" for name in ("config.json","plan.json","folds.json","model_index.json","material_assignments.csv","comparison.json","verification.json","environment.json","comparison.png","paired_comparison.png","training_diagnostics.csv","all_cells.csv","all_seeds.csv","README.md")],

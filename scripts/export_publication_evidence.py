@@ -31,7 +31,7 @@ RUN_FILES = {
 EXTRA_FILES = [
     "repeated_material_plan_2026-10-06.json", "cache_temporal_deap/prepared.json", "cache_temporal_deap/raw_reproduction.json",
     "repeated_material_seediv_feasibility_2026-10-06.json", "repeated_material_deap_feasibility_2026-10-06.json",
-    *[f"repeated_material_{dataset}/{name}" for dataset in ("seediv", "deap") for name in ("config.json", "plan.json", "feasibility.json", "model_index.json", "comparison.json", "verification.json", "analysis_verification.json", "environment.json", "comparison.png", "paired_comparison.png", "training_diagnostics.csv", "all_cells.csv", "all_groups.csv", "README.md")],
+    *[f"repeated_material_{dataset}/{name}" for dataset in ("seediv", "deap") for name in ("config.json", "plan.json", "feasibility.json", "model_index.json", "comparison.json", "verification.json", "analysis_verification.json", "label_heterogeneity.json", "environment.json", "comparison.png", "paired_comparison.png", "training_diagnostics.csv", "all_cells.csv", "all_groups.csv", "README.md")],
     *[f"repeated_material_{dataset}/{kind}_group{group}.{ext}" for dataset in ("seediv", "deap") for group in (1, 2) for kind, ext in (("folds", "json"), ("material_assignments", "csv"))],
     *[f"repeated_material_{dataset}/model_metrics_{model}_group{group}.json" for dataset in ("seediv", "deap") for model in ("mean_mlp", "transformer") for group in (1, 2)],
     *[f"repeated_material_{dataset}/predictions_{model}_{arm}_group{group}.csv" for dataset, models in (("seediv", ("mean_mlp", "transformer", "bandpower", "duration", "reve_pretrained", "reve_random42")), ("deap", ("mean_mlp", "transformer", "bandpower", "material_prior"))) for model in models for arm in ("exposed", "unexposed") for group in (1, 2)],

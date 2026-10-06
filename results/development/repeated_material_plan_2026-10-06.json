@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-10-06T03:00:39.561527+00:00",
+  "development_only": true,
+  "research_question_change_approved": false,
+  "groupings": {
+    "1": {
+      "participant_seed": 20261007,
+      "material_seed": 20261017
+    },
+    "2": {
+      "participant_seed": 20261008,
+      "material_seed": 20261018
+    }
+  },
+  "seediv": "Two additional independently seeded participant/material groupings. All1080 trials; same3 sessions,3 material rotations,5 participant folds,9/3/3 people,108/12/24 trials. Repeat both original architectures and all4 linear representations. Reuse original grouping only at neural initialization42 for like-for-like grouping sensitivity; original3-seed mean retained as prior evidence.",
+  "deap": "All1264 spreadsheet-rated trials,32 participants,40 Experiment_id video keys; exclude exactly5. Both labels can occur for a video. Two fixed groupings;8 folds of24/4/4 people;5 material rotations. Permute sorted40 videos into5 blocks of8. Test block r; validation r+1; common training block r+2; exposed train r and r+2; unexposed train r+2 and r+3, modulo5. Validation videos unseen in both arms. Each retained trial tested exactly once per grouping.",
+  "deap_matching": "Before fitting, independently for each training participant/binary label retain min(eligible exposed,eligible unexposed) trials in each arm; deterministic SHA256 order of group,rotation,fold,participant,label,trial_id (no features/test scores). Exact same participant/class counts, source-only scalers. Missing groups may retain zero for a class; whole train/validation/test must each contain both classes. Declare infeasible splits and stop rather than choose a successful split seed. All test video keys must actually occur in exposed training after matching; all training people must be represented.",
+  "observation": "Same first10 non-overlapping4-second windows,common14 physical electrodes,absolute log Welch4-band power56 features. DEAP cache regenerated from hash-checked waveform windows; raw source hashes and spreadsheet checked. Offline full-trial4..40Hz filter context, DEAP384 baseline samples removed. No augmentation/target-population calibration.",
+  "models": "Existing meanMLP/temporal transformer backbones. SEED coarse3 heads unchanged19079/19075; DEAP replaces3-class head with fresh2-class head before optimization. No pretrained DEAP encoder experiment in this phase. Bandpower logistic for both corpora; frozen pretrained/randomREVE and duration diagnostic repeated only for SEED. DEAP training-label-only material-prior diagnostic: Laplace1 smoothed per-video positive rate, unseen video falls back to smoothed global training rate, threshold tie negative; no EEG.",
+  "neural_initializations": [
+    42
+  ],
+  "neural_fits": {
+    "SEEDIV": 360,
+    "DEAP": 320,
+    "total": 680
+  },
+  "training": "600 balanced60-trial AdamWupdates,lr.001,wd.01,clip1; SEED20/class,DEAP30/class; validation every25,maxBA then minbalancedlogloss,firsttie; deterministicCUDAmathSDPA,noAMP/scheduler/earlystop. Init42+1000fold+10000rotation, reset stochasticRNG+1000000. Canonical participant/native-emotion/rank streams paired across SEED arms; participant/binary-class/rank across DEAP arms. Initial states paired across arms/groupings/sessions within architecture and output size. One initialization intentionally holds optimizer randomness fixed while varying groupings; does not add independent people/videos.",
+  "linear": "Same splits; training-only StandardScaler,balanced LogisticRegression,C.01/.1/1/10,max_iter2000,tol1e-6,random_state42; validationBA/logloss firsttie. SEED4*2groups*3sessions*3rotations*5folds*2arms=720 selected; DEAP1*2groups*5rotations*8folds*2arms=160 selected; total880 heads/3520 candidates. Material-prior has160 nonselected diagnostic fits, noC search.",
+  "evaluation": "Report every grouping,model,arm and each session/rotation/fold; aggregate original out-of-fold trial predictions, never average unequal DEAP fold BAs or select a grouping from test. PrimarySEEDcoarse3; secondaryconditionalbinary excludes270neutral with unchanged massfloor/tie; primaryDEAPbinary individual self-report. Combine groupings by averaging correctness per observed person/material cell; repeats are paired development sensitivity, not independent replications/new subjects.",
+  "uncertainty": "10000 paired subject-only and crossedsubject/material percentile draws,seed20261006; SEED15people and6videos per12session/nativeemotion strata; DEAP32people and40videos unstratified because video has no single emotional class. Compute weighted class numerators/denominators on actual observed cells so missing16midpoints and individual labels remain respected. Same weights for all arms/models/groupings. Conditionalfixedfit/groupings/cohorts; unadjusted exploratory intervals, no equivalence or causal identity claim.",
+  "contrasts": "Unexposed-minus-exposed all6SEED models and4DEAP models; transformer-minus-MLP botharms; SEED pretrained-minus-random botharms. Report allgroup contrasts and combined, SEED2tasks/DEAP1, not cherry-picked significant subsets.",
+  "gate": "No research-question/manuscript change. Present complete evidence before proposing pivot; require author approval and archive then-current paper immediately before adoption."
+}

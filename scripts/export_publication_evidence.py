@@ -20,6 +20,7 @@ REPORTS += ["GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md",
             "GRU-XNet_Session_Pretraining_Findings_2026-10-06.md",
             "GRU-XNet_Within_Session_Material_Findings_2026-10-06.md",
             "GRU-XNet_Material_Generalization_Research_Update_2026-10-06.md"]
+REPORTS += ["GRU-XNet_Repeated_Material_Findings_2026-10-06.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",
@@ -28,6 +29,13 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
+    "repeated_material_plan_2026-10-06.json", "cache_temporal_deap/prepared.json",
+    "repeated_material_seediv_feasibility_2026-10-06.json", "repeated_material_deap_feasibility_2026-10-06.json",
+    *[f"repeated_material_{dataset}/{name}" for dataset in ("seediv", "deap") for name in ("config.json", "plan.json", "feasibility.json", "model_index.json", "comparison.json", "verification.json", "analysis_verification.json", "environment.json", "comparison.png", "paired_comparison.png", "training_diagnostics.csv", "all_cells.csv", "all_groups.csv", "README.md")],
+    *[f"repeated_material_{dataset}/{kind}_group{group}.{ext}" for dataset in ("seediv", "deap") for group in (1, 2) for kind, ext in (("folds", "json"), ("material_assignments", "csv"))],
+    *[f"repeated_material_{dataset}/model_metrics_{model}_group{group}.json" for dataset in ("seediv", "deap") for model in ("mean_mlp", "transformer") for group in (1, 2)],
+    *[f"repeated_material_{dataset}/predictions_{model}_{arm}_group{group}.csv" for dataset, models in (("seediv", ("mean_mlp", "transformer", "bandpower", "duration", "reve_pretrained", "reve_random42")), ("deap", ("mean_mlp", "transformer", "bandpower", "material_prior"))) for model in models for arm in ("exposed", "unexposed") for group in (1, 2)],
+    *[f"repeated_material_{dataset}/linear_{model}_group{group}_session{session}_rotation{rotation}.json" for dataset, models, sessions, rotations in (("seediv", ("bandpower", "duration", "reve_pretrained", "reve_random42"), (1, 2, 3), (0, 1, 2)), ("deap", ("bandpower", "material_prior"), (1,), (0, 1, 2, 3, 4))) for model in models for group in (1, 2) for session in sessions for rotation in rotations],
     "material_prior_source_audit_2026-10-06/manifest.json",
     "material_population_audit/feasibility.json", "material_population_audit/material_label_counts.csv", "material_population_audit/verification.json",
     "within_session_material_plan_2026-10-06.json",

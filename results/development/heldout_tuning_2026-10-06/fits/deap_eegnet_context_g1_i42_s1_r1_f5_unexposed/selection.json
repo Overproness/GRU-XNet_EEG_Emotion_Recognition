@@ -1,0 +1,1541 @@
+{
+  "job": {
+    "dataset": "DEAP",
+    "model": "eegnet_context",
+    "group": 1,
+    "initialization": 42,
+    "session": 1,
+    "rotation": 1,
+    "fold": 5,
+    "arm": "unexposed"
+  },
+  "config_sha256": "88f3fffd7ee74a64244eead854898db009fbdf41395be1841a5752ae0c91313a",
+  "created_utc": "2026-10-06T22:03:37.417192+00:00",
+  "candidates": [
+    {
+      "id": "lr0.001_step200_ema",
+      "lr": 0.001,
+      "step": 200,
+      "normalization": "ema",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.6451612903225806,
+            "balanced_accuracy": 0.46726190476190477,
+            "macro_f1": 0.46467817896389324,
+            "balanced_log_loss": 0.7370516061782837,
+            "confusion_matrix": [
+              [
+                1,
+                6
+              ],
+              [
+                5,
+                19
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.8095238095238095,
+            "balanced_accuracy": 0.814968814968815,
+            "macro_f1": 0.8071428571428572,
+            "balanced_log_loss": 0.4410582184791565,
+            "confusion_matrix": [
+              [
+                22,
+                4
+              ],
+              [
+                8,
+                29
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "f397818db4a63f5060bc43ac517c493218dab3dffcfcf31bef453c2b7c2adcb9",
+      "training_batch_loss_mean_since_previous_budget": 0.4565930411964655
+    },
+    {
+      "id": "lr0.001_step200_source_population",
+      "lr": 0.001,
+      "step": 200,
+      "normalization": "source_population",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.5806451612903226,
+            "balanced_accuracy": 0.47619047619047616,
+            "macro_f1": 0.47320261437908495,
+            "balanced_log_loss": 0.8089489936828613,
+            "confusion_matrix": [
+              [
+                2,
+                5
+              ],
+              [
+                8,
+                16
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.7777777777777778,
+            "balanced_accuracy": 0.7936590436590436,
+            "macro_f1": 0.7772727272727273,
+            "balanced_log_loss": 0.46361243724823,
+            "confusion_matrix": [
+              [
+                23,
+                3
+              ],
+              [
+                11,
+                26
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "4d5a7abb7924ceccd8f3f71261923d4d1f1446f6e36e9e1da98e31fc73dc0b0f",
+      "training_batch_loss_mean_since_previous_budget": 0.4565930411964655
+    },
+    {
+      "id": "lr0.001_step600_ema",
+      "lr": 0.001,
+      "step": 600,
+      "normalization": "ema",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.5806451612903226,
+            "balanced_accuracy": 0.47619047619047616,
+            "macro_f1": 0.47320261437908495,
+            "balanced_log_loss": 0.7048521041870117,
+            "confusion_matrix": [
+              [
+                2,
+                5
+              ],
+              [
+                8,
+                16
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.7619047619047619,
+            "balanced_accuracy": 0.7744282744282744,
+            "macro_f1": 0.7609410574247407,
+            "balanced_log_loss": 0.48668503761291504,
+            "confusion_matrix": [
+              [
+                22,
+                4
+              ],
+              [
+                11,
+                26
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "8f2840bf7ea887ce4d24fd5f62cf8ffea23191aba8356483a21c4bba0b1d584d",
+      "training_batch_loss_mean_since_previous_budget": 0.4044726767577231
+    },
+    {
+      "id": "lr0.001_step600_source_population",
+      "lr": 0.001,
+      "step": 600,
+      "normalization": "source_population",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.5806451612903226,
+            "balanced_accuracy": 0.47619047619047616,
+            "macro_f1": 0.47320261437908495,
+            "balanced_log_loss": 0.7168963551521301,
+            "confusion_matrix": [
+              [
+                2,
+                5
+              ],
+              [
+                8,
+                16
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.746031746031746,
+            "balanced_accuracy": 0.7609147609147608,
+            "macro_f1": 0.7454545454545454,
+            "balanced_log_loss": 0.5017278790473938,
+            "confusion_matrix": [
+              [
+                22,
+                4
+              ],
+              [
+                12,
+                25
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "8da15615112261009261ebe926e28ec621a796cfa1a2ba3bd0e57003548c48c0",
+      "training_batch_loss_mean_since_previous_budget": 0.4044726767577231
+    },
+    {
+      "id": "lr0.001_step1200_ema",
+      "lr": 0.001,
+      "step": 1200,
+      "normalization": "ema",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.6129032258064516,
+            "balanced_accuracy": 0.49702380952380953,
+            "macro_f1": 0.4945652173913043,
+            "balanced_log_loss": 0.8632254004478455,
+            "confusion_matrix": [
+              [
+                2,
+                5
+              ],
+              [
+                7,
+                17
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.7777777777777778,
+            "balanced_accuracy": 0.7765072765072765,
+            "macro_f1": 0.7731481481481481,
+            "balanced_log_loss": 0.47921431064605713,
+            "confusion_matrix": [
+              [
+                20,
+                6
+              ],
+              [
+                8,
+                29
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "f6f195248fcec642f2433ed6ac5f8318ed4f356f19ea57b95de1f0c5d115620d",
+      "training_batch_loss_mean_since_previous_budget": 0.38305332869291303
+    },
+    {
+      "id": "lr0.001_step1200_source_population",
+      "lr": 0.001,
+      "step": 1200,
+      "normalization": "source_population",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.5806451612903226,
+            "balanced_accuracy": 0.5267857142857143,
+            "macro_f1": 0.5067319461444308,
+            "balanced_log_loss": 0.9405218362808228,
+            "confusion_matrix": [
+              [
+                3,
+                4
+              ],
+              [
+                9,
+                15
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.7619047619047619,
+            "balanced_accuracy": 0.7687110187110187,
+            "macro_f1": 0.7597254004576659,
+            "balanced_log_loss": 0.5130804181098938,
+            "confusion_matrix": [
+              [
+                21,
+                5
+              ],
+              [
+                10,
+                27
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "d532e9313a52f3498dfb26b588a29c02df5152fa7b2f20976435defd68116b7a",
+      "training_batch_loss_mean_since_previous_budget": 0.38305332869291303
+    },
+    {
+      "id": "lr0.0003_step200_ema",
+      "lr": 0.0003,
+      "step": 200,
+      "normalization": "ema",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.7419354838709677,
+            "balanced_accuracy": 0.4791666666666667,
+            "macro_f1": 0.42592592592592593,
+            "balanced_log_loss": 0.7163604497909546,
+            "confusion_matrix": [
+              [
+                0,
+                7
+              ],
+              [
+                1,
+                23
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.7777777777777778,
+            "balanced_accuracy": 0.7879417879417879,
+            "macro_f1": 0.776369168356998,
+            "balanced_log_loss": 0.4468892812728882,
+            "confusion_matrix": [
+              [
+                22,
+                4
+              ],
+              [
+                10,
+                27
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "7e6b1a3f0c8826918db5b6305b3d57e265977fe5ca733cbf0fb00d7a5824d911",
+      "training_batch_loss_mean_since_previous_budget": 0.47386035226285456
+    },
+    {
+      "id": "lr0.0003_step200_source_population",
+      "lr": 0.0003,
+      "step": 200,
+      "normalization": "source_population",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.6129032258064516,
+            "balanced_accuracy": 0.3958333333333333,
+            "macro_f1": 0.38,
+            "balanced_log_loss": 0.7558104991912842,
+            "confusion_matrix": [
+              [
+                0,
+                7
+              ],
+              [
+                5,
+                19
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.7936507936507936,
+            "balanced_accuracy": 0.8014553014553014,
+            "macro_f1": 0.7917620137299771,
+            "balanced_log_loss": 0.45537853240966797,
+            "confusion_matrix": [
+              [
+                22,
+                4
+              ],
+              [
+                9,
+                28
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "2bffb285b906d1e6eb34448c4230c5b83952b5e6aa5f0f78a78b8f6581885d8f",
+      "training_batch_loss_mean_since_previous_budget": 0.47386035226285456
+    },
+    {
+      "id": "lr0.0003_step600_ema",
+      "lr": 0.0003,
+      "step": 600,
+      "normalization": "ema",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.6129032258064516,
+            "balanced_accuracy": 0.4464285714285714,
+            "macro_f1": 0.4464285714285714,
+            "balanced_log_loss": 0.7543185949325562,
+            "confusion_matrix": [
+              [
+                1,
+                6
+              ],
+              [
+                6,
+                18
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.7936507936507936,
+            "balanced_accuracy": 0.8071725571725572,
+            "macro_f1": 0.792815583101442,
+            "balanced_log_loss": 0.4667254686355591,
+            "confusion_matrix": [
+              [
+                23,
+                3
+              ],
+              [
+                10,
+                27
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "c6edc079fb75ed87fa7a1f04c812b0eee9a79f9505c811faba50c7d1361a6b29",
+      "training_batch_loss_mean_since_previous_budget": 0.40235354367643594
+    },
+    {
+      "id": "lr0.0003_step600_source_population",
+      "lr": 0.0003,
+      "step": 600,
+      "normalization": "source_population",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.5483870967741935,
+            "balanced_accuracy": 0.40476190476190477,
+            "macro_f1": 0.41032608695652173,
+            "balanced_log_loss": 0.7713998556137085,
+            "confusion_matrix": [
+              [
+                1,
+                6
+              ],
+              [
+                8,
+                16
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.7936507936507936,
+            "balanced_accuracy": 0.8071725571725572,
+            "macro_f1": 0.792815583101442,
+            "balanced_log_loss": 0.48219507932662964,
+            "confusion_matrix": [
+              [
+                23,
+                3
+              ],
+              [
+                10,
+                27
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "52a49f47a482f768b2201b5d1d57cc90f97e3bd9f321929b2bbfe06a04fbf7be",
+      "training_batch_loss_mean_since_previous_budget": 0.40235354367643594
+    },
+    {
+      "id": "lr0.0003_step1200_ema",
+      "lr": 0.0003,
+      "step": 1200,
+      "normalization": "ema",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.6451612903225806,
+            "balanced_accuracy": 0.5178571428571428,
+            "macro_f1": 0.5163120567375886,
+            "balanced_log_loss": 0.782524824142456,
+            "confusion_matrix": [
+              [
+                2,
+                5
+              ],
+              [
+                6,
+                18
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.7777777777777778,
+            "balanced_accuracy": 0.7822245322245323,
+            "macro_f1": 0.775,
+            "balanced_log_loss": 0.44766104221343994,
+            "confusion_matrix": [
+              [
+                21,
+                5
+              ],
+              [
+                9,
+                28
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "c0ca9390cce0b48197022900f7f7f6e78f9a6504c306a8d727c112627445e5a0",
+      "training_batch_loss_mean_since_previous_budget": 0.3676606089870135
+    },
+    {
+      "id": "lr0.0003_step1200_source_population",
+      "lr": 0.0003,
+      "step": 1200,
+      "normalization": "source_population",
+      "validation": {
+        "validation_unseen": {
+          "binary": {
+            "n": 31,
+            "accuracy": 0.6129032258064516,
+            "balanced_accuracy": 0.49702380952380953,
+            "macro_f1": 0.4945652173913043,
+            "balanced_log_loss": 0.8106529712677002,
+            "confusion_matrix": [
+              [
+                2,
+                5
+              ],
+              [
+                7,
+                17
+              ]
+            ]
+          }
+        },
+        "validation_familiar": {
+          "binary": {
+            "n": 63,
+            "accuracy": 0.7777777777777778,
+            "balanced_accuracy": 0.7822245322245323,
+            "macro_f1": 0.775,
+            "balanced_log_loss": 0.4664772152900696,
+            "confusion_matrix": [
+              [
+                21,
+                5
+              ],
+              [
+                9,
+                28
+              ]
+            ]
+          }
+        }
+      },
+      "state_digest": "0eeb24780832416bb8d6b92628fdf391390827386ca575f857e66123c9e7a766",
+      "training_batch_loss_mean_since_previous_budget": 0.3676606089870135
+    }
+  ],
+  "selected": "lr0.0003_step200_ema",
+  "selected_state_digest": "7e6b1a3f0c8826918db5b6305b3d57e265977fe5ca733cbf0fb00d7a5824d911",
+  "checkpoint_sha256": "fe916d882308de4a3076f4f46c6ab15c07175505a8ab813913cfd9d1d12d6e6c",
+  "initial_state_digest": "f92ee2f92150b2d7d3c276380c52fca5e590c226bbaeef998dfe9d9754b3ba39",
+  "canonical_draw_signature": "de971119d46abb98a412ecabe706cc8b8cdb2665a39286299227649788a4eed0",
+  "batch_digest": "74832d03e4417058bb6a51ca1f78aa86d080d67dcce8e07394cc831886c053ab",
+  "split_trials": {
+    "test": [
+      "DEAP:S18:T03",
+      "DEAP:S18:T06",
+      "DEAP:S18:T11",
+      "DEAP:S18:T16",
+      "DEAP:S18:T31",
+      "DEAP:S18:T34",
+      "DEAP:S18:T39",
+      "DEAP:S25:T03",
+      "DEAP:S25:T11",
+      "DEAP:S25:T16",
+      "DEAP:S25:T31",
+      "DEAP:S25:T34",
+      "DEAP:S25:T39",
+      "DEAP:S25:T40",
+      "DEAP:S27:T03",
+      "DEAP:S27:T06",
+      "DEAP:S27:T11",
+      "DEAP:S27:T16",
+      "DEAP:S27:T31",
+      "DEAP:S27:T34",
+      "DEAP:S27:T39",
+      "DEAP:S27:T40",
+      "DEAP:S29:T03",
+      "DEAP:S29:T06",
+      "DEAP:S29:T11",
+      "DEAP:S29:T16",
+      "DEAP:S29:T31",
+      "DEAP:S29:T34",
+      "DEAP:S29:T39",
+      "DEAP:S29:T40"
+    ],
+    "train": [
+      "DEAP:S01:T01",
+      "DEAP:S01:T08",
+      "DEAP:S01:T12",
+      "DEAP:S01:T15",
+      "DEAP:S01:T19",
+      "DEAP:S01:T23",
+      "DEAP:S01:T25",
+      "DEAP:S01:T26",
+      "DEAP:S01:T27",
+      "DEAP:S01:T28",
+      "DEAP:S01:T29",
+      "DEAP:S01:T30",
+      "DEAP:S01:T32",
+      "DEAP:S01:T33",
+      "DEAP:S01:T35",
+      "DEAP:S03:T01",
+      "DEAP:S03:T05",
+      "DEAP:S03:T08",
+      "DEAP:S03:T12",
+      "DEAP:S03:T15",
+      "DEAP:S03:T19",
+      "DEAP:S03:T23",
+      "DEAP:S03:T25",
+      "DEAP:S03:T26",
+      "DEAP:S03:T27",
+      "DEAP:S03:T28",
+      "DEAP:S03:T32",
+      "DEAP:S03:T33",
+      "DEAP:S03:T35",
+      "DEAP:S04:T01",
+      "DEAP:S04:T05",
+      "DEAP:S04:T15",
+      "DEAP:S04:T19",
+      "DEAP:S04:T23",
+      "DEAP:S04:T25",
+      "DEAP:S04:T26",
+      "DEAP:S04:T27",
+      "DEAP:S04:T28",
+      "DEAP:S04:T29",
+      "DEAP:S04:T30",
+      "DEAP:S04:T32",
+      "DEAP:S04:T33",
+      "DEAP:S04:T35",
+      "DEAP:S07:T01",
+      "DEAP:S07:T05",
+      "DEAP:S07:T08",
+      "DEAP:S07:T12",
+      "DEAP:S07:T15",
+      "DEAP:S07:T19",
+      "DEAP:S07:T25",
+      "DEAP:S07:T27",
+      "DEAP:S07:T28",
+      "DEAP:S07:T29",
+      "DEAP:S07:T30",
+      "DEAP:S07:T32",
+      "DEAP:S07:T33",
+      "DEAP:S07:T35",
+      "DEAP:S08:T01",
+      "DEAP:S08:T05",
+      "DEAP:S08:T08",
+      "DEAP:S08:T12",
+      "DEAP:S08:T15",
+      "DEAP:S08:T19",
+      "DEAP:S08:T23",
+      "DEAP:S08:T25",
+      "DEAP:S08:T26",
+      "DEAP:S08:T27",
+      "DEAP:S08:T28",
+      "DEAP:S08:T30",
+      "DEAP:S08:T32",
+      "DEAP:S08:T33",
+      "DEAP:S09:T01",
+      "DEAP:S09:T05",
+      "DEAP:S09:T08",
+      "DEAP:S09:T12",
+      "DEAP:S09:T15",
+      "DEAP:S09:T19",
+      "DEAP:S09:T25",
+      "DEAP:S09:T27",
+      "DEAP:S09:T28",
+      "DEAP:S09:T29",
+      "DEAP:S09:T30",
+      "DEAP:S09:T32",
+      "DEAP:S09:T33",
+      "DEAP:S09:T35",
+      "DEAP:S10:T01",
+      "DEAP:S10:T05",
+      "DEAP:S10:T08",
+      "DEAP:S10:T12",
+      "DEAP:S10:T15",
+      "DEAP:S10:T19",
+      "DEAP:S10:T23",
+      "DEAP:S10:T25",
+      "DEAP:S10:T26",
+      "DEAP:S10:T27",
+      "DEAP:S10:T28",
+      "DEAP:S10:T30",
+      "DEAP:S10:T32",
+      "DEAP:S10:T33",
+      "DEAP:S10:T35",
+      "DEAP:S11:T01",
+      "DEAP:S11:T05",
+      "DEAP:S11:T08",
+      "DEAP:S11:T15",
+      "DEAP:S11:T23",
+      "DEAP:S11:T25",
+      "DEAP:S11:T26",
+      "DEAP:S11:T27",
+      "DEAP:S11:T28",
+      "DEAP:S11:T29",
+      "DEAP:S11:T30",
+      "DEAP:S11:T32",
+      "DEAP:S11:T35",
+      "DEAP:S12:T01",
+      "DEAP:S12:T05",
+      "DEAP:S12:T08",
+      "DEAP:S12:T12",
+      "DEAP:S12:T15",
+      "DEAP:S12:T19",
+      "DEAP:S12:T23",
+      "DEAP:S12:T25",
+      "DEAP:S12:T26",
+      "DEAP:S12:T27",
+      "DEAP:S12:T28",
+      "DEAP:S12:T29",
+      "DEAP:S12:T30",
+      "DEAP:S12:T33",
+      "DEAP:S12:T35",
+      "DEAP:S13:T01",
+      "DEAP:S13:T05",
+      "DEAP:S13:T08",
+      "DEAP:S13:T12",
+      "DEAP:S13:T15",
+      "DEAP:S13:T19",
+      "DEAP:S13:T23",
+      "DEAP:S13:T25",
+      "DEAP:S13:T28",
+      "DEAP:S13:T29",
+      "DEAP:S13:T30",
+      "DEAP:S13:T32",
+      "DEAP:S13:T33",
+      "DEAP:S13:T35",
+      "DEAP:S14:T01",
+      "DEAP:S14:T05",
+      "DEAP:S14:T08",
+      "DEAP:S14:T12",
+      "DEAP:S14:T15",
+      "DEAP:S14:T19",
+      "DEAP:S14:T23",
+      "DEAP:S14:T27",
+      "DEAP:S14:T28",
+      "DEAP:S14:T29",
+      "DEAP:S14:T30",
+      "DEAP:S14:T32",
+      "DEAP:S14:T33",
+      "DEAP:S14:T35",
+      "DEAP:S15:T01",
+      "DEAP:S15:T05",
+      "DEAP:S15:T08",
+      "DEAP:S15:T12",
+      "DEAP:S15:T15",
+      "DEAP:S15:T19",
+      "DEAP:S15:T23",
+      "DEAP:S15:T25",
+      "DEAP:S15:T26",
+      "DEAP:S15:T28",
+      "DEAP:S15:T29",
+      "DEAP:S15:T30",
+      "DEAP:S15:T32",
+      "DEAP:S15:T33",
+      "DEAP:S15:T35",
+      "DEAP:S16:T01",
+      "DEAP:S16:T05",
+      "DEAP:S16:T08",
+      "DEAP:S16:T12",
+      "DEAP:S16:T15",
+      "DEAP:S16:T23",
+      "DEAP:S16:T25",
+      "DEAP:S16:T26",
+      "DEAP:S16:T27",
+      "DEAP:S16:T28",
+      "DEAP:S16:T30",
+      "DEAP:S16:T32",
+      "DEAP:S16:T33",
+      "DEAP:S16:T35",
+      "DEAP:S17:T01",
+      "DEAP:S17:T05",
+      "DEAP:S17:T08",
+      "DEAP:S17:T12",
+      "DEAP:S17:T15",
+      "DEAP:S17:T19",
+      "DEAP:S17:T23",
+      "DEAP:S17:T25",
+      "DEAP:S17:T26",
+      "DEAP:S17:T27",
+      "DEAP:S17:T28",
+      "DEAP:S17:T29",
+      "DEAP:S17:T32",
+      "DEAP:S20:T01",
+      "DEAP:S20:T05",
+      "DEAP:S20:T08",
+      "DEAP:S20:T12",
+      "DEAP:S20:T15",
+      "DEAP:S20:T19",
+      "DEAP:S20:T23",
+      "DEAP:S20:T25",
+      "DEAP:S20:T27",
+      "DEAP:S20:T28",
+      "DEAP:S20:T29",
+      "DEAP:S20:T30",
+      "DEAP:S20:T32",
+      "DEAP:S20:T33",
+      "DEAP:S20:T35",
+      "DEAP:S21:T01",
+      "DEAP:S21:T05",
+      "DEAP:S21:T08",
+      "DEAP:S21:T12",
+      "DEAP:S21:T15",
+      "DEAP:S21:T19",
+      "DEAP:S21:T23",
+      "DEAP:S21:T25",
+      "DEAP:S21:T27",
+      "DEAP:S21:T28",
+      "DEAP:S21:T30",
+      "DEAP:S21:T32",
+      "DEAP:S21:T33",
+      "DEAP:S21:T35",
+      "DEAP:S22:T01",
+      "DEAP:S22:T05",
+      "DEAP:S22:T08",
+      "DEAP:S22:T12",
+      "DEAP:S22:T19",
+      "DEAP:S22:T23",
+      "DEAP:S22:T25",
+      "DEAP:S22:T27",
+      "DEAP:S22:T28",
+      "DEAP:S22:T29",
+      "DEAP:S22:T30",
+      "DEAP:S22:T32",
+      "DEAP:S22:T35",
+      "DEAP:S23:T01",
+      "DEAP:S23:T05",
+      "DEAP:S23:T08",
+      "DEAP:S23:T12",
+      "DEAP:S23:T15",
+      "DEAP:S23:T19",
+      "DEAP:S23:T23",
+      "DEAP:S23:T25",
+      "DEAP:S23:T27",
+      "DEAP:S23:T28",
+      "DEAP:S23:T29",
+      "DEAP:S23:T30",
+      "DEAP:S23:T32",
+      "DEAP:S23:T33",
+      "DEAP:S23:T35",
+      "DEAP:S24:T01",
+      "DEAP:S24:T05",
+      "DEAP:S24:T08",
+      "DEAP:S24:T12",
+      "DEAP:S24:T19",
+      "DEAP:S24:T23",
+      "DEAP:S24:T25",
+      "DEAP:S24:T26",
+      "DEAP:S24:T27",
+      "DEAP:S24:T28",
+      "DEAP:S24:T29",
+      "DEAP:S24:T30",
+      "DEAP:S24:T32",
+      "DEAP:S24:T33",
+      "DEAP:S24:T35",
+      "DEAP:S26:T01",
+      "DEAP:S26:T05",
+      "DEAP:S26:T08",
+      "DEAP:S26:T12",
+      "DEAP:S26:T15",
+      "DEAP:S26:T19",
+      "DEAP:S26:T23",
+      "DEAP:S26:T25",
+      "DEAP:S26:T27",
+      "DEAP:S26:T28",
+      "DEAP:S26:T29",
+      "DEAP:S26:T30",
+      "DEAP:S26:T32",
+      "DEAP:S26:T33",
+      "DEAP:S26:T35",
+      "DEAP:S28:T01",
+      "DEAP:S28:T05",
+      "DEAP:S28:T08",
+      "DEAP:S28:T12",
+      "DEAP:S28:T15",
+      "DEAP:S28:T19",
+      "DEAP:S28:T25",
+      "DEAP:S28:T27",
+      "DEAP:S28:T28",
+      "DEAP:S28:T29",
+      "DEAP:S28:T30",
+      "DEAP:S28:T33",
+      "DEAP:S28:T35",
+      "DEAP:S30:T01",
+      "DEAP:S30:T05",
+      "DEAP:S30:T08",
+      "DEAP:S30:T12",
+      "DEAP:S30:T15",
+      "DEAP:S30:T19",
+      "DEAP:S30:T23",
+      "DEAP:S30:T25",
+      "DEAP:S30:T26",
+      "DEAP:S30:T27",
+      "DEAP:S30:T28",
+      "DEAP:S30:T29",
+      "DEAP:S30:T30",
+      "DEAP:S30:T32",
+      "DEAP:S30:T33",
+      "DEAP:S30:T35",
+      "DEAP:S31:T08",
+      "DEAP:S31:T12",
+      "DEAP:S31:T15",
+      "DEAP:S31:T19",
+      "DEAP:S31:T23",
+      "DEAP:S31:T25",
+      "DEAP:S31:T26",
+      "DEAP:S31:T28",
+      "DEAP:S31:T29",
+      "DEAP:S31:T30",
+      "DEAP:S31:T32",
+      "DEAP:S31:T33",
+      "DEAP:S31:T35",
+      "DEAP:S32:T01",
+      "DEAP:S32:T05",
+      "DEAP:S32:T08",
+      "DEAP:S32:T12",
+      "DEAP:S32:T15",
+      "DEAP:S32:T19",
+      "DEAP:S32:T23",
+      "DEAP:S32:T25",
+      "DEAP:S32:T26",
+      "DEAP:S32:T27",
+      "DEAP:S32:T28",
+      "DEAP:S32:T29",
+      "DEAP:S32:T30",
+      "DEAP:S32:T32",
+      "DEAP:S32:T33",
+      "DEAP:S32:T35"
+    ],
+    "validation_unseen": [
+      "DEAP:S02:T04",
+      "DEAP:S02:T07",
+      "DEAP:S02:T09",
+      "DEAP:S02:T13",
+      "DEAP:S02:T18",
+      "DEAP:S02:T24",
+      "DEAP:S02:T36",
+      "DEAP:S05:T04",
+      "DEAP:S05:T07",
+      "DEAP:S05:T09",
+      "DEAP:S05:T13",
+      "DEAP:S05:T18",
+      "DEAP:S05:T22",
+      "DEAP:S05:T24",
+      "DEAP:S05:T36",
+      "DEAP:S06:T04",
+      "DEAP:S06:T07",
+      "DEAP:S06:T09",
+      "DEAP:S06:T13",
+      "DEAP:S06:T18",
+      "DEAP:S06:T22",
+      "DEAP:S06:T24",
+      "DEAP:S06:T36",
+      "DEAP:S19:T04",
+      "DEAP:S19:T07",
+      "DEAP:S19:T09",
+      "DEAP:S19:T13",
+      "DEAP:S19:T18",
+      "DEAP:S19:T22",
+      "DEAP:S19:T24",
+      "DEAP:S19:T36"
+    ],
+    "validation_familiar": [
+      "DEAP:S02:T01",
+      "DEAP:S02:T05",
+      "DEAP:S02:T08",
+      "DEAP:S02:T12",
+      "DEAP:S02:T15",
+      "DEAP:S02:T19",
+      "DEAP:S02:T23",
+      "DEAP:S02:T25",
+      "DEAP:S02:T26",
+      "DEAP:S02:T27",
+      "DEAP:S02:T28",
+      "DEAP:S02:T29",
+      "DEAP:S02:T30",
+      "DEAP:S02:T32",
+      "DEAP:S02:T35",
+      "DEAP:S05:T01",
+      "DEAP:S05:T05",
+      "DEAP:S05:T08",
+      "DEAP:S05:T12",
+      "DEAP:S05:T15",
+      "DEAP:S05:T19",
+      "DEAP:S05:T23",
+      "DEAP:S05:T25",
+      "DEAP:S05:T26",
+      "DEAP:S05:T27",
+      "DEAP:S05:T28",
+      "DEAP:S05:T29",
+      "DEAP:S05:T30",
+      "DEAP:S05:T32",
+      "DEAP:S05:T33",
+      "DEAP:S05:T35",
+      "DEAP:S06:T01",
+      "DEAP:S06:T05",
+      "DEAP:S06:T08",
+      "DEAP:S06:T12",
+      "DEAP:S06:T15",
+      "DEAP:S06:T19",
+      "DEAP:S06:T23",
+      "DEAP:S06:T25",
+      "DEAP:S06:T26",
+      "DEAP:S06:T27",
+      "DEAP:S06:T28",
+      "DEAP:S06:T29",
+      "DEAP:S06:T30",
+      "DEAP:S06:T32",
+      "DEAP:S06:T33",
+      "DEAP:S06:T35",
+      "DEAP:S19:T01",
+      "DEAP:S19:T05",
+      "DEAP:S19:T08",
+      "DEAP:S19:T12",
+      "DEAP:S19:T15",
+      "DEAP:S19:T19",
+      "DEAP:S19:T23",
+      "DEAP:S19:T25",
+      "DEAP:S19:T26",
+      "DEAP:S19:T27",
+      "DEAP:S19:T28",
+      "DEAP:S19:T29",
+      "DEAP:S19:T30",
+      "DEAP:S19:T32",
+      "DEAP:S19:T33",
+      "DEAP:S19:T35"
+    ]
+  },
+  "source_accessed_trials": [
+    "DEAP:S01:T01",
+    "DEAP:S01:T08",
+    "DEAP:S01:T12",
+    "DEAP:S01:T15",
+    "DEAP:S01:T19",
+    "DEAP:S01:T23",
+    "DEAP:S01:T25",
+    "DEAP:S01:T26",
+    "DEAP:S01:T27",
+    "DEAP:S01:T28",
+    "DEAP:S01:T29",
+    "DEAP:S01:T30",
+    "DEAP:S01:T32",
+    "DEAP:S01:T33",
+    "DEAP:S01:T35",
+    "DEAP:S02:T01",
+    "DEAP:S02:T04",
+    "DEAP:S02:T05",
+    "DEAP:S02:T07",
+    "DEAP:S02:T08",
+    "DEAP:S02:T09",
+    "DEAP:S02:T12",
+    "DEAP:S02:T13",
+    "DEAP:S02:T15",
+    "DEAP:S02:T18",
+    "DEAP:S02:T19",
+    "DEAP:S02:T23",
+    "DEAP:S02:T24",
+    "DEAP:S02:T25",
+    "DEAP:S02:T26",
+    "DEAP:S02:T27",
+    "DEAP:S02:T28",
+    "DEAP:S02:T29",
+    "DEAP:S02:T30",
+    "DEAP:S02:T32",
+    "DEAP:S02:T35",
+    "DEAP:S02:T36",
+    "DEAP:S03:T01",
+    "DEAP:S03:T05",
+    "DEAP:S03:T08",
+    "DEAP:S03:T12",
+    "DEAP:S03:T15",
+    "DEAP:S03:T19",
+    "DEAP:S03:T23",
+    "DEAP:S03:T25",
+    "DEAP:S03:T26",
+    "DEAP:S03:T27",
+    "DEAP:S03:T28",
+    "DEAP:S03:T32",
+    "DEAP:S03:T33",
+    "DEAP:S03:T35",
+    "DEAP:S04:T01",
+    "DEAP:S04:T05",
+    "DEAP:S04:T15",
+    "DEAP:S04:T19",
+    "DEAP:S04:T23",
+    "DEAP:S04:T25",
+    "DEAP:S04:T26",
+    "DEAP:S04:T27",
+    "DEAP:S04:T28",
+    "DEAP:S04:T29",
+    "DEAP:S04:T30",
+    "DEAP:S04:T32",
+    "DEAP:S04:T33",
+    "DEAP:S04:T35",
+    "DEAP:S05:T01",
+    "DEAP:S05:T04",
+    "DEAP:S05:T05",
+    "DEAP:S05:T07",
+    "DEAP:S05:T08",
+    "DEAP:S05:T09",
+    "DEAP:S05:T12",
+    "DEAP:S05:T13",
+    "DEAP:S05:T15",
+    "DEAP:S05:T18",
+    "DEAP:S05:T19",
+    "DEAP:S05:T22",
+    "DEAP:S05:T23",
+    "DEAP:S05:T24",
+    "DEAP:S05:T25",
+    "DEAP:S05:T26",
+    "DEAP:S05:T27",
+    "DEAP:S05:T28",
+    "DEAP:S05:T29",
+    "DEAP:S05:T30",
+    "DEAP:S05:T32",
+    "DEAP:S05:T33",
+    "DEAP:S05:T35",
+    "DEAP:S05:T36",
+    "DEAP:S06:T01",
+    "DEAP:S06:T04",
+    "DEAP:S06:T05",
+    "DEAP:S06:T07",
+    "DEAP:S06:T08",
+    "DEAP:S06:T09",
+    "DEAP:S06:T12",
+    "DEAP:S06:T13",
+    "DEAP:S06:T15",
+    "DEAP:S06:T18",
+    "DEAP:S06:T19",
+    "DEAP:S06:T22",
+    "DEAP:S06:T23",
+    "DEAP:S06:T24",
+    "DEAP:S06:T25",
+    "DEAP:S06:T26",
+    "DEAP:S06:T27",
+    "DEAP:S06:T28",
+    "DEAP:S06:T29",
+    "DEAP:S06:T30",
+    "DEAP:S06:T32",
+    "DEAP:S06:T33",
+    "DEAP:S06:T35",
+    "DEAP:S06:T36",
+    "DEAP:S07:T01",
+    "DEAP:S07:T05",
+    "DEAP:S07:T08",
+    "DEAP:S07:T12",
+    "DEAP:S07:T15",
+    "DEAP:S07:T19",
+    "DEAP:S07:T25",
+    "DEAP:S07:T27",
+    "DEAP:S07:T28",
+    "DEAP:S07:T29",
+    "DEAP:S07:T30",
+    "DEAP:S07:T32",
+    "DEAP:S07:T33",
+    "DEAP:S07:T35",
+    "DEAP:S08:T01",
+    "DEAP:S08:T05",
+    "DEAP:S08:T08",
+    "DEAP:S08:T12",
+    "DEAP:S08:T15",
+    "DEAP:S08:T19",
+    "DEAP:S08:T23",
+    "DEAP:S08:T25",
+    "DEAP:S08:T26",
+    "DEAP:S08:T27",
+    "DEAP:S08:T28",
+    "DEAP:S08:T30",
+    "DEAP:S08:T32",
+    "DEAP:S08:T33",
+    "DEAP:S09:T01",
+    "DEAP:S09:T05",
+    "DEAP:S09:T08",
+    "DEAP:S09:T12",
+    "DEAP:S09:T15",
+    "DEAP:S09:T19",
+    "DEAP:S09:T25",
+    "DEAP:S09:T27",
+    "DEAP:S09:T28",
+    "DEAP:S09:T29",
+    "DEAP:S09:T30",
+    "DEAP:S09:T32",
+    "DEAP:S09:T33",
+    "DEAP:S09:T35",
+    "DEAP:S10:T01",
+    "DEAP:S10:T05",
+    "DEAP:S10:T08",
+    "DEAP:S10:T12",
+    "DEAP:S10:T15",
+    "DEAP:S10:T19",
+    "DEAP:S10:T23",
+    "DEAP:S10:T25",
+    "DEAP:S10:T26",
+    "DEAP:S10:T27",
+    "DEAP:S10:T28",
+    "DEAP:S10:T30",
+    "DEAP:S10:T32",
+    "DEAP:S10:T33",
+    "DEAP:S10:T35",
+    "DEAP:S11:T01",
+    "DEAP:S11:T05",
+    "DEAP:S11:T08",
+    "DEAP:S11:T15",
+    "DEAP:S11:T23",
+    "DEAP:S11:T25",
+    "DEAP:S11:T26",
+    "DEAP:S11:T27",
+    "DEAP:S11:T28",
+    "DEAP:S11:T29",
+    "DEAP:S11:T30",
+    "DEAP:S11:T32",
+    "DEAP:S11:T35",
+    "DEAP:S12:T01",
+    "DEAP:S12:T05",
+    "DEAP:S12:T08",
+    "DEAP:S12:T12",
+    "DEAP:S12:T15",
+    "DEAP:S12:T19",
+    "DEAP:S12:T23",
+    "DEAP:S12:T25",
+    "DEAP:S12:T26",
+    "DEAP:S12:T27",
+    "DEAP:S12:T28",
+    "DEAP:S12:T29",
+    "DEAP:S12:T30",
+    "DEAP:S12:T33",
+    "DEAP:S12:T35",
+    "DEAP:S13:T01",
+    "DEAP:S13:T05",
+    "DEAP:S13:T08",
+    "DEAP:S13:T12",
+    "DEAP:S13:T15",
+    "DEAP:S13:T19",
+    "DEAP:S13:T23",
+    "DEAP:S13:T25",
+    "DEAP:S13:T28",
+    "DEAP:S13:T29",
+    "DEAP:S13:T30",
+    "DEAP:S13:T32",
+    "DEAP:S13:T33",
+    "DEAP:S13:T35",
+    "DEAP:S14:T01",
+    "DEAP:S14:T05",
+    "DEAP:S14:T08",
+    "DEAP:S14:T12",
+    "DEAP:S14:T15",
+    "DEAP:S14:T19",
+    "DEAP:S14:T23",
+    "DEAP:S14:T27",
+    "DEAP:S14:T28",
+    "DEAP:S14:T29",
+    "DEAP:S14:T30",
+    "DEAP:S14:T32",
+    "DEAP:S14:T33",
+    "DEAP:S14:T35",
+    "DEAP:S15:T01",
+    "DEAP:S15:T05",
+    "DEAP:S15:T08",
+    "DEAP:S15:T12",
+    "DEAP:S15:T15",
+    "DEAP:S15:T19",
+    "DEAP:S15:T23",
+    "DEAP:S15:T25",
+    "DEAP:S15:T26",
+    "DEAP:S15:T28",
+    "DEAP:S15:T29",
+    "DEAP:S15:T30",
+    "DEAP:S15:T32",
+    "DEAP:S15:T33",
+    "DEAP:S15:T35",
+    "DEAP:S16:T01",
+    "DEAP:S16:T05",
+    "DEAP:S16:T08",
+    "DEAP:S16:T12",
+    "DEAP:S16:T15",
+    "DEAP:S16:T23",
+    "DEAP:S16:T25",
+    "DEAP:S16:T26",
+    "DEAP:S16:T27",
+    "DEAP:S16:T28",
+    "DEAP:S16:T30",
+    "DEAP:S16:T32",
+    "DEAP:S16:T33",
+    "DEAP:S16:T35",
+    "DEAP:S17:T01",
+    "DEAP:S17:T05",
+    "DEAP:S17:T08",
+    "DEAP:S17:T12",
+    "DEAP:S17:T15",
+    "DEAP:S17:T19",
+    "DEAP:S17:T23",
+    "DEAP:S17:T25",
+    "DEAP:S17:T26",
+    "DEAP:S17:T27",
+    "DEAP:S17:T28",
+    "DEAP:S17:T29",
+    "DEAP:S17:T32",
+    "DEAP:S19:T01",
+    "DEAP:S19:T04",
+    "DEAP:S19:T05",
+    "DEAP:S19:T07",
+    "DEAP:S19:T08",
+    "DEAP:S19:T09",
+    "DEAP:S19:T12",
+    "DEAP:S19:T13",
+    "DEAP:S19:T15",
+    "DEAP:S19:T18",
+    "DEAP:S19:T19",
+    "DEAP:S19:T22",
+    "DEAP:S19:T23",
+    "DEAP:S19:T24",
+    "DEAP:S19:T25",
+    "DEAP:S19:T26",
+    "DEAP:S19:T27",
+    "DEAP:S19:T28",
+    "DEAP:S19:T29",
+    "DEAP:S19:T30",
+    "DEAP:S19:T32",
+    "DEAP:S19:T33",
+    "DEAP:S19:T35",
+    "DEAP:S19:T36",
+    "DEAP:S20:T01",
+    "DEAP:S20:T05",
+    "DEAP:S20:T08",
+    "DEAP:S20:T12",
+    "DEAP:S20:T15",
+    "DEAP:S20:T19",
+    "DEAP:S20:T23",
+    "DEAP:S20:T25",
+    "DEAP:S20:T27",
+    "DEAP:S20:T28",
+    "DEAP:S20:T29",
+    "DEAP:S20:T30",
+    "DEAP:S20:T32",
+    "DEAP:S20:T33",
+    "DEAP:S20:T35",
+    "DEAP:S21:T01",
+    "DEAP:S21:T05",
+    "DEAP:S21:T08",
+    "DEAP:S21:T12",
+    "DEAP:S21:T15",
+    "DEAP:S21:T19",
+    "DEAP:S21:T23",
+    "DEAP:S21:T25",
+    "DEAP:S21:T27",
+    "DEAP:S21:T28",
+    "DEAP:S21:T30",
+    "DEAP:S21:T32",
+    "DEAP:S21:T33",
+    "DEAP:S21:T35",
+    "DEAP:S22:T01",
+    "DEAP:S22:T05",
+    "DEAP:S22:T08",
+    "DEAP:S22:T12",
+    "DEAP:S22:T19",
+    "DEAP:S22:T23",
+    "DEAP:S22:T25",
+    "DEAP:S22:T27",
+    "DEAP:S22:T28",
+    "DEAP:S22:T29",
+    "DEAP:S22:T30",
+    "DEAP:S22:T32",
+    "DEAP:S22:T35",
+    "DEAP:S23:T01",
+    "DEAP:S23:T05",
+    "DEAP:S23:T08",
+    "DEAP:S23:T12",
+    "DEAP:S23:T15",
+    "DEAP:S23:T19",
+    "DEAP:S23:T23",
+    "DEAP:S23:T25",
+    "DEAP:S23:T27",
+    "DEAP:S23:T28",
+    "DEAP:S23:T29",
+    "DEAP:S23:T30",
+    "DEAP:S23:T32",
+    "DEAP:S23:T33",
+    "DEAP:S23:T35",
+    "DEAP:S24:T01",
+    "DEAP:S24:T05",
+    "DEAP:S24:T08",
+    "DEAP:S24:T12",
+    "DEAP:S24:T19",
+    "DEAP:S24:T23",
+    "DEAP:S24:T25",
+    "DEAP:S24:T26",
+    "DEAP:S24:T27",
+    "DEAP:S24:T28",
+    "DEAP:S24:T29",
+    "DEAP:S24:T30",
+    "DEAP:S24:T32",
+    "DEAP:S24:T33",
+    "DEAP:S24:T35",
+    "DEAP:S26:T01",
+    "DEAP:S26:T05",
+    "DEAP:S26:T08",
+    "DEAP:S26:T12",
+    "DEAP:S26:T15",
+    "DEAP:S26:T19",
+    "DEAP:S26:T23",
+    "DEAP:S26:T25",
+    "DEAP:S26:T27",
+    "DEAP:S26:T28",
+    "DEAP:S26:T29",
+    "DEAP:S26:T30",
+    "DEAP:S26:T32",
+    "DEAP:S26:T33",
+    "DEAP:S26:T35",
+    "DEAP:S28:T01",
+    "DEAP:S28:T05",
+    "DEAP:S28:T08",
+    "DEAP:S28:T12",
+    "DEAP:S28:T15",
+    "DEAP:S28:T19",
+    "DEAP:S28:T25",
+    "DEAP:S28:T27",
+    "DEAP:S28:T28",
+    "DEAP:S28:T29",
+    "DEAP:S28:T30",
+    "DEAP:S28:T33",
+    "DEAP:S28:T35",
+    "DEAP:S30:T01",
+    "DEAP:S30:T05",
+    "DEAP:S30:T08",
+    "DEAP:S30:T12",
+    "DEAP:S30:T15",
+    "DEAP:S30:T19",
+    "DEAP:S30:T23",
+    "DEAP:S30:T25",
+    "DEAP:S30:T26",
+    "DEAP:S30:T27",
+    "DEAP:S30:T28",
+    "DEAP:S30:T29",
+    "DEAP:S30:T30",
+    "DEAP:S30:T32",
+    "DEAP:S30:T33",
+    "DEAP:S30:T35",
+    "DEAP:S31:T08",
+    "DEAP:S31:T12",
+    "DEAP:S31:T15",
+    "DEAP:S31:T19",
+    "DEAP:S31:T23",
+    "DEAP:S31:T25",
+    "DEAP:S31:T26",
+    "DEAP:S31:T28",
+    "DEAP:S31:T29",
+    "DEAP:S31:T30",
+    "DEAP:S31:T32",
+    "DEAP:S31:T33",
+    "DEAP:S31:T35",
+    "DEAP:S32:T01",
+    "DEAP:S32:T05",
+    "DEAP:S32:T08",
+    "DEAP:S32:T12",
+    "DEAP:S32:T15",
+    "DEAP:S32:T19",
+    "DEAP:S32:T23",
+    "DEAP:S32:T25",
+    "DEAP:S32:T26",
+    "DEAP:S32:T27",
+    "DEAP:S32:T28",
+    "DEAP:S32:T29",
+    "DEAP:S32:T30",
+    "DEAP:S32:T32",
+    "DEAP:S32:T33",
+    "DEAP:S32:T35"
+  ],
+  "prefix_replay": [],
+  "artifact_sha256": {
+    "candidate_lr0.0003_step1200_ema_validation_familiar.csv": "05765b1bb4baf6ade45bb7c1b0694d13ed007a89094373bd31200aed6a870c89",
+    "candidate_lr0.0003_step1200_ema_validation_unseen.csv": "571d0472d7de1aa83d45ad78c9c9f2661f0cf433d4b6c303385aeb9b0786ab65",
+    "candidate_lr0.0003_step1200_source_population_validation_familiar.csv": "1d8219095e9d7766c13336e1411ddd0f33d77ad9f5d5d660bf87599b72655e95",
+    "candidate_lr0.0003_step1200_source_population_validation_unseen.csv": "af432db1642f8cc3ad983aa2829c4c81ab839b5b0b59ab10e82b978f99d6feb1",
+    "candidate_lr0.0003_step200_ema_validation_familiar.csv": "737e1c1ee048de6d2d3a8a929e57ed633be39cd96d3809f414f20c69e2c052e1",
+    "candidate_lr0.0003_step200_ema_validation_unseen.csv": "670b369d848b099fb95410ff207445b3fe12d73fc136b461e8a93b30c73e6119",
+    "candidate_lr0.0003_step200_source_population_validation_familiar.csv": "10aa4e7945a9fd3a183a68bb1692dd1a6087edee100614452dcef5e4f99cde0c",
+    "candidate_lr0.0003_step200_source_population_validation_unseen.csv": "a7aa60e783a75f6aba03dae4e1fa9654212182242d96cf6cb4f6d67c6ddfdd52",
+    "candidate_lr0.0003_step600_ema_validation_familiar.csv": "60bfdf573e675d339cbfdccc7cfc6f162ae9fb7d61a9999eb0568199090d0378",
+    "candidate_lr0.0003_step600_ema_validation_unseen.csv": "43b353f19bcfe941a450106074bd8c4d5401a1430fdc8a8a7a68f8cb87efdcf9",
+    "candidate_lr0.0003_step600_source_population_validation_familiar.csv": "5ffea26e494bf3a9d1fb623cd6bd43abcf669bdfc91ef06ca9ec66366af5f832",
+    "candidate_lr0.0003_step600_source_population_validation_unseen.csv": "fd942e9bc88f1f1ac0e0dd6ae4f4587e4c53c2b20a483da5f99c334e7109df8c",
+    "candidate_lr0.001_step1200_ema_validation_familiar.csv": "3d889d6ca09517d75524a83e870ae7e362ce23ad949e7d3697afe512f1167b22",
+    "candidate_lr0.001_step1200_ema_validation_unseen.csv": "f5adb004a0e065016ec29d4c58901a55f22b4441255b18f1a27fa0b61c3665bb",
+    "candidate_lr0.001_step1200_source_population_validation_familiar.csv": "b07d46bf556486a216dff9f628fbcb0116eba261caeb5b2061b5c40b3188ccd3",
+    "candidate_lr0.001_step1200_source_population_validation_unseen.csv": "5d369a18bab53a117ce6781c4d0caa16e25ce91cd0804d2cec86fb68606ec867",
+    "candidate_lr0.001_step200_ema_validation_familiar.csv": "2782e8f2231b275155c9b306a6f6a600869e3513ff6ec8e1f37f75d89b605c8f",
+    "candidate_lr0.001_step200_ema_validation_unseen.csv": "226b39dc1ffa392e5f5e3fc58aea6f21ab788e62a7b2da47df8d3d89f574e9cb",
+    "candidate_lr0.001_step200_source_population_validation_familiar.csv": "0a8a63caaed490a5595a6119ff543544393bbbfa7be5cdeb3bc9c66d1589d53a",
+    "candidate_lr0.001_step200_source_population_validation_unseen.csv": "550bf9c552c7fa262c942d111507ab648c2e96ede3a13d59fe1051de207d084f",
+    "candidate_lr0.001_step600_ema_validation_familiar.csv": "39199b2e5aa2fad57053e5b3bdeb114d5abef15df6af4e3879c491f586856eaf",
+    "candidate_lr0.001_step600_ema_validation_unseen.csv": "c933c969cdd6296e07bc0aeb82788b10653524f64fc3a31b77289713305d7754",
+    "candidate_lr0.001_step600_source_population_validation_familiar.csv": "9e99106a9f977b1a6e290894b4dadb5cd43002209c5f003e2e70ce51e20ff067",
+    "candidate_lr0.001_step600_source_population_validation_unseen.csv": "09f6faf9dccaf79a79ea0fbbeddc8d6fb7f32f73d0bd36397e0894dc20c1140a"
+  }
+}

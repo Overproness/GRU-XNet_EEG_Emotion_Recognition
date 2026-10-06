@@ -25,6 +25,14 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
+    "session_stimulus_plan_2026-10-06.json",
+    *[f"session_stimulus_seediv/{name}" for name in (
+        "config.json", "plan.json", "folds.json", "model_metrics.json", "comparison.json", "verification.json", "environment.json", "comparison.png")],
+    *[f"session_stimulus_seediv/predictions_{model}_source{source}.csv"
+      for model in ("mean_mlp","transformer") for source in (1,2,3)],
+    *[f"session_stimulus_seediv/linear_{model}_source{source}.json"
+      for model in ("bandpower","duration") for source in (1,2,3)],
+    *[f"session_stimulus_seediv/predictions_{model}.csv" for model in ("bandpower","duration")],
     "temporal_native_plan_2026-10-06.json", "cache_temporal_native_seediv/prepared.json",
     *[f"temporal_native_seediv/{name}" for name in (
         "config.json", "plan.json", "folds.json", "model_metrics.json", "comparison.json",

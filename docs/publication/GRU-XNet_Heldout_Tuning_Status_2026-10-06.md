@@ -1,6 +1,6 @@
 # Held-out tuning status
 
-State: **running**. Verified selected neural cases: **362/2040**. Updated: 2026-10-06T17:25:16.562738+00:00.
+State: **running**. Verified selected neural cases: **402/2040**. Updated: 2026-10-06T17:57:05.052074+00:00.
 
 The declared grid contains 4080 uninterrupted 1200-update trajectories and 24,480 source-validation candidates. GRU, EEGNet and EEGNet-plus-context independently choose their learning rate, duration and normalization in each outer fold. Two groupings, two initializations, all participant/video folds and both familiar/unseen exposure arms are retained. Context-only priors and calibrated controls use the same source partitions and two-panel selection criterion.
 

@@ -45,6 +45,10 @@ def render(run,destination):
     verification=read(run/"verification.json")
     if not verification["passed"] or verification["neural_checkpoints_replayed"]!=540:
         raise ValueError("A full successful verification is required before reporting")
+    if (sum(v["selected_heads"] for v in verification["linear"].values())!=360 or
+        sum(v["candidates_independently_refitted"] for v in verification["linear"].values())!=1440 or
+        verification["neural_probability_rows"]+sum(v["probability_rows"] for v in verification["linear"].values())!=21600):
+        raise ValueError("Incomplete verified linear/prediction budget")
     comparison=read(run/"comparison.json"); models=comparison["models"]
     if set(models)!=set(NAMES) or len(comparison["contrasts"])!=20:
         raise ValueError("Incomplete model or contrast population")

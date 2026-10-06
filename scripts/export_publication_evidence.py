@@ -15,7 +15,8 @@ REPORTS = [f"GRU-XNet_{name}_{DATE}.md" for name in (
     "Publication_Review", "Implementation_Status", "Dataset_Provenance",
     "First_Party_DEAP_Check", "GitHub_Configuration_Review", "DEAP_Control",
     "Publication_Readiness", "Exploration_Findings", "Neural_Transfer_Investigation", "Multitarget_Transfer_Findings")]
-REPORTS += ["GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md"]
+REPORTS += ["GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md",
+            "GRU-XNet_Transformer_Research_Update_2026-10-06.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",
@@ -27,7 +28,7 @@ EXTRA_FILES = [
     "temporal_native_plan_2026-10-06.json", "cache_temporal_native_seediv/prepared.json",
     *[f"temporal_native_seediv/{name}" for name in (
         "config.json", "plan.json", "folds.json", "model_metrics.json", "comparison.json",
-        "linear_predictions.csv", "linear_models.json", "verification.json", "comparison.png")],
+        "linear_predictions.csv", "linear_models.json", "verification.json", "comparison.png", "paired_comparison.png")],
     *[f"temporal_native_seediv/predictions_{architecture}_{representation}_{objective}.csv"
       for architecture in ("mean_mlp", "transformer") for representation in ("absolute", "relative")
       for objective in ("coarse3", "native4")],

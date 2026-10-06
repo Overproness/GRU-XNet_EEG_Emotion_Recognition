@@ -26,3 +26,15 @@ python scripts/session_stimulus_controls.py verify --cache ../publication_runs/c
 ```
 
 Commit the declaration before fitting. Verification binds source and cache hashes, confirms participant/source access and paired exposure, replays all selected neural checkpoints and linear coefficients, checks complete trial coverage and recomputes aggregates and bootstrap intervals. Heavy caches and checkpoints remain local.
+
+## Exploratory material uncertainty addendum
+
+After inspecting the initial session results, and before REVE classifier outcomes, declare a sensitivity analysis that resamples both participants and material keys. The original participant intervals hold the 72 clips fixed. A duration-only classifier can have identical correctness for every person watching a clip, producing a degenerate participant interval; that is not certainty about performance on new clips.
+
+Use 10,000 paired crossed draws: sample 15 people with replacement, independently sample six material keys in each session/native-emotion stratum, and weight each participant/material cell by the product of its two multiplicities. Average correctness over initialization seeds and the two unseen-source directions before resampling. Preserve class proportions and the same target trials. Report unadjusted percentile intervals conditional on these three sessions and the selected models; training folds/checkpoints are not refit. Material keys follow the published design rather than original video hashes. This addendum is exploratory and was not declared before seeing the initial session outcomes.
+
+```powershell
+python scripts/analyze_session_material_sensitivity.py plan --plan ../publication_runs/session_material_sensitivity_plan_2026-10-06.json
+python scripts/analyze_session_material_sensitivity.py analyze --session-run ../publication_runs/session_stimulus_seediv --reve-run ../publication_runs/reve_frozen_seediv --output ../publication_runs/session_material_sensitivity --plan ../publication_runs/session_material_sensitivity_plan_2026-10-06.json
+python scripts/analyze_session_material_sensitivity.py verify --session-run ../publication_runs/session_stimulus_seediv --reve-run ../publication_runs/reve_frozen_seediv --output ../publication_runs/session_material_sensitivity --plan ../publication_runs/session_material_sensitivity_plan_2026-10-06.json
+```

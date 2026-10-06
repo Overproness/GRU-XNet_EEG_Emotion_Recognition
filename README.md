@@ -4,6 +4,8 @@ Deep learning architecture for multi-dataset EEG-based emotion recognition using
 
 ## Publication revision (6 October 2026)
 
+**Current work:** complete held-out repetitions with independent fold-local tuning, followed by EEGNet-plus-context comparisons. The [protocol](docs/publication/Heldout_Tuning_Protocol_2026-10-06.md) declares all 4,080 training trajectories before fitting; the [live Git checkpoint status](docs/publication/GRU-XNet_Heldout_Tuning_Status_2026-10-06.md) reports accepted progress. This further development reuses existing cohorts and leaves the manuscript/research question unchanged.
+
 Use the maintained [publication pipeline](PUBLICATION.md) for new experiments:
 
 ```powershell

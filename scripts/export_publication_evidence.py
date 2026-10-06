@@ -21,6 +21,7 @@ REPORTS += ["GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md",
             "GRU-XNet_Within_Session_Material_Findings_2026-10-06.md",
             "GRU-XNet_Material_Generalization_Research_Update_2026-10-06.md"]
 REPORTS += ["GRU-XNet_Repeated_Material_Findings_2026-10-06.md"]
+REPORTS += ["GRU-XNet_Full_Context_Findings_2026-10-06.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",
@@ -29,6 +30,11 @@ RUN_FILES = {
     "training.png", "test_confusion.png", "development_diagnostics.png",
 }
 EXTRA_FILES = [
+    "full_context_plan_2026-10-06.json", "full_context_resource_pilot_2026-10-06.json",
+    *[f"cache_full_context_{dataset}/{name}" for dataset in ("seediv", "deap") for name in ("prepared.json", "input_audit.json")],
+    *[f"full_context_{dataset}/{name}" for dataset in ("seediv", "deap") for name in ("config.json", "plan.json", "folds.json", "model_index.json", "context_records.json", "verification.json", "analysis_verification.json", "comparison.json", "diagnostics.csv", "comparison.png", "validation_curves.png", "README.md")],
+    *[f"full_context_{dataset}/metrics_session{session}_rotation{rotation}.json" for dataset,sessions,rotations in (("seediv",(1,2,3),(0,1,2)), ("deap",(1,),(0,1,2,3,4))) for session in sessions for rotation in rotations],
+    *[f"full_context_{dataset}/predictions_{model}_{arm}.csv" for dataset in ("seediv", "deap") for model in ("gru", "lstm", "cbsatt_local", "gru_context", "prior", "context_logistic") for arm in ("exposed", "unexposed")],
     "repeated_material_plan_2026-10-06.json", "cache_temporal_deap/prepared.json", "cache_temporal_deap/raw_reproduction.json",
     "repeated_material_seediv_feasibility_2026-10-06.json", "repeated_material_deap_feasibility_2026-10-06.json",
     *[f"repeated_material_{dataset}/{name}" for dataset in ("seediv", "deap") for name in ("config.json", "plan.json", "feasibility.json", "model_index.json", "comparison.json", "verification.json", "analysis_verification.json", "label_heterogeneity.json", "environment.json", "comparison.png", "paired_comparison.png", "training_diagnostics.csv", "all_cells.csv", "all_groups.csv", "README.md")],

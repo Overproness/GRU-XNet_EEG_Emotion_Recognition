@@ -24,6 +24,14 @@ CLAE (February 2026) adds attention to a contrastive approach that aligns subjec
 
 The previously reviewed GSCL also uses same-stimulus group structure. A methodological question remains whether shared stimulus should always imply matching **individual self-reported** targets. This is a question for our declared diagnostic and further literature/code checks, not an established gap or a proposed method. [Primary GSCL article](https://pmc.ncbi.nlm.nih.gov/articles/PMC12948548/).
 
+## Reference-model provenance
+
+The complete local CBSAtt paper was inspected, including rendered methods pages 4–6. It declares 16 selected channels, Adam at 0.001, 30 epochs, batch 128, four attention heads and 128 BiLSTM units. Its preprocessing discussion gives 4–45 Hz and a six-second/50%-overlap example; these are not a completely specified reproduction recipe. Page 7 explicitly discusses subject-dependent evaluation. Figure 3 depicts three convolutions and two explicit pools, while our local code has three pools and global averaging before a one-step LSTM. The published temporal tensor layout and exact independent split/selection rule remain unresolved. No authenticated author repository was found in this targeted search. [Primary CBSAtt article](https://link.springer.com/article/10.1007/s11760-025-04708-1).
+
+Local PDF: `dl papers/Wasif Papers/springer wala paper.pdf`, SHA-256 `7eba8d0f875ba95f7b2c8e64fbff74092cdad4c5098281c0a1538107c763540b`. It is not redistributed. Forward/training-mode matching of local code establishes local implementation fidelity, not fidelity to the published method; retain that distinction in the completed full-model report.
+
+The close TFCNN-BiGRU precedent has an author-posted MATLAB File Exchange package, version 1.0.0 dated 3 May 2024. Its listing uses CWT scalograms. The download link requires sign-in and the public viewer did not expose source here; no numerical reproduction or complete training-source audit is claimed. [Author release](https://www.mathworks.com/matlabcentral/fileexchange/165126-tfcnn-bigru). This remains a useful future baseline acquisition route, without replacing the currently frozen controls.
+
 ## Uncertainty and interpretive limits
 
 Menzel's cluster-bootstrap analysis shows that dependence and degeneracy affect bootstrap behavior; ordinary multiway resampling does not guarantee uniform validity across regimes. We should treat the current conditional percentile ranges as exploratory resampling evidence, without claiming demonstrated nominal coverage for these small fixed partitions. Final inferential claims require an appropriate statistical review. [Author's Econometrica paper](https://bpb-us-e1.wpmucdn.com/wp.nyu.edu/dist/9/2027/files/2021/09/ECTA15383.pdf).

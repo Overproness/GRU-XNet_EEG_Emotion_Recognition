@@ -18,7 +18,8 @@ REPORTS = [f"GRU-XNet_{name}_{DATE}.md" for name in (
 REPORTS += ["GRU-XNet_Transformer_Native_Label_Findings_2026-10-06.md",
             "GRU-XNet_Transformer_Research_Update_2026-10-06.md",
             "GRU-XNet_Session_Pretraining_Findings_2026-10-06.md",
-            "GRU-XNet_Within_Session_Material_Findings_2026-10-06.md"]
+            "GRU-XNet_Within_Session_Material_Findings_2026-10-06.md",
+            "GRU-XNet_Material_Generalization_Research_Update_2026-10-06.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",
@@ -28,7 +29,7 @@ RUN_FILES = {
 }
 EXTRA_FILES = [
     "within_session_material_plan_2026-10-06.json",
-    *[f"within_session_material_seediv/{name}" for name in ("config.json","plan.json","folds.json","model_index.json","material_assignments.csv","comparison.json","verification.json","environment.json","comparison.png","paired_comparison.png")],
+    *[f"within_session_material_seediv/{name}" for name in ("config.json","plan.json","folds.json","model_index.json","material_assignments.csv","comparison.json","verification.json","environment.json","comparison.png","paired_comparison.png","training_diagnostics.csv","all_cells.csv","all_seeds.csv","README.md")],
     *[f"within_session_material_seediv/model_metrics_{model}_session{session}.json" for model in ("mean_mlp","transformer") for session in (1,2,3)],
     *[f"within_session_material_seediv/predictions_{model}_{arm}.csv" for model in ("mean_mlp","transformer","bandpower","duration","reve_pretrained","reve_random42") for arm in ("exposed","unexposed")],
     *[f"within_session_material_seediv/linear_{model}_session{session}_rotation{rotation}.json" for model in ("bandpower","duration","reve_pretrained","reve_random42") for session in (1,2,3) for rotation in (0,1,2)],

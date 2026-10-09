@@ -1,0 +1,482 @@
+{
+  "job": {
+    "dataset": "SEEDIV",
+    "group": 2,
+    "pretrained": true,
+    "head": "pooled_mlp"
+  },
+  "plan_sha256": "d86b702446bc78f569a6078398de432d9704d5bb6b3eb7e73d3a5bde7000e081",
+  "reused": false,
+  "initial_encoder_digest": "077f9978a7d372ca912221925a84956eacbdea6c9336af5fa6f250901aefe438",
+  "initial_head_digest": "c6e2c6a2161536ccab7124cf0d44ab3550136534d93965db6811d8e1e9010579",
+  "head_parameters": 40803,
+  "head_dropout_rng": {
+    "p": 0.1,
+    "seed": 424243,
+    "index": "seed + update; encoder global RNG restored"
+  },
+  "dropout_schema": [
+    {
+      "name": "patch_embedding.spectral_proj.1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.0.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.0.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.0.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.0.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.0.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.1.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.1.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.1.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.1.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.1.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.2.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.2.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.2.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.2.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.2.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.3.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.3.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.3.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.3.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.3.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.4.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.4.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.4.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.4.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.4.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.5.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.5.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.5.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.5.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.5.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.6.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.6.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.6.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.6.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.6.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.7.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.7.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.7.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.7.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.7.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.8.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.8.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.8.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.8.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.8.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.9.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.9.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.9.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.9.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.9.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.10.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.10.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.10.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.10.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.10.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.11.self_attn_s",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.11.self_attn_t",
+      "type": "MultiheadAttention",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.11.dropout",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.11.dropout1",
+      "type": "Dropout",
+      "p": 0.1
+    },
+    {
+      "name": "encoder.layers.11.dropout2",
+      "type": "Dropout",
+      "p": 0.1
+    }
+  ],
+  "sampling_digest": "15c9ff2275924440782c58c5aa114334aa55cd6c06058e19451d4272d13b0bad",
+  "candidates": [
+    {
+      "step": 0,
+      "checkpoint": "checkpoint0.pt",
+      "checkpoint_sha256": "836d98c2b34b663e2dd3aaebe27924a5b4d26ad46707945158bfcedcefbb0d22",
+      "state_digest": "8978db6858964af2b94646aaa9a0c0cf8f377d63f5fe3fc06a1df2eb60340275",
+      "encoder_digest": "077f9978a7d372ca912221925a84956eacbdea6c9336af5fa6f250901aefe438",
+      "head_digest": "c6e2c6a2161536ccab7124cf0d44ab3550136534d93965db6811d8e1e9010579",
+      "metrics": {
+        "train": {
+          "n": 108,
+          "balanced_accuracy": 0.3333333333333333,
+          "balanced_log_loss": 1.0987594000773506
+        },
+        "validation_unseen": {
+          "n": 12,
+          "balanced_accuracy": 0.3333333333333333,
+          "balanced_log_loss": 1.0987715484250098
+        },
+        "validation_familiar": {
+          "n": 36,
+          "balanced_accuracy": 0.3333333333333333,
+          "balanced_log_loss": 1.098594575216425
+        }
+      }
+    },
+    {
+      "step": 200,
+      "checkpoint": "checkpoint200.pt",
+      "checkpoint_sha256": "bc1f2049685cd1525825992d64189c2b901e0ed8da32207c3b717622f57c5a3a",
+      "state_digest": "75bbf712273d38e564adf4c3da678529189998999e174a5756752536926b1558",
+      "encoder_digest": "f2ad9d0c4f06ee80410e913090dd0985a0991eccd0e1c74eb91efdfd0a55d97b",
+      "head_digest": "e7f9387e94e08e31677e78fe13e39473bd164fc90a7d509db46fea1b0e37fcdf",
+      "metrics": {
+        "train": {
+          "n": 108,
+          "balanced_accuracy": 0.4197530864197531,
+          "balanced_log_loss": 1.0487849013574564
+        },
+        "validation_unseen": {
+          "n": 12,
+          "balanced_accuracy": 0.2222222222222222,
+          "balanced_log_loss": 1.2896374881226984
+        },
+        "validation_familiar": {
+          "n": 36,
+          "balanced_accuracy": 0.3333333333333333,
+          "balanced_log_loss": 1.0788389875170004
+        }
+      }
+    },
+    {
+      "step": 600,
+      "checkpoint": "checkpoint600.pt",
+      "checkpoint_sha256": "4f643730b215f00c4ac59cd7f3d7b47edfffaf72145874bf00d76453be5c3f0f",
+      "state_digest": "6088d7ae429d7cdc29a6297b1b079fc3cf93e83431574cc55af1dd0f6a52dcad",
+      "encoder_digest": "1d0b4627aadbc1fd93bceced05320c60f46fc9fead7ddb0348b87d35f40b67a6",
+      "head_digest": "b235ac67840351420250d21548a34cad6dcb04a88100ae3142fa6b49b270f6a6",
+      "metrics": {
+        "train": {
+          "n": 108,
+          "balanced_accuracy": 0.5679012345679012,
+          "balanced_log_loss": 0.7443119429625772
+        },
+        "validation_unseen": {
+          "n": 12,
+          "balanced_accuracy": 0.38888888888888884,
+          "balanced_log_loss": 1.3092977307437863
+        },
+        "validation_familiar": {
+          "n": 36,
+          "balanced_accuracy": 0.25925925925925924,
+          "balanced_log_loss": 1.383338989069825
+        }
+      }
+    },
+    {
+      "step": 1200,
+      "checkpoint": "checkpoint1200.pt",
+      "checkpoint_sha256": "9d1900e69a5aebeb89b44856e2b38d82e2fb7aba102e2ea09ead1f079a2c6c85",
+      "state_digest": "7ca318aa4904ab883cf1ea1d294968391006d8b0549b702f4fde4f5995963cc0",
+      "encoder_digest": "fafbca0b73e5eceb33da2be3fcd3bc82054b11277728c32f9bd781a3d9184c24",
+      "head_digest": "61d40e96a6f2860de101b2ca5c85c943de1fdfd0e2b6052196a896f3bda194ae",
+      "metrics": {
+        "train": {
+          "n": 108,
+          "balanced_accuracy": 0.7469135802469135,
+          "balanced_log_loss": 0.5280845020766344
+        },
+        "validation_unseen": {
+          "n": 12,
+          "balanced_accuracy": 0.5,
+          "balanced_log_loss": 1.3688495253784414
+        },
+        "validation_familiar": {
+          "n": 36,
+          "balanced_accuracy": 0.3148148148148148,
+          "balanced_log_loss": 1.4285786226178108
+        }
+      }
+    }
+  ],
+  "exposure": [
+    {
+      "step": 200,
+      "training_observations": 108,
+      "draws": 1200,
+      "unique_observations_seen": 108,
+      "minimum_draws_per_observation": 3,
+      "maximum_draws_per_observation": 24,
+      "unique_observation_window_pairs": 398,
+      "available_observation_window_pairs": 432
+    },
+    {
+      "step": 600,
+      "training_observations": 108,
+      "draws": 3600,
+      "unique_observations_seen": 108,
+      "minimum_draws_per_observation": 14,
+      "maximum_draws_per_observation": 57,
+      "unique_observation_window_pairs": 430,
+      "available_observation_window_pairs": 432
+    },
+    {
+      "step": 1200,
+      "training_observations": 108,
+      "draws": 7200,
+      "unique_observations_seen": 108,
+      "minimum_draws_per_observation": 32,
+      "maximum_draws_per_observation": 111,
+      "unique_observation_window_pairs": 432,
+      "available_observation_window_pairs": 432
+    }
+  ],
+  "seconds": 198.44204479991458,
+  "peak_allocated_bytes": 1011225088,
+  "peak_reserved_bytes": 1665138688,
+  "artifact_sha256": {
+    "checkpoint0.pt": "836d98c2b34b663e2dd3aaebe27924a5b4d26ad46707945158bfcedcefbb0d22",
+    "checkpoint1200.pt": "9d1900e69a5aebeb89b44856e2b38d82e2fb7aba102e2ea09ead1f079a2c6c85",
+    "checkpoint200.pt": "bc1f2049685cd1525825992d64189c2b901e0ed8da32207c3b717622f57c5a3a",
+    "checkpoint600.pt": "4f643730b215f00c4ac59cd7f3d7b47edfffaf72145874bf00d76453be5c3f0f",
+    "history.json": "9658e9a10b81b4bf0562db0075d15093ab4663d76f50179438776500637f6ef3",
+    "step0_train.csv": "4dc8e1caf8833758e901b4be474220f31b1f62828b513273fcf8614aaf3b7489",
+    "step0_validation_familiar.csv": "377c2466bf624e9fed3692535bcfd01b0ee22cd88d70b9622571549c86d6a846",
+    "step0_validation_unseen.csv": "172948a45cdf06a9651aee81d85cd47a2885115391d1f95419ce7c1b4fa39a4a",
+    "step1200_train.csv": "919364fd557997ba3304be4369a8b0584d66489d18391ce1347d12497d11f6df",
+    "step1200_validation_familiar.csv": "8fcba7e76bc9da65f3a36c7018fb973e5340c0c503391fe28384c56009370874",
+    "step1200_validation_unseen.csv": "db0ef98de560128ac6d24f90bfc5cab3586e7d802fb12b34d15f2c74645e4c3e",
+    "step200_train.csv": "3f5d54cdd75c730d3d2bfc43b7a01acaf757eae7cdd965b77dd6ed3b844a317f",
+    "step200_validation_familiar.csv": "53b4a4d2874fffac1f69cb29c55d57c1922b30fc4d9e276274933b8b673dfd5d",
+    "step200_validation_unseen.csv": "0656ebf8073da250a8b136da267feff29f448d2be7d65d7e897cb65e5decb1c8",
+    "step600_train.csv": "41ac7cc39689df0df92c6c3e30458003c68ae9e785e09e87e4bbfee053b7ed61",
+    "step600_validation_familiar.csv": "3d2a288debbd9af421584906e3135599b36b7730c23cd07b78e61a29ced17d94",
+    "step600_validation_unseen.csv": "f104ec465bed85759caae7907e21623ce2e237d996014a72b55f19692d25e31c"
+  }
+}

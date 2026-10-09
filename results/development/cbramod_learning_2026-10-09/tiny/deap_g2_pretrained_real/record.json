@@ -1,0 +1,150 @@
+{
+  "job": {
+    "dataset": "DEAP",
+    "group": 2,
+    "pretrained": true,
+    "target": "real"
+  },
+  "plan_sha256": "d862d821ca1b8c046aad3bd3b60605c2f58792876ad6ec5dac6a9b59c8cee34e",
+  "initial_encoder_digest": "077f9978a7d372ca912221925a84956eacbdea6c9336af5fa6f250901aefe438",
+  "initial_head_digest": "eaffac6ac2db06b5418706cc7ad4f390e49254e589fc1df15e704a4855214596",
+  "sampling_digest": "98de3fca810af1ac51c0d5d85ffeff035341ffca88dc9e5cf66cf6ba0fa60836",
+  "tiny_definition": {
+    "trial_ids": [
+      "DEAP:S24:T35",
+      "DEAP:S01:T16",
+      "DEAP:S13:T35",
+      "DEAP:S16:T40",
+      "DEAP:S20:T20",
+      "DEAP:S23:T27",
+      "DEAP:S13:T20",
+      "DEAP:S32:T20",
+      "DEAP:S28:T37",
+      "DEAP:S22:T27",
+      "DEAP:S13:T07",
+      "DEAP:S14:T37"
+    ],
+    "windows": [
+      1,
+      1,
+      0,
+      0,
+      2,
+      2,
+      3,
+      0,
+      3,
+      3,
+      3,
+      1
+    ],
+    "target_labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "original_task_labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "source_only": true
+  },
+  "disabled_dropout_modules": 61,
+  "candidates": [
+    {
+      "step": 0,
+      "checkpoint": "checkpoint0.pt",
+      "checkpoint_sha256": "b93bf35ffafe31ffb17bb2c5c21a27f27fa8e75ae6c35a2d48adef33a2dbd173",
+      "state_digest": "87c7c2328032cc95a2cc58ec8c333670b30692f32a6ec194826a33bb9424b693",
+      "encoder_digest": "077f9978a7d372ca912221925a84956eacbdea6c9336af5fa6f250901aefe438",
+      "head_digest": "eaffac6ac2db06b5418706cc7ad4f390e49254e589fc1df15e704a4855214596",
+      "metrics": {
+        "capacity_train": {
+          "n": 12,
+          "balanced_accuracy": 0.5,
+          "balanced_log_loss": 0.6963940132589079
+        }
+      }
+    },
+    {
+      "step": 200,
+      "checkpoint": "checkpoint200.pt",
+      "checkpoint_sha256": "ebf739a641649514ef54cd668bd1614b2be24aefd7b7833db3a2c6bc67af6328",
+      "state_digest": "8291e2e0241f569ff24b2cea8c383a90ebc6245216c2e6d269bf0dcb3265b64d",
+      "encoder_digest": "5c65267cd69068f800257bf08829a882a0b5ea92a919045067a4d8b2baced814",
+      "head_digest": "f0d3f1e5641426ff0a7e5819abdd6532dc72bcfe9e927827ee41803d1a5861dc",
+      "metrics": {
+        "capacity_train": {
+          "n": 12,
+          "balanced_accuracy": 1.0,
+          "balanced_log_loss": 1.453921062773377e-06
+        }
+      }
+    },
+    {
+      "step": 400,
+      "checkpoint": "checkpoint400.pt",
+      "checkpoint_sha256": "c3da14315754d63f511469e20a85f461ec2b453d28be1475ab76507e8802e4a6",
+      "state_digest": "11a081e286763203fe8233a04c4b8fb5927b0854caff75abafb292391345d2c1",
+      "encoder_digest": "5fcb6f8d8949f9e2773e353a5eae8f102a691ffdbf6ff62e30e5450231898c60",
+      "head_digest": "03795a2c84283929791577451574c5a5c72153572c741975554a9d7e3c61b773",
+      "metrics": {
+        "capacity_train": {
+          "n": 12,
+          "balanced_accuracy": 1.0,
+          "balanced_log_loss": 1.0673855983511782e-06
+        }
+      }
+    }
+  ],
+  "exposure": [
+    {
+      "step": 200,
+      "training_observations": 12,
+      "draws": 1200,
+      "unique_observations_seen": 12,
+      "minimum_draws_per_observation": 83,
+      "maximum_draws_per_observation": 111
+    },
+    {
+      "step": 400,
+      "training_observations": 12,
+      "draws": 2400,
+      "unique_observations_seen": 12,
+      "minimum_draws_per_observation": 192,
+      "maximum_draws_per_observation": 208
+    }
+  ],
+  "seconds": 67.17091439990327,
+  "peak_allocated_bytes": 514855424,
+  "peak_reserved_bytes": 564133888,
+  "capacity_pass": true,
+  "artifact_sha256": {
+    "checkpoint0.pt": "b93bf35ffafe31ffb17bb2c5c21a27f27fa8e75ae6c35a2d48adef33a2dbd173",
+    "checkpoint200.pt": "ebf739a641649514ef54cd668bd1614b2be24aefd7b7833db3a2c6bc67af6328",
+    "checkpoint400.pt": "c3da14315754d63f511469e20a85f461ec2b453d28be1475ab76507e8802e4a6",
+    "history.json": "48790f94663352df106a695c8280efe6c15f8198966de3c8148cce3faed7e671",
+    "step0_capacity_train.csv": "827e524ac1a5dc1ded760547065fc97833ac1148d246b1fa5d6e0ae486937105",
+    "step200_capacity_train.csv": "d8aef601f19e0c73366884f0ba53a0ded8fe8681e22256e61d29785d771d3f7a",
+    "step400_capacity_train.csv": "aeb30b6e3e74d730b2ad17de03f3955d9af71b0af8b29388b696e91450b44df5"
+  }
+}

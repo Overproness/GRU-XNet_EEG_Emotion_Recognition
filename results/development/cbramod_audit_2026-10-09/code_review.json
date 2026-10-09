@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-09",
+  "imported_sha256": {
+    "models/cbramod.py": "caa7c5a0e4acd488a6f625b56f7b54dc4e7190d6b68ef5b76dff2cef86874a14",
+    "models/criss_cross_transformer.py": "90e90b8c98ca7eb543c44e32afc29674d3f71cb090692ad9f82db3a43edf334c"
+  },
+  "review": "Both complete inference source files read. Top-level imports limited to torch/typing/copy/warnings and the local transformer module. Definitions implement tensor layers only; guarded main blocks are not run. No subprocess/network/filesystem mutation/eval/dynamic external imports in inference. Pin/check all asset bytes; explicit local package loader; torch.load weights_only=True and strict tensor-only state. Preprocessing scripts have top-level disk writes and untrusted pickle reads: reviewed as documentation only, never imported or executed.",
+  "licenses": {
+    "source": "MIT (author LICENSE)",
+    "checkpoint": "Apache-2.0 as Hugging Face card, separate from source license"
+  },
+  "pretraining_exclusion": "Paper/author code document TUEG; no independently issued full training-membership manifest in released checkpoint card. Do not claim certified target-disjoint pretraining."
+}

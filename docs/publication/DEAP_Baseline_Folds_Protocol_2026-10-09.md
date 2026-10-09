@@ -6,6 +6,8 @@ The initial preparation stopped before any fit because it demanded exact binary-
 
 The first eight revision-2 feature models verified. The ninth, context-only model exposed an older CSV-schema mismatch in the verifier (`p_0/p_1` versus new `p0/p1`), not a probability discrepancy: the correctly mapped context test probabilities match exactly. Separate [verification recovery](../../results/development/deap_baseline_folds_v2_2026-10-09/schema_recovery_declaration.json) and [analysis schema-adapter declarations](../../results/development/deap_baseline_folds_v2_2026-10-09/analysis_schema_recovery_declaration.json) preserve all frozen fitting/selection/source bytes and first-cell records. The shared older bootstrap receives explicitly renamed columns. Three additional checks cover the old column schema, independent regular percentile endpoints and agreement with the previously audited dyadic bootstrap. Existing fitted records are audited without refitting or rewriting predictions. Original failures remain preserved; no scientific choice changes.
 
+All 160 fit cells subsequently verified. The older coverage checker also requires a `seed` column, which deterministic linear rows omit. A [separate coverage/analysis adapter](../../results/development/deap_baseline_folds_v2_2026-10-09/coverage_schema_recovery_declaration.json) supplies the fixed fitting random state 42 to its temporary metadata frame; saved predictions and all mathematical analysis definitions remain unchanged. No aggregate score was produced before this adapter. The complete 50,560-row coverage/metadata check passes before the final declared analysis.
+
 The hypothesis is that measured-baseline-relative stimulus features improve individual-valence prediction over stimulus-only and pre-stimulus-only controls, and add useful prediction beyond source-only video context. This is a measurement/control hypothesis, not a novel method or an adopted replacement paper question.
 
 Use all 1,264 retained corrected DEAP valence trials, with sixteen rating-five exclusions, all 32 EEG electrodes and the same first forty seconds. Separately filter the measured three-second baseline and full stimulus at 4–40 Hz. The representations are absolute stimulus log band power, within-channel relative stimulus log band power, baseline-only log power, and stimulus-minus-baseline log power. Welch bands and all window/rounding conventions exactly retain the preceding diagnostic; this is a declared local adaptation, not exact LibEER or author-score reproduction.
@@ -32,7 +34,7 @@ conda activate pytorch
 # --limit is the number of newly completed cells, not the absolute total.
 python scripts/resume_deap_baseline_schema_recovery.py run --limit 2 --push
 python scripts/resume_deap_baseline_schema_recovery.py run --limit 158 --push
-python scripts/finish_deap_baseline_schema_recovery.py finish --push
+python scripts/analyze_deap_baseline_final.py run --push
 ```
 
 The machine-readable [revision-2 plan](../../results/development/deap_baseline_folds_v2_2026-10-09/plan.json) and [progress](../../results/development/deap_baseline_folds_v2_2026-10-09/progress.json) distinguish declaration, running and completion. The [initial preparation failure](../../results/development/deap_baseline_folds_2026-10-09/progress.json) remains preserved and excluded. No outcome is implied by this protocol.

@@ -1,6 +1,8 @@
 # Matched full-fold DEAP baseline and context controls
 
-Declared 9 October 2026 as authorized exploration. The manuscript and research question remain unchanged. The native baseline-relative feature lead was already observed on two small validation panels; all people/videos in this new grid have been examined previously. These are development repetitions, not untouched confirmation.
+Revision 2 declared 9 October 2026 as authorized exploration. The manuscript and research question remain unchanged. The native baseline-relative feature lead was already observed on two small validation panels; all people/videos in this new grid have been examined previously. These are development repetitions, not untouched confirmation.
+
+The initial preparation stopped before any fit because it demanded exact binary-float equality between CSV and spreadsheet ratings. Three retained 2.51 ratings differ by 4.44e-16; all binary class labels agree. The original code, declaration and failure remain preserved and excluded. Revision 2 restores the previously established absolute rating tolerance of 1e-12, adds a regression check that rejects genuine rating/class changes, and retains every scientific factor, budget and selection rule. Twenty-seven relevant tests pass.
 
 The hypothesis is that measured-baseline-relative stimulus features improve individual-valence prediction over stimulus-only and pre-stimulus-only controls, and add useful prediction beyond source-only video context. This is a measurement/control hypothesis, not a novel method or an adopted replacement paper question.
 
@@ -24,9 +26,9 @@ Loss improvement across groupings and relevant stimulus/baseline/context control
 
 ```powershell
 conda activate pytorch
-python scripts/deap_baseline_folds.py plan
-python scripts/deap_baseline_folds.py prepare
-python scripts/deap_baseline_folds.py run --push
+python scripts/deap_baseline_folds_v2.py plan
+python scripts/deap_baseline_folds_v2.py prepare
+python scripts/deap_baseline_folds_v2.py run --push
 ```
 
-The machine-readable [plan](../../results/development/deap_baseline_folds_2026-10-09/plan.json) and [progress](../../results/development/deap_baseline_folds_2026-10-09/progress.json) distinguish declaration, running and completion. No outcome is implied by this protocol.
+The machine-readable [revision-2 plan](../../results/development/deap_baseline_folds_v2_2026-10-09/plan.json) and [progress](../../results/development/deap_baseline_folds_v2_2026-10-09/progress.json) distinguish declaration, running and completion. The [initial preparation failure](../../results/development/deap_baseline_folds_2026-10-09/progress.json) remains preserved and excluded. No outcome is implied by this protocol.

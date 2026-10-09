@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-10-09T18:17:52.402097+00:00",
+  "source_sha256": "0efd76b5b2a05df810c3d1ffcde4b69c2166988cf47bc8d9b436f6250a0fcd18",
+  "original_analysis_sha256": "32e536f75f641897d506add3bdaa0eacd8a30e593b1cde16412b30b4f5b307e9",
+  "effective_analysis_sha256": "78213cf2841c05a7a4f791e8e61d18459388eae5c975ca1ce004cd37ad522755",
+  "fit_plan_sha256": "d86b702446bc78f569a6078398de432d9704d5bb6b3eb7e73d3a5bde7000e081",
+  "progress_at_declaration": {
+    "state": "running_controls",
+    "updated_utc": "2026-10-09T18:17:51.179707+00:00",
+    "conditions_completed": 5,
+    "conditions_total": 24,
+    "new_trajectories_completed": 0,
+    "new_trajectories_total": 16,
+    "anchors_completed": 5,
+    "anchors_total": 8,
+    "outer_test_inferences": 0,
+    "research_question_change_approved": false
+  },
+  "original_guard": "if set(roles[a][name]) & set(roles[b][name]):",
+  "corrected_guard": "if (name == 'trial_id' or a == 'train') and set(roles[a][name]) & set(roles[b][name]):",
+  "scope": "Correct an overly strict public-analysis subject guard. Training people are disjoint from both validation roles; validation roles deliberately share held-out people with disjoint trials/material roles. Trial exclusions remain pairwise. Original sixty bound files, data, fits, metrics, selection, contrasts and tolerances unchanged. Declared before new task trajectories; no original-label or manuscript/research-question change."
+}

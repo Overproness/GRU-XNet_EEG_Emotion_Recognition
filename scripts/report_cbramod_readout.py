@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse
 import json
 import sys
+import numpy as np
 import pandas as pd
 
 REPO = Path(__file__).resolve().parents[1]
@@ -40,7 +41,7 @@ def render():
     peak = max(r['peak_allocated_bytes'] for r in records)/(1024**3)
     text = f'''# Matched nonlinear CBraMod readout findings
 
-Completed 9 October 2026. **All 24 conditions, 96 full states and 288 probability metric sets verify:** sixteen new 1,200-update trajectories and eight exact pooled-linear controls. Forty relevant pre-fit tests, four supplementary boundary tests and a complete synthetic public-grid audit pass. No new outer-test inference, label change, manuscript change or adopted main question is made.
+Declared 9 October 2026; completion recorded at `{proof['created_utc']}`. **All 24 conditions, 96 full states and 288 probability metric sets verify:** sixteen new 1,200-update trajectories and eight exact pooled-linear controls. Forty relevant pre-fit tests, four supplementary boundary tests and a complete synthetic public-grid audit pass. No new outer-test inference, label change, manuscript change or adopted main question is made.
 
 The [protocol](GRU-XNet_EEG_Emotion_Recognition/docs/publication/CBraMod_Readout_Protocol_2026-10-09.md) and [declaration]({LINK}/plan.json) were pushed before task fitting in commit `6a791a4a5`. All {len(plan['source_sha256'])} frozen source/analysis/test files remain exact. The [pre-fit boundary adapter]({LINK}/analysis_boundary_adapter_declaration.json) preserves the original analyzer while correcting its overly strict validation-subject guard. Training people are excluded from both validation roles; familiar/unseen validation deliberately share held-out people with disjoint trials. All trial and material exclusions remain unchanged. The adapter was declared with zero new trajectories begun; four rejection/acceptance tests and a complete synthetic-only public-grid replay cover it.
 
@@ -53,6 +54,26 @@ DEAP/SEED-IV grouping 1/2 retain native 32/62-channel prepared 200-Hz forty-seco
 Pooled linear controls average tokens into 200 dimensions. New pooled/flattened MLPs use a 200-hidden-unit linear layer, ELU, dropout 0.1 and a two-/three-class output. Head parameter counts are 402/603 for linear, 40,602/40,803 for pooled MLP and 12,800,602/24,800,803 for flattened MLP. Head-family changes add dropout; flattening adds parameters and retains positional information. These are not pure pooling or capacity effects. New head dropout uses a separate `424243 + update` stream and restores the encoder's global RNG. Exact CPU/CUDA mask and RNG checks pass.
 
 Pinned author two-layer operators, outputs and input/parameter gradients match in synthetic training/evaluation checks. The SEED-V standalone input adapts one to ten patches and bypasses premature wrapper flattening; the pooled control supplies mean tokens. These are explicit adapters, not reproductions of published CBraMod scores or the larger default three-layer head. Existing physical calibration, recording authentication and checkpoint membership limits remain.
+
+## Source panel coverage
+
+Entries show people / trials / materials. Four windows from a trial do not create four independent observations. Familiar and unseen validation share the same held-out people, with different trials/material sets. Both validation roles are repeatedly reused development data.
+
+DEAP inherits the earlier deterministic per-training-participant/class matching between exposed and unexposed arms. Eligible training-participant labels from both arms determine retained counts; no new matching or exclusion is introduced here. The current head comparisons are conditional on that prepared population, rather than every available source trial. A strictly sealed new-material confirmation should construct its source population without consulting labels from the excluded materials, including labels from training participants.
+
+| Dataset/group | Training | Familiar validation | Unseen validation |
+| --- | ---: | ---: | ---: |
+'''
+    for dataset in ('DEAP', 'SEEDIV'):
+        for group in (1, 2):
+            folder = PUBLIC/'runs'/f'{dataset.lower()}_g{group}_pretrained_pooled_linear'
+            cells = []
+            for role in ('train', 'validation_familiar', 'validation_unseen'):
+                frame = pd.read_csv(folder/f'step0_{role}.csv', usecols=['trial_id', 'subject_id', 'material_key'])
+                cells.append(f'{frame.subject_id.nunique()} / {len(frame)} / {frame.material_key.nunique()}')
+            text += '| '+dataset+f' / {group} | '+' | '.join(cells)+' |\n'
+    text += f'''
+SEED-IV unseen validation has only twelve trials from three people and four materials per grouping; DEAP has thirty-two trials from four people and eight materials. Apparent BA differences can therefore come from a few predictions. The two groupings are not independent population replications.
 
 ## Complete fixed-duration results
 
@@ -106,7 +127,22 @@ Slashes separate grouping 1 / grouping 2. BA is balanced accuracy in percent. Ba
             for head in HEADS[1:]:
                 part = clipping[(clipping.dataset == dataset)&(clipping.pretrained == pretrained)&(clipping['head'] == head)]
                 text += '| '+dataset+' / '+('pretrained' if pretrained else 'random42')+' / '+NAMES[head]+' | '+pair(part, 'frequency', True)+' |\n'
-    text += f'''\nStrict replay checks all 96 states using canonical batch 16 and explicit functional readouts. Maximum probability discrepancy is {proof['maximum_probability_abs']:.2e}; maximum replay metric discrepancy is {proof['maximum_metric_abs']:.2e}. Public metric recomputation differs by at most {analysis['maximum_abs_metric_discrepancy']:.2e}. Peak actual tensor allocation is {peak:.3f} GiB, excluding driver/desktop memory. All original input/feature hashes and exact anchor bindings are checked at completion. This validates state/output integrity, not every optimizer update or external dataset/pretraining authenticity.
+    text += '\n## Random flattened-head learning failure\n\nThe four random flattened heads end at chance BA on training and both validation roles. All eight final validation tables have exactly zero probability range across trials; three training tables are also constant and the fourth differs by only about 1.22e-7. Their final saved encoder-gradient norms are zero. This is a degenerate learning result under this adapted head and schedule, not a successful predictive baseline or evidence of generally inferior random representations. It does not establish an activation/optimizer cause or a failure in the authors\' published experiments. All four degenerate runs remain in the grid.\n\nProbability range is the maximum column-wise range across observations. Distance from uniform is the largest absolute class-probability difference from 1/K. These descriptive quantities derive directly from released probabilities and saved history; no new training, EEG inference or metric-selection rule is introduced.\n\n| Dataset/group | Train probability range | Unseen range | Familiar range | Maximum distance from uniform | Final saved encoder gradient norm |\n| --- | ---: | ---: | ---: | ---: | ---: |\n'
+    for dataset in ('DEAP', 'SEEDIV'):
+        for group in (1, 2):
+            folder = PUBLIC/'runs'/f'{dataset.lower()}_g{group}_random42_flattened_mlp'
+            ranges = []; distances = []
+            for role in ROLES:
+                frame = pd.read_csv(folder/f'step1200_{role}.csv')
+                probability = frame[[f'p{c}' for c in range(2 if dataset == 'DEAP' else 3)]].to_numpy()
+                ranges.append(float(np.ptp(probability, axis=0).max()))
+                distances.append(float(abs(probability-1/probability.shape[1]).max()))
+            part = history[(history.dataset == dataset)&(history.group == group)&(~history.pretrained)&(history['head'] == 'flattened_mlp')&(history.step == 1200)]
+            if len(part) != 1:
+                raise ValueError('Missing final random-head gradient diagnostic')
+            norm = float(part.encoder_gradient_L2_before_clip.iloc[0])
+            text += '| '+dataset+f' / {group} | '+' | '.join(f'{v:.3e}' for v in (*ranges, max(distances), norm))+' |\n'
+    text += f'''\nStrict replay checks all 96 states using canonical batch 16 and explicit functional readouts. Maximum probability discrepancy is {proof['maximum_probability_abs']:.2e}; maximum replay metric discrepancy is {proof['maximum_metric_abs']:.2e}. Public metric recomputation differs by at most {analysis['maximum_abs_metric_discrepancy']:.2e}. Peak actual tensor allocation is {peak:.3f} GiB, excluding driver/desktop memory. All original input/feature hashes and exact anchor bindings are checked at completion. This validates state/output integrity, not every optimizer update or external dataset/pretraining authenticity. Updated parameter digests alone do not establish supervised learning: weight decay can change tensors even when a saved encoder gradient is zero.
 
 ## Complete scientific figures
 

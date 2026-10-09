@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-09T08:53:41.211494+00:00",
+  "plan_sha256": "ed1c9528cdb7935e7baef6235ed32180d234168dd37e0a70e1c6272e51578527",
+  "verification_recovery_sha256": "9f81929dc35fb5adaf10fde57a9a5ae7cc94e497431dceeabea9ce00d9d1fcc9",
+  "source_sha256": {
+    "scripts/analyze_deap_baseline_schema_recovery.py": "eb7b45a7168d4c251a3f5adb65ec70c3002277c06a638c4ceb667ebecdab6755",
+    "scripts/finish_deap_baseline_schema_recovery.py": "3559b148b9ccaf085e466e4b4082a81c87eccb1ee97a2cfff5bb1ec6cde711d3"
+  },
+  "reason": "The previously checked shared bootstrap also expects p_0/p_1. Add explicit column renaming before its call; original fixed analysis source and all fitting/selection bytes stay unchanged. No aggregate analysis was run before this correction. Group/model/contrast/metric/interval definitions are exactly those originally declared.",
+  "execution": "Resume original fixed fitting grid with declared schema-recovery runner and an explicit cell limit that returns before original analysis. After all160cells verify, finish with this declared schema-adapted analysis. No extra fitting, outcome-based choice, dropped comparison or altered cohort.",
+  "development_only": true,
+  "research_question_change_approved": false
+}

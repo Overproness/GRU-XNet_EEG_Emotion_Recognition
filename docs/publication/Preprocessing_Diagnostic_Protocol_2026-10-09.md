@@ -1,6 +1,8 @@
 # Source-only preprocessing and EEG baseline diagnostic
 
-Declared 9 October 2026. This is authorized exploration, not a change to the manuscript or research question. Earlier experiments and fitting sources remain frozen. The source cohort has already been inspected; these results cannot be called untouched confirmatory evidence.
+Revision 2 declared 9 October 2026. This is authorized exploration, not a change to the manuscript or research question. Earlier experiments and fitting sources remain frozen. The source cohort has already been inspected; these results cannot be called untouched confirmatory evidence.
+
+The initial declaration and source files are preserved. Its first classical panel stopped because the new context control incorrectly exponentiated the existing helper's probability output; the probability-sum check rejected it before any EEG training. All initial attempt artifacts are excluded. Revision 2 uses the probabilities directly and adds an integration test. It retains every original montage, normalization, duration, budget, grouping, initialization and selection choice. Thirteen relevant tests pass before fitting this corrected version.
 
 The immediate problem is weak EEG validation/generalization despite demonstrated capacity to fit training examples. This study tests possible explanations involving electrode coverage, normalization and temporal input size. It does not assume that any of these causes the weakness or promise a successful method.
 
@@ -14,7 +16,7 @@ There are **72 neural trajectories, 36 recipe/panel comparisons, 288 neural cand
 
 Native inputs are regenerated from hash-checked original downloaded recordings, using the maintained physical filter/resampling and corrected labels. Every common-electrode source prefix must exactly match its earlier verified cache. DEAP's Kaggle signal provenance remains qualified, even if all internal input checks pass. Saved candidate states replay on fresh models; normalizers, draws, initializations, probability metrics and source selection are checked. Population states are reconstructed with the previously audited calibrator; this is not a second independent calibration algorithm. All classical candidates are independently refit, with coefficient/scaler and prediction checks.
 
-Only compact derived evidence is published. Raw EEG, measured baseline waveforms, normalizer arrays and neural weights stay local. Verified milestones are committed and pushed every six new neural trajectories and on completion. The machine-readable [plan](../../results/development/preprocessing_diagnostic_2026-10-09/plan.json) and [progress](../../results/development/preprocessing_diagnostic_2026-10-09/progress.json) are authoritative.
+Only compact derived evidence is published. Raw EEG, measured baseline waveforms, normalizer arrays and neural weights stay local. Verified milestones are committed and pushed every six new neural trajectories and on completion. The machine-readable [revision-2 plan](../../results/development/preprocessing_diagnostic_v2_2026-10-09/plan.json) and [progress](../../results/development/preprocessing_diagnostic_v2_2026-10-09/progress.json) are authoritative. The [initial failed attempt](../../results/development/preprocessing_diagnostic_2026-10-09/progress.json) remains available and is excluded from these results.
 
 Interpret both validation panels and both groupings separately. A validation improvement here is a diagnostic lead, not a new independent test result, architecture-only comparison or publication contribution. Broader confirmation requires a separate declaration. Present any evidence-backed research-question proposal to the author; obtain explicit approval and archive the then-current manuscript before adopting it.
 
@@ -22,9 +24,9 @@ Interpret both validation panels and both groupings separately. A validation imp
 
 ```powershell
 conda activate pytorch
-python scripts/preprocessing_diagnostic.py plan
-python scripts/preprocessing_diagnostic.py prepare
-python scripts/preprocessing_diagnostic.py run --push
+python scripts/preprocessing_diagnostic_v2.py plan
+python scripts/preprocessing_diagnostic_v2.py prepare
+python scripts/preprocessing_diagnostic_v2.py run --push
 ```
 
 The synthetic resource pilot tests model allocation/training only, with peak CUDA tensor allocation under 0.5 GiB before real source data and calibration. It does not measure accuracy or full-study runtime. Data and preprocessing lineage are local; reproduction requires separately obtained recordings.

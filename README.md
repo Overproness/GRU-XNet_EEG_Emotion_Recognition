@@ -4,7 +4,7 @@ Deep learning architecture for multi-dataset EEG-based emotion recognition using
 
 ## Publication revision (6 October 2026)
 
-**Current work:** complete held-out repetitions with independent fold-local tuning, followed by EEGNet-plus-context comparisons. The [protocol](docs/publication/Heldout_Tuning_Protocol_2026-10-06.md) declares all 4,080 training trajectories before fitting; the [live Git checkpoint status](docs/publication/GRU-XNet_Heldout_Tuning_Status_2026-10-06.md) reports accepted progress. This further development reuses existing cohorts and leaves the manuscript/research question unchanged.
+**Completed 9 October 2026:** all 4,080 training trajectories, 2,040 selected neural cases and 340 context cells in the [fold-local tuning protocol](docs/publication/Heldout_Tuning_Protocol_2026-10-06.md) are complete and verified. [Full findings](results/development/heldout_tuning_2026-10-06/FINDINGS.md) and [completion/recovery record](docs/publication/GRU-XNet_Heldout_Tuning_Status_2026-10-06.md) retain every grouping, initialization and contrast. On familiar DEAP videos, EEG-plus-context gives 76.09% balanced accuracy versus 78.05% for calibrated context alone; EEGNet gives 50.85% on unseen videos. This phase establishes no reliable EEG gain over both context controls. It reuses existing cohorts and leaves the manuscript/research question unchanged.
 
 Use the maintained [publication pipeline](PUBLICATION.md) for new experiments:
 

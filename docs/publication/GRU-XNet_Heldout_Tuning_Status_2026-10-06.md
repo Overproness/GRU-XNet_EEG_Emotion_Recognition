@@ -1,6 +1,6 @@
 # Held-out tuning status
 
-State: **running**. Verified selected neural cases: **2002/2040**. Updated: 2026-10-08T19:01:10.047280+00:00.
+State: **complete**. Verified selected neural cases: **2040/2040**; context cells: **340/340**. Study completed: 2026-10-08T21:32:34.433264+00:00. Final publication verification recovered: 2026-10-09T03:41:15.825710+00:00.
 
 The declared grid contains 4080 uninterrupted 1200-update trajectories and 24,480 source-validation candidates. GRU, EEGNet and EEGNet-plus-context independently choose their learning rate, duration and normalization in each outer fold. Two groupings, two initializations, all participant/video folds and both familiar/unseen exposure arms are retained. Context-only priors and calibrated controls use the same source partitions and two-panel selection criterion.
 
@@ -11,3 +11,7 @@ The [machine-readable protocol](../../results/development/heldout_tuning_2026-10
 All selected EEGNet states and fixed GRU sentinels are retained locally. Other selected GRU states are independently replayed before deletion, with their SHA and immediate verification certificate preserved. Such deleted weights require refitting for later raw replay. Outer aggregate findings are generated only when all cases pass verification; an in-progress export does not contain complete findings.
 
 Worker: `D:\DL_Frameworks\envs\pytorch\python.exe scripts/heldout_tuning.py run --push-milestones`. Matching declarations and certificates permit resumption. Git checkpoints occur after every 40 newly accepted neural cases and completion. A failure stops the worker and records a local FAILURE.json; no successful split or seed is substituted.
+
+[Complete findings](../../results/development/heldout_tuning_2026-10-06/FINDINGS.md).
+
+The original final export ran out of memory during checksum verification after all fits and analysis completed. A separate recovery command verified the existing complete snapshot against local originals and recomputed all public candidate/selection metrics using 64-KiB checksum buffers. Frozen experiment source files and results remain unchanged. The original failure is preserved locally; [publication recovery](../../results/development/heldout_tuning_2026-10-06/publication_recovery.json) records its hash and the recovered verification.

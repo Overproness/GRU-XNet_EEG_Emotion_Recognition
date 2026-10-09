@@ -1,5 +1,5 @@
 """Check factorial effects against a closed-form interaction, including selection."""
-import numpy as np
+import json
 import pandas as pd
 import pytest
 from scripts.analyze_cbramod_conditioning import contrasts
@@ -31,6 +31,7 @@ def test_closed_form_factorial_and_different_selected_durations():
     expected = {'normalization_dropout_on': 2, 'normalization_dropout_off': 7,
                 'dropout_off_raw': 3, 'dropout_off_standardized': 8, 'interaction': 5}
     assert len(points) == 2400
+    assert json.loads(json.dumps(points, allow_nan=False)) == points
     for point in points:
         scale = 1 if point['metric'] == 'balanced_log_loss' else .01
         assert point['delta'] == pytest.approx(expected[point['contrast']]*scale)

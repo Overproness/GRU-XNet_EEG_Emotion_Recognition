@@ -174,7 +174,8 @@ def contrasts(rows, selected):
     for scope, frame, keys in (('fixed_step', rows, (*BASE, 'step', 'role')),
                                ('selected_secondary', selected, (*BASE, 'role'))):
         for key, block in frame.groupby(list(keys), sort=True):
-            base = dict(zip(keys, key)); cells = {(bool(r.scaled), bool(r.dropout)): r for r in block.itertuples()}
+            base = {name: value.item() if isinstance(value, np.generic) else value for name, value in zip(keys, key)}
+            cells = {(bool(r.scaled), bool(r.dropout)): r for r in block.itertuples()}
             if len(cells) != 4:
                 raise ValueError('Missing matched factorial cell')
             for metric in METRICS:

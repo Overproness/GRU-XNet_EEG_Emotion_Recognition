@@ -1,0 +1,130 @@
+{
+  "created_utc": "2026-10-09T18:09:48.636671+00:00",
+  "synthetic_only": true,
+  "task_fits": 0,
+  "source_sha256": "d63a01bc13d0eabef0ff9c0b536aa6f1589381dfd0688143b216ff994c2f9c45",
+  "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "torch": "2.5.1",
+  "author_operator_audit": {
+    "synthetic_only": true,
+    "records": [
+      {
+        "dataset": "DEAP",
+        "head": "pooled_mlp",
+        "training": false,
+        "parameter_count": 40602,
+        "outputs_and_token_parameter_gradients_exact": true,
+        "global_cpu_rng_preserved_by_local_dropout": true
+      },
+      {
+        "dataset": "DEAP",
+        "head": "pooled_mlp",
+        "training": true,
+        "parameter_count": 40602,
+        "outputs_and_token_parameter_gradients_exact": true,
+        "global_cpu_rng_preserved_by_local_dropout": true
+      },
+      {
+        "dataset": "DEAP",
+        "head": "flattened_mlp",
+        "training": false,
+        "parameter_count": 12800602,
+        "outputs_and_token_parameter_gradients_exact": true,
+        "global_cpu_rng_preserved_by_local_dropout": true
+      },
+      {
+        "dataset": "DEAP",
+        "head": "flattened_mlp",
+        "training": true,
+        "parameter_count": 12800602,
+        "outputs_and_token_parameter_gradients_exact": true,
+        "global_cpu_rng_preserved_by_local_dropout": true
+      },
+      {
+        "dataset": "SEEDIV",
+        "head": "pooled_mlp",
+        "training": false,
+        "parameter_count": 40803,
+        "outputs_and_token_parameter_gradients_exact": true,
+        "global_cpu_rng_preserved_by_local_dropout": true
+      },
+      {
+        "dataset": "SEEDIV",
+        "head": "pooled_mlp",
+        "training": true,
+        "parameter_count": 40803,
+        "outputs_and_token_parameter_gradients_exact": true,
+        "global_cpu_rng_preserved_by_local_dropout": true
+      },
+      {
+        "dataset": "SEEDIV",
+        "head": "flattened_mlp",
+        "training": false,
+        "parameter_count": 24800803,
+        "outputs_and_token_parameter_gradients_exact": true,
+        "global_cpu_rng_preserved_by_local_dropout": true
+      },
+      {
+        "dataset": "SEEDIV",
+        "head": "flattened_mlp",
+        "training": true,
+        "parameter_count": 24800803,
+        "outputs_and_token_parameter_gradients_exact": true,
+        "global_cpu_rng_preserved_by_local_dropout": true
+      }
+    ],
+    "author_commit": "b9e961003214326972c567eff390e75b0287e32a",
+    "author_sha256": {
+      "models/model_for_faced.py": "0f711a8d117ba0222995a33f6a6dfb2b8d3fe7a219ce0528a71917e5d8082513",
+      "models/model_for_seedv.py": "38fd14adac5c1462316a0d270654a28f36aa20ca5ff79e4730e04dc522fe225e",
+      "finetune_main.py": "6fb96bbc7a73b487c9fdc1f39e8e0ee10fb36c535b0975f8d255fc85eae717f9"
+    },
+    "scope": "Exact executed standalone two-layer operators/gradients/dropout masks. SEED input expands1to10patches; pooled control supplies mean tokens with200input. Premature wrapper flatten bypassed. No EEG or published score reproduction."
+  },
+  "records": [
+    {
+      "dataset": "DEAP",
+      "head": "pooled_mlp",
+      "channels": 32,
+      "classes": 2,
+      "head_parameters": 40602,
+      "three_updates_and_inference_seconds": 1.4462889998685569,
+      "peak_allocated_bytes": 565276672,
+      "peak_reserved_bytes": 601882624,
+      "synthetic_loss": 0.69856196641922
+    },
+    {
+      "dataset": "DEAP",
+      "head": "flattened_mlp",
+      "channels": 32,
+      "classes": 2,
+      "head_parameters": 12800602,
+      "three_updates_and_inference_seconds": 0.3869892999064177,
+      "peak_allocated_bytes": 769435648,
+      "peak_reserved_bytes": 859832320,
+      "synthetic_loss": 0.3507957458496094
+    },
+    {
+      "dataset": "SEEDIV",
+      "head": "pooled_mlp",
+      "channels": 62,
+      "classes": 3,
+      "head_parameters": 40803,
+      "three_updates_and_inference_seconds": 0.5270907001104206,
+      "peak_allocated_bytes": 1022096896,
+      "peak_reserved_bytes": 1134559232,
+      "synthetic_loss": 1.1118446588516235
+    },
+    {
+      "dataset": "SEEDIV",
+      "head": "flattened_mlp",
+      "channels": 62,
+      "classes": 3,
+      "head_parameters": 24800803,
+      "three_updates_and_inference_seconds": 0.5761461998336017,
+      "peak_allocated_bytes": 1417576960,
+      "peak_reserved_bytes": 1556086784,
+      "synthetic_loss": 0.3667398989200592
+    }
+  ]
+}

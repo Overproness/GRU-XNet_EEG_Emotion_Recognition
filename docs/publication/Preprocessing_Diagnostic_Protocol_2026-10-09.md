@@ -30,3 +30,7 @@ python scripts/preprocessing_diagnostic_v2.py run --push
 ```
 
 The synthetic resource pilot tests model allocation/training only, with peak CUDA tensor allocation under 0.5 GiB before real source data and calibration. It does not measure accuracy or full-study runtime. Data and preprocessing lineage are local; reproduction requires separately obtained recordings.
+
+## Completion record, 9 October 2026
+
+All 72 neural trajectories and 80 classical candidates completed and passed their declared verification. The largest observed peak CUDA tensor allocation in the actual study was approximately 0.96 GiB, excluding driver/context memory. An additional public analysis independently recomputes 3,924 metric sets and reports 312 descriptive paired recipe contrasts. A separately declared postdiagnostic baseline-alone control fits/refits sixteen further classical candidates; it does not alter this frozen protocol. See the [completed findings and limits](GRU-XNet_Preprocessing_Diagnostic_Findings_2026-10-09.md) and [baseline-alone verification](../../results/development/prestimulus_control_2026-10-09/verification.json). No outer-test predictions or manuscript/research-question changes were made.

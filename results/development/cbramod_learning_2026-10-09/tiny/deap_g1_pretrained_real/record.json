@@ -1,0 +1,150 @@
+{
+  "job": {
+    "dataset": "DEAP",
+    "group": 1,
+    "pretrained": true,
+    "target": "real"
+  },
+  "plan_sha256": "d862d821ca1b8c046aad3bd3b60605c2f58792876ad6ec5dac6a9b59c8cee34e",
+  "initial_encoder_digest": "077f9978a7d372ca912221925a84956eacbdea6c9336af5fa6f250901aefe438",
+  "initial_head_digest": "eaffac6ac2db06b5418706cc7ad4f390e49254e589fc1df15e704a4855214596",
+  "sampling_digest": "98de3fca810af1ac51c0d5d85ffeff035341ffca88dc9e5cf66cf6ba0fa60836",
+  "tiny_definition": {
+    "trial_ids": [
+      "DEAP:S27:T07",
+      "DEAP:S02:T09",
+      "DEAP:S13:T36",
+      "DEAP:S17:T24",
+      "DEAP:S19:T22",
+      "DEAP:S26:T09",
+      "DEAP:S14:T07",
+      "DEAP:S32:T18",
+      "DEAP:S29:T24",
+      "DEAP:S25:T07",
+      "DEAP:S13:T29",
+      "DEAP:S14:T36"
+    ],
+    "windows": [
+      1,
+      1,
+      0,
+      0,
+      2,
+      2,
+      3,
+      0,
+      3,
+      3,
+      3,
+      1
+    ],
+    "target_labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "original_task_labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "source_only": true
+  },
+  "disabled_dropout_modules": 61,
+  "candidates": [
+    {
+      "step": 0,
+      "checkpoint": "checkpoint0.pt",
+      "checkpoint_sha256": "b93bf35ffafe31ffb17bb2c5c21a27f27fa8e75ae6c35a2d48adef33a2dbd173",
+      "state_digest": "87c7c2328032cc95a2cc58ec8c333670b30692f32a6ec194826a33bb9424b693",
+      "encoder_digest": "077f9978a7d372ca912221925a84956eacbdea6c9336af5fa6f250901aefe438",
+      "head_digest": "eaffac6ac2db06b5418706cc7ad4f390e49254e589fc1df15e704a4855214596",
+      "metrics": {
+        "capacity_train": {
+          "n": 12,
+          "balanced_accuracy": 0.5,
+          "balanced_log_loss": 0.6898508425778007
+        }
+      }
+    },
+    {
+      "step": 200,
+      "checkpoint": "checkpoint200.pt",
+      "checkpoint_sha256": "2683cd889fa6d1d0e70ca1bd6308ed581750956b8bf8c81369cc475ae098ff22",
+      "state_digest": "a0822e06cedb00ab0f8b63d1ab49dcec49e3be29ce3e64130c9a21425fe82e97",
+      "encoder_digest": "c9cd37563fd28e93a47ee11e958834502be03e7fe8cfaf8af568296626f156bf",
+      "head_digest": "90dbcd348eb063c8eecd3a75bdcd8ae8bb88e5b9e68ed28d7735eec3440c4915",
+      "metrics": {
+        "capacity_train": {
+          "n": 12,
+          "balanced_accuracy": 1.0,
+          "balanced_log_loss": 8.557483536023956e-06
+        }
+      }
+    },
+    {
+      "step": 400,
+      "checkpoint": "checkpoint400.pt",
+      "checkpoint_sha256": "68f85a1d88b44d79abcfaec2a6ef51ea9dab3d030119f9c881f4bc69d2192bfd",
+      "state_digest": "f869d21359e484044d7df3a98e4308edb71a612dccdb41d78ab55c300981e260",
+      "encoder_digest": "9fc026c809b5b22472390aaa6b9563cfd67878288181a9c3cc818fecd38b97a4",
+      "head_digest": "148bebe634a7a4a050723acbeb1abba8f85a0e0f64d932d0d0c98104f2177abe",
+      "metrics": {
+        "capacity_train": {
+          "n": 12,
+          "balanced_accuracy": 1.0,
+          "balanced_log_loss": 3.894117646515134e-06
+        }
+      }
+    }
+  ],
+  "exposure": [
+    {
+      "step": 200,
+      "training_observations": 12,
+      "draws": 1200,
+      "unique_observations_seen": 12,
+      "minimum_draws_per_observation": 83,
+      "maximum_draws_per_observation": 111
+    },
+    {
+      "step": 400,
+      "training_observations": 12,
+      "draws": 2400,
+      "unique_observations_seen": 12,
+      "minimum_draws_per_observation": 192,
+      "maximum_draws_per_observation": 208
+    }
+  ],
+  "seconds": 66.82744970009662,
+  "peak_allocated_bytes": 514855424,
+  "peak_reserved_bytes": 564133888,
+  "capacity_pass": true,
+  "artifact_sha256": {
+    "checkpoint0.pt": "b93bf35ffafe31ffb17bb2c5c21a27f27fa8e75ae6c35a2d48adef33a2dbd173",
+    "checkpoint200.pt": "2683cd889fa6d1d0e70ca1bd6308ed581750956b8bf8c81369cc475ae098ff22",
+    "checkpoint400.pt": "68f85a1d88b44d79abcfaec2a6ef51ea9dab3d030119f9c881f4bc69d2192bfd",
+    "history.json": "172f3ebb42cffe3c53885091245f18f4569136f9a499b3cbb5cc6ea888e72179",
+    "step0_capacity_train.csv": "999b558730390f283828180a7f9116a24d537fbef55dfc3b46fd5fd277f66bf4",
+    "step200_capacity_train.csv": "c37f1b7f0ade80c668a916dddaa00a86d065c361c08b640656cb32009cffadaf",
+    "step400_capacity_train.csv": "3db11d0a051dcc13d600770ff581161d87404610992343640bc58e7b0f5f1128"
+  }
+}

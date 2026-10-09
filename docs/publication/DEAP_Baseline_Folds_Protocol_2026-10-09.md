@@ -38,3 +38,7 @@ python scripts/analyze_deap_baseline_final.py run --push
 ```
 
 The machine-readable [revision-2 plan](../../results/development/deap_baseline_folds_v2_2026-10-09/plan.json) and [progress](../../results/development/deap_baseline_folds_v2_2026-10-09/progress.json) distinguish declaration, running and completion. The [initial preparation failure](../../results/development/deap_baseline_folds_2026-10-09/progress.json) remains preserved and excluded. No outcome is implied by this protocol.
+
+## Completion, 9 October 2026
+
+All 160 cells, 5,760 candidate refits, 23,680 probability metric sets and 50,560 outer-test rows verify. All 32 earlier source-coefficient comparisons and 320 earlier contextual comparisons pass. The declared schema adapters preserve fitting/selection/source bytes and all mathematical definitions. All 120 regular metric points and 240 contrasts, including both percentile endpoint sets, independently recompute within 4.39e-16. All forty within-video crossed intervals span zero; the context controls are invariant. The plot was visually checked. [Complete findings and limitations](GRU-XNet_DEAP_Baseline_Folds_Findings_2026-10-09.md) and [machine analysis verification](../../results/development/deap_baseline_folds_v2_2026-10-09/analysis_verification.json) record the outcomes. The earlier high validation lead did not establish full-fold recognition or incremental prediction beyond context; no manuscript or research-question change was adopted.

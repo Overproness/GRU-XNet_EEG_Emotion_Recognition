@@ -28,6 +28,7 @@ REPORTS += ["GRU-XNet_Learning_Control_Research_Update_2026-10-06.md",
 REPORTS += ["GRU-XNet_Preprocessing_Diagnostic_Findings_2026-10-09.md"]
 REPORTS += ["GRU-XNet_DEAP_Baseline_Folds_Findings_2026-10-09.md"]
 REPORTS += ["GRU-XNet_CBraMod_Assessment_2026-10-09.md"]
+REPORTS += ["GRU-XNet_CBraMod_Adaptation_Findings_2026-10-09.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",

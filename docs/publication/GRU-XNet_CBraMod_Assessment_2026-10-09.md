@@ -1,5 +1,7 @@
 # CBraMod representation and preprocessing assessment
 
+**Subsequent work is complete:** [stronger regularization and matched small fine-tuning](GRU-XNet_CBraMod_Adaptation_Findings_2026-10-09.md). The author-approved trial-level prediction/anonymous-ID release is also complete. The initial-grid findings and publication scope below record the earlier assessment; the follow-up supersedes its pending-work statements without changing the original experiments.
+
 Completed 9 October 2026. **The frozen pretrained encoder improves SEED-IV loss over its random-initialization control, but does not consistently beat matched spectral features. DEAP gives no consistent pretrained advantage.** This does not justify a large held-out grid or a new conference contribution. All selected heads choose the smallest offered C, and flattened readouts strongly overfit; head regularization and full fine-tuning remain unresolved. The manuscript and research question are unchanged.
 
 ## What was assessed
@@ -58,7 +60,7 @@ An additional [aggregate-only publication check](../../results/development/cbram
 
 Frozen inference succeeds on the RTX 3050 6 GB. The synthetic pilot's peak allocated tensor memory is about 75 MiB; this excludes context/driver memory and is not a full fine-tuning estimate. An initial unactivated interpreter invocation could not resolve the existing NVRTC DLL; activating the user's `pytorch` environment fixes it without installations or mathematical changes. The preflight is preserved in the author asset audit.
 
-## Publication scope and remaining work
+## Publication scope and remaining work at the initial assessment
 
 Automatic approval review rejected a proposed push of trial-level EEG-derived outputs and participant metadata. **Code and aggregate-only evidence are the safer publication scope.** EEG, embeddings, coefficient arrays, row-level predictions and participant-linked input tables stay in the local study. Their publication requires additional explicit approval. Public aggregates permit inspection of the complete candidate grid and selected scores, but do not permit independent trial-level numerical reanalysis without the retained local evidence or a separately authorized reproduction. The initial protocol commit remains public; the rejected DEAP milestone command did not run.
 

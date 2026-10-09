@@ -6,6 +6,24 @@ Joint training on all three datasets is the historical research question. The au
 
 The [publication readiness record](docs/publication/GRU-XNet_Publication_Readiness_2026-10-05.md) distinguishes repaired implementation problems from outstanding scientific evidence. Review reports and selected development artifacts are preserved in `docs/publication/` and `results/development/`. These are development results, not a completed conference study. Raw EEG and full local run directories remain outside Git.
 
+## CBraMod source capacity, head optimization and longer schedules (completed 9 October 2026)
+
+The [protocol](docs/publication/CBraMod_Learning_Protocol_2026-10-09.md) was frozen and pushed in `148ee4ca8` before fitting. All **80 trajectories, 304 states and 816 probability metric sets** verify: 48 cached-feature heads through 2,400 updates, sixteen real/permuted tiny capacity checks through 400, and sixteen matched pretrained/random × frozen/trainable neural runs through 1,200. Twenty relevant tests pass; all 48 bound source files and actual waveform/feature bindings stay exact. Every initial and later state is retained. The long recipe was fixed before cheap diagnostic results; no outer-test inference is made.
+
+The [complete findings and recommendation](docs/publication/GRU-XNet_CBraMod_Learning_Findings_2026-10-09.md) show all sixteen tiny controls reach 100% training BA, including permuted labels. Training-only standardization improves cached-head fitting, but its selected pretrained unseen loss is worse than raw in all four panels. Random long fine-tuning reaches SEED-IV training BA 100/99.38%, while final unseen BA is 27.78/22.22%. Selected pretrained fine-tuned unseen BA is 44.90/42.11% on DEAP and 44.44/33.33% on SEED-IV; unseen point loss is worse than matched frozen controls in all four panels. Twelve of sixteen head and seven of eight fine-tuning selections choose the earliest eligible checkpoint. These are reused source-validation panels, not independent test gains or a general encoder ranking.
+
+The [independent public audit](results/development/cbramod_learning_2026-10-09/postfit_analysis/verification.json) checks all 816 new/288 prior metric sets, 32 source selections, sixteen capacity outcomes, 224 reconstructed exposure points and all 448 descriptive contrasts. Maximum public metric discrepancy is 5.37e-14; strict neural replay at different inference batch sizes has maximum probability difference 2.64e-7. Peak actual CUDA tensor allocation is 0.943 GiB on the RTX 3050. All four PNG/SVG figures were visually inspected; [complete neural learning curves](results/development/cbramod_learning_2026-10-09/postfit_analysis/long_source_learning.png) and every head rate/scaling trajectory remain available. Author-approved probabilities/labels/anonymous IDs are published, with permuted targets explicitly marked. Raw EEG, embeddings, coefficients/checkpoints and per-trial amplitudes remain local.
+
+Public-only numerical checks need no GPU or raw data:
+
+```powershell
+conda activate pytorch
+python scripts/analyze_cbramod_learning.py verify
+python scripts/verify_publication_export.py --export-only
+```
+
+The completed local command `python scripts/cbramod_learning.py run` checks sealed artifacts without overwriting records. Next isolate training-only embedding conditioning and encoder dropout under the same ten-second neural mode, before a larger encoder programme. Physical calibration, native four-emotion SEED-IV suitability, checkpoint training membership and first-party DEAP authentication remain unresolved. These diagnostics establish fitting capacity under the easier setup, not scientific novelty, convergence or a submission-ready contribution. Manuscript/main question are unchanged; an actual change still requires measured evidence, explicit author approval and an immediate fresh archive.
+
 ## CBraMod representation assessment (completed 9 October 2026)
 
 The [new assessment](docs/publication/GRU-XNet_CBraMod_Assessment_2026-10-09.md) audits pinned official CBraMod code, weights, preprocessing and documented clinical pretraining. The [protocol](docs/publication/CBraMod_Source_Probe_Protocol_2026-10-09.md) was committed before fitting. All 24 source-only frozen heads, 96 candidates and 96 independent refits complete. Eight tests pass; all 288 candidate metric sets and 72 selected sets independently verify. Native 32/62-channel layouts, physical amplitude scaling and both author-supported averaging/flattening readouts are retained alongside matched absolute/relative spectral controls. No outer-test prediction is made.
@@ -16,7 +34,7 @@ The author explicitly approved publishing trial-level predictions and anonymous 
 
 ## Stronger CBraMod regularization and matched adaptation (completed 9 October 2026)
 
-**Authorized follow-up now declared:** the [source learning protocol](docs/publication/CBraMod_Learning_Protocol_2026-10-09.md) freezes 48 cached-feature head trajectories, 16 real/permuted-label tiny capacity runs and 16 matched neural runs through1,200updates before fitting. Twenty relevant tests and the native-montage outcome-free backpropagation/dropout preflight pass. All304states/816metricsets, including initial probabilities, will be retained and checked; the head rates/long schedules cannot be selected from earlier cheap outcomes. [Progress](results/development/cbramod_learning_2026-10-09/progress.json) records actual completion. No outer-test inference, new research question or conference contribution follows from launching this phase.
+**The subsequent source-learning follow-up is complete:** [findings](docs/publication/GRU-XNet_CBraMod_Learning_Findings_2026-10-09.md), [protocol](docs/publication/CBraMod_Learning_Protocol_2026-10-09.md) and [complete progress](results/development/cbramod_learning_2026-10-09/progress.json) retain all 80 trajectories/304 states. The preceding 200-update adaptation results below remain historical development evidence and must not substitute for the completed longer diagnostic.
 
 The [protocol](docs/publication/CBraMod_Adaptation_Protocol_2026-10-09.md) was frozen and pushed before fitting. All 24 expanded heads complete: 96 new candidates independently refit and 96 older candidates preserved byte-for-byte. All 24 neural trajectories and 48 checkpoint candidates strictly replay; pretrained/random42 and frozen/trainable cases share exact head/encoder initialization bindings and balanced trial/window streams. The 16 neural conditions select checkpoints/rates using the declared source-only familiar/unseen loss rule. Thirteen relevant tests pass, all 44 bound source files stay exact, and peak real tensor allocation is 0.943 GiB. No outer-test inference is made.
 
@@ -30,7 +48,7 @@ python scripts/analyze_cbramod_adaptation.py verify
 python scripts/verify_publication_export.py --export-only
 ```
 
-The fitting audit replays states at batch eight instead of sixteen, with maximum probability discrepancy 2.44e-7. It does not repeat every optimizer update or authenticate external recordings/checkpoint training membership. These are repeatedly reused development panels, one head/random initialization and a fixed 200-update budget. The next proposed bounded diagnostic concerns tiny real/permuted-label learning capacity, training-only feature/head scaling and longer source schedules before another full-fold encoder grid. The manuscript and historical main question remain unchanged; an actual question change still requires evidence, explicit author approval and a fresh manuscript archive.
+The fitting audit replays states at batch eight instead of sixteen, with maximum probability discrepancy 2.44e-7. It does not repeat every optimizer update or authenticate external recordings/checkpoint training membership. These preceding results use repeatedly reused development panels, one head/random initialization and a fixed 200-update budget; the subsequent capacity/head/longer-schedule diagnostic is complete above. The manuscript and historical main question remain unchanged; an actual question change still requires evidence, explicit author approval and a fresh manuscript archive.
 
 ## Matched full-fold DEAP baseline/context study (completed 9 October 2026)
 

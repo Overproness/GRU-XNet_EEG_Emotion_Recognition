@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "synthetic_only": true,
+  "task_fits": 0,
+  "device": "CPU",
+  "author_commit": "b9e961003214326972c567eff390e75b0287e32a",
+  "source_sha256": "a27468751fac51e8fb3197a21b72ca05979324dbd462e5fb42f75b37cd82f269",
+  "author_sha256": {
+    "models/model_for_faced.py": "0f711a8d117ba0222995a33f6a6dfb2b8d3fe7a219ce0528a71917e5d8082513",
+    "models/model_for_seedv.py": "38fd14adac5c1462316a0d270654a28f36aa20ca5ff79e4730e04dc522fe225e",
+    "finetune_main.py": "6fb96bbc7a73b487c9fdc1f39e8e0ee10fb36c535b0975f8d255fc85eae717f9"
+  },
+  "scope": "Exact author head/wrapper source, synthetic identity backbone and unmodified documented token shapes. No pretrained weights, real encoder forward, EEG, probabilities or score reproduction. SEED-V wrapper flattens tokens before heads expecting4D; standalone heads are well-defined. Does not assert the paper used this faulty wrapper/version.",
+  "records": [
+    {
+      "dataset_adapter": "faced",
+      "token_shape": [
+        2,
+        32,
+        10,
+        200
+      ],
+      "readout": "avgpooling_patch_reps",
+      "standalone_head_ok": true,
+      "wrapper_matches_standalone_head": true,
+      "wrapper_error": null,
+      "classifier_parameters": 1809
+    },
+    {
+      "dataset_adapter": "faced",
+      "token_shape": [
+        2,
+        32,
+        10,
+        200
+      ],
+      "readout": "all_patch_reps_onelayer",
+      "standalone_head_ok": true,
+      "wrapper_matches_standalone_head": true,
+      "wrapper_error": null,
+      "classifier_parameters": 576009
+    },
+    {
+      "dataset_adapter": "faced",
+      "token_shape": [
+        2,
+        32,
+        10,
+        200
+      ],
+      "readout": "all_patch_reps_twolayer",
+      "standalone_head_ok": true,
+      "wrapper_matches_standalone_head": true,
+      "wrapper_error": null,
+      "classifier_parameters": 12802009
+    },
+    {
+      "dataset_adapter": "seedv",
+      "token_shape": [
+        2,
+        62,
+        1,
+        200
+      ],
+      "readout": "avgpooling_patch_reps",
+      "standalone_head_ok": true,
+      "wrapper_matches_standalone_head": false,
+      "wrapper_error": "KeyError(2)",
+      "classifier_parameters": 1005
+    },
+    {
+      "dataset_adapter": "seedv",
+      "token_shape": [
+        2,
+        62,
+        1,
+        200
+      ],
+      "readout": "all_patch_reps_onelayer",
+      "standalone_head_ok": true,
+      "wrapper_matches_standalone_head": false,
+      "wrapper_error": "KeyError(2)",
+      "classifier_parameters": 62005
+    },
+    {
+      "dataset_adapter": "seedv",
+      "token_shape": [
+        2,
+        62,
+        1,
+        200
+      ],
+      "readout": "all_patch_reps_twolayer",
+      "standalone_head_ok": true,
+      "wrapper_matches_standalone_head": false,
+      "wrapper_error": "KeyError(2)",
+      "classifier_parameters": 2481205
+    }
+  ]
+}

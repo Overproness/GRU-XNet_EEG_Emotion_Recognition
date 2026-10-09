@@ -1,0 +1,150 @@
+{
+  "job": {
+    "dataset": "SEEDIV",
+    "group": 1,
+    "pretrained": true,
+    "target": "real"
+  },
+  "plan_sha256": "d862d821ca1b8c046aad3bd3b60605c2f58792876ad6ec5dac6a9b59c8cee34e",
+  "initial_encoder_digest": "077f9978a7d372ca912221925a84956eacbdea6c9336af5fa6f250901aefe438",
+  "initial_head_digest": "f7918056097fab8ec47ea1e7eb2c38c734fa4a3b22d686da6d406420c1b1ac41",
+  "sampling_digest": "2dec1c1e6514b2572f64c172a8725971cbdbdbd5593506aab5cdf18cbe5f0aaf",
+  "tiny_definition": {
+    "trial_ids": [
+      "SEEDIV:S06:R1:T23",
+      "SEEDIV:S11:R1:T13",
+      "SEEDIV:S15:R1:T19",
+      "SEEDIV:S13:R1:T07",
+      "SEEDIV:S11:R1:T22",
+      "SEEDIV:S03:R1:T19",
+      "SEEDIV:S11:R1:T14",
+      "SEEDIV:S15:R1:T14",
+      "SEEDIV:S05:R1:T15",
+      "SEEDIV:S02:R1:T19",
+      "SEEDIV:S15:R1:T23",
+      "SEEDIV:S11:R1:T04"
+    ],
+    "windows": [
+      1,
+      1,
+      0,
+      0,
+      2,
+      2,
+      3,
+      0,
+      3,
+      3,
+      3,
+      1
+    ],
+    "target_labels": [
+      0,
+      1,
+      2,
+      0,
+      2,
+      2,
+      1,
+      1,
+      1,
+      2,
+      0,
+      0
+    ],
+    "original_task_labels": [
+      0,
+      1,
+      2,
+      0,
+      2,
+      2,
+      1,
+      1,
+      1,
+      2,
+      0,
+      0
+    ],
+    "source_only": true
+  },
+  "disabled_dropout_modules": 61,
+  "candidates": [
+    {
+      "step": 0,
+      "checkpoint": "checkpoint0.pt",
+      "checkpoint_sha256": "9088432b12cf5fe0f17b21e5dd96391b9624bbe3cdddf1d479675cda7a249896",
+      "state_digest": "27e5712dd8656239b8ac6ffc3308bb50813de14a4a219329c654249b61eb47e8",
+      "encoder_digest": "077f9978a7d372ca912221925a84956eacbdea6c9336af5fa6f250901aefe438",
+      "head_digest": "f7918056097fab8ec47ea1e7eb2c38c734fa4a3b22d686da6d406420c1b1ac41",
+      "metrics": {
+        "capacity_train": {
+          "n": 12,
+          "balanced_accuracy": 0.3333333333333333,
+          "balanced_log_loss": 1.1048140972058749
+        }
+      }
+    },
+    {
+      "step": 200,
+      "checkpoint": "checkpoint200.pt",
+      "checkpoint_sha256": "f0e2d968735faed306464d77dc7f7bb5e4a6a30d72c526a16388866ccd4fed07",
+      "state_digest": "23eb7b38499804c6bc1e003a9e732f4c5cf8f9b01202f2a4f71f8ea039a58f2a",
+      "encoder_digest": "c6f4bffc2b1c48ad5ad0d3f20c528f6af0921ba51830f84e3f78f3d9c67699d5",
+      "head_digest": "5791a4bc08856e5a1debb092af939611803300096cc6646ca1dc4f2634060479",
+      "metrics": {
+        "capacity_train": {
+          "n": 12,
+          "balanced_accuracy": 1.0,
+          "balanced_log_loss": 1.5610514228000514e-05
+        }
+      }
+    },
+    {
+      "step": 400,
+      "checkpoint": "checkpoint400.pt",
+      "checkpoint_sha256": "1d96e378da931e25d6710dfb1b16eb1ca5a790843cdb07c0151d1127664f5472",
+      "state_digest": "97d50bd30e058496f769a76c2dbe5995e572821b2b68b13140c015ec427c1a02",
+      "encoder_digest": "48848cf27d7e445b17380b7d17c1890b84ddc3cab6c878f638c1c0cba2ac4078",
+      "head_digest": "4fe0eb8327e27fdc0404a15374fb8512e553c25ffff14a0b1949d7e5295e9cb4",
+      "metrics": {
+        "capacity_train": {
+          "n": 12,
+          "balanced_accuracy": 1.0,
+          "balanced_log_loss": 5.3973549180531635e-06
+        }
+      }
+    }
+  ],
+  "exposure": [
+    {
+      "step": 200,
+      "training_observations": 12,
+      "draws": 1200,
+      "unique_observations_seen": 12,
+      "minimum_draws_per_observation": 92,
+      "maximum_draws_per_observation": 113
+    },
+    {
+      "step": 400,
+      "training_observations": 12,
+      "draws": 2400,
+      "unique_observations_seen": 12,
+      "minimum_draws_per_observation": 190,
+      "maximum_draws_per_observation": 211
+    }
+  ],
+  "seconds": 73.59479189990088,
+  "peak_allocated_bytes": 893170176,
+  "peak_reserved_bytes": 1056964608,
+  "capacity_pass": true,
+  "artifact_sha256": {
+    "checkpoint0.pt": "9088432b12cf5fe0f17b21e5dd96391b9624bbe3cdddf1d479675cda7a249896",
+    "checkpoint200.pt": "f0e2d968735faed306464d77dc7f7bb5e4a6a30d72c526a16388866ccd4fed07",
+    "checkpoint400.pt": "1d96e378da931e25d6710dfb1b16eb1ca5a790843cdb07c0151d1127664f5472",
+    "history.json": "d2e434afd79d344c12171da4815cd42a33734d893ca7eb6d15a97672cac5c03d",
+    "step0_capacity_train.csv": "00731b747f34f9c3b9db98720cb57aac532d7e958df0fcd892b940f692b86e0b",
+    "step200_capacity_train.csv": "d0ad337bca2c8407ec143d77407e4280d2a52e76bc43572a22f3c8cf2281fd6b",
+    "step400_capacity_train.csv": "72ccd7b969d065187f5f741b128f311f7773844106e7c105e560b7173c950e30"
+  }
+}

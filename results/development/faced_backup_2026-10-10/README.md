@@ -1,5 +1,7 @@
 # FACED backup qualification
 
+The author [clarified](access_clarification.json) that existing certified Synapse access is not available. FACED's Synapse account/download process is separate from the EmoEEG-MC GitHub inquiry. No account, certification quiz or data-use agreement was completed on the author's behalf. Original codebook access remains unresolved; all frozen technical evidence and outcome reservations are preserved.
+
 Declared 10 October 2026. The user authorized metadata-only backup qualification, closest-work monitoring and protocol preparation. **No individual ratings, event TSVs or signal samples are opened.** The manuscript/research question and EmoEEG-MC reserves stay unchanged.
 
 The [protocol](../../../docs/publication/Backup_Qualification_Protocol_2026-10-10.md), [header collection plan](plan.json) and [participant reservation](participant_reservation.json) are prepared and pushed before collection. The curator revision is `4c37c73ece79e68702de2d8afa6b9274811a7cc8`; version 1.1.3 alone does not identify bytes because in-place privacy corrections are documented. Technical headers remain private; only anonymous calibration/geometry projections may be published.

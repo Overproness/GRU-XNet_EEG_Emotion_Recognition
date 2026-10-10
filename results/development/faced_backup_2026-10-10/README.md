@@ -1,5 +1,7 @@
 # FACED backup qualification
 
+**Subsequent documentation step:** the user provided the original metadata workbooks. The [reconciliation](../faced_codebooks_2026-10-10/README.md) resolves their access dependency and confirms rating/identity semantics. It adds unrelated-task and longer-video exceptions without altering frozen evidence below. Actual joins, endpoints, full recording authentication and target/design remain gated. Earlier access records retain their dated historical state.
+
 The author [clarified](access_clarification.json) that existing certified Synapse access is not available. FACED's Synapse account/download process is separate from the EmoEEG-MC GitHub inquiry. No account, certification quiz or data-use agreement was completed on the author's behalf. Original codebook access remains unresolved; all frozen technical evidence and outcome reservations are preserved.
 
 Declared 10 October 2026. The user authorized metadata-only backup qualification, closest-work monitoring and protocol preparation. **No individual ratings, event TSVs or signal samples are opened.** The manuscript/research question and EmoEEG-MC reserves stay unchanged.

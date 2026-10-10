@@ -1,5 +1,7 @@
 # Reproducible publication experiments
 
+**Latest source update:** the user supplied FACED's three original codebooks. The [reconciliation](docs/publication/GRU-XNet_FACED_Codebook_Findings_2026-10-10.md) confirms 28 catalogue entries and twelve rating items, while documenting five unrelated-task recordings and a longer clip 22 version for participants 036–060. Nine tests and local replay pass. The documentation-access dependency is resolved; actual recording joins, endpoints, lineage and target/design gates remain. Outcomes, material reserves, previous fitting sources and the manuscript/question stay unchanged.
+
 This is the maintained experimental path. Root-level `train.py`, `config.py`, `model.py`, augmentation modules, notebook, and saved results describe the historical course project. Do not mix their checkpoints or metrics with `gruxnet/` runs.
 
 Joint training on all three datasets is the historical research question. The author now prioritizes a strong publishable contribution and authorizes experiments to assess alternatives. **Show the findings and receive the author's explicit approval before adopting a different research question.** Preserve the then-current manuscript before an approved change. For the historical question, compare architectures trained jointly on the same inputs, labels, participant partitions, and budget, and report each dataset separately. DEAP-only controls diagnose learning; leave-one-dataset-out tests unseen-dataset transfer. A reference model's lower score or weak transfer alone does not establish overfitting.

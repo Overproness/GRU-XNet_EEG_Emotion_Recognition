@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-11",
+  "timezone": "Asia/Karachi",
+  "bindings": {
+    "GRU-XNet_EEG_Emotion_Recognition/scripts/audit_faced_raw.py": "b88a33868d20f3f4b9ebf43b10ea8153432f0526160ecda0f179172c0453f07a",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/faced_backup_2026-10-10/participant_reservation.json": "f41b319f8d3c27db7966560f7a7bc0b6392eb5e1528892c8d4d445557014d087",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/faced_codebooks_2026-10-10/audit.json": "3837897d7eb9c9b8ccb9c1a0739cef00e166b366fed640086954129bd2aaaaac",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/faced_codebooks_2026-10-10/plan.json": "b0c0e4259e11e0c18e9fecdf631a7dbe907de4d89888cdb85c740e5fab67f155",
+    "report.tex": "06262fb4070b2faa88b16bead411a9282ecac8920f838bcd4a92d8bacf4fd8f0",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/emo_mc_qualification_2026-10-10/reservation.json": "7d32a8e138db1d36b810df34faa28844acc1ee039acbd0f5f342b298959303be"
+  },
+  "source": "User-supplied Data.zip and extracted Data/Data, not an independently authenticated release checksum",
+  "allowed": [
+    "ZIP member metadata and opaque streaming CRC32/SHA256 of archive and extracted bytes",
+    "All 123 technical BDF headers, ignoring identity/date fields",
+    "Original evt.bdf annotation channels only, numerical task codes and relative times",
+    "After_remarks.mat struct field names and trial/vid identity scalars only"
+  ],
+  "forbidden": [
+    "EEG numerical samples",
+    "score/Accuracy/ResponseTime numerical decoding",
+    "recordInformation.json interpretation",
+    "individual outcomes",
+    "fits",
+    "material reassignment"
+  ],
+  "endpoint_rule": "Require one video identity then start then end; flag stray/replaced starts and duplicate identities; compare separately to curator state machine",
+  "duration_comparison": "Report observed minus catalogue/documented duration; tolerance 1 second for metadata discrepancy flag, not a cropping rule",
+  "time_geometry": "Compare relative marker endpoints with data record duration; physical same-session clock synchronization remains separate",
+  "zip_deletion_rule": "Only after every non-directory member has matching safe relative path, size and streamed CRC32; preserve SHA256 receipts and exact inventory",
+  "ratings_values_decoded": 0,
+  "waveform_samples_decoded": 0,
+  "models_fitted": 0,
+  "research_question_changed": false,
+  "outcome_access_cleared": false
+}

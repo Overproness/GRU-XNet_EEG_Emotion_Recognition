@@ -6,6 +6,12 @@ Joint training on all three datasets is the historical research question. The au
 
 The [publication readiness record](docs/publication/GRU-XNet_Publication_Readiness_2026-10-05.md) distinguishes repaired implementation problems from outstanding scientific evidence. Review reports and selected development artifacts are preserved in `docs/publication/` and `results/development/`. These are development results, not a completed conference study. Raw EEG and full local run directories remain outside Git.
 
+## EmoEEG-MC joins and endpoints (10 October 2026)
+
+The [source-resolution findings](docs/publication/GRU-XNet_EmoEEG_MC_Join_Resolution_2026-10-10.md) recover sixty historical event tables with identical current EDF/behaviour pointers, and inspect 120 identity-map files from the first-party ScienceDB V6 archive. All thirty varying-code behaviour tables agree with the separate identity arrays; 42 complete-pilot candidate joins pass. Participant 54's documented orders were found, while contradictory metadata keeps its original quarantine role unchanged. The [evidence index](results/development/emo_mc_join_resolution_2026-10-10/README.md) records every plan, source hash, schema supplement, conflict and endpoint candidate.
+
+**No individual outcomes or fitting are cleared.** The video timing outlier persists: two plausible 30-second tails have zero overlap. Imagery material numbers, unresolved participant/execution-row crosswalks, numbered score semantics and actual playback/button endpoints still need primary documentation. Eighteen new gate/timing tests supplement the ten earlier checks. All reserved identities/outcomes, previous studies and manuscript/question remain unchanged. A [metadata inquiry draft](docs/publication/EmoEEG_MC_Metadata_Inquiry_Draft_2026-10-10.md) is prepared but has not been sent.
+
 ## EmoEEG-MC qualification and reservation (10 October 2026)
 
 The [qualification report](docs/publication/GRU-XNet_EmoEEG_MC_Qualification_2026-10-10.md) audits all 103 EDF headers and 59 behavioural identity schemas. Three complete author-hosted EDF objects match their release SHA-256 digests. The [reservation](results/development/emo_mc_qualification_2026-10-10/reservation.json) was pushed before raw pilots: 20 confirmation participants, 10 development-validation participants, 27 development-source participants, two initial metadata quarantines, and seven material entries per context reserved across all people. `sub-53` remains in its confirmation role with an additional join hold.

@@ -22,6 +22,18 @@ are transported transiently to check the original file hash; score fields are
 never decoded, inspected or retained. Reserved participant headers are technical
 metadata, so this does not claim their whole files were inaccessible.
 
+[Pilot authentication](pilot_authentication.json) and
+[complete-case authentication](complete_pilot_authentication.json) verify three
+whole EDF objects. [Annotation joins](annotation_join_checks.json),
+[technical consistency](technical_consistency.json) and
+[stimulus comparisons](stimulus_overlap.json) retain subsequent checks. The
+complete-case [declaration](complete_pilot_declaration.json) was pushed before
+that retrieval. Clock/identity/end-point discrepancies keep the fitting gate
+closed. `sub-53` has an additional join hold within its existing confirmation
+role; no reassignment was made. The current
+[qualification report](../../../docs/publication/GRU-XNet_EmoEEG_MC_Qualification_2026-10-10.md)
+explains the evidence and remaining gates.
+
 Header checks qualify the declared calibration and structure; they do not verify
 whole-file annex digests or hardware accuracy. The subsequent pilot record, if
 present, explicitly identifies which complete objects were authenticated.

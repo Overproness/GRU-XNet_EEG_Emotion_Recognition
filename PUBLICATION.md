@@ -6,6 +6,12 @@ Joint training on all three datasets is the historical research question. The au
 
 The [publication readiness record](docs/publication/GRU-XNet_Publication_Readiness_2026-10-05.md) distinguishes repaired implementation problems from outstanding scientific evidence. Review reports and selected development artifacts are preserved in `docs/publication/` and `results/development/`. These are development results, not a completed conference study. Raw EEG and full local run directories remain outside Git.
 
+## EmoEEG-MC qualification and reservation (10 October 2026)
+
+The [qualification report](docs/publication/GRU-XNet_EmoEEG_MC_Qualification_2026-10-10.md) audits all 103 EDF headers and 59 behavioural identity schemas. Three complete author-hosted EDF objects match their release SHA-256 digests. The [reservation](results/development/emo_mc_qualification_2026-10-10/reservation.json) was pushed before raw pilots: 20 confirmation participants, 10 development-validation participants, 27 development-source participants, two initial metadata quarantines, and seven material entries per context reserved across all people. `sub-53` remains in its confirmation role with an additional join hold.
+
+**No fitting is cleared.** EDF geometry, clock, sampling-rate, material identity and trial-end-point discrepancies remain; the [evidence index](results/development/emo_mc_qualification_2026-10-10/README.md) records each. No EEG sample values or individual ratings were interpreted. Ten focused tests cover bounded retrieval, score-byte exclusion and reservation/annotation boundaries. The manuscript and research question are unchanged; source qualification does not establish a novel contribution.
+
 ## Data and target feasibility (completed 10 October 2026)
 
 The [feasibility decision](docs/publication/GRU-XNet_Data_Target_Feasibility_2026-10-10.md) completes the authorized review before additional fitting. The [metadata audit](results/development/data_target_review_2026-10-10/metadata_findings.json) checks 2,437 eligible original trials using seven existing public prediction/split files, ignoring probabilities. Every declared participant/material identity in DEAP, SEED-IV and GAMEEMO has already been evaluated. Individual self-ratings and assigned elicitation labels remain separate targets; the earlier native four-class SEED-IV phase is preserved. GAMEEMO has zero positive G3 trials and one negative G4 trial; its unseen-game class support cannot inherit the DEAP protocol.

@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-11",
+  "timezone": "Asia/Karachi",
+  "bindings": {
+    "GRU-XNet_EEG_Emotion_Recognition/scripts/run_faced_source_quality_pilot.py": "6fcf06b5c913fdbd0d4a5eefce5a6120d5595a21c3e4dec6ddb64ce83d22ff8a",
+    "GRU-XNet_EEG_Emotion_Recognition/gruxnet/faced_source_quality.py": "7c00351bfabdfcb8b650f2f03a46e9eb15688862da1c490dc1a90aa56c9d345d",
+    "GRU-XNet_EEG_Emotion_Recognition/tests/test_faced_source_quality.py": "0eccf50e3721a04925769b23d5543fa96bd318f7213ed86a5ddfaee8ae38ee87",
+    "GRU-XNet_EEG_Emotion_Recognition/gruxnet/faced_proposal_preprocessing.py": "bbc21ae67978745069766664bf3cdcda7f5acab7f980f8d7d6c85a4fe6cdc9fa",
+    "GRU-XNet_EEG_Emotion_Recognition/gruxnet/faced_proposal_preprocessing_v2.py": "6f2d2281dedf130737137032a8e6a8a0a7d45abd961e30dcba6b46bbb1f6089b",
+    "GRU-XNet_EEG_Emotion_Recognition/scripts/audit_faced_raw.py": "b88a33868d20f3f4b9ebf43b10ea8153432f0526160ecda0f179172c0453f07a",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/faced_design_proposal_2026-10-11/source_quality_pilot_candidate.json": "a580b97734f7aae20ec14286932e57d8b9d9015e9572a5ca848aebe9c8f88370",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/faced_design_proposal_2026-10-11/recommended_proposal.json": "caa2a3d1cceddb89911ae08cb620d7e2105830e67394bd9dae4fddd0354f28d0",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/faced_design_proposal_2026-10-11/packet_verification.json": "3ce4f4dab14a6a90bd7cf76b906a098979a7f7c13720ab094271129d36e17504",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/faced_raw_2026-10-11/verification.json": "b8a74036963d907f67a2f5987297539e9978f51244b3b525b743d702257f52aa",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/faced_backup_2026-10-10/participant_reservation.json": "f41b319f8d3c27db7966560f7a7bc0b6392eb5e1528892c8d4d445557014d087",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/emo_mc_qualification_2026-10-10/reservation.json": "7d32a8e138db1d36b810df34faa28844acc1ee039acbd0f5f342b298959303be",
+    "report.tex": "06262fb4070b2faa88b16bead411a9282ecac8920f838bcd4a92d8bacf4fd8f0",
+    "GRU-XNet_EEG_Emotion_Recognition/results/development/faced_source_quality_2026-10-11/decoder_reference.json": "027e2c568550bc5a0657c29b883818396cb74c87a75dfd1d863da28c5af81810"
+  },
+  "authorization": "User explicitly requested the proposed eight-trial source-only decoder/quality pilot; all ratings sealed",
+  "trial_identities": [
+    {
+      "subject": "sub-001",
+      "vid": 11
+    },
+    {
+      "subject": "sub-001",
+      "vid": 27
+    },
+    {
+      "subject": "sub-044",
+      "vid": 11
+    },
+    {
+      "subject": "sub-044",
+      "vid": 27
+    },
+    {
+      "subject": "sub-085",
+      "vid": 11
+    },
+    {
+      "subject": "sub-085",
+      "vid": 27
+    },
+    {
+      "subject": "sub-098",
+      "vid": 11
+    },
+    {
+      "subject": "sub-098",
+      "vid": 27
+    }
+  ],
+  "quality_rules": {
+    "raw_rail_fraction_above": 0.0001,
+    "raw_identical_adjacent_fraction_above": 0.95,
+    "processed_channel_sd_below_uv": 0.1,
+    "processed_channel_sd_above_uv": 100.0,
+    "processed_channel_peak_to_peak_above_uv": 1000.0,
+    "interpretation": "Engineering review flags, not validated artifact labels or automatic exclusions"
+  },
+  "allowed": [
+    "Opaque complete-file/header/body hashes of four original data.bdf files",
+    "Opaque hashes only of four evt.bdf and four After_remarks.mat companions",
+    "Technical original headers, ignoring identity/date strings",
+    "Numerical samples from 30 common scalp channels in exactly eight declared 32-second intervals",
+    "Fixed trial-local preprocessing and descriptive per-channel/window quality summaries"
+  ],
+  "forbidden": [
+    "Behavioral MAT decoding and any individual ratings, accuracy or response times",
+    "recordInformation.json interpretation",
+    "Numerical auxiliary-channel or neighbor-trial samples",
+    "Validation/confirmation people or materials",
+    "Model fitting, supervised evaluation or paper-question change"
+  ],
+  "interval": "floor(video_end*native_rate)-32*native_rate .. floor(video_end*native_rate), half-open",
+  "core": "Approximately end-30 .. end-2; seven nonoverlapping four-second windows",
+  "decoder_validation": "Every decoded real count checked against int.from_bytes; manufactured fixture separately checked by PyEDFlib",
+  "calibration_check": "Original physical/digital extrema formula versus independently expressed gain*count+offset; atol 1e-8 uV",
+  "technical_failure_rule": "Hash/header/bounds/decoding/calibration/finite/geometry failures stop further decoding and supervised activation",
+  "quality_rule": "Any engineering review flag holds wider sample/outcome access pending documented source-only diagnosis; do not exclude flagged trials",
+  "publication": "Only anonymous IDs, declared intervals, hashes and descriptive quality aggregates; no sample arrays or private headers",
+  "runtime": {
+    "python": "3.11.13",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1"
+  },
+  "ratings_to_open": 0,
+  "models_to_fit": 0,
+  "research_question_changed": false
+}

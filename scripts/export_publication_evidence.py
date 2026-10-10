@@ -43,6 +43,7 @@ REPORTS += ["GRU-XNet_Backup_Qualification_2026-10-10.md",
             "GRU-XNet_Research_Watch_Update_2026-10-10.md"]
 REPORTS += ["GRU-XNet_FACED_Codebook_Findings_2026-10-10.md"]
 REPORTS += ["GRU-XNet_FACED_Raw_Qualification_2026-10-11.md"]
+REPORTS += ["GRU-XNet_FACED_Design_Proposal_2026-10-11.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",

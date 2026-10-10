@@ -1,0 +1,9 @@
+# Weekly EEG literature metadata watch
+
+The user authorized weekly closest-work checks. The [collector](../../../scripts/collect_eeg_literature.py) reads public arXiv and Crossref bibliographic metadata, preserves publication/revision/indexing dates separately, and exports titles/citations with explicit request failures. It does not export abstracts or full third-party text, access EEG outcomes, send messages, change experiments or assess novelty automatically.
+
+The first local check completed **five successful retrievals and 105 unique provider-qualified candidates**, including watched arXiv revisions. Every candidate still needs primary-source scientific review; Crossref query matches can be irrelevant. Search coverage is bounded, not exhaustive. Four tests check date semantics, abstraction exclusion and error-bodied response handling.
+
+The prepared [GitHub workflow](../../../.github/workflows/eeg-literature-watch.yml) runs Saturdays at **18:17 Asia/Karachi** (13:17 UTC), supports manual execution, and tests on pushes changing its own source. It uses read-only repository permission, no external credentials, a sparse checkout and a ten-minute limit. Only candidate metadata is uploaded as an artifact, retained for 90 days. It does not commit or send notifications. GitHub scheduling may be delayed or disabled by platform policy; actual workflow activation/execution must be verified after pushing.
+
+Scientific review remains a separate activity: record primary publication, version/status, target, participant/material partitions, checkpoint-selection source, pretraining/content overlap and implications for the proposed question. Review dates are 17/24/31 October and 7 November 2026, then weekly. This file describes preparation; the eventual activation record will distinguish a configured workflow from a verified successful run.

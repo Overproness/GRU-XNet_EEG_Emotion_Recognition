@@ -1,0 +1,113 @@
+# EEG paper metadata watch
+
+This is a candidate list. Primary-source methods and novelty still require review.
+
+Checked: 2026-10-10T13:50:57.767835+00:00. Partial/failed retrievals: False.
+
+Crossref indexing dates are discovery dates; they do not establish when research was published. arXiv publication and revision dates remain separate.
+
+- [Higher-order Common Information](https://arxiv.org/abs/2406.02001v3) — arxiv; methods review pending.
+- [CBraMod: A Criss-Cross Brain Foundation Model for EEG Decoding](https://arxiv.org/abs/2412.07236v6) — arxiv; methods review pending.
+- [Beyond Reconstruction: What EEG-to-Video Decoding Actually Recovers](https://arxiv.org/abs/2505.21385v4) — arxiv; methods review pending.
+- [ADSEL: Adaptive Dual Self-Expression Learning for EEG Feature Selection via Incomplete Multi-Dimensional Emotion Labels](https://arxiv.org/abs/2508.05229v2) — arxiv; methods review pending.
+- [EEGDM: Label-Efficient EEG Representation Learning with Generative Diffusion Model](https://arxiv.org/abs/2508.14086v4) — arxiv; methods review pending.
+- [EEGDM: Learning EEG Representation with Latent Diffusion Model](https://arxiv.org/abs/2508.20705v5) — arxiv; methods review pending.
+- [Learning Domain- and Class-Disentangled Prototypes for Domain-Generalized EEG Emotion Recognition](https://arxiv.org/abs/2509.01135v3) — arxiv; methods review pending.
+- [Multi-dataset Joint Pre-training of Emotional EEG Enables Generalizable Affective Computing](https://arxiv.org/abs/2510.22197v1) — arxiv; methods review pending.
+- [One Model for All: Universal Pre-training for EEG based Emotion Recognition across Heterogeneous Datasets and Paradigms](https://arxiv.org/abs/2511.08444v2) — arxiv; methods review pending.
+- [Mind-to-Face: Neural-Driven Photorealistic Avatar Synthesis via EEG Decoding](https://arxiv.org/abs/2512.04313v2) — arxiv; methods review pending.
+- [Uncovering EEG Patterns Consistently Associated with Cybersickness Discomfort Using Deep Learning Interpretability Maps](https://arxiv.org/abs/2512.20620v3) — arxiv; methods review pending.
+- [Group Resonance Network: Learnable Prototypes and Multi-Subject Resonance for EEG Emotion Recognition](https://arxiv.org/abs/2603.11119v2) — arxiv; methods review pending.
+- [EduGage: A Multimodal Dataset and Benchmark for Sensor-Based Momentary Assessment of Engagement in Self-Guided Video Learning](https://arxiv.org/abs/2605.01238v2) — arxiv; methods review pending.
+- [NeuroAtlas: Benchmarking Foundation Models for Clinical EEG and Brain-Computer Interfaces](https://arxiv.org/abs/2605.14698v2) — arxiv; methods review pending.
+- [MSCGC-KAN: Multi-scale Causal Graph Convolution and KAN-inspired Analytic-basis Mapping for EEG Emotion Recognition](https://arxiv.org/abs/2605.26624v3) — arxiv; methods review pending.
+- [Context-aware tokenization for Cross-subject Emotion Decoding from EEG](https://arxiv.org/abs/2606.00884v2) — arxiv; methods review pending.
+- [Masked Generative-Contrastive Representation Learning for Cross-Dataset EEG-Based Emotion Recognition](https://arxiv.org/abs/2607.04139v2) — arxiv; methods review pending.
+- [Reading the Eyes in VR: Multimodal Modeling of Social Intelligence](https://arxiv.org/abs/2607.11931v2) — arxiv; methods review pending.
+- [Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding](https://arxiv.org/abs/2607.27268v2) — arxiv; methods review pending.
+- [Checkpoint Selection and Evaluation in EEG Emotion Recognition](https://arxiv.org/abs/2607.27655v2) — arxiv; methods review pending.
+- [Multi-Feature Riemannian Hypergraph for Online Test-Time Adaptation of Motor Imagery Brain-Computer Interface](https://arxiv.org/abs/2608.16134v1) — arxiv; methods review pending.
+- [Discovering Machine Correlates of Consciousness](https://arxiv.org/abs/2608.28824v1) — arxiv; methods review pending.
+- [BRIDGE-EEG: Bridging Self-Supervised Pretraining and Efficient Deployment for Cross-Dataset EEG Classification](https://arxiv.org/abs/2609.12218v1) — arxiv; methods review pending.
+- [Schizophrenia Detection from EEG Signals: A Transformer Framework with Spectrogram Representation](https://arxiv.org/abs/2609.14015v2) — arxiv; methods review pending.
+- [Beyond Flattened Tokens: Structure-Preserving EEG Decoding with Reusable TriDim Blocks](https://arxiv.org/abs/2609.19842v1) — arxiv; methods review pending.
+- [Graph Learning for Cross-Subject, Cross-Population EEG Emotion Decoding and Model-Derived Spatial-Spectral Neural Signatures](https://arxiv.org/abs/2609.22103v2) — arxiv; methods review pending.
+- [Adaptive Forgetting for Nonstationary Optimization: Towards Robust EEG Decoding](https://arxiv.org/abs/2609.24233v1) — arxiv; methods review pending.
+- [E3Sense: Head-Confined Multimodal Sensing of Learner Engagement](https://arxiv.org/abs/2609.26569v1) — arxiv; methods review pending.
+- [From Segments to Trajectories: Evolving Affective Graphs with Evidence Retrieval for Continuous EEG Emotion Recognition](https://arxiv.org/abs/2609.30890v1) — arxiv; methods review pending.
+- [Neural State Prediction: Obstructing Shortcut Learning in EEG Foundation Models](https://arxiv.org/abs/2609.31167v1) — arxiv; methods review pending.
+- [Differential Attention Unlocks Complementary EEG and Speech Fusion for Emotion Recognition](https://arxiv.org/abs/2609.31399v1) — arxiv; methods review pending.
+- [T-SNN: Temporal Simplicial Neural Network for EEG Decoding](https://arxiv.org/abs/2609.34002v1) — arxiv; methods review pending.
+- [AutoBCI: Forecast-Guided Agentic Neural Architecture Discovery for EEG-Based Brain--Computer Interfaces](https://arxiv.org/abs/2609.35456v1) — arxiv; methods review pending.
+- [PHASE: A Physiology-Guided Hierarchical Foundation Model for Intracranial EEG](https://arxiv.org/abs/2609.36087v2) — arxiv; methods review pending.
+- [NeuroDyn-EEG: An Interpretable Pre-trained Model for EEG Based on Neural Dynamics](https://arxiv.org/abs/2609.36773v1) — arxiv; methods review pending.
+- [High-Resolution Dynamic Functional Connectivity Generation with Graph-Variate Flow Matching](https://arxiv.org/abs/2609.37037v1) — arxiv; methods review pending.
+- [SENSE: Semantic Neural Speech Synthesis from Brain Dynamics via Spatial Graph Encoding](https://arxiv.org/abs/2609.37601v1) — arxiv; methods review pending.
+- [Which Attention Heads are like the Human Head? Not the Ones that Compute](https://arxiv.org/abs/2609.37991v1) — arxiv; methods review pending.
+- [Aligning the Incomplete: Joint Distribution Calibration for Multimodal EEG-Eye Emotion Recognition](https://arxiv.org/abs/2609.39413v1) — arxiv; methods review pending.
+- [IDEAL: A Multimodal Domain Adaptation Framework for EEG-Eye Emotion Recognition](https://arxiv.org/abs/2609.39421v1) — arxiv; methods review pending.
+- [NEUROTOKEN: Joint Source and Directional AAD with Envelope Decoding via Conditional Flow Matching](https://arxiv.org/abs/2610.00397v1) — arxiv; methods review pending.
+- [Model validation in machine learning: A scenario-based guide from hold-out splits to nested group cross-validation in biomedical and applied research](https://arxiv.org/abs/2610.01284v1) — arxiv; methods review pending.
+- [A High-Density EEG Dataset for Stimulus-Driven Auditory Attention](https://arxiv.org/abs/2610.01303v1) — arxiv; methods review pending.
+- [A Generative Model of Complex Networks Using Graphons and Neural Inverse Operators](https://arxiv.org/abs/2610.02439v1) — arxiv; methods review pending.
+- [ZeroMAG: Zero-Shot Multimodal Adapter Generation for Plug-and-Play EEG Foundation Models](https://arxiv.org/abs/2610.03546v1) — arxiv; methods review pending.
+- [Low-Cost Video--Time Priors as a Strong Baseline for EEG--fNIRS Emotion Regression on Familiar Videos](https://arxiv.org/abs/2610.03618v1) — arxiv; methods review pending.
+- [SPDAlign: Interpretable Riemannian Alignment for EEG Forward Modeling Shifts](https://arxiv.org/abs/2610.06315v1) — arxiv; methods review pending.
+- [CogAdapt: Cognition-informed Sparse Adaptation of Code LLMs](https://arxiv.org/abs/2610.07446v1) — arxiv; methods review pending.
+- [CANDLE: Cortical Null-Space Decomposition for Noninvasive Brain Source Imaging](https://arxiv.org/abs/2610.07824v1) — arxiv; methods review pending.
+- [Sensor Geometry as a Flow-Matching Prior for Multi-Channel Brain Signals](https://arxiv.org/abs/2610.08355v1) — arxiv; methods review pending.
+- [Scaling subjects in cross-modal alignment: video decoding with EEG foundation model](https://arxiv.org/abs/2610.09287v1) — arxiv; methods review pending.
+- [Multimodal LLMs Can Learn to Read Brain Signals: A Vision--Language Model for Unified Multi-Task EEG Decoding](https://arxiv.org/abs/2610.09355v1) — arxiv; methods review pending.
+- [A multi-scenario EEG dataset for auditory attention decoding in naturalistic multi-talker environments](https://arxiv.org/abs/2610.09539v1) — arxiv; methods review pending.
+- [Pretraining Shapes Spectral Structure: Architecture- and Strategy-Conditional Prediction of OOD Robustness in Foundation Models](https://arxiv.org/abs/2610.09709v1) — arxiv; methods review pending.
+- [EEG and Eye-Tracking Evidence That AI Disclosure Shapes Face Evaluation](https://arxiv.org/abs/2610.10182v1) — arxiv; methods review pending.
+- [SPERA: Spherical Prior EEG Foundation Model with Geometry- and Frequency-Aware Latent Prediction](https://arxiv.org/abs/2610.10571v1) — arxiv; methods review pending.
+- [SPD-MetaFormer is what you need for small-data brain decoding](https://arxiv.org/abs/2610.10952v1) — arxiv; methods review pending.
+- [Social Pain Disrupts Emotion-Action Brain-State Dynamics in Adolescents with Non-Suicidal Self-Injury](https://arxiv.org/abs/2610.11155v1) — arxiv; methods review pending.
+- [Visual Features—From Early Concepts to Modern Computer Vision](https://doi.org/10.1007/978-1-4471-5520-1_1) — crossref; methods review pending.
+- [Trust and commitment in the United States and Japan](https://doi.org/10.1007/bf02249397) — crossref; methods review pending.
+- [ImageNet Large Scale Visual Recognition Challenge](https://doi.org/10.1007/s11263-015-0816-y) — crossref; methods review pending.
+- [The Insular Cortex: An Interface Between Sensation, Emotion and Cognition](https://doi.org/10.1007/s12264-024-01211-4) — crossref; methods review pending.
+- [Mapping Phenomena Relevant to Adolescent Emotion Regulation: A Text-Mining Systematic Review](https://doi.org/10.1007/s40894-021-00160-7) — crossref; methods review pending.
+- [How the mind makes welfare tradeoffs: evolution, computation, and emotion](https://doi.org/10.1016/j.copsyc.2015.06.006) — crossref; methods review pending.
+- [Greenspace morphology and mental well-being: a mobility-based study on urban stress and emotion](https://doi.org/10.1016/j.ecolind.2025.114090) — crossref; methods review pending.
+- [Facial emotion recognition in major depressive disorder: A meta-analytic review](https://doi.org/10.1016/j.jad.2021.06.053) — crossref; methods review pending.
+- [Facial expression recognition: A meta-analytic review of theoretical models and neuroimaging evidence](https://doi.org/10.1016/j.neubiorev.2021.05.023) — crossref; methods review pending.
+- [Neuroimaging cognitive reappraisal in clinical populations to define neural targets for enhancing emotion regulation. A systematic review](https://doi.org/10.1016/j.neuroimage.2016.06.009) — crossref; methods review pending.
+- [The spectral exponent of the resting EEG indexes the presence of consciousness during unresponsiveness induced by propofol, xenon, and ketamine](https://doi.org/10.1016/j.neuroimage.2019.01.024) — crossref; methods review pending.
+- [Using targeted visceroception to improve interoceptive sensibility and emotion regulation](https://doi.org/10.1016/j.newideapsych.2022.100989) — crossref; methods review pending.
+- [Emotion regulation during encoding reduces negative and enhances neutral mnemonic discrimination in individuals with depressive symptoms](https://doi.org/10.1016/j.nlm.2023.107824) — crossref; methods review pending.
+- [A microneedle electrode array on flexible substrate for long-term EEG monitoring](https://doi.org/10.1016/j.snb.2017.01.052) — crossref; methods review pending.
+- [Acceptance of AI-powered facial recognition technology in surveillance scenarios: Role of trust, security, and privacy perceptions](https://doi.org/10.1016/j.techsoc.2024.102721) — crossref; methods review pending.
+- [Meta-analysis of emotion recognition deficits in major depressive disorder](https://doi.org/10.1017/s0033291714002591) — crossref; methods review pending.
+- [The neural bases of emotion regulation](https://doi.org/10.1038/nrn4044) — crossref; methods review pending.
+- [Wearable EEG electronics for a Brain–AI Closed-Loop System to enhance autonomous machine decision-making](https://doi.org/10.1038/s41528-022-00164-w) — crossref; methods review pending.
+- [Facial emotion recognition in patients with depression compared to healthy controls when using human avatars](https://doi.org/10.1038/s41598-023-31277-5) — crossref; methods review pending.
+- [Cognitive efficiency in VR simulated natural indoor environments examined through EEG and affective responses](https://doi.org/10.1038/s41598-025-18629-z) — crossref; methods review pending.
+- [Political emotions shape preferences for leaders’ facial traits: anger favours dominance, fear favours trustworthiness](https://doi.org/10.1080/02699931.2026.2739925) — crossref; methods review pending.
+- [Fully automatized renal parenchyma volumetry using a support vector machine based recognition system for subject-specific probability map generation in native MR volume data](https://doi.org/10.1088/0031-9155/60/22/8675) — crossref; methods review pending.
+- [A multimodal approach to estimating vigilance using EEG and forehead EOG](https://doi.org/10.1088/1741-2552/aa5a98) — crossref; methods review pending.
+- [Electroconvulsive Therapy Stimulus Parameters](https://doi.org/10.1097/yct.0b013e3181e48165) — crossref; methods review pending.
+- [To explain and to predict: analysis of opportunity recognition on the relationship between personal factors, environmental factors and entrepreneurs' performance](https://doi.org/10.1108/apjba-09-2021-0475) — crossref; methods review pending.
+- [Effect of Sweating on Electrode-Skin Contact Impedances and Artifacts in EEG Recordings With Various Screen-Printed Ag/Agcl Electrodes](https://doi.org/10.1109/access.2020.2977172) — crossref; methods review pending.
+- [The Cityscapes Dataset for Semantic Urban Scene Understanding](https://doi.org/10.1109/cvpr.2016.350) — crossref; methods review pending.
+- [Memory in Memory: A Predictive Neural Network for Learning Higher-Order Non-Stationarity From Spatiotemporal Dynamics](https://doi.org/10.1109/cvpr.2019.00937) — crossref; methods review pending.
+- [Learning Parallax Attention for Stereo Image Super-Resolution](https://doi.org/10.1109/cvpr.2019.01253) — crossref; methods review pending.
+- [nuScenes: A Multimodal Dataset for Autonomous Driving](https://doi.org/10.1109/cvpr42600.2020.01164) — crossref; methods review pending.
+- [MotionRNN: A Flexible Model for Video Prediction with Spacetime-Varying Motions](https://doi.org/10.1109/cvpr46437.2021.01518) — crossref; methods review pending.
+- [SimVP: Simpler yet Better Video Prediction](https://doi.org/10.1109/cvpr52688.2022.00317) — crossref; methods review pending.
+- [Scaling Up Your Kernels to 31×31: Revisiting Large Kernel Design in CNNs](https://doi.org/10.1109/cvpr52688.2022.01166) — crossref; methods review pending.
+- [Temporal Attention Unit: Towards Efficient Spatiotemporal Predictive Learning](https://doi.org/10.1109/cvpr52729.2023.01800) — crossref; methods review pending.
+- [InceptionNeXt: When Inception Meets ConvNeXt](https://doi.org/10.1109/cvpr52733.2024.00542) — crossref; methods review pending.
+- [Active Electrodes for Wearable EEG Acquisition: Review and Electronics Design Methodology](https://doi.org/10.1109/rbme.2017.2656388) — crossref; methods review pending.
+- [A better estimate of the internal consistency reliability of frontal EEG asymmetry scores](https://doi.org/10.1111/j.1469-8986.2008.00759.x) — crossref; methods review pending.
+- [Functional imaging studies of emotion regulation: a synthetic review and evolving model of the cognitive control of emotion](https://doi.org/10.1111/j.1749-6632.2012.06751.x) — crossref; methods review pending.
+- [On a generalization of close‐to‐convexity](https://doi.org/10.1155/s0161171283000289) — crossref; methods review pending.
+- [Facial emotion processing in major depression: a systematic review of neuroimaging findings](https://doi.org/10.1186/2045-5380-1-10) — crossref; methods review pending.
+- [State-dependent alteration in face emotion recognition in depression](https://doi.org/10.1192/bjp.bp.110.078139) — crossref; methods review pending.
+- [A general formulation for standardization of rates as a method to control confounding by measured and unmeasured disease risk factors](https://doi.org/10.1214/08-aoas170) — crossref; methods review pending.
+- [Processing of Facial Emotion Expression in Major Depression: A Review](https://doi.org/10.3109/00048674.2010.496359) — crossref; methods review pending.
+- [Emotion-Attention Interaction in the Right Hemisphere](https://doi.org/10.3390/brainsci11081006) — crossref; methods review pending.
+- [Differential Hemispheric Lateralization of Emotions and Related Display Behaviors: Emotion-Type Hypothesis](https://doi.org/10.3390/brainsci11081034) — crossref; methods review pending.
+- [Comparison of Smoothing Filters in Analysis of EEG Data for the Medical Diagnostics Purposes](https://doi.org/10.3390/s20030807) — crossref; methods review pending.
+- [A validation of Emotiv EPOC Flex saline for EEG and ERP research](https://doi.org/10.7717/peerj.9713) — crossref; methods review pending.

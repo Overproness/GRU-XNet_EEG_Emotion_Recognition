@@ -1,0 +1,38 @@
+name: EEG literature metadata watch
+
+on:
+  schedule:
+    # Saturday 18:17 Asia/Karachi (13:17 UTC); platform delays are possible.
+    - cron: '17 13 * * 6'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/eeg-literature-watch.yml'
+      - 'scripts/collect_eeg_literature.py'
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          # Avoid checking out the large experimental artifact directories.
+          sparse-checkout: |
+            scripts/collect_eeg_literature.py
+          sparse-checkout-cone-mode: false
+      - name: Collect public paper metadata
+        run: python3 scripts/collect_eeg_literature.py --out literature-watch
+      - name: Preserve candidate queue and explicit retrieval failures
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: eeg-literature-${{ github.run_id }}
+          path: literature-watch/
+          retention-days: 90
+          if-no-files-found: error

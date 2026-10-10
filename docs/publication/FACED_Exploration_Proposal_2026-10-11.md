@@ -1,5 +1,7 @@
 # Proposed FACED exploration protocol
 
+**Subsequent source-only pilot:** [decoder/quality findings](GRU-XNet_FACED_Source_Quality_Findings_2026-10-11.md) complete the eight trials and identify a source-informed fixed-notch recommendation. Original structured proposals and processing declarations remain preserved; this dated addendum does not activate supervised access. The next execution must separately declare notch handling and the selective target/schema boundary.
+
 11 October 2026. **Proposed only.** No outcome access, fitting or replacement paper question is adopted. Existing 70/20/33 participant roles are frozen. This protocol makes the next exploration reviewable within the author's authorization to investigate alternatives; any actual paper-question change still needs explicit author approval and a fresh manuscript archive.
 
 See [design findings](GRU-XNet_FACED_Design_Proposal_2026-10-11.md), [recommended structured proposal](../../results/development/faced_design_proposal_2026-10-11/recommended_proposal.json) and [evidence index](../../results/development/faced_design_proposal_2026-10-11/README.md).

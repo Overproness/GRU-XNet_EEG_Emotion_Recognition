@@ -1,6 +1,6 @@
 # Reproducible publication experiments
 
-**Latest source update:** the user supplied FACED's three original codebooks. The [reconciliation](docs/publication/GRU-XNet_FACED_Codebook_Findings_2026-10-10.md) confirms 28 catalogue entries and twelve rating items, while documenting five unrelated-task recordings and a longer clip 22 version for participants 036–060. Nine tests and local replay pass. The documentation-access dependency is resolved; actual recording joins, endpoints, lineage and target/design gates remain. Outcomes, material reserves, previous fitting sources and the manuscript/question stay unchanged.
+**Latest source update, 11 October:** [FACED original recordings](docs/publication/GRU-XNet_FACED_Raw_Qualification_2026-10-11.md) now qualify all 123 numeric trial joins and signal bodies against pinned curator objects. All 492 extracted files verify; the redundant ZIP was removed after verification under explicit authorization. Twenty-one synthetic tests and public/local replay pass. Original ratings and EEG values remain undecoded; participant/material reserves and manuscript/question stay preserved. Feasible target/material design, preprocessing/content alignment and separate development outcome access remain pending. Earlier dated phases below are historical.
 
 This is the maintained experimental path. Root-level `train.py`, `config.py`, `model.py`, augmentation modules, notebook, and saved results describe the historical course project. Do not mix their checkpoints or metrics with `gruxnet/` runs.
 

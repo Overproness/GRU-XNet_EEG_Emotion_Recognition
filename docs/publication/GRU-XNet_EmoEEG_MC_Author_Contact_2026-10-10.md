@@ -1,22 +1,24 @@
 # EmoEEG-MC author contact: prepared request and delivery status
 
-Updated 10 October 2026. **The metadata request is prepared and pushed, but has not been posted or emailed.** Automatic approval review rejected the proposed public post before the submission program ran. Explicit approval of the exact public message and destination is pending.
+Updated 10 October 2026. **The approved metadata request was posted and verified as [author-repository issue #1](https://github.com/ncclab-sustech/EmoEEG-MC/issues/1) at 07:48 UTC.** GitHub accepted one submission, and a separate read confirmed the exact approved title, body and account. There were zero comments at the delivery check; an author response remains outstanding.
 
 ## Concrete request and route
 
 The [exact request](EmoEEG_MC_Metadata_Request_2026-10-10.md) and [preparation evidence](../../results/development/emo_mc_author_contact_2026-10-10/request.json) were committed and pushed in `5e7706c91` before attempting delivery. The earlier hash-bound [inquiry draft](EmoEEG_MC_Metadata_Inquiry_Draft_2026-10-10.md) remains unchanged.
 
-Proposed destination: a **public issue** on [ncclab-sustech/EmoEEG-MC](https://github.com/ncclab-sustech/EmoEEG-MC/issues), posted through the existing `Overproness` GitHub account. Title: **Metadata/codebook request: participant/trial joins, score columns and trial end markers**.
+Destination: a **public issue** on [ncclab-sustech/EmoEEG-MC](https://github.com/ncclab-sustech/EmoEEG-MC/issues/1), posted through the existing `Overproness` GitHub account. Title: **Metadata/codebook request: participant/trial joins, score columns and trial end markers**.
 
 The read-only GitHub API check at 06:35 UTC confirmed a public, unarchived repository with issues enabled, an empty complete issue listing, and a working existing sign-in. No new plugin/account connection is required. Credentials were kept in process memory and never printed or saved.
 
-The request covers separate material mappings for video/imagery; participant and integer-code crosswalks; incomplete-trial behaviour-row identities; `score_1` through `score_10` semantics; trigger/run-clock definitions; the participant-37 `dis8` end ambiguity; and valid short-trial intervals. It links already-public technical evidence and includes anonymous participant references and timing discrepancies. Posting would make the request publicly visible and notify the repository through GitHub's issue workflow.
+The request covers separate material mappings for video/imagery; participant and integer-code crosswalks; incomplete-trial behaviour-row identities; `score_1` through `score_10` semantics; trigger/run-clock definitions; the participant-37 `dis8` end ambiguity; and valid short-trial intervals. It links already-public technical evidence and includes anonymous participant references and timing discrepancies. The request is now publicly visible on the author repository.
 
-## Why delivery is pending
+## Approval and delivery record
 
-Automatic approval review rejected the issue-creation action with the stated reason that the user authorized pursuing the inquiry but had not explicitly authorized this exact payload and external destination. The command was rejected before execution: neither the local submission-attempt file nor a GitHub delivery record was created. No alternative sending route has been used.
+The first proposed issue-creation command was rejected before execution by automatic approval review because the exact public payload/destination had not been explicitly approved. The [historical rejection record](../../results/development/emo_mc_author_contact_2026-10-10/approval_status.json) preserves that earlier unsent state. No workaround or alternative sending route was used.
 
-An approval question now provides the immutable prepared text and exact destination. Once explicit approval is received, submit one issue, verify the returned title/body/account through an independent read, and record its URL and delivery receipt. A successful GitHub submission would establish acceptance by GitHub, not that an author has read or answered it. Any uncertain submission must be reconciled read-only before considering another attempt.
+The user subsequently explicitly approved the exact request at commit `5e7706c91`, the public author repository and the `Overproness` account. The [approval record](../../results/development/emo_mc_author_contact_2026-10-10/approval_received.json) supersedes the pending question. The approved submission returned HTTP 201; a separate issue read returned HTTP 200 with matching title/body/account. The [delivery receipt](../../results/development/emo_mc_author_contact_2026-10-10/delivery.json) records issue ID `5789310410`, creation at `2026-10-10T07:48:01Z`, and zero comments at the verification read. GitHub acceptance does not establish that an author has read or answered the inquiry. No duplicate inquiry or email was sent.
+
+A further [unauthenticated public check](../../results/development/emo_mc_author_contact_2026-10-10/delivery_verification.json) at 07:50:44 UTC returned HTTP 200 and matched the committed approved body, title, account, issue identity and creation time. It also confirms the original hash-bound draft is unchanged. The public check found zero comments and introduced no outcome access.
 
 ## How a response will be assessed
 

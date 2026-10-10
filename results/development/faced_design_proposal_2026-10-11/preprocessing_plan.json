@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-11",
+  "reason": "Published FACED method uses late-viewing data for retrospective whole-clip ratings; supplement the initial early-viewing candidate before any sample or outcome access",
+  "script_sha256": "12b2278efd23cbb81a48e14fe403de6b3c62392d04226b88207dc99a1863ec9c",
+  "initial_proposal_sha256": "cbe9e4dbeeee79a6664ccb4ff2e6dc7e5d7bc8951148ab3e8046247bb4333394",
+  "prototype_sha256": "bbc21ae67978745069766664bf3cdcda7f5acab7f980f8d7d6c85a4fe6cdc9fa",
+  "late_prototype_sha256": "6f2d2281dedf130737137032a8e6a8a0a7d45abd961e30dcba6b46bbb1f6089b",
+  "source_facts": {
+    "source_paper": "https://www.nature.com/articles/s41597-023-02650-w",
+    "source_pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10600242/",
+    "bioc_source_sha256": "79adff2d68eff0c3057b12ef295c00aaf60427c30998c3d78f98ee6fd04ee842",
+    "published_supplement_metadata_sha256": "e2f63dc7edf07988eb602135e43e07733b0eb38258425954129dd6f48c131f10",
+    "reference": "CPz",
+    "ground": "AFz",
+    "cohort_channel_placement": "Authors describe common placement with six device-name changes",
+    "author_validation_pipeline": {
+      "observation": "Last 30 seconds",
+      "sample_rate_hz": 250,
+      "bandpass_hz": [
+        0.05,
+        47
+      ],
+      "artifact_steps": [
+        "Outlier-based channel interpolation",
+        "Trial-level ICA with FP1/FP2 ocular proxy"
+      ],
+      "reference": "Common average",
+      "mode": "Offline"
+    },
+    "author_code_fidelity": "Published description inspected; exact author preprocessing code is not authenticated or executed",
+    "explicit_scalp_aliases": {
+      "T3": "T7",
+      "T4": "T8",
+      "T5": "P7",
+      "T6": "P8"
+    },
+    "alias_primary_explanation": "https://robertoostenveld.nl/electrode/",
+    "generic_alias_warning": "Installed MNE CHANNEL_LOC_ALIASES maps T5/T6 to T9/T10; use explicit source-qualified mapping, not generic match_alias=True",
+    "auxiliary_channels": "Both A1/A2-labelled and HEOR/HEOL-labelled slots omitted; physical auxiliary roles are not inferred from labels alone"
+  },
+  "proposed_raw_interval_relative_to_end_seconds": [
+    -32,
+    0
+  ],
+  "proposed_core_interval_relative_to_end_seconds": [
+    -30,
+    -2
+  ],
+  "filter": "Fourth-order Butterworth 0.5-45 Hz, SOS forward/backward, odd extension, offline",
+  "resampling": "128 Hz polyphase; Kaiser beta5, linear edge extension",
+  "reference": "Common average of fixed 30 common scalp channels; no global fitted ICA/interpolation",
+  "scope": "Proposed minimal reproducible processing, not the author-cleaned derivative or a demonstrated best recipe",
+  "runtime_versions": {
+    "python": "3.11.13",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1"
+  },
+  "raw_files_opened": 0,
+  "individual_ratings_opened": 0,
+  "eeg_samples_decoded": 0,
+  "models_fitted": 0,
+  "research_question_changed": false,
+  "outcome_access_cleared": false
+}

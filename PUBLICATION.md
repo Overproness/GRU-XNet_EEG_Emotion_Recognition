@@ -6,6 +6,21 @@ Joint training on all three datasets is the historical research question. The au
 
 The [publication readiness record](docs/publication/GRU-XNet_Publication_Readiness_2026-10-05.md) distinguishes repaired implementation problems from outstanding scientific evidence. Review reports and selected development artifacts are preserved in `docs/publication/` and `results/development/`. These are development results, not a completed conference study. Raw EEG and full local run directories remain outside Git.
 
+## Data and target feasibility (completed 10 October 2026)
+
+The [feasibility decision](docs/publication/GRU-XNet_Data_Target_Feasibility_2026-10-10.md) completes the authorized review before additional fitting. The [metadata audit](results/development/data_target_review_2026-10-10/metadata_findings.json) checks 2,437 eligible original trials using seven existing public prediction/split files, ignoring probabilities. Every declared participant/material identity in DEAP, SEED-IV and GAMEEMO has already been evaluated. Individual self-ratings and assigned elicitation labels remain separate targets; the earlier native four-class SEED-IV phase is preserved. GAMEEMO has zero positive G3 trials and one negative G4 trial; its unseen-game class support cannot inherit the DEAP protocol.
+
+A source-preparation reference retains allowed DEAP rows without the earlier cross-arm matching dependency. All 80 existing geometries retain both classes in all roles; 160 excluded-label/removal invariance checks pass. This is a future preparation option, not a correction of old fits or independent confirmation. Four focused identity/preparation/inventory tests pass. [Source checks](results/development/data_target_review_2026-10-10/source_checks.json) retain 28 bounded public metadata retrievals; full third-party text stays private. No new EEG waveform, individual rating row, fit, inference or adopted question was introduced.
+
+**Decision: keep encoder expansion stopped; qualify an author-hosted corpus before further fitting.** EmoEEG-MC is the preferred qualification candidate, with 59 raw-EEG participant paths versus 60 described people, per-person trigger/run handling, FACED stimulus overlap and calibration still to verify. Newly added mdJPT (NeurIPS 2025) already covers joint emotion pretraining, unseen-dataset and imagery transfer. No new conference contribution is established. The report specifies source/annotation/reservation gates and a question for discussion, requiring the author's approval before any pivot.
+
+```powershell
+python scripts/review_data_targets.py verify
+python -m unittest discover -s tests -p test_data_target_review.py
+```
+
+`scripts/record_data_target_sources.py verify-local` additionally checks privately retained source responses; it needs the local retrieval cache and does not download new data. First-party local-waveform authentication, physical calibration, actual pretraining membership and final manuscript concerns remain open.
+
 ## Matched nonlinear CBraMod readouts (completed 10 October 2026 locally)
 
 The author-authorized [protocol](docs/publication/CBraMod_Readout_Protocol_2026-10-09.md) and [hash-bound declaration](results/development/cbramod_readout_2026-10-09/plan.json) were pushed before fitting in `6a791a4a5`. **All 24 conditions, 96 full states and 288 probability metric sets verify:** sixteen new pooled/flattened two-layer fine-tuning trajectories and eight exact pooled-linear anchors. Every new trajectory completes 1,200 updates. Native inputs, labels, participant/material panels, initialization and observation/window streams are preserved. Head dropout has an isolated stream that preserves the encoder RNG; head-family/dropout/parameter-count changes remain explicit. Forty relevant pre-fit tests, four boundary tests and one complete synthetic public-grid audit pass; all sixty frozen files remain exact. No outer-test inference, manuscript change or adopted question is made.

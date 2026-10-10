@@ -6,9 +6,19 @@ import unittest
 spec = importlib.util.spec_from_file_location("review_data_targets", Path(__file__).resolve().parents[1]/"scripts/review_data_targets.py")
 review = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(review)
+source_spec = importlib.util.spec_from_file_location("record_data_target_sources", Path(__file__).resolve().parents[1]/"scripts/record_data_target_sources.py")
+sources = importlib.util.module_from_spec(source_spec)
+source_spec.loader.exec_module(sources)
 
 
 class ReviewBoundaries(unittest.TestCase):
+    def test_inventory_preserves_split_recordings(self):
+        paths=["sub-02/eeg/sub-02_task-emotion_eeg.edf",
+               "sub-07/eeg/sub-07_task-emotion_run-01_eeg.edf",
+               "sub-07/eeg/sub-07_task-emotion_run-02_eeg.edf",
+               "derivatives/sub-07/not_a_raw_eeg.edf"]
+        self.assertEqual(sources.eeg_paths(paths),paths[:3])
+
     def test_excluded_labels_are_never_inspected(self):
         rows = [
             {"subject_id":"DEAP:S01","material":"T01","trial_id":"DEAP:S01:T01","label":0},

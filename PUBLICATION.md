@@ -6,6 +6,10 @@ Joint training on all three datasets is the historical research question. The au
 
 The [publication readiness record](docs/publication/GRU-XNet_Publication_Readiness_2026-10-05.md) distinguishes repaired implementation problems from outstanding scientific evidence. Review reports and selected development artifacts are preserved in `docs/publication/` and `results/development/`. These are development results, not a completed conference study. Raw EEG and full local run directories remain outside Git.
 
+## EmoEEG-MC author codebook request (10 October 2026)
+
+The [contact record](docs/publication/GRU-XNet_EmoEEG_MC_Author_Contact_2026-10-10.md) links the exact message and the prepared public-issue destination. The request and route checks were pushed in `5e7706c91`. **Nothing has been sent:** automatic approval review rejected issue creation before execution because this exact external public post lacked explicit approval. The user-facing approval question now links its exact text and destination. No new account connection is needed; original draft/evidence and outcome gates are preserved. The record specifies metadata checks for any author response; no fitting, manuscript change or paper pivot is cleared.
+
 ## EmoEEG-MC joins and endpoints (10 October 2026)
 
 The [source-resolution findings](docs/publication/GRU-XNet_EmoEEG_MC_Join_Resolution_2026-10-10.md) recover sixty historical event tables with identical current EDF/behaviour pointers, and inspect 120 identity-map files from the first-party ScienceDB V6 archive. All thirty varying-code behaviour tables agree with the separate identity arrays; 42 complete-pilot candidate joins pass. Participant 54's documented orders were found, while contradictory metadata keeps its original quarantine role unchanged. The [evidence index](results/development/emo_mc_join_resolution_2026-10-10/README.md) records every plan, source hash, schema supplement, conflict and endpoint candidate.

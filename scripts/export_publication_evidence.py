@@ -38,6 +38,7 @@ REPORTS += ["GRU-XNet_CBraMod_Readout_Findings_2026-10-09.md",
 REPORTS += ["GRU-XNet_Data_Target_Feasibility_2026-10-10.md"]
 REPORTS += ["GRU-XNet_EmoEEG_MC_Qualification_2026-10-10.md"]
 REPORTS += ["GRU-XNet_EmoEEG_MC_Join_Resolution_2026-10-10.md"]
+REPORTS += ["GRU-XNet_EmoEEG_MC_Author_Contact_2026-10-10.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",

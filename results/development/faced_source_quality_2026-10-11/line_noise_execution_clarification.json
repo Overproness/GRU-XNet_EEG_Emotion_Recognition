@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-11",
+  "line_noise_plan_sha256": "114b93ce16e63232bba2b4b4872538c2731532ef6cff2b7dece1813b2414f573",
+  "timing": "Before executing the fixed notch control",
+  "clarification": "The initial pilot did not retain processed arrays or publish their byte hashes. Its QC aggregates can be replayed exactly, but no historical processed-array hash can be compared. Follow-up array hashes are first-time computed fingerprints, not historical hash replay.",
+  "original_check_wording": "Replay every original processed output byte hash and QC aggregate",
+  "executable_check": "Recompute the unchanged original pipeline and require exact equality of every published QC aggregate; preserve first-time baseline and notched output hashes.",
+  "identities_intervals_control_settings_and_acceptance_rules_changed": false,
+  "ratings_decoded": 0,
+  "models_fitted": 0,
+  "primary_proposal_changed": false
+}

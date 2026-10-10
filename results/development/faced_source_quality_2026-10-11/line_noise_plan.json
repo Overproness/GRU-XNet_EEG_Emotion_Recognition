@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-11",
+  "bindings": {
+    "scripts/check_faced_source_line_noise.py": "b5db990ef995e9cf3adc01c9a27a05cbc160832b9c9a557adf19811d06c4bdb7",
+    "gruxnet/faced_source_notch.py": "7c2f3db3888fefe6fd45bd46166151389c6bc77e451d00b88b8972c05983a560",
+    "tests/test_faced_source_notch.py": "276c05d04b4f4196e2aa5fb9967b3aba9646a3a4b4c3b5e4d57a6fc34ec6754c",
+    "results/development/faced_source_quality_2026-10-11/plan.json": "79e721f793b4a6e275d43b05ed23b0735e0d2c92549b2532620f31b622571fff",
+    "results/development/faced_source_quality_2026-10-11/records.json": "60bcf145990bed1d5386ea50656c5124c94078d9801d655db17609e7ea2510a6",
+    "results/development/faced_source_quality_2026-10-11/summary.json": "f62daa26568d8ff7f386c59bea18bdaf15d165b74571d6b3d5b39ec61061bcbf",
+    "results/development/faced_source_quality_2026-10-11/verification.json": "c11e4bae83b150a142bdfafba7ccd2c02bdba8d40ceed85030ca1bb6dc14b0a7"
+  },
+  "trial_identities": [
+    {
+      "subject": "sub-001",
+      "vid": 11
+    },
+    {
+      "subject": "sub-001",
+      "vid": 27
+    },
+    {
+      "subject": "sub-044",
+      "vid": 11
+    },
+    {
+      "subject": "sub-044",
+      "vid": 27
+    },
+    {
+      "subject": "sub-085",
+      "vid": 11
+    },
+    {
+      "subject": "sub-085",
+      "vid": 27
+    },
+    {
+      "subject": "sub-098",
+      "vid": 11
+    },
+    {
+      "subject": "sub-098",
+      "vid": 27
+    }
+  ],
+  "reason": "After the fixed pilot, Pz in sub-098 has processed 49-51/1-45 Hz power ratios 11.342 and 18.493; the initial review flags omit this ratio",
+  "status": "Source-quality follow-up after observed pilot values, not preregistered confirmation or original QC criterion",
+  "fixed_control": "Native-rate iirnotch(50 Hz,Q=30), forward/backward odd-padding on the same 32-second trial-local scalp segment, then unchanged base preprocessing",
+  "settings_searched": 0,
+  "additional_people_or_materials": 0,
+  "ratings_to_open": 0,
+  "allowed": "Reauthenticate and decode only the same eight 30-scalp-channel intervals; no behavioral numeric decoding",
+  "forbidden": "Numerical auxiliary/neighbor samples, ratings, validation/confirmation EEG, fitting, material reassignment and paper-question change",
+  "checks": [
+    "Replay every original processed output byte hash and QC aggregate",
+    "Report native 40-60 Hz spectral peak and before/after line ratios on the SAME 28-second processed observation",
+    "Report 1-30 Hz power changes, all original engineering flags and every trial"
+  ],
+  "diagnostic_acceptance": "Notched 49-51/1-45 Hz ratio <=0.10 on each channel; no new original engineering flags; per-channel 1-30 Hz power change <=0.05 where original power >1e-6 uV^2",
+  "acceptance_scope": "New engineering review requirements for this source follow-up, not psychometric validity or target-performance criteria",
+  "primary_proposal_changed": false,
+  "outcome_access_cleared": false,
+  "scipy_documentation": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.iirnotch.html"
+}

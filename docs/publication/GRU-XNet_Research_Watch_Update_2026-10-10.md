@@ -1,0 +1,34 @@
+# Closest-work update and active weekly metadata watch
+
+10 October 2026, Asia/Karachi. **The watch is active and its first GitHub execution succeeded.** This update narrows the novelty assessment; it does not adopt a new research question. Generic cross-dataset pretraining, participant-leakage audits and stimulus-confounding studies already have close precedents. A new architecture or another accuracy table alone does not overcome those overlaps.
+
+## Weekly operation
+
+The [read-only workflow](../../.github/workflows/eeg-literature-watch.yml) runs Saturdays at **18:17 Asia/Karachi**, beginning with the next scheduled date of 17 October 2026. The first push-triggered [run succeeded](https://github.com/Overproness/GRU-XNet_EEG_Emotion_Recognition/actions/runs/38057418760); this verifies execution, not a future scheduling guarantee. Activation evidence is retained in the [watch index](../../results/development/literature_watch_2026-10-10/README.md).
+
+The initial local collection completed five successful public metadata requests and retained 105 unique provider-qualified candidates. Bounded arXiv and Crossref queries preserve publication, revision and indexing dates separately. No abstract/full text is republished. An indexing date is not a paper's publication date, and a provider match can be irrelevant. Four tests check these distinctions and malformed/error response handling. [Initial review queue](../../results/development/literature_watch_2026-10-10/REVIEW_QUEUE.md).
+
+Each weekly run uploads a candidate artifact for 90 days using read-only repository permission, pinned actions and no external credentials. It does not send messages, create issues, commit changes or interpret scientific novelty. Manual scientific review is a separate step, due 17/24/31 October and 7 November, then weekly while this direction remains active. The automation is not a promise of unattended weekly scientific judgement.
+
+## Primary-source assessment
+
+| Closest work | Date and verified status | Consequence for our choices |
+|---|---|---|
+| [mdJPT: Multi-dataset Joint Pre-training of Emotional EEG Enables Generalizable Affective Computing](https://papers.neurips.cc/paper_files/paper/2025/hash/f1b8d443042f376aa3654b6c68de6297-Abstract-Conference.html) | NeurIPS 2025 official proceedings; prior full-text review retained | Already addresses joint emotion pretraining and transfer, including FACED and emotion imagery. Joint training alone is not a new contribution. |
+| [MGCRL](https://arxiv.org/abs/2607.04139v2) | Preprint v1 5 July 2026; v2 5 September 2026; abstract/revision checked, full protocol not audited here | FACED pretraining with region-aware graph, masked JEPA and contrastive learning, then SEED-series fine-tuning. Generic channel-robust self-supervised transfer is crowded; FACED-trained checkpoints cannot be assumed independent confirmation controls. |
+| [Gerster et al., stimulus identity on FACED](https://www.biorxiv.org/content/10.64898/2026.06.12.731889v1) | Posted 16 June 2026; primary indexed abstract accessible, direct full-text access failed | Already studies stimulus identity, assigned versus individual labels and temporal splitting using linear/deep models. Finding FACED stimulus confounding alone would repeat the existing theme. |
+| [Subject Identity Confounds qEEG Emotion Recognition on DEAP and DREAMER](https://pubmed.ncbi.nlm.nih.gov/42739948/) | Sensors, 22 August 2026; indexed primary abstract read, numerical pipeline not reproduced | Participant identification and label-rate priors can explain pooled qEEG performance. A generic leakage demonstration already has direct precedent. |
+| [Kong et al., video–time priors](https://arxiv.org/html/2610.03618v1) | arXiv v1, 2 October 2026; full HTML reviewed. Author manuscript names ACM MM 2026; independent proceedings acceptance not checked | Explicitly evaluates familiar, time-aligned videos and the residual contribution of EEG–fNIRS beyond a source-only prior. It does not test unseen videos; it acknowledges offline future context and non-nested fusion-weight selection. A contextual prior alone is not a fresh claim. |
+| [Video-dominant emotion recognition for portable EEG-based devices](https://www.nature.com/articles/s41598-026-39315-8) | First publication 9 February 2026; version of record 2 March; primary indexed publisher content checked | Uses video-level target construction on DEAP. Exact fold-wise label construction still needs full-method verification before any matched comparison; video-level and individual targets must remain distinct. |
+| [EEG/speech attention–VAE–CNN–LSTM](https://www.nature.com/articles/s41598-026-73667-5) | Publisher: accepted 24 September; early article published 9 October 2026 | A newly published multimodal architecture example. Its modality/task differs from EEG-only GRU-XNet; headline accuracy is not a matched baseline. Full protocol not audited. |
+| [Four-tier leakage evaluation, ICSTCC 2026 abstract](https://controls.papercept.net/conferences/scripts/abstract.pl?ConfID=479&Number=85) | Official conference abstract/programme; presentation listed later in October, full paper not verified | Even a generic multi-tier EEG leakage framework has contemporaneous overlap. A programme abstract is not a completed independently reproduced conference study. |
+
+These distinctions are drawn from primary sources. Inferences about novelty are ours; the checked sources do not establish that no narrower research gap exists. The initial candidate queue also includes irrelevant and incompletely accessible records. Its size is not a count of validated related papers.
+
+## What would justify continuing
+
+The current data-qualified question must separate assigned stimulus labels from individual responses, familiar content from unseen source films, and local untouched participants from pretrained membership. [The FACED audit](GRU-XNet_Backup_Qualification_2026-10-10.md) establishes that its usual nine-class catalogue cannot supply all nine classes across three film-disjoint roles. That limits a candidate experiment; it does not establish a publication gap.
+
+Continue source/codebook qualification and prepare a feasible, specific hypothesis with matched existing baselines. Only then present a proposal specifying its distinction from the closest full-method papers, primary contrast, meaningful effect, budget and failure criteria. No encoder-grid expansion or adopted paper pivot is justified by this update. The original manuscript and all previous outcome reservations remain preserved.
+
+The EmoEEG-MC inquiry remains outstanding. Review the wait at 24 October and the fallback decision at 7 November. No follow-up comment/email has been authorized or sent. Before selecting a contribution or submitting, repeat the primary-source comparison, including paper revisions; weekly metadata monitoring reduces search delay but cannot guarantee priority or acceptance.

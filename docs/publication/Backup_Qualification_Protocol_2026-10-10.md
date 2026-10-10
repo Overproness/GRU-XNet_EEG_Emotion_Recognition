@@ -1,5 +1,9 @@
 # Backup qualification and conditional evaluation protocol
 
+**Dated qualification addendum, 10 October 2026:** the original no-redirect declaration and its 123 failures are preserved. A [separate public pilot declaration](../../results/development/faced_backup_2026-10-10/public_header_pilot_plan.json), pushed before collection, permits one exact bounded public NEMAR broker hop with ephemeral access links; Synapse downloads remain excluded. Three pilots passed. A [second-layout supplement](../../results/development/faced_backup_2026-10-10/channel_supplement_plan.json) was separately declared and pushed before its fourth header pilot, which also passed. This changes the declared public technical access route, not outcome permissions or frozen participant roles.
+
+The published source-film catalogue verifies 24 exact source-title families across 28 clips. Fear has two families and neutral one, so all nine classes cannot occur in three film-disjoint source/validation/confirmation roles. Do not split shared films to force class coverage. All material outcomes and material assignment remain sealed; target/design decisions require a documented proposal. [Complete qualification findings](GRU-XNet_Backup_Qualification_2026-10-10.md).
+
 Declared 10 October 2026, Asia/Karachi. The user authorized metadata-only backup qualification, a weekly closest-work check and evaluation preparation. **This is qualification and protocol preparation, not an adopted replacement research question or permission to open new individual outcomes.** The historical manuscript and EmoEEG-MC reservations remain unchanged.
 
 ## Source and reservation boundary

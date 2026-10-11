@@ -36,6 +36,11 @@ def prior_and_archive():
 
 
 def require_completed():
+    activation = load(PACKET / "activation.json")
+    for group in ("code_bindings", "bindings"):
+        for rel, expected in activation[group].items():
+            if sha(REPO / rel) != expected:
+                raise ValueError("Activated scientific bytes changed: " + rel)
     execution = load(PACKET / "execution.json")
     audit = load(PACKET / "independent_audit.json")
     state = load(PACKET / "checkpoint_state_audit.json")
@@ -44,12 +49,18 @@ def require_completed():
         raise PermissionError("Complete fixed twenty-fit execution required")
     if audit["passed"] is not True or audit["fits_audited"] != 20 or state["checkpoints_authenticated"] != 60:
         raise PermissionError("Independent prediction and full-state checks required")
+    for key, filename in (("execution_sha256", "execution.json"), ("fit_records_sha256", "fit_records.json"), ("selection_sha256", "selection.json"), ("activation_sha256", "activation.json")):
+        if state.get(key) != sha(PACKET / filename):
+            raise ValueError("State-authenticated public receipt changed: " + filename)
     if portable.get("independent_audit_receipt_reproduced_exactly") is not True or portable.get("fits_audited") != 20:
         raise PermissionError("Public-only audit replay required")
+    if portable.get("original_independent_audit_sha256") != sha(PACKET / "independent_audit.json"):
+        raise ValueError("Public-only replay audited receipt changed")
     if execution["research_question_changed"] or execution["confirmation_access"] or execution["new_original_rating_decoding"]:
         raise PermissionError("Question/access boundary changed")
     if execution["checkpoint_rows"] != 84000 or execution["ensemble_rows"] != 8400:
         raise ValueError("Incomplete prediction denominator")
+    return len(activation["code_bindings"]) + len(activation["bindings"])
 
 
 def paths():
@@ -83,11 +94,11 @@ def main():
     parser.add_argument("--declare", action="store_true")
     args = parser.parse_args()
     destination = PACKET / "completion/verification.json"
-    require_completed()
+    activated = require_completed()
     previous = prior_and_archive()
     if args.declare:
         names = paths()
-        receipt = {"date": "2026-10-11", "verified_utc": datetime.now(timezone.utc).isoformat(), "scope": "Completed adaptive FACED EEGNet diagnostic, retained zero-fit hold, independent public metrics/state/portability audits; no adopted contribution or confirmation", "bindings": {rel: sha(REPO / rel) for rel in names}, "preceding_scientific_bindings_verified": previous, "historical_manuscript_source_pdf_unchanged": True, "local_links_checked": check_links(names), "confirmation_access": False, "research_question_changed": False}
+        receipt = {"date": "2026-10-11", "verified_utc": datetime.now(timezone.utc).isoformat(), "scope": "Completed adaptive FACED EEGNet diagnostic, retained zero-fit hold, independent public metrics/state/portability audits; no adopted contribution or confirmation", "bindings": {rel: sha(REPO / rel) for rel in names}, "activated_scientific_bindings_verified": activated, "preceding_scientific_bindings_verified": previous, "historical_manuscript_source_pdf_unchanged": True, "local_links_checked": check_links(names), "confirmation_access": False, "research_question_changed": False}
         destination.parent.mkdir(exist_ok=True)
         with destination.open("x", encoding="utf-8") as stream:
             stream.write(json.dumps(receipt, indent=2, allow_nan=False) + "\n")
@@ -98,7 +109,7 @@ def main():
                 raise ValueError("Completed scientific bytes changed: " + rel)
         if check_links(receipt["bindings"]) != receipt["local_links_checked"]:
             raise ValueError("Completed evidence links changed")
-    print(json.dumps({"passed": True, "completed_scientific_bindings": len(receipt["bindings"]), "preceding_scientific_bindings": previous, "manuscript_archive_unchanged": True}))
+    print(json.dumps({"passed": True, "completed_scientific_bindings": len(receipt["bindings"]), "activated_scientific_bindings": activated, "preceding_scientific_bindings": previous, "manuscript_archive_unchanged": True}))
 
 
 if __name__ == "__main__":

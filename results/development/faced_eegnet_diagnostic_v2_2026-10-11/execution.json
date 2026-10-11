@@ -1,0 +1,192 @@
+{
+  "rotations": [
+    {
+      "rotation": 0,
+      "readout": "eeg_only",
+      "schedule": {
+        "learning_rate": 0.001,
+        "epoch": 30,
+        "mae": 1.6517490839295914
+      },
+      "learning_flags": [
+        "budget_limited_convergence"
+      ],
+      "strongest_context": "category_median",
+      "control_maes": {
+        "global_median": 1.5812285359700522,
+        "coarse_valence_median": 1.2850686645507812,
+        "category_median": 1.2220453559027775,
+        "context_only": 1.252646429552,
+        "context_kernel": 1.2624387545841063
+      },
+      "gain": -0.4297037280268139,
+      "joint_mae": 1.6517490839295914
+    },
+    {
+      "rotation": 0,
+      "readout": "context_residual",
+      "schedule": {
+        "learning_rate": 0.003,
+        "epoch": 120,
+        "mae": 1.1906553478076252
+      },
+      "learning_flags": [
+        "budget_limited_convergence"
+      ],
+      "strongest_context": "category_median",
+      "control_maes": {
+        "global_median": 1.5812285359700522,
+        "coarse_valence_median": 1.2850686645507812,
+        "category_median": 1.2220453559027775,
+        "context_only": 1.252646429552,
+        "context_kernel": 1.2624387545841063
+      },
+      "gain": 0.031390008095152355,
+      "joint_mae": 1.1906553478076252
+    },
+    {
+      "rotation": 1,
+      "readout": "eeg_only",
+      "schedule": {
+        "learning_rate": 0.001,
+        "epoch": 30,
+        "mae": 1.6517490839295914
+      },
+      "learning_flags": [
+        "budget_limited_convergence"
+      ],
+      "strongest_context": "context_only",
+      "control_maes": {
+        "global_median": 1.5142634073893229,
+        "coarse_valence_median": 1.2744947984483508,
+        "category_median": 1.2315541924370659,
+        "context_only": 1.2098839333630083,
+        "context_kernel": 1.2882550974020335
+      },
+      "gain": -0.4113268147266762,
+      "joint_mae": 1.6212107480896845
+    },
+    {
+      "rotation": 1,
+      "readout": "context_residual",
+      "schedule": {
+        "learning_rate": 0.003,
+        "epoch": 120,
+        "mae": 1.1906553478076252
+      },
+      "learning_flags": [],
+      "strongest_context": "context_only",
+      "control_maes": {
+        "global_median": 1.5142634073893229,
+        "coarse_valence_median": 1.2744947984483508,
+        "category_median": 1.2315541924370659,
+        "context_only": 1.2098839333630083,
+        "context_kernel": 1.2882550974020335
+      },
+      "gain": -0.10108948106025029,
+      "joint_mae": 1.3109734144232585
+    },
+    {
+      "rotation": 2,
+      "readout": "eeg_only",
+      "schedule": {
+        "learning_rate": 0.001,
+        "epoch": 30,
+        "mae": 1.6517490839295914
+      },
+      "learning_flags": [
+        "budget_limited_convergence"
+      ],
+      "strongest_context": "context_only",
+      "control_maes": {
+        "global_median": 1.5337878417968747,
+        "coarse_valence_median": 1.3821090698242187,
+        "category_median": 1.3269216918945312,
+        "context_only": 1.310596234178277,
+        "context_kernel": 1.3545766931924237
+      },
+      "gain": -0.24433368830972335,
+      "joint_mae": 1.5549299224880004
+    },
+    {
+      "rotation": 2,
+      "readout": "context_residual",
+      "schedule": {
+        "learning_rate": 0.003,
+        "epoch": 120,
+        "mae": 1.1906553478076252
+      },
+      "learning_flags": [
+        "budget_limited_convergence"
+      ],
+      "strongest_context": "context_only",
+      "control_maes": {
+        "global_median": 1.5337878417968747,
+        "coarse_valence_median": 1.3821090698242187,
+        "category_median": 1.3269216918945312,
+        "context_only": 1.310596234178277,
+        "context_kernel": 1.3545766931924237
+      },
+      "gain": 0.047286232315043586,
+      "joint_mae": 1.2633100018632335
+    }
+  ],
+  "selection": {
+    "eeg_only": {
+      "learning_rate": 0.001,
+      "epoch": 30,
+      "mae": 1.6517490839295914
+    },
+    "context_residual": {
+      "learning_rate": 0.003,
+      "epoch": 120,
+      "mae": 1.1906553478076252
+    }
+  },
+  "fits": 20,
+  "charged_fit_seconds": 4591.574999999953,
+  "engineering_leads": {
+    "eeg_only": false,
+    "context_residual": false
+  },
+  "confirmation_access": false,
+  "research_question_changed": false,
+  "status": "completed",
+  "failure": null,
+  "activation_sha256": "5a4dbd3938ffced9e71c5e211369b1ff969332bed9f2e63ba1a012485b22ab7f",
+  "completed_utc": "2026-10-11T11:04:58.910669+00:00",
+  "new_neural_fits": 20,
+  "completed_neural_fits": 20,
+  "source_trials_prepared": 980,
+  "validation_trials_prepared": 280,
+  "selected_sample_values_decoded": 812160000,
+  "checkpoint_rows": 84000,
+  "ensemble_rows": 8400,
+  "new_original_rating_decoding": 0,
+  "original_rating_files_opened": false,
+  "auxiliary_neighbor_or_confirmation_samples_decoded": 0,
+  "raw_waveforms_persisted": false,
+  "peak_cuda_reserved_bytes": 167772160,
+  "runtime": {
+    "python": "3.11.13",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0",
+    "torch": "2.5.1",
+    "cuda": "12.4",
+    "mne_installed_sources": {
+      "bem.py": "cb55e3f9bacc89028072fc60db2bac6c1e588e289bfb100f1a4c8d5077cd234c",
+      "channels/data/montages/standard_1020.elc": "9936aa407862cc85f060e9f0c741f01cfbbd7e9ff5c75541a0622d1cb0b4d97e",
+      "channels/interpolation.py": "529bbc44238078587b4fa8ce5136ef39cd9f3895bd6660614b92c7aa3c1cb69b"
+    },
+    "preprocessing_blas_threads": 12,
+    "readout_blas_threads": 2,
+    "torch_cpu_threads": 2,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "torch_deterministic_algorithms": false
+  },
+  "elapsed_seconds": 5313.7660000000615,
+  "valid_contribution_selection": false,
+  "scope": "Adaptive development diagnostic only; no independent confirmation or manuscript adoption."
+}

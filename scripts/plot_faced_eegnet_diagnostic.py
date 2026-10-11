@@ -56,8 +56,14 @@ def qualified_inputs(packet):
     if len(audit["rotations"]) != 6 or set(indexed) != {(r, head) for r in (0, 1, 2) for head in READOUTS}:
         raise ValueError("Incomplete independently audited comparison panels")
     reported = {(int(row["rotation"]), row["readout"]): row for row in execution["rotations"]}
-    if set(reported) != set(indexed) or execution["selection"] != audit["selection"]:
+    if set(reported) != set(indexed) or set(execution["selection"]) != set(READOUTS) or set(audit["selection"]) != set(READOUTS):
         raise ValueError("Selection changed after independent audit")
+    for head in READOUTS:
+        selected = execution["selection"][head]; verified = audit["selection"][head]
+        if set(selected) != set(verified) or set(selected) != {"learning_rate", "epoch", "mae"} or selected["learning_rate"] != verified["learning_rate"] or selected["epoch"] != verified["epoch"]:
+            raise ValueError("Selected schedule keys/rate/epoch changed after independent audit")
+        if not math.isfinite(float(selected["mae"])) or not math.isfinite(float(verified["mae"])) or abs(float(selected["mae"])-float(verified["mae"])) > 2e-9:
+            raise ValueError("Selected MAE changed beyond independent arithmetic tolerance")
     for key, row in indexed.items():
         observed = reported[key]
         if row["learning_flags"] != observed["learning_flags"] or row["strongest_context"] != observed["strongest_context"]:
@@ -109,7 +115,7 @@ def comparison_figure(audit, indexed, directory):
     axes[1].set_xticks(positions, ["Rotation 0", "Rotation 1", "Rotation 2"])
     axes[1].set_ylabel("MAE gain over strongest no-EEG control\n(valence units; positive favors EEG)")
     axes[1].set_title("Exploratory incremental prediction", fontsize=11)
-    axes[1].legend(fontsize=8, loc="best", frameon=False)
+    axes[1].legend(fontsize=8, loc="best", frameon=True, facecolor="white", edgecolor="none", framealpha=1)
     axes[1].grid(alpha=.2)
     for axis in axes:
         axis.spines[["top", "right"]].set_visible(False)

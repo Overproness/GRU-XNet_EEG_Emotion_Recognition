@@ -1,0 +1,457 @@
+{
+  "passed": true,
+  "fits_audited": 20,
+  "checkpoint_rows": 84000,
+  "ensemble_rows": 8400,
+  "control_rows": 1800,
+  "development_targets": 1260,
+  "selection": {
+    "eeg_only": {
+      "learning_rate": 0.001,
+      "epoch": 30,
+      "mae": 1.6517490839295916
+    },
+    "context_residual": {
+      "learning_rate": 0.003,
+      "epoch": 120,
+      "mae": 1.1906553478076254
+    }
+  },
+  "rotations": [
+    {
+      "rotation": 0,
+      "readout": "eeg_only",
+      "schedule": {
+        "learning_rate": 0.001,
+        "epoch": 30,
+        "mae": 1.6517490839295916
+      },
+      "learning_flags": [
+        "budget_limited_convergence"
+      ],
+      "strongest_context": "category_median",
+      "control_maes": {
+        "global_median": 1.5812285359700522,
+        "coarse_valence_median": 1.2850686645507812,
+        "category_median": 1.2220453559027777,
+        "context_only": 1.2526464295520001,
+        "context_kernel": 1.2624387545841063
+      },
+      "gain": -0.4297037280268139,
+      "joint_mae": 1.6517490839295916,
+      "descriptive_leave_one_family_out_gain": {
+        "0ef479b4f9ed075c0afd5cec3cc5d227bc3be4392265caa6cd24a776014133dc": -0.4637804602781932,
+        "ab91a56dc3e1ae311d8b8d3dcf7672be5a13c856bb8f2d934f7d9273e4bf4647": -0.47224378852049487,
+        "cdd2101128b51cdf0a1306c6083d6c6e450209d4aae131c0ae0b3b1a1f7574b0": -0.3941181418895723,
+        "e28781dfc2c31e36257efb7ea8f1d3923dedabe74a566b908fac38292a0ceb04": -0.40871187579631774,
+        "fce41cf0036529bd2c0d7fd9e865a0c68a675104f20b9ddc0edb1e04824fb4e2": -0.4872386593818667,
+        "fdaf5cf748bfd85a759b9961d9b91a9365d7511c3d09ffd3f8b6ff050d0ed326": -0.35212944229443854
+      },
+      "descriptive_acquisition_gain": {
+        "legacy_1000": {
+          "participants": 1,
+          "trials": 6,
+          "gain": -1.007130967246162
+        },
+        "legacy_250": {
+          "participants": 9,
+          "trials": 54,
+          "gain": -0.6803890276102375
+        },
+        "modern_1000": {
+          "participants": 10,
+          "trials": 60,
+          "gain": -0.14634423447979805
+        }
+      },
+      "arm_metrics": {
+        "source_fit": {
+          "participant_family_mae": 1.2651453631477698,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "source_inference": {
+          "participant_family_mae": 1.2651453631477698,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "validation_unseen": {
+          "participant_family_mae": 1.6517490839295916,
+          "trials": 120,
+          "fallback_trials": 6
+        },
+        "validation_familiar": {
+          "participant_family_mae": 1.4246223502854507,
+          "trials": 160,
+          "fallback_trials": 9
+        }
+      }
+    },
+    {
+      "rotation": 0,
+      "readout": "context_residual",
+      "schedule": {
+        "learning_rate": 0.003,
+        "epoch": 120,
+        "mae": 1.1906553478076254
+      },
+      "learning_flags": [
+        "budget_limited_convergence"
+      ],
+      "strongest_context": "category_median",
+      "control_maes": {
+        "global_median": 1.5812285359700522,
+        "coarse_valence_median": 1.2850686645507812,
+        "category_median": 1.2220453559027777,
+        "context_only": 1.2526464295520001,
+        "context_kernel": 1.2624387545841063
+      },
+      "gain": 0.031390008095152355,
+      "joint_mae": 1.1906553478076254,
+      "descriptive_leave_one_family_out_gain": {
+        "0ef479b4f9ed075c0afd5cec3cc5d227bc3be4392265caa6cd24a776014133dc": -0.03410752254209637,
+        "ab91a56dc3e1ae311d8b8d3dcf7672be5a13c856bb8f2d934f7d9273e4bf4647": 0.017417363475973113,
+        "cdd2101128b51cdf0a1306c6083d6c6e450209d4aae131c0ae0b3b1a1f7574b0": 0.02688410045990608,
+        "e28781dfc2c31e36257efb7ea8f1d3923dedabe74a566b908fac38292a0ceb04": 0.05409080704556102,
+        "fce41cf0036529bd2c0d7fd9e865a0c68a675104f20b9ddc0edb1e04824fb4e2": 0.03548981214684921,
+        "fdaf5cf748bfd85a759b9961d9b91a9365d7511c3d09ffd3f8b6ff050d0ed326": 0.08856548798472175
+      },
+      "descriptive_acquisition_gain": {
+        "legacy_1000": {
+          "participants": 1,
+          "trials": 6,
+          "gain": -0.2470780375931
+        },
+        "legacy_250": {
+          "participants": 9,
+          "trials": 54,
+          "gain": -0.07506571659354389
+        },
+        "modern_1000": {
+          "participants": 10,
+          "trials": 60,
+          "gain": 0.15504696488380443
+        }
+      },
+      "arm_metrics": {
+        "source_fit": {
+          "participant_family_mae": 0.9346704366643513,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "source_inference": {
+          "participant_family_mae": 0.9056458483005626,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "validation_unseen": {
+          "participant_family_mae": 1.1906553478076254,
+          "trials": 120,
+          "fallback_trials": 6
+        },
+        "validation_familiar": {
+          "participant_family_mae": 1.2585474779086672,
+          "trials": 160,
+          "fallback_trials": 9
+        }
+      }
+    },
+    {
+      "rotation": 1,
+      "readout": "eeg_only",
+      "schedule": {
+        "learning_rate": 0.001,
+        "epoch": 30,
+        "mae": 1.6517490839295916
+      },
+      "learning_flags": [
+        "budget_limited_convergence"
+      ],
+      "strongest_context": "context_only",
+      "control_maes": {
+        "global_median": 1.5142634073893229,
+        "coarse_valence_median": 1.2744947984483508,
+        "category_median": 1.2315541924370659,
+        "context_only": 1.209883933363008,
+        "context_kernel": 1.2882550974020337
+      },
+      "gain": -0.4113268147266764,
+      "joint_mae": 1.6212107480896845,
+      "descriptive_leave_one_family_out_gain": {
+        "15fde87d055195d66cfbc862802aeebb9282b2147b0d6d70ae8287335524284f": -0.4375592259515817,
+        "22fe090c5eea0efdd7f7159758c21c82e5b389c20a5effb52709d6c89a2a528a": -0.4444646450732368,
+        "6cb2266c1d72161ca8b77707430a5764b6323d908c52e15ee93a1623bca6c789": -0.33146167690881856,
+        "a50128d59f482a86171394eb7a2d1824df7c5d2788c4b2cbc5600ead757d5fd9": -0.5084929347280025,
+        "ac6d9d914739048bbdffd270db3e3d510454c1de672313b45aaf1d7850eddeba": -0.37833155164069754,
+        "b330b9413ca80da8cd33af19fe7bac3c8fe6a7ee03f305cd50e65cfe416814ff": -0.36765085405772124
+      },
+      "descriptive_acquisition_gain": {
+        "legacy_1000": {
+          "participants": 1,
+          "trials": 6,
+          "gain": -0.5308225350252387
+        },
+        "legacy_250": {
+          "participants": 9,
+          "trials": 54,
+          "gain": -0.2964240857454341
+        },
+        "modern_1000": {
+          "participants": 10,
+          "trials": 60,
+          "gain": -0.5027896987799383
+        }
+      },
+      "arm_metrics": {
+        "source_fit": {
+          "participant_family_mae": 1.3452499861021836,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "source_inference": {
+          "participant_family_mae": 1.3452499861021836,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "validation_unseen": {
+          "participant_family_mae": 1.6212107480896845,
+          "trials": 120,
+          "fallback_trials": 7
+        },
+        "validation_familiar": {
+          "participant_family_mae": 1.550653923501571,
+          "trials": 160,
+          "fallback_trials": 8
+        }
+      }
+    },
+    {
+      "rotation": 1,
+      "readout": "context_residual",
+      "schedule": {
+        "learning_rate": 0.003,
+        "epoch": 120,
+        "mae": 1.1906553478076254
+      },
+      "learning_flags": [],
+      "strongest_context": "context_only",
+      "control_maes": {
+        "global_median": 1.5142634073893229,
+        "coarse_valence_median": 1.2744947984483508,
+        "category_median": 1.2315541924370659,
+        "context_only": 1.209883933363008,
+        "context_kernel": 1.2882550974020337
+      },
+      "gain": -0.10108948106025051,
+      "joint_mae": 1.3109734144232585,
+      "descriptive_leave_one_family_out_gain": {
+        "15fde87d055195d66cfbc862802aeebb9282b2147b0d6d70ae8287335524284f": -0.1179568176986796,
+        "22fe090c5eea0efdd7f7159758c21c82e5b389c20a5effb52709d6c89a2a528a": -0.07726352410839743,
+        "6cb2266c1d72161ca8b77707430a5764b6323d908c52e15ee93a1623bca6c789": -0.08293475320360821,
+        "a50128d59f482a86171394eb7a2d1824df7c5d2788c4b2cbc5600ead757d5fd9": -0.13313963666358752,
+        "ac6d9d914739048bbdffd270db3e3d510454c1de672313b45aaf1d7850eddeba": -0.08631146264475209,
+        "b330b9413ca80da8cd33af19fe7bac3c8fe6a7ee03f305cd50e65cfe416814ff": -0.10893069204247818
+      },
+      "descriptive_acquisition_gain": {
+        "legacy_1000": {
+          "participants": 1,
+          "trials": 6,
+          "gain": -0.11595983339729532
+        },
+        "legacy_250": {
+          "participants": 9,
+          "trials": 54,
+          "gain": -0.09247465413830258
+        },
+        "modern_1000": {
+          "participants": 10,
+          "trials": 60,
+          "gain": -0.10735579005629914
+        }
+      },
+      "arm_metrics": {
+        "source_fit": {
+          "participant_family_mae": 1.051685232594609,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "source_inference": {
+          "participant_family_mae": 1.0296962207151534,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "validation_unseen": {
+          "participant_family_mae": 1.3109734144232585,
+          "trials": 120,
+          "fallback_trials": 7
+        },
+        "validation_familiar": {
+          "participant_family_mae": 1.2970987781834373,
+          "trials": 160,
+          "fallback_trials": 8
+        }
+      }
+    },
+    {
+      "rotation": 2,
+      "readout": "eeg_only",
+      "schedule": {
+        "learning_rate": 0.001,
+        "epoch": 30,
+        "mae": 1.6517490839295916
+      },
+      "learning_flags": [
+        "budget_limited_convergence"
+      ],
+      "strongest_context": "context_only",
+      "control_maes": {
+        "global_median": 1.5337878417968749,
+        "coarse_valence_median": 1.3821090698242187,
+        "category_median": 1.3269216918945312,
+        "context_only": 1.310596234178277,
+        "context_kernel": 1.3545766931924237
+      },
+      "gain": -0.24433368830972357,
+      "joint_mae": 1.5549299224880007,
+      "descriptive_leave_one_family_out_gain": {
+        "15fde87d055195d66cfbc862802aeebb9282b2147b0d6d70ae8287335524284f": -0.3029728192594705,
+        "a50128d59f482a86171394eb7a2d1824df7c5d2788c4b2cbc5600ead757d5fd9": -0.3031356402939367,
+        "ab91a56dc3e1ae311d8b8d3dcf7672be5a13c856bb8f2d934f7d9273e4bf4647": -0.2234341181647297,
+        "b330b9413ca80da8cd33af19fe7bac3c8fe6a7ee03f305cd50e65cfe416814ff": -0.1781618640476612,
+        "cdd2101128b51cdf0a1306c6083d6c6e450209d4aae131c0ae0b3b1a1f7574b0": -0.2412692447340441,
+        "fce41cf0036529bd2c0d7fd9e865a0c68a675104f20b9ddc0edb1e04824fb4e2": -0.21702844335849902
+      },
+      "descriptive_acquisition_gain": {
+        "legacy_1000": {
+          "participants": 1,
+          "trials": 6,
+          "gain": -0.5396719146162352
+        },
+        "legacy_250": {
+          "participants": 9,
+          "trials": 54,
+          "gain": -0.40569938174081943
+        },
+        "modern_1000": {
+          "participants": 10,
+          "trials": 60,
+          "gain": -0.069570741591086
+        }
+      },
+      "arm_metrics": {
+        "source_fit": {
+          "participant_family_mae": 1.2777200691543875,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "source_inference": {
+          "participant_family_mae": 1.2777200691543875,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "validation_unseen": {
+          "participant_family_mae": 1.5549299224880007,
+          "trials": 120,
+          "fallback_trials": 7
+        },
+        "validation_familiar": {
+          "participant_family_mae": 1.594303389241298,
+          "trials": 160,
+          "fallback_trials": 8
+        }
+      }
+    },
+    {
+      "rotation": 2,
+      "readout": "context_residual",
+      "schedule": {
+        "learning_rate": 0.003,
+        "epoch": 120,
+        "mae": 1.1906553478076254
+      },
+      "learning_flags": [
+        "budget_limited_convergence"
+      ],
+      "strongest_context": "context_only",
+      "control_maes": {
+        "global_median": 1.5337878417968749,
+        "coarse_valence_median": 1.3821090698242187,
+        "category_median": 1.3269216918945312,
+        "context_only": 1.310596234178277,
+        "context_kernel": 1.3545766931924237
+      },
+      "gain": 0.047286232315043364,
+      "joint_mae": 1.2633100018632337,
+      "descriptive_leave_one_family_out_gain": {
+        "15fde87d055195d66cfbc862802aeebb9282b2147b0d6d70ae8287335524284f": 0.009955129567314591,
+        "a50128d59f482a86171394eb7a2d1824df7c5d2788c4b2cbc5600ead757d5fd9": 0.06834296196389067,
+        "ab91a56dc3e1ae311d8b8d3dcf7672be5a13c856bb8f2d934f7d9273e4bf4647": 0.048889298696171535,
+        "b330b9413ca80da8cd33af19fe7bac3c8fe6a7ee03f305cd50e65cfe416814ff": 0.05295224101025742,
+        "cdd2101128b51cdf0a1306c6083d6c6e450209d4aae131c0ae0b3b1a1f7574b0": 0.06626687953743637,
+        "fce41cf0036529bd2c0d7fd9e865a0c68a675104f20b9ddc0edb1e04824fb4e2": 0.03731088311519004
+      },
+      "descriptive_acquisition_gain": {
+        "legacy_1000": {
+          "participants": 1,
+          "trials": 6,
+          "gain": -0.09067588531872417
+        },
+        "legacy_250": {
+          "participants": 9,
+          "trials": 54,
+          "gain": 0.09780517833215385
+        },
+        "modern_1000": {
+          "participants": 10,
+          "trials": 60,
+          "gain": 0.015615392663020922
+        }
+      },
+      "arm_metrics": {
+        "source_fit": {
+          "participant_family_mae": 0.9234247685046423,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "source_inference": {
+          "participant_family_mae": 0.893881104976939,
+          "trials": 560,
+          "fallback_trials": 0
+        },
+        "validation_unseen": {
+          "participant_family_mae": 1.2633100018632337,
+          "trials": 120,
+          "fallback_trials": 7
+        },
+        "validation_familiar": {
+          "participant_family_mae": 1.3196369194625182,
+          "trials": 160,
+          "fallback_trials": 8
+        }
+      }
+    }
+  ],
+  "engineering_leads": {
+    "eeg_only": false,
+    "context_residual": false
+  },
+  "independent_source_context_svd": true,
+  "original_rating_or_waveform_files_opened": false,
+  "protected_outcomes_opened": false,
+  "new_fits": 0,
+  "cached_projection_audit": {
+    "rows": 1800,
+    "old_quality_rows_identity_checked": 27720,
+    "old_representation_rows_identity_checked": 36120,
+    "known_synthetic_control_rows_not_parsed_as_original_targets": 3360,
+    "original_targets_source": "Authoritative quality cache only",
+    "kernel_alpha_source": "Bound representation plan, fixed context-only RBF alpha0.1; no CSV alpha column",
+    "exact_targets_and_all_five_control_predictions_reused": true
+  },
+  "activation_bindings_verified": 50,
+  "source_gate_verified": true,
+  "replay_manifest_trials": 1260,
+  "replay_available_trials": 1245,
+  "cached_control_source_bindings_verified": 2,
+  "kernel_projection_scope": "All original cache identities guarded, then exact selected-row comparison; first four controls independently reconstructed by source-only priors/SVD"
+}

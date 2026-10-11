@@ -1,0 +1,18 @@
+# FACED closest-method / EEGNet regression preflight
+
+11 October 2026. **Released-code methods qualified; synthetic implementation/hardware preflight passed. Original-data diagnostic remains inactive.** The original research question and protected outcomes remain unchanged.
+
+- [Stage declaration](declaration.md) and [fixed plan](plan.json), committed before execution in `d1593088a`.
+- [Closest-method comparison](closest_method_audit.md), [static audit](closest_method_audit.json) and [source receipts](closest_method_source_receipts.json).
+- [Initial code bindings](implementation_bindings.json), with the source version in `afc234a63`; [retained failed first GPU attempt](attempt_1.json).
+- [Corrected code bindings](implementation_bindings_v2.json) and [successful synthetic CPU/CUDA receipt](synthetic_preflight.json), committed with the CUDA initialization correction in `f301fd6d5`.
+- [Independent checks](independent_audit.json), [public-only CPU portability](portability_check.json) and [completion receipt](completion/verification.json).
+- [Scalar adapter](../../../gruxnet/eegnet_regression.py), [training engine](../../../gruxnet/faced_eegnet_runner.py), [preflight CLI](../../../scripts/run_faced_eegnet_preflight.py), [focused tests](../../../tests/test_faced_eegnet_preflight.py).
+
+EEGNet-8,2 has 1,841 parameters in this separate scalar adaptation. It preserves the previously author-checked classifier backbone, averages seven window outputs before trial loss, and implements source channel scaling, participant-fold source residual offsets, post-update constraints, complete two-seed selection, untouched schedule transfer and declared quality fallbacks. Original-scale learning diagnostics use unbounded outputs with training offsets; full-source-context inference is reported separately. The stronger no-EEG comparator is checked before fitting.
+
+The 16 focused tests use synthetic values/public technical identities only, including a fabricated complete 20-fit orchestration test. The hardware receipt contains 13 two-epoch synthetic smoke loops (one CPU, 12 CUDA), totaling 26 successful optimizer steps. Peak CUDA allocator reservation was **167,772,160 bytes (160 MiB)** on the RTX 3050 Laptop GPU. The retained failed attempt had two additional CPU synthetic steps and zero CUDA steps. These are not original-dataset experiment counts or evidence of convergence, accuracy, GPU-hours required, or incremental emotion information. PyTorch reserved memory excludes driver/context allocations and other processes.
+
+Reproduce focused tests with `python -m unittest discover -s tests -p test_faced_eegnet_preflight.py -v`. Check frozen current bindings with `python -m scripts.run_faced_eegnet_preflight check`; run a CPU-only synthetic smoke with `python -m scripts.run_faced_eegnet_preflight run --cpu-only`. The latter writes a CPU-only receipt in its invocation directory; use a separate public copy to preserve the dated GPU receipt. There is no dataset-fitting mode in that CLI.
+
+**Next dependency before the 20 original-data fits:** freeze a separate activation and data-access bridge, authenticate replay of already-qualified original development intervals/windows, finish source-only QC/preparation before joining authorized cached development targets, and bind existing stronger context predictions. The in-memory engine is qualified here; the original-data bridge and its new source-preparation receipt have not been activated or executed. Keep the existing 15 unavailable-EEG validation trials through their fallback. No new encoder grid, confirmation access or manuscript change is approved by a synthetic pass.

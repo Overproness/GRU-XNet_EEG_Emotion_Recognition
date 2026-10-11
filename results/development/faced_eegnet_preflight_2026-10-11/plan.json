@@ -1,0 +1,54 @@
+{
+  "status": "preflight_only_not_activated",
+  "bindings": {
+    "gruxnet/eegnet_control.py": "86938f01d98a16ea656ca8229b0d355aedd3c60c89c26db9bd41d4d7b851c77e",
+    "results/development/eegnet_author_audit_2026-10-06/port_verification.json": "049352f029e680c3dc573b6401e78f6bfec5d2358d12563f10569315ff73df6f",
+    "results/development/faced_scope_precision_2026-10-11/baseline_selection_plan.md": "f322f81cc36c7b62498ab48d683eafecd04bc9db7ac30ee9ef9312fa5549108c",
+    "results/development/faced_scope_precision_2026-10-11/completion/verification.json": "f1e2e3898b7adf9bcd44fdfa32e5603a661af6a0fb6ebe16f487110f3601c6de",
+    "results/development/faced_development_protocol_2026-10-11/plan.json": "dbd5c356c1ace1eda72c5b02ea74cbe2ad1ac19cba2c3c271c919375151060ba",
+    "results/development/faced_backup_2026-10-10/participant_reservation.json": "f41b319f8d3c27db7966560f7a7bc0b6392eb5e1528892c8d4d445557014d087",
+    "results/development/faced_backup_2026-10-10/stimulus_metadata.json": "5fbb3980284ef5e5c6103580b4492f2438f44adc006f1bf7a15d9adee341b17f",
+    "results/development/faced_design_proposal_2026-10-11/recommended_proposal.json": "caa2a3d1cceddb89911ae08cb620d7e2105830e67394bd9dae4fddd0354f28d0",
+    "results/development/faced_inference_quality_2026-10-11/signal_audit.json": "c5ba4e498749c1fe367661d7f3acae15dd66e633e2cd23cea2324239a677dccc",
+    "results/development/faced_inference_quality_2026-10-11/comparison.json": "fdaf9b25e5eaf3fe04ed5a224004a08df56ddb1d164f7b094045bac0b4532f43",
+    "gruxnet/faced_classical_contract.py": "27d375b6a0941af22149972e429af6b38b8241121e4d41f27bf8f30622c8a963",
+    "gruxnet/faced_classical_runner.py": "781bf88d885624ea633824a47433f6799246f565600ce16f8b31b3747ccc2985",
+    "gruxnet/faced_inference_quality.py": "a31d208074f52906718186c9a893a33c10db2dd010fd2b026102b1813e351e2f"
+  },
+  "declaration_sha256": "54450dae920dfa2eff3cd1a24a9a75b88e227fa51b5c0435b46a08c3c5d69414",
+  "models": [
+    "eeg_only",
+    "context_residual"
+  ],
+  "learning_rates": [
+    0.0003,
+    0.001,
+    0.003
+  ],
+  "initialization_seeds": [
+    20261101,
+    20261102
+  ],
+  "checkpoints": [
+    30,
+    60,
+    120
+  ],
+  "epochs": 120,
+  "batch_trials": 8,
+  "weight_decay": 0.01,
+  "dropout": 0.5,
+  "channel_sd_floor_uv": 1e-06,
+  "context_alphas": {
+    "0": 0.1,
+    "1": 100.0,
+    "2": 100.0
+  },
+  "fit_cap": 20,
+  "gpu_fit_seconds_cap": 21600,
+  "cuda_reserved_bytes_cap": 5500000000,
+  "original_dataset_access": false,
+  "diagnostic_activated": false,
+  "confirmation_access": false,
+  "research_question_changed": false
+}

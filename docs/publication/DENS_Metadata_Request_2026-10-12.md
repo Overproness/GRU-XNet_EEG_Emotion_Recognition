@@ -2,6 +2,8 @@
 
 Prepared 12 October 2026. **Not sent.** Any future external posting needs separate authorization for this exact message and a verified author contact/repository.
 
+The original papers identify Sudhakar Mishra (`rs163@iiita.ac.in`), Mohammad Asif (`pse2017001@iiita.ac.in`) and Uma Shanker Tiwary (`ust@iiita.ac.in`) as corresponding authors. These are publication-documented addresses, not verified deliverable/current mailboxes. Sources and the bounded public codebook search are recorded in [the contact/search audit](DENS_Codebook_Search_2026-10-12.md). Proposed routing is To: Sudhakar Mishra, Cc: Mohammad Asif and Uma Shanker Tiwary. The [editable email draft](DENS_Metadata_Inquiry_2026-10-12.eml) has no sender identity and has not been dispatched. This session has no connected email-sending tool.
+
 Subject: DENS ds003751 1.0.6 stimulus crosswalk and annotation timing
 
 Hello,

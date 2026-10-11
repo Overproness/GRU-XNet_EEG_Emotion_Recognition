@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-11",
+  "policy_id": "faced-quality-context-fallback-v1",
+  "rules": {
+    "raw_rail_fraction_above": 0.0001,
+    "raw_identical_adjacent_fraction_above": 0.95,
+    "processed_channel_sd_below_uv": 0.1,
+    "processed_channel_sd_above_uv": 100.0,
+    "processed_channel_peak_to_peak_above_uv": 1000.0,
+    "processed_49_51_to_1_45_power_ratio_above": 0.1
+  },
+  "bindings": {
+    "scripts/run_faced_inference_quality.py": "6314d5309829633d51d1a83b2f2c48946bd13b1049ca760f6f35f1694a1b56c6",
+    "gruxnet/faced_inference_quality.py": "a31d208074f52906718186c9a893a33c10db2dd010fd2b026102b1813e351e2f",
+    "tests/test_faced_inference_quality.py": "4076b995dc4ae507b7440cf291e1b340924dedbf6777b1bf344aa80e6fb46d4f",
+    "docs/publication/FACED_Inference_Quality_Policy_2026-10-11.md": "2e24bce941204d0e3874e30074b21c562caa2da8dd147d8ef0d171ba55d51358",
+    "results/development/faced_development_protocol_2026-10-11/plan.json": "dbd5c356c1ace1eda72c5b02ea74cbe2ad1ac19cba2c3c271c919375151060ba",
+    "results/development/faced_artifact_control_2026-10-11/completion/verification.json": "cd50410dbb7ce4eaafef1e98d1a19e8e5c62a4617c567920591ebdc8df830162",
+    "results/development/faced_artifact_control_2026-10-11/source_records.json": "084be723139633048a6626dee0472f04468dbe8098149e32e94475ccb7264b72",
+    "results/development/faced_artifact_control_2026-10-11/validation_records.json": "0881355c0f1d0396fba3351bf6879ff405ad33eca3cdefc32b6e90bc04762baa",
+    "results/development/faced_artifact_control_2026-10-11/predictions.csv": "6d488009db381c28b61ed38a92d09f66d6d28c2bb95f4c8e74368d14e509138f",
+    "results/development/faced_artifact_control_2026-10-11/comparison.json": "5354a55bb6f172609c20808d2a904a80b53270a002b79b4dc900d0e10cd64159",
+    "results/development/faced_artifact_control_2026-10-11/model_manifest.json": "a5a0c11f8aa11520cba485e785275366c5a34a23afe8bfb91d539565dbbc0396",
+    "gruxnet/faced_classical_runner.py": "781bf88d885624ea633824a47433f6799246f565600ce16f8b31b3747ccc2985",
+    "scripts/audit_faced_artifact_controls.py": "8b8657ba19cbb48d978cfad4ca65c6e79cea271a2b13f27845e255c56691e4c5",
+    "gruxnet/faced_source_quality.py": "7c00351bfabdfcb8b650f2f03a46e9eb15688862da1c490dc1a90aa56c9d345d"
+  },
+  "runtime": {
+    "python": "3.11.13",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0",
+    "mne": "1.10.0",
+    "mne_installed_sources": {
+      "bem.py": "cb55e3f9bacc89028072fc60db2bac6c1e588e289bfb100f1a4c8d5077cd234c",
+      "channels/data/montages/standard_1020.elc": "9936aa407862cc85f060e9f0c741f01cfbbd7e9ff5c75541a0622d1cb0b4d97e",
+      "channels/interpolation.py": "529bbc44238078587b4fa8ce5136ef39cd9f3895bd6660614b92c7aa3c1cb69b"
+    }
+  },
+  "signal_audit_sha256": "c5ba4e498749c1fe367661d7f3acae15dd66e633e2cd23cea2324239a677dccc",
+  "quality_handling": "Any original raw rail/stationarity, residual processed QC/capacity, or numerical unavailability makes trial EEG unavailable. No trial/person exclusion or new interpolation.",
+  "inference": "Joint uses already selected context prediction; EEG-only uses exact source/OOF global median; context and fixed priors unchanged. Never call unavailable EEG predictor.",
+  "source_guard": "Exact declared source coverage and all quality metrics must pass before further EEG fitting. Source faults hold fitting rather than silently dropping, zero-imputing or using inference fallback for training.",
+  "access": "Previously decoded technical QC/artifact caches and authorized published prediction rows only. No original BDF/MAT or waveform-feature/state cache access; no new rating decoding.",
+  "grid": "Replay all 27,720 existing prediction rows, retaining all five main candidate alphas and all selected source OOF rows. No fit, alpha reselection, new model, threshold search or participant/material reassignment.",
+  "selection": "Use previous context and joint/EEG alphas unchanged even if fallback would alter candidate ordering. All outcome effects are post-hoc sensitivity on previously evaluated development data.",
+  "bootstrap": {
+    "draws": 4000,
+    "seed": 425401,
+    "scope": "Exploratory conditional on old development-selected alphas; six films and same twenty people; no independent confirmation"
+  },
+  "continuation": "No automatic fitting/encoder/confirmation launch or paper pivot from this sensitivity. Reviewable policy first; separately declare any further bounded fitting.",
+  "synthetic_tests_passed": 13,
+  "original_ratings_decoded_in_this_phase": 0,
+  "new_fits": 0,
+  "confirmation_access": false,
+  "research_question_changed": false,
+  "primary_reference": "https://mne.tools/stable/auto_tutorials/preprocessing/15_handling_bad_channels.html",
+  "reference_scope": "General early raw-channel QC rationale, not source of our engineering thresholds or mandatory fallback rule; docs version1.13.2, no changed MNE runtime invoked."
+}

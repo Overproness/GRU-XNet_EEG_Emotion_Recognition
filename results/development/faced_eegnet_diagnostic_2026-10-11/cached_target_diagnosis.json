@@ -1,0 +1,43 @@
+{
+  "scope": "Public cached-target semantic qualification of zero-fit held execution",
+  "failure": "ValueError: Cached target nonfinite/inconsistent",
+  "failed_execution_sha256": "50390304f6848cd200741522b0ec8dc2e1798b69a236da5a098cbc71c0cbad0b",
+  "input_hashes": {
+    "results/development/faced_development_protocol_2026-10-11/plan.json": "dbd5c356c1ace1eda72c5b02ea74cbe2ad1ac19cba2c3c271c919375151060ba",
+    "results/development/faced_backup_2026-10-10/participant_reservation.json": "f41b319f8d3c27db7966560f7a7bc0b6392eb5e1528892c8d4d445557014d087",
+    "results/development/faced_codebooks_2026-10-10/audit.json": "3837897d7eb9c9b8ccb9c1a0739cef00e166b366fed640086954129bd2aaaaac",
+    "results/development/faced_artifact_control_2026-10-11/source_records.json": "084be723139633048a6626dee0472f04468dbe8098149e32e94475ccb7264b72",
+    "results/development/faced_artifact_control_2026-10-11/validation_records.json": "0881355c0f1d0396fba3351bf6879ff405ad33eca3cdefc32b6e90bc04762baa",
+    "results/development/faced_inference_quality_2026-10-11/predictions.csv": "84805ab0c7c4076e9e95a926c8ff7e3afbeeb0455e08fac923e2a73a9e3724d0",
+    "results/development/faced_representation_v2_2026-10-11/predictions.csv": "790ce1a56b691409992565808bed1e8e44fc7de70596a0226f70026c055f7a0b"
+  },
+  "canonical_targets": 1260,
+  "quality_rows_identity_guarded": 27720,
+  "representation_rows_identity_guarded": 36120,
+  "ordinary_representation_targets_checked": 32760,
+  "ordinary_original_target_conflicts": 0,
+  "permutation_rows_excluded_before_numeric_fields": 3360,
+  "permutation_rows_by_model": {
+    "capacity_spectral_permuted": 1680,
+    "capacity_covariance_permuted": 1680
+  },
+  "first_declared_permutation_row": {
+    "csv_line": 10362,
+    "subject": "sub-001",
+    "vid": 3,
+    "rotation": 0,
+    "model": "capacity_spectral_permuted",
+    "arm": "capacity_source_fit"
+  },
+  "quality_cache_is_sole_canonical_target_source": true,
+  "all_ordinary_representation_targets_agree_exactly": true,
+  "predictions_parsed": false,
+  "original_ratings_or_signals_opened": false,
+  "new_targets_decoded": 0,
+  "model_fits": 0,
+  "protected_outcomes_opened": false,
+  "root_cause": "Mixed representation cache includes explicitly target-permuted capacity_source_fit rows; the initial loader and projection auditor compared these diagnostic labels with original ratings before condition selection.",
+  "safe_remedy": "In a separately versioned bridge/auditor, guard every identity first, reuse only quality-cache canonical targets, skip only the two exact declared permutation/model arms before numeric fields, and require all remaining real targets to agree exactly. Preserve frozen core, failed packet, original labels, population and twenty-fit settings.",
+  "research_question_changed": false,
+  "confirmation_access": false
+}

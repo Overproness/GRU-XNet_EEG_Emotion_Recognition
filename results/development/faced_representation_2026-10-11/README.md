@@ -1,6 +1,8 @@
 # FACED bounded covariance and source-capacity diagnostic
 
-Declared implementation: [protocol](../../../docs/publication/FACED_Representation_Capacity_Protocol_2026-10-11.md). The new original-signal preparation and fitting have not launched at this checkpoint. This is reused development work, with confirmation participants/films and manuscript/question unchanged.
+**First preparation held:** the exact processed-window byte check fails at source sub-085/clip-25 after 655 prepared source trials. Zero validation trials, new fits, predictions or original rating decodes occurred. The [execution receipt](execution.json) and partial [feature manifest](feature_manifest.json) remain preserved. A separately frozen [eight-trial source diagnosis](replay_diagnosis/plan.json) compares interpolation replay under capped/default threading and prior literal weights before any continuation. This is reused development work, with confirmation participants/films and manuscript/question unchanged.
+
+The [protocol](../../../docs/publication/FACED_Representation_Capacity_Protocol_2026-10-11.md) and runner remain frozen. An [independent-audit supplement](../../../docs/publication/FACED_Representation_Audit_Supplement_2026-10-11.md) corrects exact-duplicate handling in the checker only; the original auditor remains bound and no fit/feature/threshold choice changes.
 
 Seven fixed classical conditions compare a single log-covariance representation, the existing spectral features and their context combinations with matched context controls. Each has a main fit and five original source participant OOF fits in three rotations. Twelve real/shuffled-label near-interpolation capacity fits test source memorization separately. Cap: 138 CPU fits/two hours; zero neural/GPU fits and no validation-dependent hyperparameter search.
 

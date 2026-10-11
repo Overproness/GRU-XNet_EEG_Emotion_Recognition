@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-11",
+  "scope": "Targeted primary-source and public metadata review, not exhaustive priority search or numerical reproduction",
+  "literature_review_utc": "Approximately 14:09–14:15 on 11 October 2026",
+  "sources": [
+    {"work": "Gerster et al., FACED stimulus identity", "url": "https://www.biorxiv.org/content/10.64898/2026.06.12.731889v1", "status": "Preprint posted 16 June 2026", "verified_scope": "Stimulus confounding, assigned versus individual categorical reports, linear/deep controls; previously authenticated August author code includes nested cross-video controls", "code_url": "https://github.com/moritz-gerster/faced-stimulus-confound/tree/156d1efc335c7f399ac7e1647f0245d17afd2486", "access_limit": "Publisher full text inaccessible; indexed abstract and preceding pinned code audit. June paper/August code equivalence not authenticated"},
+    {"work": "Kong et al., video-time priors", "url": "https://arxiv.org/html/2610.03618v1", "status": "2 October 2026 preprint; manuscript conference identification not independently verified in proceedings", "verified_scope": "Context versus physiological residual gains on familiar videos; excludes unseen content and recommends crossed participant/video evaluation with nested selection", "access": "Full primary HTML"},
+    {"work": "Wang et al., shared and individual affect", "url": "https://arxiv.org/abs/2610.02796", "status": "2 October 2026 preprint", "verified_scope": "24 training/eight held participants on same fifteen videos, unlabeled alpha synchrony calibration, residual/model/feature negative searches principally on arousal", "access": "Five-page primary PDF; numerical results not used as matched local baselines"},
+    {"work": "mdJPT", "url": "https://papers.neurips.cc/paper_files/paper/2025/hash/f1b8d443042f376aa3654b6c68de6297-Abstract-Conference.html", "status": "NeurIPS 2025 official proceedings", "verified_scope": "Multi-dataset emotion pretraining, category inconsistencies, covariance alignment and new-dataset transfer", "access_limit": "Official landing page and author repository available; fresh full PDF retrieval failed; no new detailed paper protocol assertion beyond preceding qualified review"},
+    {"work": "MGCRL", "url": "https://arxiv.org/abs/2607.04139v2", "status": "Preprint v1 5 July/v2 5 September 2026", "verified_scope": "Abstract explicitly describes FACED pretraining, region-aware graph encoder, masked JEPA and cross-participant same-stimulus learning", "access_limit": "Primary abstract/version metadata; full numerical protocol not freshly audited"},
+    {"work": "EEG-FM-Compass", "url": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag466/8750569", "status": "National Science Review accepted manuscript published 3 August 2026; DOI 10.1093/nsr/nwag466", "verified_scope": "55 reviewed models; comparisons of twelve foundation models across thirteen datasets; calibration/probing/fine-tuning and scratch specialists", "access_limit": "Publisher abstract/status; no numerical reproduction"},
+    {"work": "REVE", "url": "https://arxiv.org/html/2510.21585v1", "verified_scope": "Methods state downstream-task recordings were removed from pretraining; FACED downstream assigned-nine-class split uses people 1–80/81–100/101–123", "provenance_limit": "Documented exclusion claim, not checkpoint-specific membership authentication or known FACED contamination", "access": "Full primary HTML"}
+  ],
+  "mdjpt_code_review": {
+    "commit": "bb84e89df5d05928ef3aa8645cbc339b59ed59de",
+    "commit_date": "2026-04-01",
+    "repository": "https://github.com/ncclab-sustech/mdJPT_nips2025",
+    "config_url": "https://github.com/ncclab-sustech/mdJPT_nips2025/blob/bb84e89df5d05928ef3aa8645cbc339b59ed59de/cfgs_multi/data/EMOEEG.yaml",
+    "loader_url": "https://github.com/ncclab-sustech/mdJPT_nips2025/blob/bb84e89df5d05928ef3aa8645cbc339b59ed59de/src/data/io_utils.py",
+    "saved_pretrain_config_url": "https://github.com/ncclab-sustech/mdJPT_nips2025/blob/bb84e89df5d05928ef3aa8645cbc339b59ed59de/log/pretrain/norelu_DATASET_loo_SEEDV.yaml",
+    "facts": ["EmoEEG derivative configuration: 51 people, 21 trials, seven assigned classes, 62 channels, 125 Hz; not raw score-column/endpoint codebook", "Saved source configuration includes FACED first twenty people/all 28 clips; no authenticated mapping from this configuration to each released checkpoint", "Four checkpoint files inventoried only, none downloaded/loaded; default two-GPU/127-worker settings not a measured 6GB recipe"],
+    "source_sha256": {
+      "cfgs_multi/config_multi.yaml": "f09b9e89c6b73cb39318af2ea41be6b58dc5d840c882ae62484704a081fc38b6",
+      "cfgs_multi/data/FACED_blink_only_small.yaml": "81eccb8a2d18493185df50b5b5e07ae83050de34422fa21ddd6795cc9bac09d7",
+      "cfgs_multi/data/EMOEEG.yaml": "b61a3f8d06d4dbda5a7bc020c7a554c1c63c3ba3c21a1bd70f1aed086306e634",
+      "src/data/io_utils.py": "689913b78d5e978db21cebbf7110e655c7fdef25af9a914eb47497b3835dba08",
+      "readme.md": "edd1e24caefddaab55433719ae64baa10a9092875418f0a36b3ac6f3b06513d2",
+      "log/pretrain/norelu_DATASET_loo_SEEDV.yaml": "be966e9e5958b1baaeb789196b4cb8caf378d606eecc64d8d247f22beb52ff99"
+    }
+  },
+  "dens_metadata_review": {
+    "checked_utc": "2026-10-11T14:24:00Z (minute precision)",
+    "dataset": "Dataset on Emotion with Naturalistic Stimuli (DENS)",
+    "registry_url": "https://openneuro.org/datasets/ds003751/versions/1.0.6",
+    "official_repository": "https://github.com/OpenNeuroDatasets/ds003751/tree/5bca1418a5be2daa3fb5fdc5fc5c5556d1659b1c",
+    "latest_listed_github_tag_checked": "1.0.6",
+    "snapshot_commit": "5bca1418a5be2daa3fb5fdc5fc5c5556d1659b1c",
+    "snapshot_commit_date": "2023-07-08T06:40:35Z",
+    "snapshot_tree_sha": "1552b175dffd076bb75c50c994cd154f021bfe0a",
+    "tree_entries": 318,
+    "tree_truncated": false,
+    "subject_keys": 40,
+    "subjects_with_eeg_set_files": 40,
+    "subjects_with_behavior_tsv_files": 34,
+    "potential_eeg_behavior_subject_intersection": 34,
+    "subjects_missing_behavior_files": ["sub-mit074", "sub-mit079", "sub-mit080", "sub-mit104", "sub-mit106", "sub-mit107"],
+    "code_paths_present": false,
+    "stimuli_paths_present": false,
+    "behavior_codebook_json_present": false,
+    "readme_license_statement": "ODbL; individual contents DBCL",
+    "dataset_description_license_statement": "CC0",
+    "metadata_sidecar_example": {"subject": "sub-mit003", "eeg_channels": 128, "ecg_channels": 1, "emg_channels": 2, "sampling_hz": 250, "reference": "Cz", "power_line_hz": 50, "software_filters": "n/a"},
+    "metadata_sha256": {"README": "24071ce3365f7acb67313aec3bb8e6994ee0596c064e521a26ee8fbf0a0b9240", "CHANGES": "b737f4cfd389666eaa6155509ef04768069f164d19c751d0b7a7a483089cca4a", "dataset_description.json": "364e818902eea8531435f09e4623000062e86fe9d3b2c5009c84e797f16285ae"},
+    "target_documentation": "Authors' 2021 methods copy describes after-viewing whole-clip individual valence 1–9; actual stored scale/joins not qualified. In-viewing clicks later receive recalled emotion categories, distinct from continuous valence trajectories.",
+    "protocol_limits": ["2022 preprint: nine one-minute clips per person from sixteen stimuli; subsection also says fifteen", "2021 protocol describes three training/eleven testing trials", "69 stimuli refers to earlier behavioral validation, not 69 EEG-recorded films"],
+    "historical_master_count_correction": "Master/1.0.2 a91a171487f847bfe9404a13237cc2a397558e9b has 38 EEG and 34 behavior files with only 32 overlapping subjects. CHANGES 1.0.4 updates sub-mit081/sub-mit108; checked 1.0.6 includes both. Directory/count differences are version differences, not 34 authenticated complete trials/cohorts.",
+    "sources": [
+      "https://raw.githubusercontent.com/OpenNeuroDatasets/ds003751/5bca1418a5be2daa3fb5fdc5fc5c5556d1659b1c/README",
+      "https://raw.githubusercontent.com/OpenNeuroDatasets/ds003751/5bca1418a5be2daa3fb5fdc5fc5c5556d1659b1c/CHANGES",
+      "https://raw.githubusercontent.com/OpenNeuroDatasets/ds003751/5bca1418a5be2daa3fb5fdc5fc5c5556d1659b1c/dataset_description.json",
+      "https://raw.githubusercontent.com/OpenNeuroDatasets/ds003751/5bca1418a5be2daa3fb5fdc5fc5c5556d1659b1c/sub-mit003/eeg/sub-mit003_task-emotion_eeg.json",
+      "https://arxiv.org/pdf/2211.02637",
+      "https://www.researchgate.net/publication/353722077_Dataset_on_Emotions_using_Naturalistic_Stimuli_DENS"
+    ],
+    "anonymous_official_object_head_checks": [
+      {"url": "https://s3.amazonaws.com/openneuro.org/ds003751/sub-mit003/eeg/sub-mit003_task-Emotion_eeg.fdt", "status": 200, "content_length": 355919520, "etag": "1229e807e33f0d3f42dc2781f8623fd0"},
+      {"url": "https://s3.amazonaws.com/openneuro.org/ds003751/sub-mit003/eeg/sub-mit003_task-Emotion_eeg.set", "status": 200, "content_length": 3184976, "etag": "0c79151aa24d13de7bc42cb08a2a1223"}
+    ],
+    "retrieval_correction": "Initial lowercase task-emotion object HEAD checks returned 404; exact task-Emotion case returned 200. A HEAD success is not version-bound waveform authentication.",
+    "waveform_body_bytes_read": 0,
+    "behavior_or_event_rows_read": 0,
+    "version_bound_waveform_identity_authenticated": false,
+    "fit_ready": false
+  },
+  "other_dataset_checks": {
+    "dreamer": {"url": "https://zenodo.org/records/546113", "api": "https://zenodo.org/api/records/546113", "checked_utc": "2026-10-11T14:17:07Z", "access_right": "restricted", "file_inventory_count": 0, "response_bytes": 6129, "response_sha256": "808cf7643b3e1775f8fd98d949fdc5611f69996b5cd55ffc602057c49d3bf0d7"},
+    "amigos": {"access_url": "https://www.eecs.qmul.ac.uk/mmv/datasets/amigos/doc/eula.pdf", "methods_url": "https://eecs.qmul.ac.uk/mmv/datasets/amigos/doc/Paper_TAC.pdf", "access": "Eligible permanent academic/research signatory, affiliation email verification and signed application required; no application submitted", "described_geometry": "Forty people/sixteen short films and four long films; not verified usable local cohort"},
+    "seed_vii": {"url": "https://bcmi.sjtu.edu.cn/home/seed/seed-vii.html", "target": "0–1 self-assessed strength/success of assigned target-emotion elicitation; not generic experienced valence", "decision": "Not interchangeable with FACED/DENS individual valence without a new target question"}
+  },
+  "no_corpus_download": true,
+  "no_original_rating_or_waveform_access": true,
+  "no_external_messages_or_access_applications": true,
+  "no_checkpoint_loads_or_fits": true,
+  "research_question_changed": false
+}

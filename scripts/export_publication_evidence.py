@@ -54,6 +54,7 @@ REPORTS += ["GRU-XNet_Contribution_Target_Decision_2026-10-11.md"]
 REPORTS += ["GRU-XNet_FACED_Scope_Precision_Plan_2026-10-11.md"]
 REPORTS += ["GRU-XNet_FACED_EEGNet_Preflight_2026-10-11.md"]
 REPORTS += ["GRU-XNet_FACED_EEGNet_Diagnostic_Findings_2026-10-11.md"]
+REPORTS += ["GRU-XNet_Post_Diagnostic_Contribution_Decision_2026-10-11.md"]
 RUN_FILES = {
     "config.json", "history.json", "split_audit.json", "test_metrics.json",
     "best_validation_metrics.json", "test_trial_predictions.csv", "verification.json",

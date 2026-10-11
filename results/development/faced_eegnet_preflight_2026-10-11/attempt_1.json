@@ -1,0 +1,15 @@
+{
+  "status": "synthetic_hardware_preflight_failed",
+  "implementation_commit": "afc234a63",
+  "implementation_binding_file": "implementation_bindings.json",
+  "completed": "One synthetic two-epoch CPU context-residual smoke loop",
+  "failure": "RuntimeError: Invalid device argument at torch.cuda.reset_peak_memory_stats('cuda:0') before model allocation or optimizer steps on CUDA",
+  "cause_and_fix": "Explicitly initialize the CUDA context and select the device before resetting allocator peak statistics; freeze corrected code in implementation_bindings_v2.json",
+  "cuda_optimizer_steps": 0,
+  "synthetic_cpu_optimizer_steps": 2,
+  "original_dataset_fits": 0,
+  "original_recordings_or_rating_files_opened": 0,
+  "confirmation_outcomes_opened": 0,
+  "research_question_changed": false,
+  "note": "Observed failed attempt retained; do not substitute it for a successful hardware qualification"
+}

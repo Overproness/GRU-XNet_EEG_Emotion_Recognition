@@ -17,6 +17,7 @@ from gruxnet.eegnet_regression import EEGNetRegression
 from gruxnet import faced_eegnet_runner as runner
 
 PACKET=REPO/'results/development/faced_eegnet_preflight_2026-10-11'
+BINDINGS=PACKET/'implementation_bindings_v2.json'
 IMPLEMENTATION=['gruxnet/eegnet_regression.py','gruxnet/faced_eegnet_runner.py',
                 'scripts/run_faced_eegnet_preflight.py','scripts/audit_faced_closest_method.py',
                 'tests/test_faced_eegnet_preflight.py']
@@ -51,13 +52,13 @@ def freeze():
     value={'status':'frozen_synthetic_preflight_only','plan_sha256':sha(PACKET/'plan.json'),
            'code_bindings':binding,'original_dataset_access':False,'diagnostic_activated':False,
            'confirmation_access':False,'research_question_changed':False}
-    path=PACKET/'implementation_bindings.json'
+    path=BINDINGS
     if path.exists() and load(path)!=value:raise PermissionError('Refuse to overwrite a frozen implementation')
     save(path,value);print({'synthetic_preflight_frozen':True,'code_files':len(binding)},flush=True)
 
 
 def check():
-    count=preserve_inputs();binding=load(PACKET/'implementation_bindings.json')
+    count=preserve_inputs();binding=load(BINDINGS)
     if binding['plan_sha256']!=sha(PACKET/'plan.json') or binding['code_bindings']!={name:sha(REPO/name) for name in IMPLEMENTATION}:
         raise ValueError('Frozen preflight implementation changed')
     return count,binding
@@ -96,7 +97,7 @@ def run(require_cuda=True):
             print({'synthetic_preflight':device,'readout':readout,'rate':rate,'seed':seed,'peak_reserved_MB':round(peak/1e6,2)},flush=True)
     gpu=torch.cuda.get_device_properties(0) if require_cuda else None
     result={'status':'synthetic_hardware_preflight_passed' if gpu else 'cpu_only_not_hardware_qualified',
-            'implementation_bindings_sha256':sha(PACKET/'implementation_bindings.json'),
+            'implementation_bindings_sha256':sha(BINDINGS),
             'preceding_scientific_bindings_verified':count,'frozen_input_bindings_verified':13,
             'parameter_count':sum(p.numel() for p in EEGNetRegression().parameters()),
             'runtime':{'python':platform.python_version(),'torch':str(torch.__version__),'numpy':np.__version__,

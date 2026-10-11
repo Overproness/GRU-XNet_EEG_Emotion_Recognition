@@ -250,6 +250,8 @@ def fit_trial_model(source, arms, windows, targets, offsets, scaler, decisions,
     try:
         torch.manual_seed(seed)
         if torch.device(device).type=="cuda":
+            # Initialize the allocator context before its first peak-stat reset.
+            torch.cuda.init();torch.cuda.set_device(torch.device(device))
             torch.cuda.manual_seed_all(seed);torch.cuda.reset_peak_memory_stats(device)
         torch.backends.cudnn.benchmark=False
         torch.backends.cudnn.deterministic=True

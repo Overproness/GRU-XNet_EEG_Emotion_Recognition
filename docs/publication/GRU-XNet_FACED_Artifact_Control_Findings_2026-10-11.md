@@ -1,0 +1,67 @@
+# FACED author-code qualification, bounded artifact control and gated comparisons
+
+Completed: 11 October 2026. **The preprocessing follow-up and all ninety declared classical fits are complete. They provide a small exploratory EEG gain, below the declared continuation threshold, and do not justify a paper pivot or larger encoder grid.** The manuscript and research question remain unchanged; all confirmation people and films remain sealed.
+
+The [execution packet](../../results/development/faced_artifact_control_2026-10-11/README.md), [independent numerical audit](../../results/development/faced_artifact_control_2026-10-11/control_analysis/summary.json) and [comparison figure](../../results/development/faced_artifact_control_2026-10-11/figures_v2/context_eeg_comparison.png) preserve the evidence. Earlier held source experiments were preserved, not overwritten.
+
+## What the supplied author code establishes
+
+The original public inventory identifies [Code.zip, Synapse syn61318284](https://www.synapse.org/Synapse:syn61318284), but anonymous download permission is false. After the control declaration, the user supplied `Code.zip` and its extracted `Code/Code/Preprocessing/` folder. All four inspected Python/environment members match the archive exactly. The archive SHA-256 is `12222e1531f30c1b699cb580a4a6d1476cf79df4288fab12cf3de4d2f52e9aa0`. This binds the supplied bytes; it is not an independently verified Synapse release checksum. Full author source and archive contents are not redistributed.
+
+The [supplied-code qualification](../../results/development/faced_artifact_control_2026-10-11/supplied_code_qualification.json) and [pre-pilot addendum](../../results/development/faced_artifact_control_2026-10-11/pre_pilot_addendum.json) supersede the earlier anonymous-access dependency without altering the already declared control. The authors' script creates last-thirty-second epochs around event 102, downsamples to 250 Hz, uses MNE's default FIR bandpass at 0.05–47 Hz, attempts channel interpolation, applies per-epoch FastICA with Fp1/Fp2 EOG proxies, then average-references. The supplied environment files specify MNE 1.2.1 and Python 3.10.4, with different NumPy/SciPy versions. This is consistent in broad sequence with the [dataset paper's methods](https://pmc.ncbi.nlm.nih.gov/articles/PMC10600242/), but the actual supplied function needs separate scrutiny.
+
+In that function, global-median thresholding is followed by first-channel indexing; reducing the resulting time vector produces a scalar Boolean. Its `argwhere` result has size zero, so the interpolation branch is not reached in the tested expected epoch geometry. We isolated only the reviewed method using Python's AST, without importing the authors' module, and tested two manufactured 1×32×7,501 arrays: a sustained extreme Fp1 channel and a sustained extreme Oz channel. Both should be detected under the paper's described per-electrode proportion rule; neither invoked interpolation in the supplied method. A further string-key lookup would require review if that branch became reachable.
+
+**This is a reproducible finding about supplied source behavior under the current runtime, not proof of what generated the authors' published processed data.** We did not execute the whole author script: it preloads entire recordings, loads whole behavioral MATLAB files, relies on a recording-wide amplitude heuristic for units, leaves ICA randomness unfixed and leaves other MNE epoch parameters implicit. Those access patterns conflict with our reserved-material and selective-rating contract. We did not silently patch it and call the result an author reproduction.
+
+## The bounded control and source gate
+
+The [activation plan](../../results/development/faced_artifact_control_2026-10-11/activation_plan.json) was frozen and pushed before the pilot. The supplied code arrived afterward and was qualified before any pilot original-EEG read; the algorithm remained fixed.
+
+The control uses the existing notch, temporal filtering and late 28-second core for **pre-CAR** channel detection: SD strictly above 100 µV or peak-to-peak strictly above 1,000 µV. It interpolates one to three detected channels in the calibrated native 32-second signal, then runs the unchanged temporal/CAR pipeline. More than three detections explicitly holds QC without repair. It retains all trials/windows. Each trial's own signal determines its detected channels under the fixed rules; weights follow from that channel pattern and frozen nominal geometry. Ratings, participant/clip identity and collectively fitted transforms do not choose thresholds or geometry.
+
+Spatial interpolation uses nominal standard-1020 positions and a Perrin spherical spline system with fifty Legendre terms, stiffness four and regularization 1e-5. Independently evaluated weights are checked against the public [MNE 1.10.0 interpolation implementation](https://github.com/mne-tools/mne-python/blob/v1.10.0/mne/channels/interpolation.py) using manufactured identity arrays. Installed source/geometry hashes are frozen. Nominal coordinates are not individual digitization. This is a conventional technical control, with no ICA and no claimed methodological novelty or artifact-free signal.
+
+The twenty-trial source-only pilot passed with zero ratings, zero validation EEG and zero fits. It repaired all eight previously flagged trials and left all twelve controls unchanged. The subsequent full source audit passed all 980 trials/6,860 windows from seventy people, with zero residual frozen review flags. Only those same eight trials were repaired, involving nine channel/trial events; the other 972 trials retain byte-identical processed windows and spectral features from the original held audit. Every selected count hash agrees with that audit. Maximum independent MNE weight discrepancy is 1.03e-11.
+
+The severe sub-004/clip-18 maximum processed SD falls from 9,949.63 to 19.38 µV and peak-to-peak from 173,070.20 to 187.31 µV after Oz interpolation. Other repaired trials also pass the frozen checks. The [source comparison figure](../../results/development/faced_artifact_control_2026-10-11/figures_v2/source_amplitude_comparison.png) shows all eight, and [source replay](../../results/development/faced_artifact_control_2026-10-11/source_analysis/summary.json) reconstructs 970,110 selected byte ranges, independently recomputes channel rules and verifies all 3,920 private feature/QC/artifact/access caches. The original failed audit and original flags remain intact.
+
+## What was actually run
+
+After the persisted full source gate passed, the runner prepared the 280 declared development-validation trials and selectively decoded exactly 1,260 item-10 valence values across the ninety development people. Observed values are finite and within the documented 0–7 range. No other rating item, protected participant rating, confirmation-film sample or neighboring interval was decoded. The full execution independently scalar-checked 816.48 million selected count values; the separately recorded pilot rechecked 13.44 million. No waveform arrays were saved.
+
+The existing programme was executed unchanged: three metadata-chosen development rotations; five alphas per context-only, spectral-EEG-only and joint Ridge model; source-only scalers; unseen-validation-only alpha selection; five source participant OOF folds at each selected alpha; global/coarse/category/familiar-video source-median priors refitted in each source fold. There were exactly **45 main candidate fits plus 45 OOF fits**, **72 source-prior estimations**, and **27,720 published prediction rows**. The complete rerun took 476.4 seconds, within the two-hour cap. There were no neural/GPU fits, substituted labels or numerical EEG fallback trials.
+
+The same twenty validation people and overlapping development films recur across rotations. Each rotation tests six unseen films, so these are **reused development panels**, not three independent replications. Familiar-film results and all candidates are retained in the [comparison receipt](../../results/development/faced_artifact_control_2026-10-11/comparison.json) and [predictions](../../results/development/faced_artifact_control_2026-10-11/predictions.csv).
+
+## Prediction findings
+
+All numbers below are participant/film-equal absolute error on continuous individual valence; lower is better. They are unrelated to the historical pooled binary accuracy.
+
+| Development rotation | Context MAE | Spectral EEG MAE | Joint MAE | Strongest fixed source prior MAE | Joint gain over context |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 0 | 1.253 | 1.526 | 1.242 | 1.222 | 0.011 |
+| 1 | 1.210 | 1.469 | 1.195 | 1.232 | 0.015 |
+| 2 | 1.311 | 1.476 | 1.211 | 1.327 | 0.099 |
+
+Average joint gain is **0.04169 MAE** over context and 0.04415 over the strongest fixed source prior. All three context gains are positive, but the first rotation's category prior beats the joint model. The average gain is below the previously declared **0.15** continuation threshold, so the numerical conditions are **not met**.
+
+The descriptive crossed participant/film bootstrap intervals are respectively −0.169 to 0.172, −0.128 to 0.152 and −0.040 to 0.248; all include zero. They condition on development-selected alphas and only six films per rotation; they are not tuning-corrected confirmatory intervals. Leave-film and acquisition-group comparisons are preserved, not used to select another run.
+
+EEG-only models select the strongest grid regularization (alpha 1,000) in all rotations; joint models select alpha 100. The joint selected source training MAEs are 1.160/1.212/1.151, versus context 1.269/1.339/1.294. However, joint source participant OOF MAEs are 1.345/1.443/1.352, worse than context 1.304/1.370/1.334. Thus lower fitted source error does not carry consistently to held-out source people. The saved Ridge equations satisfy first-order conditions to 7.55e-12: a failed iterative optimization or unfinished training schedule does not explain this specific closed-form comparison.
+
+This does **not** show that EEG contains no emotion information, that every encoder would fail, or that negative transfer is a novel contribution. It shows that this fixed spectral representation/readout adds too little evidence on these development panels to justify expanding the encoder grid or adopting a new paper question.
+
+## Retained validation acquisition flags
+
+All 280 validation trials are numerically available, but **fifteen trials in two participants retain raw-signal flags**. All fourteen sub-030 trials flag F8 ADC rail/stationarity; some additionally flag Oz/PO4 rail occupancy. Sub-100/clip-4 flags PO3 ADC rail/stationarity. The fixed amplitude detector does not necessarily detect a constant railed channel after temporal filtering. Thirteen validation trials receive the already declared amplitude interpolation; the original raw flags remain reported. No trial, person or flag was excluded, retuned away, or treated as missing under the numerical-only inference fallback rule.
+
+The [validation replay](../../results/development/faced_artifact_control_2026-10-11/validation_analysis/summary.json) independently reconstructs another 277,140 selected byte ranges, verifies all 1,120 validation caches and recomputes the fixed rules. Together, the source/validation caches and ledgers cover all 1,260 declared trials. These acquisition flags limit interpretation of the small gains and require an explicit prospective handling policy before a larger experiment. They are not permission to retrospectively drop evaluated participants or keep whichever repair improves results.
+
+## Verification, publication decision and next dependency
+
+Sixty-five focused manufactured checks passed across interpolation, access guards, author indexing, selective targets, preprocessing and classical controls. Independent replay verifies all ninety exact fit identity sets, source scaler statistics, Ridge normal equations, seventy-two source prior estimations, every saved-state prediction, all candidate/OOF metrics, unseen-only alpha choices, bootstrap intervals and the continuation decision. Maximum saved-state/public-prediction discrepancy is 1.51e-14. The two figure revisions change layout only; the earlier version is preserved and the linked revised plots were visually checked.
+
+**The requested phase is finished. The paper is still not ready for a strong conference, and no new research question has been adopted.** Author-code access, the source amplitude hold and execution of the bounded controls are now resolved at the stated scope. Robust EEG benefit, acquisition-failure handling, encoder/representation suitability, independent confirmation, exact physical stimulus timing/content/pretraining overlap and closest-method novelty remain unresolved.
+
+The immediate next dependency is a signal-only audit of the railed/stationary validation channels and a reviewable, fixed policy for unavailable channels/EEG at inference, preserving this experiment. Only after that should a small separately declared representation/learnability control be considered. Its reused-development status and budget must be explicit. Keep the thirty-three confirmation participants and all eight confirmation film families sealed; do not expand the encoder grid or open confirmation on this weak lead. A concrete alternative contribution would still need findings and the author's explicit approval, with a fresh paper archive before adoption.

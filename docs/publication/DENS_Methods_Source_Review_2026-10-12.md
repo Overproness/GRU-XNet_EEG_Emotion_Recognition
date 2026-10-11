@@ -23,6 +23,8 @@ The 2022 preprint's nine-trial description omits the two non-emotional trials; i
 
 The release declares BIDS 1.4. The corresponding standard specifies event `onset` and `duration` in seconds, with an optional `sample` column. This is the **standard's intended contract**, not evidence that this release exports conforming values. Custom `trial_type` meanings and additional fields need an author codebook or an independently authenticated event mapping. [BIDS 1.4.1 task-event specification](https://bids-specification.readthedocs.io/en/v1.4.1/04-modality-specific-files/05-task-events.html).
 
+EEGLAB documents internal `EEG.event.latency` and `EEG.event.duration` in **samples**. For continuous data, the documented latency conversion is `(latency - 1) / srate`, since the first sample corresponds to time zero; duration conversion is `duration / srate`. Boundary events may carry fractional latencies and mark rejected portions or concatenated recordings. These conventions support a candidate export interpretation, but do not authenticate the DENS TSVs. [EEGLAB event fields](https://eeglab.org/tutorials/04_Import/Importing_Event_Epoch_Info.html), [EEGLAB data structures](https://eeglab.org/tutorials/ConceptsGuide/Data_Structures.html).
+
 There is no basis here for treating click categories as continuous valence trajectories, for shifting every click by a universal delay, for interpreting the seven-second derivative window as the full clip, or for automatically pooling DENS 1–9 valence with FACED item-10 0–7 valence. These would require new explicit contracts.
 
 ## Author-hosted material inventory

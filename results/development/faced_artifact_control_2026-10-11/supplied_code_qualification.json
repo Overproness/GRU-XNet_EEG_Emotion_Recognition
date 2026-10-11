@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-11",
+  "public_entity_id": "syn61318284",
+  "archive_name": "Code.zip",
+  "archive_sha256": "12222e1531f30c1b699cb580a4a6d1476cf79df4288fab12cf3de4d2f52e9aa0",
+  "archive_bytes": 7540283,
+  "qualified_members": {
+    "Code/Preprocessing/Preprocessing.py": {
+      "sha256": "b327cb9c3c0c2cc4bbcb126a38fb80488649dd5ccf3e6250d7ff1514de7f77b0",
+      "bytes": 12449,
+      "extracted_matches_archive": true
+    },
+    "Code/Preprocessing/main.py": {
+      "sha256": "1fabf9a3fbb3c29380bb9d15bfdd58a107456bdae3ea8057a7d4f7963579ef88",
+      "bytes": 3585,
+      "extracted_matches_archive": true
+    },
+    "Code/Preprocessing/torch_win.yml": {
+      "sha256": "62708b9c879e314f238e28f94831c5f891f0a811c73800dcc5ec8729cd56230f",
+      "bytes": 16168,
+      "extracted_matches_archive": true
+    },
+    "Code/Preprocessing/torch_ubuntu.yml": {
+      "sha256": "e53d5a9c1922ce8a70dc167a2b83a6f4e0ccc94a0aa13c734a574dcc3e37328d",
+      "bytes": 3959,
+      "extracted_matches_archive": true
+    }
+  },
+  "provenance": "User-supplied download; exact inspected archive/extraction bound. No independently authenticated Synapse archive checksum available.",
+  "source_available": true,
+  "source_statically_qualified": true,
+  "author_pipeline_reproduced": false,
+  "diagnosis": {
+    "isolated_method_lines": [
+      58,
+      79
+    ],
+    "manufactured_probes": [
+      {
+        "manufactured_bad_channel_index": 0,
+        "input_shape": [
+          1,
+          32,
+          7501
+        ],
+        "paper_interpretation_detected_channel_indices": [
+          0
+        ],
+        "author_value_shape": [
+          7501
+        ],
+        "author_bad_chns_shape": [
+          1,
+          0
+        ],
+        "author_bad_chns_size": 0,
+        "interpolation_calls": 0,
+        "marked_bad_channels": []
+      },
+      {
+        "manufactured_bad_channel_index": 27,
+        "input_shape": [
+          1,
+          32,
+          7501
+        ],
+        "paper_interpretation_detected_channel_indices": [
+          27
+        ],
+        "author_value_shape": [
+          7501
+        ],
+        "author_bad_chns_shape": [
+          0,
+          0
+        ],
+        "author_bad_chns_size": 0,
+        "interpolation_calls": 0,
+        "marked_bad_channels": []
+      }
+    ],
+    "conclusion": "For tested epoch-shaped inputs, selecting first channel then reducing the time axis produces scalar argwhere with size zero; interpolation is not invoked even with a sustained extreme channel.",
+    "scope": "Supplied code behavior on manufactured arrays under current NumPy. Does not establish code actually used for published processed data or validate a repair."
+  },
+  "author_execution": {
+    "epoch": "Last 30 seconds before event102, default Epochs parameters otherwise implicit",
+    "channels": 32,
+    "downsample_hz": 250,
+    "bandpass_hz": [
+      0.05,
+      47.0
+    ],
+    "filter": "MNE default FIR",
+    "bad_detection": "Global absolute median, first-channel indexing, collapsed time-axis reduction in supplied method",
+    "ocular_ica": "Per-epoch FastICA; max_iter auto, no random_state; Fp1/Fp2 EOG proxies",
+    "reference": "Average after attempted interpolation and ICA",
+    "units": "Whole-record mean-amplitude heuristic with direct internal-data multiplication",
+    "input_access": "Full BDF preload and whole After_remarks.mat loader; incompatible with our sealed-material/selective-access contract",
+    "declared_runtime": "Python3.10.4, MNE1.2.1; two differing NumPy/SciPy environment files"
+  },
+  "decision": "Retain already declared transparent source-only interpolation control. Do not run original main.py or silently fix and call it an author reproduction.",
+  "author_code_redistributed": false,
+  "original_eeg_or_ratings_opened": false,
+  "bindings": {
+    "scripts/audit_faced_supplied_code.py": "d82cb409137f24b66f8db685847124ab321f7e87cec52edcb569b7de8b0d4154",
+    "tests/test_faced_supplied_code.py": "45da4a3dc98b083e31723bf535b9fc55977c5d54cb789969be625d6197a8fa81"
+  }
+}

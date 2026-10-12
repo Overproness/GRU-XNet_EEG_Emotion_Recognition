@@ -1,0 +1,242 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{cite}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\clip}{\operatorname{clip}_{[0,7]}}
+\newcommand{\mae}{\operatorname{MAE}}
+\newcommand{\mse}{\operatorname{MSE}}
+\newcommand{\paperfigure}[2]{\IfFileExists{#1}{\includegraphics[width=\textwidth]{#1}}{\fbox{\parbox{0.93\textwidth}{#2}}}}
+
+\title{EEG Beyond Elicitation Context: An Exploratory Study of Retrospective Valence Prediction on FACED}
+\author{\IEEEauthorblockN{Muhammad Wasif Shakeel and Muhammad Muntazar}
+\IEEEauthorblockA{School of Electrical Engineering and Computer Science\\
+National University of Sciences and Technology (NUST), Islamabad, Pakistan\\
+mshakeel.bsds23seecs@seecs.edu.pk,\quad mmuntazar.bsds23seecs@seecs.edu.pk}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+EEG emotion models can exploit regularities associated with eliciting materials, making it necessary to ask whether EEG improves prediction beyond information already supplied by the experiment. We report an exploratory study of individual retrospective valence on FACED, separating source and validation participants and catalogue source-title families. Seventy participants supplied training data, twenty supplied reused development-validation panels, and thirty-three remained reserved. Each trial contributed one 0--7 valence rating and seven nonoverlapping four-second EEG windows. We compared experimenter-metadata priors and regression controls with spectral, log-covariance and scratch EEGNet regression models. A fixed acquisition-failure policy retained all 280 validation trials, using source-fitted fallback predictions for fifteen unavailable EEG inputs. Across three overlapping material rotations, context Ridge achieved mean absolute error (MAE) 1.2577, compared with 1.2156 for context plus spectral Ridge and 1.2339 for context plus covariance kernel regression. The spectral gains were inconsistent, and descriptive intervals included zero in every rotation. EEGNet alone achieved MAE 1.6093; its context-residual version achieved 1.2550 and did not consistently improve on stronger EEG-free controls. Five of six selected neural panels still showed substantial source-learning improvement near the training limit. These development results support reporting strong context baselines, acquisition coverage and learning diagnostics together. They do not establish absence of affective EEG information or independently confirmed model superiority.
+\end{abstract}
+
+\begin{IEEEkeywords}
+EEG, emotion recognition, valence regression, stimulus generalization, context baselines, reproducibility
+\end{IEEEkeywords}
+
+\section{Introduction}
+An EEG model evaluated on new participants may still encounter the same eliciting materials during training. Its accuracy can therefore depend on predictable properties of a stimulus, its position in an experiment, or its assigned category. This changes the question answered by the evaluation. A model that predicts an experimenter's category and a model that predicts an individual's experience also have different targets. An informative assessment should specify both the target and the information available to a comparator.
+
+FACED provides individual ratings alongside video-elicited EEG \cite{chen2023faced}. Recent work directly examines stimulus-identity confounding in this dataset \cite{gerster2026stimulus}. Related affect-regression studies show that video/time priors can be strong comparators for familiar materials \cite{kong2026priors}, and that shared stimulus responses and individual differences require separate consideration \cite{wang2026shared}. Consequently, a further encoder comparison should establish what EEG adds under its particular target and deployment contract.
+
+We investigate a bounded question: \emph{under a specified offline, metadata-assisted setting, how much do conventional EEG representations and a compact neural regressor improve individual retrospective valence prediction for new participants viewing held-out catalogue titles?} The outcome is FACED's continuous item-10 valence rating, rather than an assigned emotion category. Context comprises experimenter-provided information assumed available at inference; it does not include the evaluated participant's rating.
+
+This paper contributes an auditable empirical case study. It combines participant/material separation, trial-level prediction, source-only fitted transformations, explicit acquisition-failure coverage, stronger EEG-free controls, and learning-capacity diagnostics. We report all declared conditions, including unsuccessful ones. The study is exploratory: its three material rotations reuse the same validation participants and overlapping materials, and some model choices use those development outcomes. Reserved participants and title families remain unopened. We neither introduce a new EEG architecture nor claim to establish a general limit on emotion decoding.
+
+\section{Related Work}
+\subsection{Targets, stimuli and contextual information}
+FACED records 123 participants watching 28 clips and includes eight specific emotion ratings plus arousal, valence, familiarity and liking \cite{chen2023faced}. Its individual valence item enables a target distinct from the experimenter's intended elicitation category.
+
+Gerster et al.\ examine stimulus confounding on FACED using assigned and individual categorical reports \cite{gerster2026stimulus}. Their released code includes nested cross-video classification and temporal/permutation controls \cite{gerster2026code}. We statically inspected its August 2026 revision; equivalence to the June preprint's complete execution is unverified, and no author result was numerically reproduced. In that revision, individual categories use the maximum of the first eight report scores, and cross-video folds retain the participant axis. Our continuous retrospective target, simultaneous participant/title separation and metadata comparator are operational differences. Cross-video evaluation and stimulus-confound diagnosis themselves are established.
+
+Kong et al.\ investigate video/time priors and physiological residual corrections for continuous responses to familiar videos \cite{kong2026priors}. Wang et al.\ model shared trajectories and label-free individual calibration in a familiar-video EEG--fNIRS setting \cite{wang2026shared}. Our target summarizes an entire clip and our primary panel excludes source titles. We do not compare their numerical scores with ours because targets, scales, sensors and material familiarity differ.
+
+\subsection{Representations and evaluation}
+EEGNet is a compact convolutional architecture using temporal, depthwise spatial and separable convolutions \cite{lawhern2018eegnet}. We use its checked backbone with a local scalar-regression adapter; this is not a reproduction of published classification scores. Covariance-based spatial representations and their mappings into Euclidean coordinates are also established \cite{zhang2023spatiotemporal}. Our fixed log-covariance representation is a diagnostic control, not a new manifold-learning method.
+
+Standardized implementations help make EEG emotion comparisons interpretable \cite{liu2025libeer}. A separate issue is the dependence created when the same participants respond to a small collection of stimuli. Sampling additional participants or signal windows does not remove uncertainty due to the stimulus sample \cite{westfall2014power}. We therefore retain participant/title cells as evaluation units and treat development resampling intervals as descriptive.
+
+\section{Data and Evaluation Design}
+\subsection{Outcome and population}
+The target \(y_{pv}\in[0,7]\) is participant \(p\)'s individual retrospective valence after clip \(v\), with negative-to-positive anchors. All observed permitted values, including endpoints and the midpoint, are retained. No binary threshold or replacement by an assigned category is applied.
+
+Before development ratings were decoded, metadata determined exclusions and reservations. Clips 13--16, assigned neutral and sharing the catalogue title \emph{Blue}, are outside this study's non-neutral elicitation population. Clip 22 is excluded globally because its versions differ in marker duration and their footage correspondence is unresolved. Thus, the target population is restricted by elicitation metadata, not by observed valence. It is not a complete evaluation of all FACED clips.
+
+Participants were assigned to 70 source, 20 development-validation and 33 reserved roles. Fourteen catalogue-title families form the development pool; eight other families remain reserved in every participant. Clips 7 and 8 share \emph{The Shining} and belong to one reserved family. We normalize source titles for grouping rather than treating different clip identifiers as necessarily distinct materials. Original movie bytes, physical footage independence and playback latency have not been authenticated. \emph{Unfamiliar} below denotes absence of a catalogue title from the rotation's source set; it does not denote a participant's reported familiarity.
+
+\subsection{Material rotations and access boundaries}
+Each rotation trains on eight development titles and evaluates the twenty validation participants on six other titles. A familiar-material arm uses those participants' responses to the eight source titles. Table~\ref{tab:splits} gives the exact clip identifiers. Each development title has one included clip, so these panels contain one original trial per participant/title cell.
+
+\begin{table}[t]
+\centering
+\caption{Metadata-defined development panels. The same 70 source and 20 validation participants recur in all rotations.}
+\label{tab:splits}
+\scriptsize
+\begin{tabular}{cll}
+\toprule
+Rotation & Source clip IDs & Unfamiliar-validation clip IDs\\
+\midrule
+0 & 3, 4, 9, 11, 17, 20, 23, 27 & 2, 6, 12, 18, 25, 28\\
+1 & 2, 6, 9, 12, 18, 20, 25, 28 & 3, 4, 11, 17, 23, 27\\
+2 & 2, 6, 9, 11, 17, 20, 23, 28 & 3, 4, 12, 18, 25, 27\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Every rotation therefore contains 560 source-fit, 120 unfamiliar-validation and 160 familiar-validation trials. Across rotations there are 980 unique source trials and 280 unique validation trials, giving 1,260 permitted development targets. The rotations are overlapping consistency panels, not independent repetitions. In particular, the unfamiliar panels lack held-out Fear and Inspiration materials.
+
+Per-rotation models, scalers, source priors and bandwidths use only the corresponding 560 source trials. Source out-of-fold (OOF) checks use five participant-disjoint folds of fourteen held people, with transforms and context fits recomputed from the remaining fifty-six. The original rating decoder accesses only item 10 from permitted development pairs. Reserved participants/materials and other rating items remain outside numerical interpretation. The present manuscript uses completed public result packets and introduces no additional fitting or target access.
+
+\subsection{Primary endpoint}
+We score one scalar prediction per original trial. If several clips share a title, errors first average within participant/title. Let \(\mathcal{F}\) be the evaluated title set and \(\mathcal{V}_{pf}\) the clips for participant \(p\), title \(f\). Then
+\begin{equation}
+\mae=
+\frac{1}{|\mathcal{P}|}\sum_{p\in\mathcal{P}}
+\frac{1}{|\mathcal{F}|}\sum_{f\in\mathcal{F}}
+\frac{1}{|\mathcal{V}_{pf}|}\sum_{v\in\mathcal{V}_{pf}}
+|y_{pv}-\widehat y_{pv}|.
+\end{equation}
+For the complete development rectangles, this equals ordinary trial MAE. Predictions are clipped to 0--7 before evaluation. EEG gain is comparator MAE minus EEG-dependent model MAE, so positive values favor adding EEG. The mean of three rotation MAEs is a descriptive summary of dependent panels.
+
+Earlier classical contrasts retain 4,000 paired crossed-bootstrap draws resampling participants and title families, with fixed seed 425401. Their percentile intervals describe the reused development panels. They do not correct for validation selection and have no established coverage guarantee with six held titles. We do not pool rotations as independent samples or report a confirmatory significance claim. Neural comparisons report all rotation values without constructing a new post-hoc significance test.
+
+\section{Processing and Models}
+\subsection{Trial-local EEG and acquisition quality}
+Signed ADC counts were calibrated using qualified recording headers and retained in a common thirty-channel scalp order. Native sampling rates were 250 or 1,000 Hz. For each trial, a thirty-two-second interval ending at its recorded end marker supplied processing context. The qualified eligible marker spans are at least 34.106 seconds, so this interval remains inside the recorded trial. After edge trimming, the core covers approximately end-minus-30 through end-minus-2 seconds: seven nonoverlapping four-second windows at 128 Hz, shaped \(7\times30\times512\).
+
+The fixed offline pipeline uses common-average referencing, a native-rate 50-Hz notch with \(Q=30\), forward/backward Butterworth bandpass filtering configured as \(N=4\), 0.5--45 Hz, and polyphase resampling with a Kaiser window (\(\beta=5\)) and line edge extension. Filtering is trial-local and acausal; no real-time prediction claim follows.
+
+Before referencing, the temporally processed core identifies channels with SD above \(100\,\mu\mathrm{V}\) or peak-to-peak amplitude above \(1{,}000\,\mu\mathrm{V}\). One to three detected channels are repaired in the calibrated native interval using spherical-spline interpolation \cite{perrin1989spherical}, nominal standard-1020 positions, fifty Legendre terms, stiffness four and regularization \(10^{-5}\). More than three detections holds processing. Complete source preparation repairs eight of 980 trials, involving nine channel/trial events; the other 972 retain unchanged processed bytes. No ICA or augmentation is used.
+
+A separate fixed availability policy examines raw rail occupancy, identical adjacent counts, processed amplitude and residual line power. Any channel exceeding raw rail fraction \(10^{-4}\), identical-adjacent fraction 0.95, processed SD outside \(0.1\)--\(100\,\mu\mathrm{V}\), peak-to-peak above \(1{,}000\,\mu\mathrm{V}\), or 49--51/1--45-Hz power ratio 0.10 makes the trial's EEG unavailable. Numerical failure or exceeded repair capacity also makes it unavailable. These are engineering rules, not validated biological artifact labels.
+
+All source trials pass the final policy. Fifteen of 280 validation trials are unavailable, including fourteen trials for one participant with a rail-fixed electrode. We retain every outcome and participant. Joint models fall back to their declared source-fitted context branch; EEG-only models use the source global median. Thus 265 trials (94.64\%) have available EEG, while all 280 contribute to assessment. The policy was frozen before its cached sensitivity replay, but initial development outcomes had already been examined; its development-informed origin remains part of the study's adaptive status.
+
+\subsection{EEG-free context controls}
+The thirteen metadata features comprise eight assigned-category indicators, three acquisition-group indicators, nominal catalogue duration and presentation ordinal. Acquisition groups distinguish legacy-1,000-Hz, legacy-250-Hz and modern-1,000-Hz recordings. Metadata are supplied at inference by the experiment. Assigned category represents intended elicitation and is not the evaluated person's measured valence. The comparison is conditional on this information being available; it does not establish a context-free deployment recipe.
+
+We retain source global, coarse-valence and assigned-category median priors, a standardized context Ridge regressor and a context Gaussian radial-basis-function (RBF) regressor. No unfamiliar-video identity one-hot, evaluated-person label or held-video rating consensus is supplied. Familiar-video medians are legal only in the secondary familiar-material arm.
+
+The matched Ridge grid uses intercepts and alphas \(\{0.1,1,10,100,1000\}\), with separate source-only standardization. Each feature family selects alpha by unfamiliar-validation MAE, then MSE, then declared alpha order. Context selects 0.1, 100 and 100 across rotations. The initial classical stage comprises 45 candidate fits and 45 selected-setting source OOF fits. These are development-selected models. The five-control minimum reported for neural comparisons is a retrospective per-panel benchmark, not an independently selected deployable context recipe.
+
+\subsection{Spectral and covariance controls}
+Spectral features use fixed half-open bands 1--4, 4--8, 8--13, 13--30 and 30--45 Hz. A 512-sample Hann window, constant detrending and Welch density scaling produce integrated band powers. Features average \(\log_{10}\max(P,10^{-8})\) across the seven windows, yielding 150 channel/band values. EEG-only Ridge and joint context-plus-spectral Ridge use the same five-alpha grid as context.
+
+The covariance diagnostic integrates real cross-spectra in the same bands and averages across all seven windows. For band matrix \(C_b\), we compute
+\begin{equation}
+\widetilde C_b=0.9\,C_b/\operatorname{tr}(C_b)+0.1\,I/30.
+\end{equation}
+The symmetric matrix logarithm is vectorized in its upper triangle, weighting off-diagonal entries by \(\sqrt{2}\). Five log-total-power features give \(5\times465+5=2{,}330\) values. This is a trial-local log-Euclidean representation; it does not reproduce an affine-invariant tangent-space method.
+
+Seven fixed diagnostic conditions comprise covariance Ridge, joint covariance Ridge, context RBF, spectral RBF, joint spectral RBF, covariance RBF and joint covariance RBF. Linear covariance alphas are 1,000 alone and 100 jointly, reflecting preceding spectral settings; kernel alpha is fixed at 0.1. RBF inputs use source-only standardization, block weights \(1/\sqrt{d}\), and \(\gamma\) equal to the inverse source median positive squared distance. Source target means provide offsets. These conditions introduce no new validation-dependent kernel tuning, although the programme follows previously inspected outcomes. Each has one main and five source-participant OOF fits per rotation (126 fits). Twelve source-only capacity fits at alpha \(10^{-6}\) use real or shuffled targets; shuffled labels are never treated as original outcomes.
+
+\subsection{EEGNet regression and residual learning}
+The local EEGNet-8,2 regression adapter has 1,841 trainable parameters. Its backbone uses eight length-64 temporal filters, depth multiplier two, a length-16 depthwise temporal convolution, sixteen pointwise filters, ELU, batch normalization, average pooling by four and eight, and dropout 0.5. A scalar linear head replaces classification. Post-update max-norm constraints are one for spatial weights and 0.25 for head weights. The port's backbone was checked against pinned author code; the scalar adapter and optimization are local.
+
+Channel means and SDs are fitted exclusively on source windows, with an SD floor of \(10^{-6}\,\mu\mathrm{V}\). The \(K=7\) window outputs average before one trial-level loss. With source offset \(a_i\) and fixed rating scale \(s=7\), training minimizes
+\begin{equation}
+\frac{1}{N}\sum_i
+\left[
+\frac{1}{K}\sum_{w=1}^{K} f_\theta(X_{iw})
+-\frac{y_i-a_i}{s}
+\right]^2.
+\end{equation}
+EEG-only uses the source global median offset. The context-residual model uses participant-excluded source OOF context predictions as training offsets and the full source-fitted context model at inference. Unbounded prediction is \(a_i+s\,K^{-1}\sum_w f_\theta(X_{iw})\); two seed predictions are averaged before final clipping. An unavailable EEG input receives its offset directly.
+
+AdamW uses weight decay 0.01 and batches of eight original trials. All fits run 120 epochs, with checkpoints at 30, 60 and 120. Rotation 0 evaluates two readouts, learning rates \(\{0.0003,0.001,0.003\}\) and seeds 20261101/20261102, totaling twelve fits. Each readout selects a complete two-seed schedule by its unfamiliar-panel ensemble MAE; ties within \(10^{-8}\) favor earlier epochs and lower rates. Selected schedules transfer unchanged to rotations 1 and 2, adding eight fits. Familiar validation does not select schedules.
+
+The fixed diagnostic is limited to twenty neural fits and six charged GPU hours. Source learning is assessed separately using unbounded eval-mode predictions with training offsets. A source MSE decrease greater than 10\% between epochs 60 and 120 flags continuing learning under the available budget. Other checks cover source learning relative to offset-only MSE and seed divergence. These engineering flags and the programme's 0.15-unit continuation margin are resource/continuation rules, not psychometric effect thresholds or tests of absent neural information.
+
+\section{Results}
+\subsection{Unfamiliar-material prediction}
+Table~\ref{tab:results} reports every declared main condition on the unfamiliar panels after the fixed fallback policy. Spectral joint Ridge has mean MAE 1.2156, compared with 1.2577 for context Ridge: mean gain 0.0422. Its rotation gains are \(-0.0062,+0.0332,+0.0995\); corresponding descriptive 95\% intervals are \([-0.1837,0.1553]\), \([-0.0950,0.1596]\) and \([-0.0351,0.2476]\). Each includes zero. The category prior also outperforms spectral joint Ridge in rotation 0.
+
+\begin{table*}[t]
+\centering
+\caption{Participant/title-equal unfamiliar-validation MAE in original 0--7 valence units; lower is better. Every rotation has twenty participants and six held titles. Means summarize dependent development panels. Ridge alphas are development-selected; kernel settings are fixed; neural schedules are selected on rotation 0 and transferred unchanged.}
+\label{tab:results}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Information & Predictor & Rotation 0 & Rotation 1 & Rotation 2 & Mean\\
+\midrule
+No EEG & Source global median & 1.5812 & 1.5143 & 1.5338 & 1.5431\\
+No EEG & Source coarse-valence median & 1.2851 & 1.2745 & 1.3821 & 1.3139\\
+No EEG & Source category median & 1.2220 & 1.2316 & 1.3269 & 1.2602\\
+No EEG & Context Ridge & 1.2526 & 1.2099 & 1.3106 & 1.2577\\
+No EEG & Context RBF & 1.2624 & 1.2883 & 1.3546 & 1.3018\\
+\midrule
+EEG & Spectral Ridge & 1.5319 & 1.4691 & 1.4739 & 1.4917\\
+Context + EEG & Spectral Ridge & 1.2588 & 1.1767 & 1.2111 & 1.2156\\
+EEG & Covariance Ridge & 1.6403 & 1.5314 & 1.6529 & 1.6082\\
+Context + EEG & Covariance Ridge & 1.5721 & 1.5821 & 1.5556 & 1.5699\\
+EEG & Spectral RBF & 1.7838 & 1.5157 & 1.6510 & 1.6502\\
+Context + EEG & Spectral RBF & 1.3197 & 1.2275 & 1.3581 & 1.3018\\
+EEG & Covariance RBF & 1.5522 & 1.5066 & 1.5483 & 1.5357\\
+Context + EEG & Covariance RBF & 1.2236 & 1.2109 & 1.2672 & 1.2339\\
+EEG & EEGNet regression & 1.6517 & 1.6212 & 1.5549 & 1.6093\\
+Context + EEG & EEGNet residual regression & 1.1907 & 1.3110 & 1.2633 & 1.2550\\
+\midrule
+No EEG & Best of five controls, retrospectively & 1.2220 & 1.2099 & 1.3106 & 1.2475\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Joint covariance RBF improves on its matched context kernel by mean 0.0678, but the kernel context comparator is weaker than context Ridge. Its gain against context Ridge is only 0.0238, and its mean MAE 1.2339 is above spectral joint Ridge's 1.2156. Matched kernel gains are \(+0.0388,+0.0773,+0.0874\), with descriptive intervals \([-0.1064,0.1681]\), \([-0.0617,0.2255]\) and \([-0.0623,0.2449]\). This comparison illustrates why a favorable matched contrast should be reported beside stronger existing controls.
+
+Rotation 0 selects learning rate 0.001/epoch 30 for EEGNet-only and 0.003/epoch 120 for its residual counterpart. EEGNet-only performs worse than the best EEG-free control in all rotations, with mean gain \(-0.3618\). Residual gains against the five-control minimum are \(+0.0314,-0.1011,+0.0473\), averaging \(-0.0075\). The residual regressor's mean error is close to context Ridge, but improvements do not reproduce consistently across the dependent panels.
+
+\begin{figure*}[t]
+\centering
+\paperfigure{figures/mae_comparison.pdf}{Unfamiliar-panel MAE comparison; generated from audited public summaries.}
+\caption{Declared unfamiliar-material comparisons. Each rotation reuses the same validation people and overlapping titles; points are development results, not independent test estimates.}
+\label{fig:comparison}
+\end{figure*}
+
+\subsection{Source capacity and neural learning}
+Representation controls distinguish source fitting from held-person prediction. Context plus covariance Ridge attains mean source training MAE 0.255, but source-participant OOF MAE 1.778. Joint covariance RBF attains 0.358 and 1.363, respectively; matched context RBF's OOF error is 1.291. Flexible source fits therefore do not, by themselves, establish useful transfer.
+
+At kernel alpha \(10^{-6}\), spectral readouts attain mean raw source MAE 0.0000375 for real targets and 0.0000456 for shuffled targets. Covariance errors are 0.0000055 and 0.0000065. These capacity controls show that both representations can fit arbitrary source assignments. Independent equation residuals are at most \(1.78\times10^{-12}\); unfinished iterative optimization does not explain these closed-form source fits. They provide no evidence that shuffled labels generalize.
+
+Neural training has a different limitation. Five of the six selected rotation/readout panels trigger the fixed continuing-learning flag. For example, rotation-0 EEG-only source MSE falls from 2.0986/2.2626 at epoch 60 to 1.8116/1.8154 at epoch 120 for the two seeds; residual MSE falls from 1.8219/1.7463 to 1.6067/1.5326. No selected panel triggers insufficient-source-learning or seed-divergence rules. Validation results consequently support conclusions about these fixed training schedules, rather than about optimally trained EEGNet or the best possible EEG representation.
+
+\begin{figure*}[t]
+\centering
+\paperfigure{figures/source_learning.pdf}{Selected neural source MSE at the recorded checkpoints.}
+\caption{Selected neural learning diagnostics. Source MSE uses unbounded eval-mode predictions with source-median or participant-OOF training offsets; it is distinct from online normalized dropout loss and full-context source inference.}
+\label{fig:learning}
+\end{figure*}
+
+\subsection{Coverage, sensitivity and reproducibility}
+Unavailable-EEG counts in unfamiliar/familiar arms are 6/9, 7/8 and 7/8 across rotations. Every arm retains its original denominator. The spectral joint mean gain changes from 0.0417 before the availability policy to 0.0422 afterward, a small cached sensitivity change without refitting or alpha reselection. This does not establish artifact-free recordings or broad acquisition robustness.
+
+Leave-one-title-out residual EEGNet gain ranges are \([-0.0341,0.0886]\), \([-0.1331,-0.0773]\) and \([0.0100,0.0683]\). Acquisition groups contain only 1, 9 and 10 validation people. These descriptive sensitivities do not support stable acquisition-group effects or performance-based exclusions.
+
+The final diagnostic replays source window bytes and QC for all 980 source trials and the 265 available validation inputs before cached target reuse. Separate numerical and identity audits reconstruct context/OOF offsets, predictions, fallback rows, metrics, clipping, ensembles, schedule selection and learning flags. Retained evidence includes 84,000 checkpoint prediction rows, 8,400 ensemble rows and 1,800 no-EEG control rows. Sixty checkpoint states pass hash, finiteness, geometry, update-counter and norm-constraint checks. These checks do not constitute an independent checkpoint-to-waveform forward replay.
+
+Twenty neural fits finish in 1.275 charged GPU hours; final execution including replay takes 1.476 hours on an RTX 3050 Laptop GPU. Peak PyTorch allocator reservation is 160 MiB, excluding driver/context overhead. Runtime versions are Python 3.11.13, PyTorch 2.5.1 and CUDA 12.4. cuDNN deterministic mode is enabled and benchmarking disabled; global deterministic algorithms are not enabled. A preserved first attempt stops before neural fitting on a cached-label join error. The corrected attempt skips only identified shuffled source-capacity controls and retains the same original targets, quality policy and scientific grid.
+
+\section{Discussion}
+The clearest empirical observation is the strength of EEG-free information under the declared inference contract. Metadata Ridge reduces mean unfamiliar-panel error from the global prior's 1.5431 to 1.2577. Spectral EEG alone has error 1.4917, while the joint spectral model is somewhat better than context on average. Joint and EEG-only questions should therefore remain separate: a model may add a small correction to a context estimate without supporting a strong standalone emotion decoder.
+
+The covariance comparison demonstrates sensitivity to the comparator. A 0.0678-unit gain over matched context RBF becomes 0.0238 against stronger context Ridge and does not exceed the earlier spectral joint result. The EEGNet residual version likewise has small positive gains in two panels and a larger negative gain in the third. Reporting only a favorable panel or a weaker baseline would give a different impression from the complete comparison.
+
+Source learning diagnostics constrain interpretation. Closed-form kernel controls fit real and shuffled assignments almost exactly, yet show substantially worse held-participant errors. The compact neural model learns source targets but usually continues improving near its fixed training limit. These observations concern different mechanisms: high source capacity does not ensure transferable information, while incomplete neural convergence prevents a strong optimized-model null. Neither observation identifies a biological absence of emotion-related EEG activity.
+
+The contribution of this study is its explicit and reproducible evaluation contract and complete bounded comparison for retrospective individual valence. Its practical implication is to present supplied-context controls, per-trial acquisition coverage, material grouping and learning diagnostics alongside EEG scores. It extends a specific empirical setting already motivated by stimulus-confound and affect-regression work; it does not claim the first demonstration of contextual predictability.
+
+\subsection{Limitations and confirmation boundary}
+First, all performance results are development results. Ridge selection uses unfamiliar validation, neural schedules use rotation 0, and the broader sequence was informed by earlier inspected outcomes. Keeping later neural schedules fixed does not make rotations 1 and 2 independent tests: their participants, clips and targets overlap prior exploration. Descriptive bootstrap intervals omit selection uncertainty.
+
+Second, the unfamiliar sample contains six titles per panel and lacks held-out Fear/Inspiration materials. The reserved eight-family roster could support a later fixed-roster assessment, but no result from it is reported here. More participants or EEG windows cannot substitute for broader independent materials. A future confirmation must freeze one recipe, its context comparator and analysis before joining reserved outcomes.
+
+Third, a retrospective whole-clip rating is not a momentary affect trajectory. Marker-relative late windows have no authenticated scene alignment or physical latency calibration. Title grouping reduces one source of overlap without proving footage or semantic independence. Test--retest reliability and the contribution of memory, response style and other rating factors have not been established.
+
+Fourth, the context comparison assumes experimenter metadata at inference. A new deployment may not supply an assigned category or acquisition label. These results do not apply unchanged to that setting. Fixed whole-trial fallback preserves coverage but forgoes potentially usable remaining channels; alternative repair or masking would require separately qualified source controls.
+
+Finally, scratch EEGNet, fixed kernels and spectral/covariance features do not span modern EEG models. We have not executed a matched foundation-model baseline under this target/split contract. Pretraining overlap, architecture-specific optimization and author-processed-data provenance remain unqualified at that scope. Lower error from a future method would require the same target, input availability and selection boundaries for a fair comparison.
+
+\section{Conclusion}
+On reused FACED development panels, experimenter metadata predicts retrospective individual valence strongly enough that EEG-dependent models require careful incremental comparisons. Spectral joint regression shows a small inconsistent advantage; a covariance kernel's advantage shrinks against a stronger metadata comparator; and the bounded EEGNet residual diagnostic does not consistently improve on the strongest EEG-free controls. All unavailable EEG trials remain scored, and source-capacity and learning diagnostics qualify these findings. The evidence supports an exploratory, auditable report of this setting. Independent confirmation and broader material coverage are needed before asserting robust EEG benefit or its absence.
+
+\section*{Data and Code Availability}
+Original FACED data and author code are distributed through the dataset's Synapse project \cite{chen2023faced}. Our implementation, declared protocols, anonymous development predictions, technical receipts, complete candidate results and public numerical replay scripts are available in the accompanying repository.\footnote{\url{https://github.com/Overproness/GRU-XNet_EEG_Emotion_Recognition}. Scientific result packets used here are bound to revision \texttt{249f5fa161e4}; the manuscript directory supplies its own evidence map.} We do not redistribute original recordings, stimuli or author archives. Reserved numerical outcomes are not included. The original dataset study's participant procedures are described by its authors; this work collects no new recordings.
+
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

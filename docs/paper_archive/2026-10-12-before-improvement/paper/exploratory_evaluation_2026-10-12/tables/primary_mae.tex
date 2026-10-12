@@ -1,0 +1,19 @@
+\begin{table}[tbp]
+\centering
+\small
+\caption{Unfamiliar-film validation MAE on the original 0--7 rating scale (lower is better).}
+\label{tab:primary}
+\begin{tabular}{lrrrr}
+\toprule
+Predictor & R0 & R1 & R2 & Mean \\
+\midrule
+Category median (source selected) & 1.222 & 1.232 & 1.327 & 1.260 \\
+Category Ridge (source selected) & 1.252 & 1.234 & 1.315 & 1.267 \\
+Full-context Ridge (source selected) & 1.253 & 1.220 & 1.338 & 1.270 \\
+Matched context, $\alpha=100$ (sensitivity) & 1.258 & 1.210 & 1.311 & 1.260 \\
+Spectral + context Ridge (frozen) & 1.259 & 1.177 & 1.211 & 1.216 \\
+EEGNet + context residual (frozen) & 1.191 & 1.311 & 1.263 & 1.255 \\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize Each panel contains 20 held people and six title families; all outcomes, including unavailable EEG, are retained. The mean is a descriptive average of dependent rotations. Category/full-context selection is source-person-only and familiar-title CV; frozen EEG recipes were previously development selected. Matched context is a separately declared retrospective sensitivity with the historical joint fallback shared by both methods on acquisition failures.\end{minipage}
+\end{table}

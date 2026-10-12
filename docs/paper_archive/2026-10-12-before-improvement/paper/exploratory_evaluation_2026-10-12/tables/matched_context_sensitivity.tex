@@ -1,0 +1,19 @@
+\begin{table}[tbp]
+\centering
+\small
+\caption{Retrospective fixed-alpha matched-context sensitivity; no new fits.}
+\label{tab:matched}
+\begin{tabular}{rlrrrl}
+\toprule
+R & Titles & Context MAE & Joint MAE & Fallbacks & Gain [95\% interval] \\
+\midrule
+0 & Unfamiliar & 1.258 & 1.259 & 6 & -0.001 [-0.166, +0.163] \\
+0 & Familiar & 1.173 & 1.198 & 9 & -0.026 [-0.125, +0.081] \\
+1 & Unfamiliar & 1.210 & 1.177 & 7 & +0.033 [-0.095, +0.160] \\
+1 & Familiar & 1.247 & 1.216 & 8 & +0.031 [-0.091, +0.145] \\
+2 & Unfamiliar & 1.311 & 1.211 & 7 & +0.099 [-0.035, +0.248] \\
+2 & Familiar & 1.167 & 1.214 & 8 & -0.047 [-0.170, +0.070] \\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize Available trials use cached context-only and joint spectral Ridge predictions at alpha 100, the same source identities, 13 contextual columns and source scaling rule. On every unavailable EEG trial, both methods use the unchanged historical joint fallback; paired gain is exactly zero. The declared comparison includes every familiar and unfamiliar outcome. Development reuse and retrospective choice of alpha remain limitations.\end{minipage}
+\end{table}

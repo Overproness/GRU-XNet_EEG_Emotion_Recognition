@@ -1,0 +1,130 @@
+{
+  "passed": true,
+  "audit_date": "2026-10-12",
+  "audited_utc": "2026-10-12T15:55:27.839619+00:00",
+  "scope": "Independent public-only arithmetic and identity replay, with no producer or classical helper import; no new fit or original/private/protected data access.",
+  "activation_sha256": "362ac1a7b89da24194771e024c0b7f94582641ecd48b879676417f0aa0c2c463",
+  "evidence_sha256": "7df056095f40e441002ae14aed1524e08edd999d9badebb9794b49840a5cc844",
+  "producer_receipt_sha256": "f046ce7de4bc8c4ad23563fb32666b0392987012fcccf962bf44e64cd49481dd",
+  "input_binding_count": 21,
+  "producer_output_binding_count": 10,
+  "quality_csv_rows_used": 1680,
+  "paired_units_joined": 840,
+  "panels": 6,
+  "crossed_draws_independently_replayed": 24000,
+  "explicit_cartesian_loss_cells_averaged": 3360000,
+  "leave_one_family_checks": 42,
+  "acquisition_metric_records_checked": 36,
+  "anchor_predictions_unchanged": 840,
+  "shared_fallbacks_per_rotation": {
+    "0": 15,
+    "1": 15,
+    "2": 15
+  },
+  "max_prediction_or_gain_discrepancy": 0.0,
+  "max_interval_endpoint_discrepancy": 1.1102230246251565e-16,
+  "new_fits": 0,
+  "raw_original_or_private_access": false,
+  "protected_access": false,
+  "results": [
+    {
+      "rotation": 0,
+      "arm": "validation_unseen",
+      "pairs": 120,
+      "families": 6,
+      "shared_fallbacks": 6,
+      "gain": -0.0005540926476611381,
+      "descriptive_interval": [
+        -0.16640111548962588,
+        0.16312765806752402
+      ],
+      "interval_includes_zero": true,
+      "matched_mae": 1.2582927962507577,
+      "joint_mae": 1.2588468888984188
+    },
+    {
+      "rotation": 0,
+      "arm": "validation_familiar",
+      "pairs": 160,
+      "families": 8,
+      "shared_fallbacks": 9,
+      "gain": -0.025643869161100896,
+      "descriptive_interval": [
+        -0.12538959558820675,
+        0.08069619778087207
+      ],
+      "interval_includes_zero": true,
+      "matched_mae": 1.1727432074846469,
+      "joint_mae": 1.1983870766457478
+    },
+    {
+      "rotation": 1,
+      "arm": "validation_unseen",
+      "pairs": 120,
+      "families": 6,
+      "shared_fallbacks": 7,
+      "gain": 0.03320894516393721,
+      "descriptive_interval": [
+        -0.09504006037046449,
+        0.15959429939511915
+      ],
+      "interval_includes_zero": true,
+      "matched_mae": 1.209883933363008,
+      "joint_mae": 1.1766749881990708
+    },
+    {
+      "rotation": 1,
+      "arm": "validation_familiar",
+      "pairs": 160,
+      "families": 8,
+      "shared_fallbacks": 8,
+      "gain": 0.03103874070290697,
+      "descriptive_interval": [
+        -0.09080566463270426,
+        0.1449016596868833
+      ],
+      "interval_includes_zero": true,
+      "matched_mae": 1.2466200973240025,
+      "joint_mae": 1.2155813566210953
+    },
+    {
+      "rotation": 2,
+      "arm": "validation_unseen",
+      "pairs": 120,
+      "families": 6,
+      "shared_fallbacks": 7,
+      "gain": 0.0994571405654669,
+      "descriptive_interval": [
+        -0.035136214988970925,
+        0.24758150901066858
+      ],
+      "interval_includes_zero": true,
+      "matched_mae": 1.310596234178277,
+      "joint_mae": 1.2111390936128104
+    },
+    {
+      "rotation": 2,
+      "arm": "validation_familiar",
+      "pairs": 160,
+      "families": 8,
+      "shared_fallbacks": 8,
+      "gain": -0.04699216421895587,
+      "descriptive_interval": [
+        -0.17010370121911697,
+        0.06960657764378349
+      ],
+      "interval_includes_zero": true,
+      "matched_mae": 1.1673094840892668,
+      "joint_mae": 1.2143016483082227
+    }
+  ],
+  "audit_attempts": [
+    {
+      "disposition": "First inline audit stopped before numeric replay due to incorrect capitalization EEG_used; no receipt was written. Corrected schema uses eeg_used and preserves all declared calculations."
+    },
+    {
+      "disposition": "Full corrected independent replay passed."
+    }
+  ],
+  "limits": "This audits cached predictions, fallback identity and arithmetic; it does not independently refit Ridge, numerically inspect coefficient/scaler arrays, reproduce waveform forward inference or supply scientific confirmation. Producer historical pending marker remains intact; this receipt supplies the later independent disposition."
+}

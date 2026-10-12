@@ -5,15 +5,18 @@
 ## Decisions requiring the authors
 
 - [ ] Read the main note and supplement and agree that the exploratory retrospective-valence framing represents the work. If replacing the official original paper/question, explicitly approve that replacement; the existing sources and archives remain preserved.
-- [ ] Confirm Muhammad Wasif Shakeel and Muhammad Muntazar as the authors, their order, current affiliations and email addresses. Designate a corresponding author and obtain both authors' consent to the final text and submission.
+- [x] Author order confirmed by the user on 12 October: **Muhammad Muntazar, then Muhammad Wasif Shakeel**.
+- [ ] Confirm current affiliations and email addresses. Designate a corresponding author and obtain both authors' consent to the final text and submission.
 - [ ] Confirm a venue and an acceptable publication budget. Country-tier pricing depends on the publisher's eligibility rules, including the corresponding author's residence; affiliation alone establishes no discount. No fee or waiver is guaranteed by this package.
 - [ ] Supply actual funding and grant details, or confirm that there was no specific funding. Equipment ownership is not a verified funding declaration.
 - [ ] Supply competing-interest information, or confirm the appropriate no-competing-interests declaration for every author.
 - [ ] Agree on actual author contributions (for example, conceptualization, methodology, software, formal analysis, investigation, writing and supervision). No division of work has been inferred from names or repository ownership.
 - [ ] Confirm applicable institutional requirements for secondary use of existing human-participant EEG data. The original dataset's consent and approval do not by themselves establish this authors' institution's determination. Do not invent approval numbers, exemptions or consent.
+- [ ] Resolve the venue's written-consent requirement for the original recordings. The [original FACED paper](https://www.nature.com/articles/s41597-023-02650-w) reports Tsinghua University ethics approval THU201906 and informed consent from all subjects, but its inspected Subjects section does not specify written versus verbal consent. Record the applicable source/secondary-data policy evidence rather than assuming compliance.
 - [ ] Confirm any acknowledgements and obtain permission from named people where required by the venue.
 - [ ] Confirm originality, simultaneous-submission status and previous-publication/preprint information. Public GitHub drafts and results should be disclosed where the venue asks; the package does not certify these declarations for the authors.
 - [ ] Review references, numerical claims and generated code independently. Complete the publisher's AI-assistance disclosure accurately. AI tools cannot be authors and cannot accept authors' responsibility.
+- [ ] Verify the exact AI system/model/version from the relevant session records, including figure-code preparation. The product used is OpenAI Codex; a historical underlying model/version has not been inferred.
 
 ## Scientific boundaries to retain
 

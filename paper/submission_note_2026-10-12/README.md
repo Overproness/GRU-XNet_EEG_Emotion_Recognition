@@ -2,7 +2,7 @@
 
 Prepared 12 October 2026. This is a separate venue-format preparation of completed FACED development results. It preserves the [seven-page empirical draft](../current_progress_2026-10-12/README.md), the original GRU-XNet manuscript and their archives. No new fitting, target access or confirmation experiment is performed.
 
-The working route is a **BMC Research Notes research note**, conditional on author review, budget and venue selection. Preparing this version neither submits it nor commits a publication fee. The [current venue qualification](../../docs/publication/FACED_Submission_Route_Qualification_2026-10-12.md) records official criteria, cost qualifications and alternatives.
+The preparation target is a **BMC Research Notes research note**. The author confirmed on 12 October that paid journals can be included when the fit is strong. Final author approval, actual fee eligibility and the submission decision remain outstanding. Preparing this version neither submits it nor commits a publication fee. The [current venue qualification](../../docs/publication/FACED_Submission_Route_Qualification_2026-10-12.md) records official criteria, cost qualifications and alternatives.
 
 ## Review artifacts
 
@@ -18,7 +18,7 @@ This version condenses the main argument while retaining every declared conditio
 
 The main body is a review draft. Author-confirmed declarations, authorship consent and final venue requirements remain outstanding. The original official manuscript/question has not been replaced. The author's earlier instruction to see findings and approve an actual research-question change remains respected; this package makes the proposed framing reviewable.
 
-DENS supplies no paper results. Its missing execution/export definitions are tracked separately and are not a dependency for this FACED-only paper. The DENS inquiry remains unsent.
+DENS supplies no paper results. Its missing execution/export definitions are tracked separately and are not a dependency for this FACED-only paper. A separately authorized DENS inquiry was [submitted once through the author-linked form](../../results/development/dens_author_contact_2026-10-12/README.md); no reply or usable trial join is established.
 
 ## Rebuild
 

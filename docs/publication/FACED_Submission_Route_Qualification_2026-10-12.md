@@ -4,6 +4,8 @@ Official publisher pages checked 12 October 2026. This is a route recommendation
 
 **Recommendation: prepare a BMC Research Notes research-note package for author review, subject to budget and final author approval.** Its explicit additional-control and inconclusive-project categories fit the completed comparison more closely than a new-architecture paper. The evidence remains an adaptive development study; the journal's scope does not remove its scientific limitations. PLOS ONE is a possible full-length alternative. Behavior Research Methods supplies a verified subscription route without a mandatory APC, but requires a stronger case for broadly useful research methodology.
 
+The author subsequently confirmed in this session that paid journals may be included if the fit is strong. BMC Research Notes is therefore the concrete preparation target; this is not approval of a specific invoice, certification of author declarations or a manuscript submission.
+
 ## Official requirements and conditional fit
 
 | Route | Verified requirements | Assessment for this draft |

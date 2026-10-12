@@ -16,6 +16,6 @@ Before sending this letter, the authors must add truthful declarations covering 
 
 Sincerely,
 
-Muhammad Wasif Shakeel and Muhammad Muntazar
+Muhammad Muntazar and Muhammad Wasif Shakeel
 
 Author details and signatures subject to confirmation.

@@ -63,7 +63,7 @@ Preparing a metadata-only freeze and synthetic precision study passes the author
 
 ## Review scope and pending executable audit
 
-This review used the prior completed public findings, independent audit and protocol documents, plus the three original metadata JSON files for the reservation/category-support check described above. No original data decoder was executed. A later review of the dormant runner and synthetic precision output will check that they enforce the boundaries above; no numerical confirmation results can be produced at this stage.
+This review used the prior completed public findings, independent audit and protocol documents, plus the three original metadata JSON files for the reservation/category-support check described above. No original data decoder was executed. The implementation and synthetic-output checks completed below do not produce numerical confirmation results.
 
 ## Read-only implementation preflight
 
@@ -77,4 +77,35 @@ The precision script accepts only explicit public reservation/design metadata fi
 
 Its 256 synthetic matrices per scenario/dimension and 512 bootstrap draws per matrix are bounded planning calculations, distinct from the prospective 4,000 empirical descriptive resamples. Four assumed variance allocations and hypothetical 66-person/16-family designs test sensitivity. The supplied gain of 0.045 was informed by published development summaries, and the design discloses that it is not blinded to those aggregates. No empirical variance is used. A passed reproducibility check cannot turn `precision_gate_passed: false` into a scientifically adequate precision gate.
 
-This preflight finds no scientific boundary violation in those code paths. An initial independent fixture-only run passed 35 tests. After the target-phase and prediction-lock safeguards were added, the final independent run passed **41 tests in 1.33 seconds**, with pytest caching disabled. Those tests manufacture every numerical outcome; their real-file reads are limited to the declared public metadata. They check inactive access, each required gate, source/role/family identities before numerical conversion, complete denominators, immutable prediction projections before target conversion, common fallback, clip-loss/family weighting and crossed-bootstrap math. The synthetic execution receipt and independent synthetic-output recount remain to be inspected after the producer completes. The preceding no-lead hold remains binding regardless of that result.
+This preflight finds no scientific boundary violation in those code paths. An initial independent fixture-only run passed 35 tests. After the target-phase and prediction-lock safeguards were added, the final independent run passed **41 tests in 1.33 seconds**, with pytest caching disabled. Those tests manufacture every numerical outcome; their real-file reads are limited to the declared public metadata. They check inactive access, each required gate, source/role/family identities before numerical conversion, complete denominators, immutable prediction projections before target conversion, common fallback, clip-loss/family weighting and crossed-bootstrap math. The synthetic receipt and independent recount are reported below. The preceding no-lead hold remains binding.
+
+## Frozen packet review before synthetic execution
+
+The reviewer checked the root's `FACED_Independent_Confirmation_Protocol_2026-10-12.md`, metadata-only preparation script and new public `contract.json`, `selected_claim.json` and `activation.json`. All **51 current input/code/paper bindings and 42 preserved prior evidence bindings** independently match their recorded hashes. The semantic contract digest, precision-plan digest and original `report.tex` digest also match. Prior prediction exports were authenticated as opaque bytes only; their numeric contents were not parsed during this review.
+
+The packet explicitly authorizes only the bounded synthetic simulation. It authorizes zero empirical fits or original-data access; question approval, confirmation access, empirical precision and continuation gates remain false, as do every contract activation gate. The protocol states that the final source states and end-to-end protected backend are unfinished. No scientific blocker was found to executing the declared synthetic study. This review does not clear any empirical gate or approve adopting the future question.
+
+## Independent audit of completed synthetic outputs
+
+The declared producer completed one bounded run after activation commit `a70f71553`. This reviewer then audited only `precision_plan.json`, `precision_replicates.json`, `precision_summary.json`, `precision_receipt.json`, `activation.json` and `contract.json` in the new public packet. No producer or empirical-data reader was invoked.
+
+The independent recount passes:
+
+- All 4,096 unique scenario/layout/replicate records cover the declared 16 cells with 256 records each. All 48 reporting rows reproduce from those records.
+- Coverage, positive/negative endpoint and zero-exclusion counts, rates, Monte Carlo standard errors, mean/median widths and mean biases agree. Finite interval endpoints are correctly ordered.
+- Subject, family and interaction mean-variance terms reproduce as `subject_SD²/N`, `title_SD²/J` and `interaction_SD²/(N×J)`; their sum, oracle standard error and infinite-participant material floor agree.
+- The receipt's output, activation and plan hashes match. The metadata geometry remains 33 people/eight families/nine clips for the primary rectangle. The simulation and every empirical gate retain their declared sealed/false status.
+- Independently replaying the **first three matrices of every scenario/layout** gives 48 seeded fixture checks. The reviewer reconstructs the two child streams from `SeedSequence([2026101209, scenario_index, dimension_index])`, explicitly repeats indices according to every multinomial count, and averages the resulting Cartesian matrix cells. This independently verifies **24,576 bootstrap means**, using a different resampling implementation from the producer's matrix multiplication. The maximum discrepancy in stored means/percentile endpoints is **5.55e-17**, below the audit tolerance of 1e-12. The remaining 4,048 matrices were recounted from their stored records, not regenerated.
+
+For the actual reserved **dimensions**, the synthetic assumptions give the following sensitivity at an assumed gain of 0.045. These are not observed FACED interval widths or empirical power estimates.
+
+| Assumed variance allocation | Mean synthetic interval width | Positive lower endpoints out of 256 | Synthetic true-gain coverage |
+| --- | ---: | ---: | ---: |
+| Low | 0.1619 | 50 (19.5%) | 93.4% |
+| Participant dominant | 0.2233 | 38 (14.8%) | 94.9% |
+| Title dominant | 0.3864 | 23 (9.0%) | 91.4% |
+| Balanced | 0.3220 | 21 (8.2%) | 96.1% |
+
+The simulation does not certify nominal coverage: even these idealized cases vary in observed coverage, with finite Monte Carlo error. It shows that the small roster can yield uncertain direction for a small assumed gain and that conclusions depend on how variance is allocated. It does not estimate actual protected variability, guarantee benefit from more films, satisfy an empirical precision requirement or establish that a final 14-title fit would have the historical gain.
+
+**Final scientific decision remains a hold.** The exploratory present claim is defensible within its stated scope; the new confirmation proposal is reviewable and frozen but inactive. The numerical audit passes as a synthetic reproducibility check. Neither it nor the guard tests provide a reproducible EEG lead, resolve neural convergence, authenticate original footage, qualify final source states/backend exports, or authorize a research-question change or protected confirmation.

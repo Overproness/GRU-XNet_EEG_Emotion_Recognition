@@ -2,6 +2,10 @@
 
 Deep learning architecture for multi-dataset EEG-based emotion recognition using bidirectional GRU networks with self-attention mechanisms.
 
+## Approved exploratory paper (12 October 2026)
+
+The author approved revising the current-progress paper as **Context Controls and EEG Pairing in Retrospective Valence Prediction: An Exploratory FACED Study**. The [main paper](paper/exploratory_evaluation_2026-10-12/output/pdf/faced_exploratory_evaluation.pdf), [supplement](paper/exploratory_evaluation_2026-10-12/output/pdf/faced_exploratory_supplement.pdf) and [review package](paper/exploratory_evaluation_2026-10-12/README.md) contain the category-supported baseline qualification, fixed-alpha matched context comparison and all pairing/adverse results. These are reused development panels; independent confirmation outcomes remain sealed. The [fresh archive](docs/paper_archive/2026-10-12-before-approved-exploratory-revision/README.md) preserves both preceding paper packages. The original GRU-XNet model and scores below remain historical. No submission has been made.
+
 ## Publication revision (6 October 2026)
 
 **Completed 9 October 2026:** all 4,080 training trajectories, 2,040 selected neural cases and 340 context cells in the [fold-local tuning protocol](docs/publication/Heldout_Tuning_Protocol_2026-10-06.md) are complete and verified. [Full findings](results/development/heldout_tuning_2026-10-06/FINDINGS.md) and [completion/recovery record](docs/publication/GRU-XNet_Heldout_Tuning_Status_2026-10-06.md) retain every grouping, initialization and contrast. On familiar DEAP videos, EEG-plus-context gives 76.09% balanced accuracy versus 78.05% for calibrated context alone; EEGNet gives 50.85% on unseen videos. This phase establishes no reliable EEG gain over both context controls. It reuses existing cohorts and leaves the manuscript/research question unchanged.

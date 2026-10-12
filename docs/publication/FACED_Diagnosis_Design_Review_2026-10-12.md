@@ -60,4 +60,3 @@ After this diagnostic, stop and interpret all declared conditions. A favorable p
 - Availability-aware same-arm donor derangements with explicit singleton handling and recipient fallback invariance.
 - Synthetic tests for source-only transforms, identity-before-target guards, donor constraints, complete denominators, error-averaging rather than prediction-averaging, and fixed context in both predictors.
 - A declaration distinguishing the new source-selected contextual comparison from the earlier adaptively chosen anchors and documenting all fit/time/row caps.
-

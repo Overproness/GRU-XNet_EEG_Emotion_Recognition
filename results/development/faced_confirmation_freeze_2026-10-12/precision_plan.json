@@ -1,0 +1,165 @@
+{
+  "schema": "faced_synthetic_confirmation_precision_v1",
+  "date": "2026-10-12 Asia/Karachi",
+  "status": "declared_not_executed",
+  "metadata_projection": {
+    "source_participants": 70,
+    "validation_participants": 20,
+    "protected_participants": 33,
+    "development_title_families": 14,
+    "protected_title_families": 8,
+    "protected_clips": 9,
+    "protected_nominal_trials": 297,
+    "protected_person_title_cells": 264,
+    "source_only_development_rectangle_trials": 980,
+    "same_title_rule": "Average paired losses within clips 7/8 before family-equal averaging",
+    "protected_family_clip_projection": [
+      {
+        "family": "17b430e261761eac2aac1db0c5c54b7b8149397a9ff84451e067e483a868cc9c",
+        "clips": [
+          1
+        ]
+      },
+      {
+        "family": "5df64085eabe6014810a58e088b46b4c6df6818059fd4fe722f755983c15ad0d",
+        "clips": [
+          19
+        ]
+      },
+      {
+        "family": "5f5cc4c8eba7f9c05b25a3894ba5243b240ab5e0b9a613c7cedd753835906a0e",
+        "clips": [
+          24
+        ]
+      },
+      {
+        "family": "a4095fa372c248b6d378bf2ee895745cdaad55301588a9da6f69ca987f60e89a",
+        "clips": [
+          21
+        ]
+      },
+      {
+        "family": "a8ef43f86efc87cf71abc9343316a350b642622c02fcfb1eaed4a411bb984f8a",
+        "clips": [
+          10
+        ]
+      },
+      {
+        "family": "c31adc54446c63b4b3c0f84a4be07d9ccb8dee57f89f9e8d54310315e9386f6a",
+        "clips": [
+          7,
+          8
+        ]
+      },
+      {
+        "family": "f32808c4f6039dc05abacc35ade7dd9192e34803e3e1cfecdd2e8809e293804b",
+        "clips": [
+          5
+        ]
+      },
+      {
+        "family": "f8cedecc59d2df823f9df0d0c2c05edaa1dca390496bbf4eedf649635710be8b",
+        "clips": [
+          26
+        ]
+      }
+    ],
+    "empirical_value_access": false
+  },
+  "metadata_bindings": {
+    "results/development/faced_backup_2026-10-10/participant_reservation.json": "f41b319f8d3c27db7966560f7a7bc0b6392eb5e1528892c8d4d445557014d087",
+    "results/development/faced_design_proposal_2026-10-11/recommended_proposal.json": "caa2a3d1cceddb89911ae08cb620d7e2105830e67394bd9dae4fddd0354f28d0"
+  },
+  "code_bindings": {
+    "scripts/faced_confirmation_precision_2026_10_12.py": "3ba26fa3c28228cd76d27ac18487d6a3046ce6a2fc4f91f433dad7c35062f2f4",
+    "tests/test_faced_confirmation_precision.py": "f5f016c3a1d3197fd04f1898ba00342d7988ba49476cb3825a2dc345a813f56f",
+    "docs/publication/FACED_Confirmation_Precision_Design_2026-10-12.md": "92183f81c40cca1ae23a4f0df5560040156562eb0c33e4a092693a043a5ca89e"
+  },
+  "conditions": {
+    "model": "D_ij = delta + A_i + B_j + E_ij; independent zero-mean Gaussian random effects",
+    "effect_sign": "Positive paired absolute-loss difference means lower EEG-model loss",
+    "variance_scenarios": [
+      {
+        "name": "low",
+        "subject_sd": 0.1,
+        "title_sd": 0.1,
+        "interaction_sd": 0.2
+      },
+      {
+        "name": "participant_dominant",
+        "subject_sd": 0.3,
+        "title_sd": 0.05,
+        "interaction_sd": 0.2
+      },
+      {
+        "name": "title_dominant",
+        "subject_sd": 0.05,
+        "title_sd": 0.3,
+        "interaction_sd": 0.2
+      },
+      {
+        "name": "balanced",
+        "subject_sd": 0.2,
+        "title_sd": 0.2,
+        "interaction_sd": 0.4
+      }
+    ],
+    "scenario_provenance": "Fixed analyst-chosen sensitivity assumptions; not empirical estimates",
+    "gain_provenance": "The root supplied 0.045 after published development summaries; scenarios are not blinded to public aggregates, but no empirical variance calibration is used",
+    "dimensions": [
+      {
+        "subjects": 33,
+        "titles": 8,
+        "status": "actual_reserved_dimensions_only"
+      },
+      {
+        "subjects": 66,
+        "titles": 8,
+        "status": "hypothetical_more_people_not_available_confirmation"
+      },
+      {
+        "subjects": 33,
+        "titles": 16,
+        "status": "hypothetical_more_titles_not_available_confirmation"
+      },
+      {
+        "subjects": 66,
+        "titles": 16,
+        "status": "hypothetical_both_not_available_confirmation"
+      }
+    ],
+    "true_gains": [
+      0.0,
+      0.045,
+      0.15
+    ],
+    "units": "Valence rating points in paired absolute-loss differences",
+    "replicates_per_scenario_dimension": 256,
+    "crossed_bootstrap_draws_per_replicate": 512,
+    "bootstrap_method": "Independently resample both complete person and title axes with replacement; percentile quantiles 0.025/0.975",
+    "quantile_method": "NumPy linear",
+    "rng": "numpy.random.default_rng, SeedSequence([2026101209, scenario_index, dimension_index]).spawn(2)",
+    "seed": 2026101209,
+    "translation_reuse": "The same zero-gain matrix and bootstrap samples are translated by each fixed gain",
+    "report_rows": 48,
+    "synthetic_matrices": 4096,
+    "bootstrap_means": 2097152,
+    "cpu_time_cap_seconds": 300,
+    "wall_time_cap_seconds": 300,
+    "new_empirical_fits": 0,
+    "confirmation_access": false,
+    "precision_gate_passed": false,
+    "raw_eeg_access": false,
+    "original_ratings_access": false,
+    "cached_target_or_prediction_access": false,
+    "limits": [
+      "A Gaussian loss-difference approximation has unbounded support outside actual paired losses [-7,7]; it is not a rating generator or fitted EEG model",
+      "Simulation coverage/exclusion rates apply only to this synthetic random-effects model",
+      "Eight catalogue titles are an assigned roster, not a random representative sample of all films",
+      "Training/selection uncertainty, non-Gaussian errors, acquisition heterogeneity and missingness are omitted",
+      "The 0.15 gain is an engineering sensitivity value, not a clinically validated margin",
+      "The 66-person/16-title cases are hypothetical design comparisons, not permission to reassign protected roles",
+      "These calculations do not establish empirical power, promise significance or authorize confirmation access"
+    ]
+  }
+}

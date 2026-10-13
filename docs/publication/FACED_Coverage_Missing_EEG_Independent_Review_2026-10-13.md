@@ -47,3 +47,38 @@ The reviewer independently ran the combined new synthetic suite with cache disab
 All **53 operative activation bindings** independently rehash correctly. The operative declaration SHA-256 is `00518fa7ba145284e53c47d8a01b456a5affbdde3073999c45708a1687c878b4`. A separate metadata-only call to the actual source evidence guard confirms 980 source identities, 979 available trials, training-imputation counts `[1,1,1,1,1,1,0,0,1,1]` and zero unavailable held rows in every cell. Neither qualification nor fitting start markers existed at this final review. No private array or source/validation/protected target was opened by this review.
 
 **Final pre-freeze disposition: no remaining scientific or implementation blocker was identified to committing, pushing and executing the separately declared source-cache qualification.** Numeric source target conversion and fitting remain conditional on that qualification and its independent numerical mean audit. Protected access, confirmation activation and manuscript claims remain outside this disposition. The old strict quality gate remains false and its completed no-fit packet remains preserved.
+
+## Actual pre-label numerical qualification
+
+The new source-only worker was frozen and pushed in Git `63011548a` before source numerical access. Cache qualification completed in approximately **13.72 wall seconds and 4.27 process-CPU seconds**, within both 600-second caps. It read exactly 2,937 regional feature vectors from the 979 jointly available source trials, retaining a 979-by-3-by-150 snapshot (440,550 scalars). All three caches of the shared-unavailable trial were skipped. No target, fit, new raw decode, validation or protected value was involved in that phase.
+
+After authenticating the entire public source identity/mask/order and snapshot bytes, the reviewer was explicitly authorized to open that one available-source snapshot numerically. The [independent qualification audit](../../results/development/faced_coverage_missing_2026-10-13/qualification_independent_audit.json) checked all **2,937** regional array hashes against original source lineage and independently recomputed **twenty fold-specific joint means plus two full-source means**. All twenty-two mean hashes agreed exactly without rounding. The eight 447-donor cells, two 448-donor cells, one 979-donor full-source mean set and every missing/held identity exclusion were verified before any new source target conversion. No unavailable source array, waveform, original rating or fitted state was opened.
+
+The exact qualification receipt SHA-256 is `995f4a16163515bb024c69a690f5cc7f0fd6f25d8b49ecb65c61a69237ff0f1e`; the mean fixture SHA-256 is `f15ab4d04399717977249229ef9a2a88d679e38e69e3d13c16341d8e19d2b3be`. They were bound by the independent receipt before fitting and committed in Git `1ca3ca5a0`. The old strict quality gate remained false. A passing masked-input eligibility audit is not a claim that the rejected region has been repaired or qualified.
+
+## Completed source comparison and independent result audit
+
+The declared **90 CV fits plus three full-source state fits** completed successfully in approximately **2.00 wall seconds and 0.4844 process-CPU seconds**, within both 600-second caps. All 980 original source ratings/context rows were retained in the full-source fits, including the shared-unavailable trial. The following values are source development results, not validation or reserved outcomes. Lower MAE is better.
+
+| Candidate | Alpha 0.1 | Alpha 10 | Alpha 100 |
+| --- | ---: | ---: | ---: |
+| Matched context with common QC routing | 1.344964 | 1.346004 | 1.366504 |
+| Context plus late EEG | 1.791457 | 1.576159 | 1.464617 |
+| Context plus distributed EEG | 1.874804 | 1.580078 | 1.445543 |
+| Category median | 1.303970 | 1.303970 | 1.303970 |
+
+The predeclared shared-alpha rule selected **100**, and the source nomination is **distributed-joint at alpha 100**. At that fixed primary diagnostic setting, distributed coverage reduced MAE by **0.019073706** relative to late coverage. It nevertheless increased MAE by **0.079039150** relative to matched context and by **0.141572940** relative to category medians. At alpha 0.1 and 10, distributed coverage was worse than late; every EEG candidate was worse than both context references in MAE. The nominee is therefore merely the better coverage branch under the declared selection rule, **not a qualifying EEG advantage or independently reproduced lead**.
+
+The [independent result audit](../../results/development/faced_coverage_missing_2026-10-13/independent_audit.json) passes. It independently checked all **7,560 Ridge predictions and 840 category predictions**, all nine candidate metrics and 100 cell metrics, original target agreement, held-source identities and family weighting. All 840 category-median predictions were independently reconstructed from the appropriate 56 same-category training source ratings. It verified all **93** source fit recipes, **62** joint mean/donor manifests and **31** matched context-scaler triplets, with byte-identical context-moment hashes across each model triplet. Shared-alpha selection, nomination, all signed contrasts and resource receipts agree.
+
+The result audit read only emitted public source outcomes/predictions and receipts. It did not independently refit the models or reopen private fitted states. Final private state prediction replay was executed by the frozen worker and its source-only receipt was checked for state/identity/alpha/mean-hash agreement. The independently recomputed twenty-two actual means were qualified earlier, before labels; this is stronger than checking donor identities alone but is still not a second raw EEG processing execution or model fit.
+
+All **53** new activation bindings and all **13** preserved held-proposal bindings independently rehash after execution. The result audit also preserves all **31** saved-paper bindings, **31** archive source/copy pairs and **93** old inactive-confirmation/prior-evidence bindings. No old strict packet or gate was changed, and no validation or reserved outcome was opened. Protected export qualification and confirmation activation remain false.
+
+## Scientific disposition
+
+The missing-input policy and coverage runner are now technically qualified for this source comparison, and the adverse evidence is complete. **This experiment supplies no EEG-utility lead over competitive context controls.** The small alpha-100 timing gain does not justify calling distributed coverage a new method, claiming useful emotion-specific neural information or presenting independent improvement in a revised paper.
+
+The source diagnostic does not establish that EEG lacks useful information, that a better neural representation would fail or that the target is intrinsically unlearnable. Spectral Ridge, the supplied context, selected materials and reused source data delimit its interpretation; neural optimization and independent generalization remain unresolved. The naturally failed source trial never appears in a held panel, so actual fallback performance remains unmeasured here despite synthetic qualification.
+
+A future limited-roster independent evaluation would need an explicit scientific rationale for estimating an uncertain or adverse effect, qualified end-to-end protected exports, a fixed primary estimand and precision review before activation. It must not be sold as confirmation of a positive source lead. Broader model expansion or consuming the reservation solely to seek a favorable score is not supported by this result. Saved papers remain unchanged; any new manuscript evidence must clearly distinguish this adaptive source experiment from independently held confirmation.

@@ -1,6 +1,23 @@
 # Inactive FACED confirmation proposal with common missing-EEG handling
 
-13 October 2026, Asia/Karachi. **Preparation only; comparison outcomes, common alpha and nominee are pending.** The user authorized a separately declared matched source comparison with shared, label-blind missing-EEG handling. That authorization does not activate protected recordings or ratings. This proposal authorizes no fitting or numerical data access by itself. The [previous held proposal](FACED_Coverage_Confirmation_Proposal_2026-10-13.md), its bound metadata, saved papers and old inactive confirmation contract remain immutable.
+13 October 2026, Asia/Karachi. **Inactive proposal; completed source disposition `source_comparison_complete_no_incremental_lead`.** The user authorized a separately declared matched source comparison with shared, label-blind missing-EEG handling. That authorization does not activate protected recordings or ratings. This proposal authorizes no fitting or numerical data access by itself. The [previous held proposal](FACED_Coverage_Confirmation_Proposal_2026-10-13.md), its bound metadata, saved papers and old inactive confirmation contract remain immutable.
+
+## Completed result and continuation decision
+
+The [completed source comparison](../../results/development/faced_coverage_missing_2026-10-13/completion.json) executed ninety CV fits and three final source-state fits under the new declaration. The frozen rule selects common alpha **100** and algorithmically nominates **distributed joint Ridge**. That nomination is not an incremental EEG lead.
+
+| Predictor | MAE on the same 840 held source pairs |
+| --- | ---: |
+| Category median | 1.3040 |
+| Matched context Ridge, alpha 100 | 1.3665 |
+| Late joint Ridge, alpha 100 | 1.4646 |
+| Distributed joint Ridge, alpha 100 | 1.4455 |
+
+At the fixed diagnostic alpha 100, distributed coverage improves MAE over late by **0.019074**, but its gain over matched context is **−0.079039** and over category median is **−0.141573**. Thus the nominated joint model remains worse than both contextual references. These are adaptive source-development estimates, with no independent confidence interval or general EEG-information conclusion. The complete [nine-condition comparison](../../results/development/faced_coverage_missing_2026-10-13/comparison.json) preserves unfavorable conditions and the exact selection rule.
+
+The independent [post-result audit](../../results/development/faced_coverage_missing_2026-10-13/independent_audit.json) reproduces emitted source metrics, source-category predictions, selection, donor manifests and common contextual scaling. The preceding qualification independently recomputed twenty fold and two full-source numerical imputation means. It did not independently refit the models or replay private fitted-state predictions. The producer's source-state algebra receipt is distinct from a qualified protected original-file/export backend, which remains absent. Real held missing-input cases number zero, so the known source failure does not provide an empirical held-input fallback test.
+
+**No automatic confirmation or reservation consumption follows.** A reviewed limited-roster estimate could remain scientifically useful despite an unfavorable source result, but that rationale, precision scope, backend/state qualification and separate author access decision remain false gates. This proposal neither recommends a useful EEG lead nor proves that EEG lacks useful information. It changes no saved paper claim. The [final metadata proposal](../../results/development/faced_coverage_missing_confirmation_proposal_2026-10-13/proposal.json) binds the completed comparison and keeps protected activation disabled.
 
 ## What changes and what remains an observed failure
 
@@ -24,7 +41,7 @@ The source design retains ninety CV fits: context-only, late joint and distribut
 
 Secondary nomination fixes one common alpha by the smallest equal-model mean MAE across the three model families, then mean MSE and the declared alpha order. At that common alpha, the lower-MAE joint representation is nominated; ties use MSE and then prefer late. All three final source Ridge states are then fitted on the same 980 identities, with their matching category prior and source-only transforms, under the new declaration's fit/state budget. No validation participant is promoted into source.
 
-No numerical result is asserted here before completion and independent audit. Any eventual nomination is source-only adaptive selection, not independent replication, validated optimality or novelty. Source material selection qualifies only the six categories with two development titles; singleton Fear and Inspiration remain training-only. Increased temporal sampling does not solve the previously reported neural-convergence limitation.
+The completed nomination remains source-only adaptive selection, not independent replication, validated optimality or novelty. Source material selection qualifies only the six categories with two development titles; singleton Fear and Inspiration remain training-only. Increased temporal sampling does not solve the previously reported neural-convergence limitation.
 
 ## Proposed independent purpose and fixed catalogue scope
 
@@ -64,8 +81,8 @@ Before the first protected rating conversion, lock **all four methods' complete 
 
 The old strict attempt and old inactive superior-recipe contract remain unchanged, including their false gates. A valid new masked-input policy is a separate qualification; it never changes the old all-regions-available source gate from false to true. The earlier 0.15 engineering screen is unmet and is not a perceptual or equivalence margin; synthetic planning did not certify empirical precision. A separately reviewed decision must justify spending the reservation for this limited-roster estimate, acknowledge uncertainty and qualify the exact source-policy/state/backend receipts. That decision cannot be inferred from a favorable source score or the current manuscript approval.
 
-Every gate in this new proposal remains false until explicitly qualified and activated: exact nomination, reviewed scientific purpose/precision, source missing-input policy/state, real export backend, bounded protected byte/count/time scope, independent pre-access review, author access approval and complete prediction locks. No protected signals or ratings are accessed by this preparation. No prediction, comparator, alpha, interval, title subset, target or source role may be changed after protected outcomes. Failure of identity, annotation, resource, state, export or target checks preserves the attempt and stops execution without an outcome-driven retry.
+Source nomination and masked-input qualification are completed development facts, not protected activation. Every future activation gate remains false: reviewed scientific purpose/precision, independent final-state export/prediction replay, real protected-file backend, bounded protected byte/count/time scope, independent pre-access review, author access approval and complete prediction locks. No protected signals or ratings are accessed by this preparation. No prediction, comparator, alpha, interval, title subset, target or source role may be changed after protected outcomes. Failure of identity, annotation, resource, state, export or target checks preserves the attempt and stops execution without an outcome-driven retry.
 
-## Pending completion
+## Remaining activation dependencies
 
-The source comparison, independent numerical/policy audit and root completion receipt remain dependencies before a final bound metadata proposal is written. Common alpha, nominated joint recipe and all predictive gains are pending rather than guessed. Saved papers remain unchanged. Successful source selection could supply a finalist for independent review; it would not itself remedy reused development evidence, establish architectural novelty or guarantee acceptance at a stronger venue.
+The source comparison, independent numerical/policy audit and root completion receipt are complete. The frozen source rule provides distributed joint at alpha 100 as an algorithmic candidate, while the evidence supplies no incremental EEG lead. Saved papers remain unchanged. A useful new purpose/precision decision and full state/backend/export/access qualification remain dependencies before spending the reservation. Source selection does not remedy reused development evidence, establish architectural novelty or guarantee acceptance at a stronger venue.

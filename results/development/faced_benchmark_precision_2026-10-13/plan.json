@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-13",
+  "status": "predeclared_source_only_precision_planning",
+  "candidate": "distributed_joint",
+  "frozen_alpha": 100.0,
+  "comparisons": {
+    "primary_matched_eeg_gain": [
+      "context_only",
+      "distributed_joint"
+    ],
+    "secondary_practical_gain": [
+      "category_median",
+      "distributed_joint"
+    ],
+    "secondary_coverage_gain": [
+      "late_joint",
+      "distributed_joint"
+    ]
+  },
+  "source_scope": {
+    "participants": 70,
+    "held_pairs_per_method": 840,
+    "held_clips_per_person": 12,
+    "held_categories": 6,
+    "cv_prediction_rows": 8400,
+    "numeric_rows_used": 3360,
+    "training_only_categories_without_held_support": [
+      "Fear",
+      "Inspiration"
+    ]
+  },
+  "future_scope_metadata_only": {
+    "participants": 33,
+    "title_families": 8,
+    "clips": 9,
+    "df": 32
+  },
+  "weighting": "Absolute clip losses, then within-person/family mean, equal families, equal people",
+  "planned_outputs": [
+    "all four source method errors",
+    "all three fixed contrasts",
+    "70 anonymous participant gains",
+    "all 12 held-title gains",
+    "all six held category gains and target descriptive support",
+    "two training-only zero-support category entries",
+    "plug-in paired-t halfwidth for 33 people",
+    "SD multiplier and hypothetical resolution planning",
+    "unknown Fear/Inspiration SD/correlation sensitivity",
+    "bounded-gain worst-case halfwidth guard"
+  ],
+  "engineering_halfwidths": [
+    0.05,
+    0.1,
+    0.15
+  ],
+  "sd_multipliers": [
+    0.5,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "hypothetical_n_search": [
+    2,
+    10000
+  ],
+  "unknown_category_sensitivity": {
+    "supported_weight": 0.75,
+    "unsupported_weight": 0.25,
+    "unknown_mean_sd": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      7.0
+    ],
+    "correlations": [
+      -1.0,
+      0.0,
+      1.0
+    ]
+  },
+  "interpretation": "Source descriptive summaries and transport assumptions only; no certified future precision, power, clinical margin, equivalence or independent source interval",
+  "future_paired_t_assumptions": "Independent participant gains; approximate sampling distribution; conditional on fixed films/states; no recruitment-representativeness or arbitrary-film guarantee",
+  "selection_and_state_mismatch": "Repeated adaptive source choice; 448-row fold fits and two material branches per person differ from one frozen 980-row future state",
+  "new_models_or_fits": 0,
+  "resampling_or_selection": 0,
+  "validation_numeric_access": false,
+  "protected_numeric_access": false,
+  "original_recording_or_rating_access": false,
+  "confirmation_activated": false,
+  "bindings": {
+    "results/development/faced_coverage_missing_2026-10-13/cv_predictions.json": "f644264e1010cb2d096d2f464942fff769755a4506a1d3a36786c2d936c00314",
+    "results/development/faced_coverage_missing_2026-10-13/comparison.json": "cde8aae72c196cdc794b97049c3d04917a9e41996b20afac78b2abdb649cf22b",
+    "results/development/faced_coverage_missing_2026-10-13/completion.json": "2db18d7c5441a19018fae979d3a1b2c40eddd9b256b2a56b109a820cf9c01ba4",
+    "results/development/faced_coverage_missing_2026-10-13/independent_audit.json": "c213551939addb07fd793c333cdc5df2fe09351517672dfc0d188ecca32d1c6a",
+    "results/development/faced_temporal_coverage_preflight_2026-10-12/plan.json": "53e416fe1d7955a25b9077e26303efb6d9ec294effd5a167a14c4c8925753347",
+    "results/development/faced_coverage_selection_preflight_2026-10-13/plan.json": "b5ae3535d2a58166541b07e0e97804a539309036e151a6c5df82d757d922b6e7",
+    "results/development/faced_coverage_missing_confirmation_proposal_2026-10-13/proposal.json": "a0064cf7063991c379733def33eeeea528ec2da4eefac9347a5bad6d7fe022e1",
+    "results/development/faced_codebooks_2026-10-10/audit.json": "3837897d7eb9c9b8ccb9c1a0739cef00e166b366fed640086954129bd2aaaaac",
+    "scripts/assess_faced_benchmark_precision_2026_10_13.py": "40fd83ff8bdc84dec32acefe8393d835d27165e21d9a2830a25d3ccd2b7a498e",
+    "tests/test_faced_benchmark_precision.py": "3306f953c37b0a4bd864fe604c7052d261ea544eb1fb0b6c032a7d36f59f38e4",
+    "docs/publication/FACED_Benchmark_Precision_Plan_2026-10-13.md": "0fc6fa726b5d0303b3bdc74e4b7c2bf0982b9cc1e888aabe47bf351b0820df89"
+  }
+}

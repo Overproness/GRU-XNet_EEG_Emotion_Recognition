@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-13",
+  "completed_utc": "2026-10-13T10:52:32.572977+00:00",
+  "status": "held_no_source_finalist",
+  "attempt_completed": true,
+  "completed_phases": [
+    "complete_source_signal_preparation",
+    "independent_source_qc_audit"
+  ],
+  "comparison_executed": false,
+  "accuracy_or_negative_predictive_result": false,
+  "source_trials": 980,
+  "source_people": 70,
+  "source_regions": 2940,
+  "available_regions": 2939,
+  "unavailable_regions": 1,
+  "unavailable_trials": 1,
+  "failures": [
+    {
+      "subject": "sub-087",
+      "vid": 20,
+      "region": "middle",
+      "reasons": [
+        {
+          "channel": "Fp2",
+          "reason": "high_processed_excursion"
+        }
+      ]
+    }
+  ],
+  "by_region": {
+    "early": {
+      "regions": 980,
+      "unavailable": 0
+    },
+    "middle": {
+      "regions": 980,
+      "unavailable": 1
+    },
+    "late": {
+      "regions": 980,
+      "unavailable": 0
+    }
+  },
+  "late_exact_replays": 980,
+  "native_scalar_counts": 1915200000,
+  "preparation_wall_seconds": 1242.2339999999385,
+  "preparation_cpu_seconds": 332.296875,
+  "cached_source_targets_converted": 0,
+  "original_rating_decodes": 0,
+  "ridge_cv_fits": 0,
+  "full_source_state_fits": 0,
+  "category_prior_constructions": 0,
+  "fixed_alpha100_coverage_gain": null,
+  "shared_alpha": null,
+  "source_nominee": null,
+  "validation_numeric_access": false,
+  "confirmation_access": false,
+  "saved_papers_preservation": {
+    "paper_bindings": 31,
+    "archive_source_copy_pairs": 31,
+    "inactive_confirmation_bindings": 93
+  },
+  "source_quality_arithmetic_audit_passed": true,
+  "source_quality_scientific_gate_passed": false,
+  "synthetic_verification": {
+    "passed_tests": 100,
+    "elapsed_seconds": 4.07,
+    "command": "python -m pytest -q tests/test_faced_coverage_execution.py tests/test_faced_coverage_selection.py tests/test_faced_temporal_coverage.py tests/test_faced_coverage_qc_audit.py tests/test_faced_coverage_results_audit.py -p no:cacheprovider",
+    "scope": "Manufactured inputs, role/QC/byte-range guards, SVD matching, budget and metric/selection arithmetic; no actual target fitting"
+  },
+  "worker_freeze_commit": "fb5d1f645f025c088882d02e3957bad2d12bf3e6",
+  "public_bindings": {
+    "activation.json": "59862d0da2fcb41410f7517e8c26c85cba91310d97a8ab9b32ee89936f2f4bc1",
+    "activation_v2.json": "55957fd5237f6aa7f9461cebc35e89b776e1129e1cae19e93ba69b28f85b12dd",
+    "README.md": "bb9738ab6535debefbe99e24aad88412e07d4fc77031f72686b407b706d92d21",
+    "preparation_started.json": "19d0737ca2a35ffb808aa6e2a9cbdb97174a4d90744ebb1d179bc6801dff387b",
+    "source_regions.jsonl": "49226997fc9fa3ebd3937ac19656be4b709f45d84c0805f1f21400d3ed2de736",
+    "source_gate.json": "2abe3e1ac360205c2156fce3104d18507ccc17dd66b4b318ffc1e960fb08a468",
+    "source_qc_independent_audit.json": "fcb03fff9cf56a16533ad273325b9e71d1d51cf43826e9b846a41ab7a0eaa53d",
+    "independent_audit.json": "5f99bcda2de9c66b3ab11e3c8cc8a875da3d351c86e778b610e68d7d0a88b09c",
+    "source_geometry_diagnostics.json": "264a2ff1414bcaf6e803a90f3ed65c29b182d7426d04b706dcb3fefaa58831b9"
+  },
+  "finalizer_sha256": "3e0f75faf444ed09bd7178c96f39a2cac940031c229da15d07cb619b7c185367",
+  "disposition": "Strict unchanged complete-source QC held all target conversion and fitting. No failed region was excluded, imputed, repaired again or used to promote a historical model within this attempt.",
+  "next_dependency": "A separately declared, label-blind common missing-EEG handling policy must be qualified before a new matched source comparison. The fixed confirmation proposal remains inactive without a source finalist.",
+  "limits": "This completed engineering attempt is not a comparison result, evidence of absent EEG utility, independent confirmation, architectural novelty or a revised paper. Whole-file integrity checks transported bytes without interpreting protected outcomes."
+}

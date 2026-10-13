@@ -1,0 +1,325 @@
+{
+  "proposal_version": "faced-coverage-fixed-catalogue-confirmation-inactive-v1",
+  "date": "2026-10-13",
+  "status": "held_no_source_finalist",
+  "metadata_preparation_only": true,
+  "research_question_changed": false,
+  "manuscripts_changed": false,
+  "protected_signal_access_authorized": false,
+  "protected_rating_access_authorized": false,
+  "source_fit_authorized_by_this_proposal": false,
+  "final_backend_implemented_or_qualified": false,
+  "source_experiment_disposition": {
+    "operative_worker_freeze_commit": "fb5d1f645f025c088882d02e3957bad2d12bf3e6",
+    "source_signal_preparation_complete": true,
+    "source_regions": 2940,
+    "source_trials": 980,
+    "source_people": 70,
+    "available_regions": 2939,
+    "unavailable_regions": 1,
+    "unavailable_trials": 1,
+    "failures": [
+      {
+        "subject": "sub-087",
+        "vid": 20,
+        "region": "middle",
+        "reasons": [
+          {
+            "channel": "Fp2",
+            "reason": "high_processed_excursion"
+          }
+        ]
+      }
+    ],
+    "by_region": {
+      "early": {
+        "regions": 980,
+        "unavailable": 0
+      },
+      "middle": {
+        "regions": 980,
+        "unavailable": 1
+      },
+      "late": {
+        "regions": 980,
+        "unavailable": 0
+      }
+    },
+    "late_exact_replays": 980,
+    "native_scalar_counts": 1915200000,
+    "wall_seconds": 1242.2339999999385,
+    "process_cpu_seconds": 332.296875,
+    "wall_and_cpu_cap_seconds_each": 3600,
+    "source_qc_arithmetic_audit_passed": true,
+    "source_qc_scientific_gate_passed": false,
+    "cached_source_targets_converted": 0,
+    "original_rating_decodes": 0,
+    "ridge_cv_fits": 0,
+    "full_source_state_fits": 0,
+    "category_prior_constructions": 0,
+    "accuracy_comparison_executed": false,
+    "accuracy_or_negative_predictive_finding": false,
+    "shared_alpha": null,
+    "source_nominee": null,
+    "historical_recipe_promoted_after_failure": false,
+    "strict_failure_relaxed_or_excluded": false,
+    "validation_numeric_access": false,
+    "confirmation_access": false,
+    "independent_audit_scope": "QC/identity/byte-ledger arithmetic and historical output/hash agreement; no second raw waveform/filter/spectral execution"
+  },
+  "original_source_nomination_rule_not_executed": {
+    "cv_ridge_fit_cap": 90,
+    "total_ridge_fit_cap_with_optional_states": 93,
+    "alphas": [
+      0.1,
+      10.0,
+      100.0
+    ],
+    "primary_development_diagnostic_alpha": 100.0,
+    "common_alpha_rule": "Equal model mean pooled held MAE, equal model mean MSE, alpha order .1/10/100",
+    "coverage_nomination_rule": "Joint coverage MAE at common alpha, then MSE, then prefer late",
+    "held_source_pairs": 840,
+    "material_selection_categories": [
+      "Anger",
+      "Disgust",
+      "Sadness",
+      "Amusement",
+      "Joy",
+      "Tenderness"
+    ],
+    "training_only_singleton_categories": [
+      "Fear",
+      "Inspiration"
+    ],
+    "selection_not_independent_confirmation": true
+  },
+  "source_dependency": {
+    "status": "requires_separately_declared_label_blind_common_missing_eeg_policy",
+    "policy_selected": false,
+    "policy_implemented": false,
+    "policy_activated": false,
+    "example_for_review_only": "Fold-training-only feature-mean imputation, preserving identical source rows/context scaling, common all-three-region availability and fixed category fallback at inference",
+    "current_strict_attempt_remains_held": true,
+    "source_role_reassignment": false,
+    "row_exclusion_or_threshold_relaxation_in_current_attempt": false,
+    "new_declared_fit_and_label_join_needed_before_any_changed_attempt": true
+  },
+  "prospective_question": "On the fixed reserved FACED catalogue roster, does the source-nominated spectral-plus-context Ridge recipe improve retrospective whole-clip valence prediction over matched context-only Ridge for new participants?",
+  "prospective_information_scope": "Incremental predictive utility of supplied spectral inputs within these fixed recipes, context/QC availability policy, trained source states and catalogue; no brain-causal, emotion-specific, arbitrary-film or general EEG-information claim",
+  "roles_and_materials": {
+    "identity_contract_binding": "results/development/faced_confirmation_freeze_2026-10-12/contract.json",
+    "source_identity_sha256": "e531753838ec75ba2dcaab376247de39cf2c032c22552815807c542ba58cebac",
+    "source_participants": 70,
+    "source_development_clips_and_title_families": 14,
+    "source_fit_trials": 980,
+    "development_validation_participants_never_promoted": 20,
+    "protected_participants": 33,
+    "primary_clips": [
+      1,
+      5,
+      7,
+      8,
+      10,
+      19,
+      21,
+      24,
+      26
+    ],
+    "primary_clip_trials": 297,
+    "primary_title_families": 8,
+    "primary_participant_family_cells": 264,
+    "same_family_clips": [
+      7,
+      8
+    ],
+    "familiar_secondary_clips": [
+      2,
+      3,
+      4,
+      6,
+      9,
+      11,
+      12,
+      17,
+      18,
+      20,
+      23,
+      25,
+      27,
+      28
+    ],
+    "familiar_secondary_clip_trials": 462,
+    "catalogue_title_separation_authenticated": true,
+    "original_footage_independence_authenticated": false
+  },
+  "target": {
+    "item_one_based": 10,
+    "name": "retrospective_whole_clip_valence",
+    "scale": [
+      0,
+      7
+    ],
+    "invalid_target_policy": "Stop; no imputation, exclusion, thresholding or endpoint revision"
+  },
+  "signal_definition": {
+    "native_region_seconds": 32,
+    "native_integer_boundaries": {
+      "A": "ceil(marker_start*r)",
+      "B": "floor(marker_end*r)",
+      "N": "32*r",
+      "early_start": "A",
+      "middle_start": "floor((A+B-N)/2)",
+      "late_start": "B-N",
+      "exclusive_stop": "region_start+N"
+    },
+    "processor_core_local_seconds": [
+      2,
+      30
+    ],
+    "common_scalp_channels": 30,
+    "processed_sample_rate_hz": 128,
+    "windows_per_region": 7,
+    "window_samples": 512,
+    "late_features": 150,
+    "distributed_features": 150,
+    "distributed_rule": "Equal arithmetic mean of the three ordered regional spectral vectors; no whole-clip or independent-window claim",
+    "existing_quality_policy_id": "faced-quality-context-fallback-v1",
+    "artifact_sd_uv": 100.0,
+    "artifact_peak_to_peak_uv": 1000.0,
+    "maximum_interpolated_channels": 3,
+    "quality_thresholds_are_engineering_rules_not_validated_labels": true,
+    "prospective_protected_region_preparations": 2277
+  },
+  "prospective_predictors": {
+    "methods": [
+      "source_category_median",
+      "matched_context_ridge",
+      "late_context_spectral_ridge",
+      "distributed_context_spectral_ridge"
+    ],
+    "common_alpha": null,
+    "nominated_joint": null,
+    "common_alpha_must_be_frozen_from_source_selection": true,
+    "alpha_not_automatically_100": true,
+    "all_ridge_source_rows": 980,
+    "context_features": 13,
+    "joint_features": 163,
+    "source_only_per_column_standard_scaling": true,
+    "shared_context_scaler_equality_required": true,
+    "ridge_solver": "svd",
+    "intercept": true,
+    "prediction_clip": [
+      0,
+      7
+    ],
+    "category_prior": "Assigned-category median of the exact source ratings; exact-source global median if category absent",
+    "common_protected_eeg_availability": "All early, middle and late regions must pass fixed QC",
+    "unavailable_policy_for_context_and_both_joints": "Shared exact-source category prior; retain every outcome; zero matched EEG gains and zero coverage difference on unavailable trials",
+    "operational_change_from_historical_late_only_recipe_disclosed": true,
+    "existing_compatible_states_reused_after_qualification_not_automatically_refitted": true,
+    "states_currently_exist": false
+  },
+  "primary_analysis": {
+    "arm": "reserved_unfamiliar_catalogue",
+    "gain": "Matched-context absolute error minus nominated-joint absolute error",
+    "nominated_joint": null,
+    "weighting": "Clip absolute errors first; mean clips within participant/family; equal eight families within participant; equal 33 participants",
+    "full_denominator": true,
+    "uncertainty": {
+      "method": "Participant-level paired t interval",
+      "level": 0.95,
+      "degrees_of_freedom": 32,
+      "formula": "mean(g_i) +/- t(0.975,32)*sample_sd(g_i)/sqrt(33)",
+      "conditional_on": "Exact reserved films, trained source states and source selection",
+      "assumptions_and_limits": "Independent participant gains and approximate sampling distribution; convenience-recruitment representativeness not established; no retraining/selection uncertainty or exact small-sample coverage guarantee"
+    },
+    "primary_comparisons": 1,
+    "hypothesis_test_or_equivalence_margin_added": false,
+    "zero_crossing_interval_interpretation": "Inconclusive about superiority; no equivalence, absence-of-information or negligible-gain claim"
+  },
+  "mandatory_secondary_analysis": {
+    "coverage_gain": "Late-joint absolute error minus distributed-joint absolute error at the already-frozen common alpha; both scored regardless of nominee",
+    "category_median_practical_benchmark": true,
+    "all_method_mae_and_gains": true,
+    "coverage_and_fallback_counts": true,
+    "eight_family_specific_and_leave_one_family_gains": true,
+    "familiar_materials_secondary": true,
+    "crossed_resampling": {
+      "draws": 4000,
+      "seed": 425401,
+      "interval": "Percentile 2.5/97.5",
+      "scope": "Descriptive participant/family sensitivity; never substitutes for fixed primary participant interval",
+      "same_family_weighting_and_shared_draws": true
+    },
+    "secondary_results_never_reselect_primary": true
+  },
+  "prediction_lock": {
+    "required_methods": 4,
+    "both_arms_complete_before_first_protected_target_conversion": true,
+    "trials_per_method": 759,
+    "total_method_trial_predictions": 3036,
+    "required_bindings": [
+      "exact identities and roles/families",
+      "all source model/scaler/prior states",
+      "actual export-byte hashes",
+      "prediction-only value projections"
+    ],
+    "locks_committed_before_targets": true,
+    "currently_locked_predictions": 0
+  },
+  "currently_passed_activation_gates": {
+    "author_specific_proposal_approval": false,
+    "protected_signal_access_approval": false,
+    "protected_rating_access_approval": false,
+    "reviewed_continuation_purpose": false,
+    "reviewed_precision_scope": false,
+    "qualified_common_missing_eeg_policy": false,
+    "new_source_comparison_and_valid_nomination": false,
+    "complete_source_integrity": false,
+    "final_source_state_qualification": false,
+    "actual_file_backend_and_export_qualification": false,
+    "frozen_resource_caps_and_exact_byte_scope": false,
+    "complete_prediction_lock": false
+  },
+  "old_inactive_contract": {
+    "status": "frozen_not_activated",
+    "original_0_15_engineering_continuation_screen_remains_unmet": true,
+    "original_activation_gates_modified": false,
+    "old_screen_is_not_equivalence_or_perceptual_margin": true,
+    "old_synthetic_precision_not_empirical_certification": true,
+    "new_limited_roster_purpose_requires_explicit_reviewed_decision_not_silent_bypass": true
+  },
+  "preservation": {
+    "current_paper_bindings_independently_rehashed_by_proposal_builder": 31,
+    "current_paper_binding_mismatches": [],
+    "coverage_audits_recorded_preservation": {
+      "paper_bindings": 31,
+      "archive_source_copy_pairs": 31,
+      "inactive_confirmation_bindings": 93
+    },
+    "historical_report_and_old_papers_not_edited": true
+  },
+  "proposal_builder_scope": {
+    "reads": "Public metadata/receipts/protocols and opaque hashes only",
+    "raw_recordings_opened": 0,
+    "private_array_reads": 0,
+    "targets_or_predictions_numerically_parsed": 0,
+    "new_fits": 0
+  },
+  "bindings": {
+    "results/development/faced_coverage_selection_2026-10-13/activation_v2.json": "55957fd5237f6aa7f9461cebc35e89b776e1129e1cae19e93ba69b28f85b12dd",
+    "results/development/faced_coverage_selection_2026-10-13/source_gate.json": "2abe3e1ac360205c2156fce3104d18507ccc17dd66b4b318ffc1e960fb08a468",
+    "results/development/faced_coverage_selection_2026-10-13/completion.json": "9a8c421c57884ac814f760f4d39589067c603fbcae1427caf411187257b00319",
+    "results/development/faced_coverage_selection_2026-10-13/source_qc_independent_audit.json": "fcb03fff9cf56a16533ad273325b9e71d1d51cf43826e9b846a41ab7a0eaa53d",
+    "results/development/faced_coverage_selection_2026-10-13/independent_audit.json": "5f99bcda2de9c66b3ab11e3c8cc8a875da3d351c86e778b610e68d7d0a88b09c",
+    "results/development/faced_coverage_selection_2026-10-13/source_geometry_diagnostics.json": "264a2ff1414bcaf6e803a90f3ed65c29b182d7426d04b706dcb3fefaa58831b9",
+    "results/development/faced_coverage_selection_2026-10-13/source_regions.jsonl": "49226997fc9fa3ebd3937ac19656be4b709f45d84c0805f1f21400d3ed2de736",
+    "results/development/faced_coverage_selection_preflight_2026-10-13/plan.json": "b5ae3535d2a58166541b07e0e97804a539309036e151a6c5df82d757d922b6e7",
+    "results/development/faced_confirmation_freeze_2026-10-12/contract.json": "79438bc1a02760429321ed6244ec599c740276b4e8f1616efdce397564813f43",
+    "paper/exploratory_evaluation_2026-10-12/build_receipt.json": "4f852b09f20372e4f6d167ec845c0f3170a8520888383880797df4c3129ea78f",
+    "results/development/faced_confirmation_freeze_2026-10-12/activation.json": "fd0c175379a94bffd9fac059c1bb64bc93df65100f8c6990e2410584c6b86681",
+    "docs/publication/FACED_Coverage_Experiment_Protocol_2026-10-13.md": "72c4e91b69956dee481c95f06040b995c54f8f9659ff694e0f56833f7c147fcd",
+    "docs/publication/FACED_Coverage_Confirmation_Proposal_2026-10-13.md": "778c61198ee12d869e186666caf11360a72c51ff4aed1ae6b6b1a9dbc227e155"
+  },
+  "limitations": "Held engineering attempt; no source finalist, model comparison, independent prediction finding or new algorithm. Proposed confirmation stays inactive until a separately declared source dependency and all backend/state/access/lock gates are resolved; no venue acceptance guarantee."
+}

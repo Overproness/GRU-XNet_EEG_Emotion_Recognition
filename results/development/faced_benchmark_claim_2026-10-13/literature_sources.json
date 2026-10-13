@@ -1,0 +1,123 @@
+{
+  "schema": "faced-benchmark-literature-scope-v1",
+  "checked_date": "2026-10-13",
+  "timezone": "Asia/Karachi",
+  "scope": "Primary-source targeted refresh; not an exhaustive systematic review",
+  "numerical_access": {
+    "original_recordings": false,
+    "original_ratings": false,
+    "private_features_or_states": false,
+    "trial_prediction_arrays": false,
+    "new_fitting": false,
+    "protected_inputs": false,
+    "public_completed_aggregate_findings_only": true
+  },
+  "assessment_document": "docs/publication/FACED_Benchmark_Closest_Method_Assessment_2026-10-13.md",
+  "historical_qualifications_preserved": [
+    "results/development/faced_scope_precision_2026-10-11/closest_method_review.md",
+    "results/development/faced_eegnet_preflight_2026-10-11/closest_method_audit.md",
+    "results/development/faced_eegnet_preflight_2026-10-11/closest_method_source_receipts.json"
+  ],
+  "source_records": [
+    {
+      "id": "gerster_paper_v1",
+      "title": "Stimulus identity rather than emotion drives EEG classification on the FACED dataset",
+      "primary_url": "https://www.biorxiv.org/content/10.64898/2026.06.12.731889v1",
+      "version": "v1",
+      "posted_date": "2026-06-16",
+      "retrieval": "Primary indexed abstract available; direct full-page request 403; full text not qualified today",
+      "verified_boundary": "FACED stimulus identity, assigned versus individual reports, LinearSVC and CLISA classification are already investigated",
+      "not_verified": "Equivalence of every released August method to the June manuscript"
+    },
+    {
+      "id": "gerster_pinned_classification",
+      "primary_url": "https://raw.githubusercontent.com/moritz-gerster/faced-stimulus-confound/156d1efc335c7f399ac7e1647f0245d17afd2486/decoding/classical/classification.py",
+      "revision": "156d1efc335c7f399ac7e1647f0245d17afd2486",
+      "revision_date_provenance": "2026-08-10 in preserved 11 October author-code qualification",
+      "retrieval": "Pinned static source text available; no execution",
+      "verified_boundary": "Balanced outer video folds, inner video C selection and temporal matched controls exist; participant evaluation retains videos",
+      "not_verified": "Numerical published result reproduction or whole-pipeline material-nested preprocessing"
+    },
+    {
+      "id": "gerster_subjective_loader_corroboration",
+      "primary_url": "https://raw.githubusercontent.com/moritz-gerster/faced-stimulus-confound/main/decoding/labels.py",
+      "version": "mutable main text; not a newly pinned revision",
+      "retrieval": "Static source text available; no execution",
+      "verified_boundary": "Individual categorical label uses argmax over first eight emotion scores, not scalar item-10 valence"
+    },
+    {
+      "id": "kong_video_time_prior_v1",
+      "title": "Low-Cost Video-Time Priors as a Strong Baseline for EEG-fNIRS Emotion Regression on Familiar Videos",
+      "primary_url": "https://arxiv.org/html/2610.03618v1",
+      "version": "arXiv 2610.03618v1",
+      "posted_date": "2026-10-02",
+      "retrieval": "Full author manuscript HTML available",
+      "verified_boundary": "Second-level valence/arousal regression for new participants watching familiar videos; source video/time medians and physiological residual comparisons",
+      "not_verified": "Conference acceptance independent of the manuscript conference header"
+    },
+    {
+      "id": "wang_shared_individual_v1",
+      "title": "Modeling Shared and Individual Structure for Cross-Subject Continuous Affect Regression from EEG-fNIRS",
+      "primary_url": "https://arxiv.org/abs/2610.02796v1",
+      "version": "arXiv 2610.02796v1",
+      "posted_date": "2026-10-02",
+      "retrieval": "Author abstract and submission history available; HTML full text failed today; prior method audit retained",
+      "verified_boundary": "Shared familiar-video trajectories, label-free individual EEG calibration and negative search are explicitly reported",
+      "not_verified": "Fresh full-method equivalence audit"
+    },
+    {
+      "id": "pandilova_qeeg_confounds",
+      "title": "Subject Identity Confounds qEEG Emotion Recognition on DEAP and DREAMER",
+      "primary_url": "https://www.mdpi.com/1424-8220/26/17/5327",
+      "doi": "10.3390/s26175327",
+      "published_date": "2026-08-22",
+      "publisher_version_notes_url": "https://www.mdpi.com/1424-8220/26/17/5327/notes",
+      "publisher_update_date": "2026-08-24",
+      "retrieval": "Primary indexed article passages and publisher version notes available; direct complete HTML failed",
+      "verified_boundary": "Evaluation separates inductive, transductive and leakage-prone protocols and examines participant recording signatures",
+      "not_verified": "Fresh complete full-method reproduction"
+    },
+    {
+      "id": "guo_retrospective_tape",
+      "title": "A Deep Learning-Based Retrospective Evaluation Prediction System for Emotional Experiences: Temporal Dynamic Feature Extraction and ERP Neural Mechanisms of the Peak-End Effect",
+      "primary_url": "https://link.springer.com/article/10.1007/s12559-026-10657-9",
+      "doi": "10.1007/s12559-026-10657-9",
+      "version_of_record_date": "2026-09-17",
+      "retrieval": "Publisher full text available",
+      "verified_boundary": "Image-sequence retrospective overall-rating regression with ERP features, TCN attention peak-end gating and LOSO evaluation",
+      "not_verified": "Published model reproduction or equivalence to FACED film-valence annotations"
+    },
+    {
+      "id": "fernandez_heart",
+      "title": "HEART: Hybrid Embedding for Affective and Riemannian Trajectories",
+      "primary_url": "https://recerca.udg.edu/ca/publications/heart-hybrid-embedding-for-affective-and-riemannian-trajectories/",
+      "author_url": "https://exit.udg.edu/jonahfernandez/index.php/publications/",
+      "doi": "10.1109/TAFFC.2026.3729335",
+      "version_status": "University record lists accepted/in press, 2026; exact final publication date not qualified",
+      "retrieval": "Author university abstract and publication listing available; IEEE full page cache miss; candidate preprint PDF 502",
+      "verified_boundary": "Abstract combines continuous VAD regression and categorical classification in the framework and names FACED among three evaluated datasets",
+      "not_verified": "Whether the FACED branch performs individual VAD regression rather than classification; exact target construction, participant/material holdouts and context controls",
+      "unestablished_priority_claim": "First use of individual FACED valence regression; the abstract does not prove a prior equivalent task either"
+    },
+    {
+      "id": "original_faced",
+      "title": "A Large Finer-grained Affective Computing EEG Dataset",
+      "primary_url": "https://www.nature.com/articles/s41597-023-02650-w",
+      "doi": "10.1038/s41597-023-02650-w",
+      "published_date": "2023-10-25",
+      "retrieval": "Direct publisher redirected; indexed primary Methods available; historical source/code qualifications retained",
+      "verified_boundary": "Literature-based categories, existing stimulus databases and valence-blocked presentation precede retrospective reports in the described procedure",
+      "inference": "Categories are intended elicitation context, not each participant's response",
+      "not_verified": "Independent pilot, complete clip-annotation ancestry, absence of later main-cohort recoding, footage independence or physical synchronization"
+    }
+  ],
+  "decision": {
+    "defensible_candidate": "One-time fixed-catalogue estimate of frozen spectral EEG incremental predictive utility relative to availability-matched context Ridge, retaining category median as practical comparator",
+    "positive_development_lead": false,
+    "architectural_novelty": false,
+    "priority_claim_qualified": false,
+    "general_absence_of_eeg_information_claim": false,
+    "independent_confirmation_activated": false,
+    "required_next_gate": "Reviewed finite-roster scientific purpose/precision plus independently qualified states, backend, exports and access decision"
+  }
+}

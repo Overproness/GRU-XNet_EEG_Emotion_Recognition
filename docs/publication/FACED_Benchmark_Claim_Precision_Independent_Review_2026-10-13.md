@@ -1,6 +1,6 @@
 # Independent review of the proposed FACED benchmark claim and precision
 
-13 October 2026, Asia/Karachi. This is a scientific and arithmetic review of a proposed future evaluation, not protected activation. The completed source comparison, historical failed quality gate, saved papers and inactive proposals remain preserved. This reviewer has opened no original recordings, private arrays, original ratings, validation outcome rows or protected numerical inputs. Source prediction arithmetic will be reviewed only after the new planning code and scope are frozen.
+13 October 2026, Asia/Karachi. This is a scientific and arithmetic review of a proposed future evaluation, not protected activation. The completed source comparison, historical failed quality gate, saved papers and inactive proposals remain preserved. This reviewer has opened no original recordings, private arrays, original ratings, validation outcome rows or protected numerical inputs. Public source prediction arithmetic was reviewed only after the new planning code and scope were frozen and its first analysis completed.
 
 ## Claim that the evidence can support
 
@@ -42,4 +42,20 @@ Independent SHA-256 rehashing found no mismatches in the current paper's 31 buil
 
 This review has examined the two inactive coverage proposals, source completion and aggregate comparison metadata, preservation manifests and the specified bound files' bytes for hashing. It has not independently refit the models or replayed private state predictions. The completed source producer's algebra receipt and independently audited donor means/selection are separate from the still-pending independent saved-state inference/export and actual protected-file backend qualification.
 
-The new frozen planning-code and emitted source-only precision arithmetic audit will be appended after execution. Until then, this is the scientific preflight assessment; it records no new performance or precision result and authorizes no access.
+## Completed independent source-only arithmetic review
+
+The operative [v2 planning declaration](../../results/development/faced_benchmark_precision_2026-10-13/plan_v2.json) and its eleven bound code/test/input/protocol files were reviewed before the producer freeze `de865da42`. Seventeen manufactured tests independently passed, including loss-before-family averaging, minimum hypothetical participant counts, covariance edge cases and a denied final-row sentinel ahead of the first selected numeric conversion. The original unexecuted v1 declaration is preserved. V2 enforces a complete metadata/model/denominator pass over all 8,400 source rows before the fixed 3,360 prediction rows enter numerical summaries.
+
+After producer execution completed and the root explicitly authorized the public-source arithmetic scope, this reviewer reconstructed absolute clip losses without invoking the producer's functions. All seventy participant records, twelve held-title records, eight category records, three fixed contrasts, twelve SD-multiplier cases, thirty-six hypothetical sample counts and fifteen unsupported-category scenarios matched. The largest absolute numerical difference was `2.220446049250313e-16`. Completion/export hashes and all eleven operative bindings agree; input bytes were unchanged before and after this independent review. The [audit receipt](../../results/development/faced_benchmark_claim_2026-10-13/independent_audit.json) preserves the exact scope and bindings.
+
+| Fixed source contrast | Mean gain | Participant sample SD | Source-SD proxy half-width for 33 people |
+| --- | ---: | ---: | ---: |
+| Matched context minus distributed loss | −0.079039 | 0.172060 | 0.061010 |
+| Category median minus distributed loss | −0.141573 | 0.290939 | 0.103163 |
+| Late minus distributed loss | 0.019074 | 0.108460 | 0.038458 |
+
+All six held categories have adverse mean matched EEG gains. Fear and Inspiration remain explicit zero-held-support entries rather than fabricated transfer estimates. Under the assumed direct source-SD transport, a primary half-width of at most 0.05 would require a hypothetical forty-eight participants; the actual reserved count stays thirty-three. This is a planning calculation, not a recruitment recommendation or empirical future precision pass. Across the fifteen unsupported-category covariance scenarios the proxy widths range from 0.001434 to 0.666281. The smallest width assumes almost perfect cancellation; it is not observed stability. The loose bounded-gain sample-half-width guard is 2.520576, conditional on the same paired-t formula rather than a distribution-free coverage guarantee.
+
+The independently reviewed [producer assessment](FACED_Benchmark_Precision_Assessment_2026-10-13.md) correctly identifies the source means and these assumptions. It claims no source confidence interval, power, equivalence, general information absence or certified eight-family precision. All previously documented preservation checks still pass, and every old/current protected activation gate remains false.
+
+**Disposition: arithmetic and reporting pass; independent activation remains held.** A limited fixed-catalogue estimation benchmark can be defended despite an unfavorable source lead. The present findings provide neither an EEG-superiority rationale nor new methodological novelty. The next bounded work is qualification and independent replay of the existing source-state/export and source/manufactured-data backend, followed by a concrete decision about spending the single reserved roster. This decision must acknowledge unsupported categories, uncertain future precision and mandatory practical-category reporting. The current research question and saved manuscripts remain unchanged.

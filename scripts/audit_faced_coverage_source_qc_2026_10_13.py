@@ -183,7 +183,10 @@ def audit(freeze_commit):
     started = time.monotonic()
     if not (PUBLIC / "source_gate.json").exists() or (PUBLIC / "preparation_failure.json").exists():
         raise PermissionError("Complete source preparation required before private QC audit")
-    if (PUBLIC / "fitting_started.json").exists():
+    fit_artifacts = ("fitting_started.json", "cached_source_targets_receipt.json", "fit_records.jsonl",
+                     "cv_predictions.json", "comparison.json", "final_source_state_qualification.json",
+                     "fitting_failure.json")
+    if any((PUBLIC / name).exists() for name in fit_artifacts) or any(PRIVATE.glob("fit_*_state.npz")):
         raise PermissionError("Source QC audit must precede every fitting input attempt")
     destination = PUBLIC / "source_qc_independent_audit.json"
     if destination.exists():
@@ -309,10 +312,29 @@ def audit(freeze_commit):
                "original_recording_files_opened": 0, "private_waveform_feature_model_arrays_decoded": 0,
                "outcome_numeric_values_interpreted": 0, "target_prediction_csv_parsed": False,
                "target_prediction_csv_integrity_transport_only": True, "private_fitted_states_opened": 0,
+               "fitting_phase_artifacts_observed": 0, "private_fitted_state_paths_observed": 0,
                "validation_numeric_access": False, "confirmation_access": False,
                "limits": "Independent source QC/range arithmetic and historical output/hash agreement only. No second raw waveform/filter/spectral execution; source QC success is not improved accuracy, neural specificity or independent confirmation."}
     with destination.open("x", encoding="utf-8", newline="\n") as stream:
         json.dump(receipt, stream, indent=2, allow_nan=False); stream.write("\n")
+    if not passed_gate:
+        if any((PUBLIC / name).exists() for name in fit_artifacts) or any(PRIVATE.glob("fit_*_state.npz")):
+            raise PermissionError("Failed source QC cannot be accompanied by fitting inputs/states")
+        no_fit = {"date": "2026-10-13", "passed": True, "source_quality_gate_passed": False,
+                  "status": "independently_audited_source_quality_hold_no_fitting",
+                  "source_qc_independent_audit_sha256": digest(destination),
+                  "source_regions_sha256": ledger_hash, "source_gate_sha256": gate_hash,
+                  "source_regions": 2940, "source_trials": 980,
+                  "unavailable_regions": len(failures),
+                  "unavailable_trials": len({(r['subject'], r['vid']) for r in failures}),
+                  "cached_source_target_receipt_observed": False, "fitting_attempt_observed": False,
+                  "cv_fits": 0, "full_source_fits": 0, "nominee": None,
+                  "private_fitted_state_paths_observed": 0, "preservation": after,
+                  "validation_numeric_access": False, "confirmation_access": False,
+                  "accuracy_or_null_result": False,
+                  "limits": "QC arithmetic audit passed; scientific full-source gate failed. No target/fitting artifacts were observed. This is a source engineering hold, not evidence about EEG predictive utility or independently confirmed outcomes."}
+        with (PUBLIC / "independent_audit.json").open("x", encoding="utf-8", newline="\n") as stream:
+            json.dump(no_fit, stream, indent=2, allow_nan=False); stream.write("\n")
     print(json.dumps({k: v for k, v in receipt.items() if k != "current_artifact_bindings"}), flush=True)
     return receipt
 

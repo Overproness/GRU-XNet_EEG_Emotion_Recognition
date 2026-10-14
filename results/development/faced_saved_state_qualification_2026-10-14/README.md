@@ -1,0 +1,7 @@
+# Saved-state qualification packet
+
+The declaration binds a bounded independent replay of the existing three full-source Ridge states, the existing source prior and the previously qualified available source feature snapshot. Numerical execution awaits root freeze and authorization. Declaration preparation decoded no private numerical arrays and converted no cached targets.
+
+Nineteen manufactured tests pass. They exercise analytic Ridge stationarity without a fitting routine, coefficient/intercept/scaler and feature-order corruption, population variance/constant scale, archive shape/value guards, context ordering, complete source-target metadata and exact conversion/ignored-row count guards ahead of numerical interpretation, ignored denied rows, duplicate consistency and independent median calculations. The operative plan_v2.json explicitly distinguishes 980 distinct targets from 11,760 source-row conversions and 15,960 ignored rows. The unexecuted original plan.json is preserved.
+
+All earlier manuscript/archive bytes, inactive confirmation proposals, source activation and strict quality hold remain preserved. This packet authorizes no original ratings, validation values, reserved recordings or outcomes, model fits or manuscript change. The [protocol](../../../docs/publication/FACED_Saved_State_Qualification_Protocol_2026-10-14.md) describes the frozen numerical scope and anticipated receipts.

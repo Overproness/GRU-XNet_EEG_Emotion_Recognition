@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-14",
+  "stage": "public_code_and_metadata_only",
+  "choice": "Authenticated trainable EEGNet-8,2 scalar residual reference with one longer source-only schedule",
+  "author_repository": "https://github.com/vlawhern/arl-eegmodels",
+  "author_commit": "4a512e503198db2010848813ead9afbf8cd54c97",
+  "author_source": "https://raw.githubusercontent.com/vlawhern/arl-eegmodels/4a512e503198db2010848813ead9afbf8cd54c97/EEGModels.py",
+  "local_author_source_sha256_checked_again": "604c7399a2a0e6c90cd8b4cbbc0f78550a3fb5c64b23f311d9c7db44dac94b02",
+  "paper": "https://arxiv.org/abs/1611.08024v4",
+  "author_default_geometry": {
+    "assumed_rate_hz": 128,
+    "temporal_kernel": 64,
+    "F1": 8,
+    "D": 2,
+    "F2": 16,
+    "dropout": 0.5
+  },
+  "author_task": "BCI classification; no authenticated author FACED retrospective item-10 regression result",
+  "local_adaptation": "30 common physical-unit EEG channels, seven4second windows pertrial, scalar head and original trial loss, source channel scaling, participant-excluded context offsets, MSE/AdamW, qualified FACED preprocessing",
+  "published_score_reproduction_claimed": false,
+  "strongest_field_decoder_claimed": false,
+  "new_encoder_grid": false,
+  "CBraMod_reference": "https://github.com/wjq-learning/CBraMod",
+  "CBraMod_not_selected_reason": "Different local binary/coarse tasks, new continuous-regression/input adaptation, full actual checkpoint membership not independently authenticated; choice not based on previous validation ranking",
+  "metadata_selection": "First ordered source crossed cell with no missing training or held pairs under frozen three-region QC; cell6, personfold3, materialassignment0",
+  "focused_tests_passed": 12,
+  "source_targets_converted_at_this_stage": 0,
+  "new_source_waveforms_opened_at_this_stage": 0,
+  "neural_fits_at_this_stage": 0,
+  "validation_numeric_access": false,
+  "protected_numeric_access": false,
+  "confirmation_candidate_set_changed": false
+}

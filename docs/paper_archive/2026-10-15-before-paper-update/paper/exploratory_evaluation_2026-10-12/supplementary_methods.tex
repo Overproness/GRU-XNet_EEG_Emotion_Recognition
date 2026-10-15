@@ -1,0 +1,84 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,booktabs,array,graphicx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\setlength{\emergencystretch}{2em}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{18pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+\renewcommand{\thetable}{S\arabic{table}}
+\title{Supplementary Methods\\and Complete Development Results}
+\author{Muhammad Muntazar \and Muhammad Wasif Shakeel}
+\date{Companion to the exploratory FACED valence study}
+\begin{document}\maketitle
+
+\section{Scope, identities and adaptation}
+This supplement preserves the entire bounded FACED search and the revised diagnostics, including unfavorable conditions. It reports development evidence, not independent confirmation. No DEAP, SEED-IV, GAMEEMO, pretrained-encoder or DENS result is pooled into the FACED claim. The original GRU-XNet draft and both preceding exploratory paper versions remain archived, without silently replacing historical claims.
+
+Rotation 0 source clips are 3,4,9,11,17,20,23,27 and held clips 2,6,12,18,25,28. Rotation 1 uses source 2,6,9,12,18,20,25,28 and held 3,4,11,17,23,27. Rotation 2 uses source 2,6,9,11,17,20,23,28 and held 3,4,12,18,25,27. Source IDs and development-validation IDs are fixed at 70 and 20 people. Each rotation has 560 fit, 120 unfamiliar and 160 familiar trials. Across rotations there are 980 unique source and 280 validation trials, hence 1,260 permitted rating targets. The released anonymous identity lists allow disjointness checks.
+
+All three rotations share participants and partially share source/held titles. Their average cannot be treated as three independent replications. The unfamiliar-title arm excludes Fear and Inspiration. Materials are grouped by normalized catalogue source-film titles, not physical-video hashes; the grouping hash encodes title metadata. Reserved clips 7/8 share \emph{The Shining}. Neither catalogue separation nor stimulus-category metadata certifies physical or semantic stimulus independence.
+
+Initial Ridge settings were selected using unfamiliar validation, and later covariance, neural, quality, category-support and pairing diagnoses followed earlier inspection. Source-only fitting and selection prevent row leakage within a fit; they do not remove programme-level adaptation. The present matched-alpha sensitivity was specified and committed before its new arithmetic, but after the historical development results were known. It is retrospective, not a preregistered untouched comparison. All existing anchors remain unchanged.
+
+\section{Processing and acquisition fallback}
+Eligible marker spans are at least 34.106 seconds. A 32-second interval ending at the end marker lies within the recorded trial; after trimming, the retained interval is approximately end-minus-30 to end-minus-2 seconds. The 28-second core is not the entire clip. Native calibrated EEG undergoes a 50-Hz notch with quality factor 30, Butterworth filtering configured as order 4, 0.5--45 Hz, forward/backward, and polyphase resampling with Kaiser beta 5 and line edge extension. Common-average reference uses the qualified thirty-channel scalp order.
+
+Before referencing, channels exceeding processed SD 100 microvolts or peak-to-peak 1,000 microvolts are identified. One to three detections permit spherical-spline repair in the calibrated native interval, using nominal standard-1020 positions, fifty Legendre terms, stiffness four and regularization \(10^{-5}\). Eight source trials contain nine repaired channel/trial events; 972 source trials retain their earlier processed bytes. More than three detections holds processing. No ICA, augmentation or cross-trial filter is used.
+
+Unavailable EEG is declared for any channel with raw rail fraction above \(10^{-4}\), identical-adjacent count fraction above 0.95, processed SD outside 0.1--100 microvolts, peak-to-peak above 1,000 microvolts, or 49--51/1--45-Hz power ratio above 0.10. Numerical or repair-capacity failure also triggers unavailability. These are engineering conditions, not independently validated biological artifact labels. Source trials all pass. Fifteen validation trials fail; fourteen belong to a single person with a rail-fixed channel. All 280 validation targets and twenty people remain in each rotation's complete two-arm denominator.
+
+Historical joint recipes use their original full-source context fallback; EEG-only recipes use the original source global median. Revised category controls do not rewrite those fallbacks. In the matched-alpha sensitivity, cached context-alpha-100 predictions apply on available inputs; unavailable recipients receive the historical joint model's exact fallback for both compared methods. Consequently, adding EEG has exactly zero gain on these failed inputs. No unavailable EEG arrays are decoded for this paper. The separately inactive future confirmation recipe has its own frozen fallback and is not a completed result here.
+
+\section{Historical representations and learning}
+Welch spectra use a 512-sample Hann window, constant detrending and density scaling. Powers are integrated over half-open 1--4, 4--8, 8--13, 13--30 and 30--45-Hz bands. Averaged \(\log_{10}\max(P,10^{-8})\) over seven windows yields 150 features.
+
+The covariance diagnostic integrates real cross-spectra in these bands, averages windows and forms \(\widetilde C_b=0.9C_b/\mathrm{tr}(C_b)+0.1I/30\). Symmetric matrix logs are upper-triangle vectorized, with off-diagonal weight \(\sqrt{2}\). Five log-total-power values produce 2,330 features. This trial-local log-Euclidean recipe is not a reproduction of every published Riemannian method.
+
+Historical spectral/context Ridge alpha grids are \(\{0.1,1,10,100,1000\}\). Each feature family selects by unfamiliar-validation MAE, then MSE and fixed alpha order. Joint spectral Ridge selects 100 throughout; full context selects 0.1/100/100. Covariance Ridge uses 1,000 alone and 100 jointly. Kernel alpha is 0.1; Gaussian RBF inputs use source standardization, feature-block weight \(1/\sqrt d\), and inverse source median positive squared distance as gamma. Source target means provide offsets. Seven covariance/kernel conditions have one full and five person-held source fits per rotation, totaling 126. Twelve additional source capacity fits use alpha \(10^{-6}\) with real or shuffled labels. Shuffled-label capacity is not generalization evidence.
+
+The EEGNet-8,2 backbone uses eight length-64 temporal filters, depth multiplier two, length-16 depthwise temporal filters, sixteen pointwise filters, ELU, batch normalization, pooling by four/eight and dropout 0.5. The scalar adapter has 1,841 trainable parameters; post-update spatial/head max norms are 1 and 0.25. Backbone qualification is against pinned author code; the regression adapter is local. Channel standardization uses only source windows, with SD floor \(10^{-6}\) microvolts.
+
+With offset \(a_i\), training minimizes original-trial MSE on normalized valence:
+\[
+\frac{1}{N}\sum_i\left[\frac{1}{7}\sum_{w=1}^{7}f_\theta(X_{iw})-\frac{y_i-a_i}{7}\right]^2.
+\]
+EEG-only uses source global-median offsets. The residual model uses participant-excluded source OOF context offsets in training, and the full source context fit at inference. Two seed predictions average before clipping. Unavailable EEG receives its offset unchanged. AdamW has weight decay 0.01 and batches of eight original trials. Epochs 30/60/120 are retained. Rotation 0 tests learning rates 0.0003/0.001/0.003, two readouts and two seeds (20261101/20261102), totaling twelve fits. Complete two-seed schedules are selected by unfamiliar ensemble MAE, with ties favoring earlier epochs/lower rates. Transfer to rotations 1/2 adds eight fits. Selected schedules are EEG-only 0.001/30 epochs and residual 0.003/120 epochs.
+
+Source eval-mode MSE from epochs 60 to 120 decreases more than 10\% in five of six selected readout/rotation trajectories: all EEG-only and residual rotations 0/2. This continuing-learning flag limits negative interpretation. The bounded twenty-fit execution took approximately 1.48 hours on the RTX 3050 Laptop GPU; peak PyTorch allocator reserved memory was approximately 160 MiB, excluding driver memory. The 0.15-unit continuation screen was an engineering resource rule, not a psychometric minimum effect. No optimization/convergence or state-of-the-art claim follows from it.
+
+\section{Baseline qualification and all matched contrasts}
+The first source context-selection diagnostic jointly held people and pairs of source titles. Because one source title represented each category, all sixty crossed cells lacked held-category support. Its selected coarse prior does not establish a strongest comparator for a task with available category support. This failed information match remains recorded.
+
+The revised diagnostic uses five person folds: 56 people\(\times\)8 titles (448 trials) fit and 14\(\times\)8 (112 trials) score per fold. Every category remains supported. Five candidates are compared: global, coarse-valence and category medians, category-only Ridge and full-context Ridge. The same five-alpha grid applies to both Ridge families. All transforms/priors use only each fold's source rows. Category median wins all rotations; both Ridge families choose alpha 0.1. The final source-context fits use 560 trials. This stage comprises 150 CV Ridge fits plus six full-source fits and eighteen median-prior fits. Source OOF ranking concerns familiar source titles; new-title utility is assessed separately on the reused validation arm.
+
+\section{Pairing estimands, target variation and uncertainty}
+For each rotation/arm, another-person donors share the recipient's catalogue title and acquisition group; another-film donors share the recipient's person and coarse valence. Within eligible non-singleton strata, thirty-two seeded derangements exclude self-donors. A singleton stratum is unchanged. Donor EEG availability is required, and unavailable recipients retain fallback. Spectral predictions are recomputed from donor EEG and recipient context. Neural controls exchange cached raw EEG corrections while retaining the recipient context offset. This is an association diagnostic; EEG may encode person, acquisition, artifact or material properties without specifically encoding emotion.
+
+Each repeat's absolute errors are averaged before participant/title aggregation; averaging donor predictions would produce a different estimand. Loss changes equal perturbed minus unchanged losses. Person-swap eligibility on unfamiliar panels is 108/107/107 of 120; film-swap eligibility is 114/113/113. All other recipients remain scored. Neither swap establishes a counterfactual emotional state or a permutation-null significance test.
+
+Participant/title-equal MAE first averages absolute clip errors within a cell. Gain intervals jointly resample people and catalogue-title families with replacement, using the same sampled indices for both compared methods. With a complete rectangle, the difference equals the mean sampled cell loss difference. Four thousand draws and seed 425401 are used for ordinary and matched gains. Pairing intervals retain the earlier panel-specific frozen seeds. Percentile intervals are descriptive; there is no adjustment for tuning, diagnostic multiplicity or earlier adaptive inspection, and six unfamiliar titles limit precision. No pooled confidence interval is constructed over rotations.
+
+Let \(\bar y\), \(\bar y_{p\cdot}\), \(\bar y_{\cdot f}\) be global, person and title means. On a complete rectangle the centered additive components are \(y_{pf}-\bar y=(\bar y_{p\cdot}-\bar y)+(\bar y_{\cdot f}-\bar y)+r_{pf}\). Reported fractions divide each component's squared sum by the total centered sum of squares. One observation per cell leaves person\(\times\)title interaction and measurement variation unidentified. The residual does not estimate a recoverable neural signal, measurement reliability or an irreducible noise floor.
+
+\section{Audit boundaries and reproducibility}
+The frozen evidence activation permits only public cached development predictions and metadata, with zero fits, private-array access or protected-outcome access. It binds the producer, classical scoring helpers and original input hashes. Public evidence retains 840 matched paired units (1,680 method prediction rows), six complete arm panels, all historical conditions and all twenty-four pairing panels. Independent arithmetic checks use the original quality CSV and explicit crossed indexing, separately from the producer.
+
+Original waveform/feature preparation and cached identities were previously authenticated. The later independent checkpoint-to-window replay covers 24 source fixture/seed forward calls and 48 source-offset comparisons across six selected states, at tolerance \(10^{-5}\), maximum discrepancy approximately \(4.44\times10^{-16}\). It is partial source qualification, not a full validation forward replay. Validation pairing audits authenticate cached corrections, offsets, donor identities, losses and intervals. Fifteen failed validation arrays are not decoded. Neither an audit nor source qualification is independent scientific confirmation.
+
+The public repository contains anonymous predictions, identities, declarations, audit records, source-selection traces and paper build receipts. Raw EEG, original rating archives, stimulus media and private model arrays are not redistributed. The reserved 33 people and eight title families remain unopened numerically. An inactive future precision/confirmation packet is separate from the empirical findings; its hypothetical simulations are not empirical power or a completed confirmation result.
+\clearpage
+\input{tables/all_original_conditions.tex}
+\input{tables/category_gain_intervals.tex}
+\input{tables/matched_context_sensitivity.tex}
+\input{tables/all_pairing_intervals.tex}
+\input{tables/source_selection.tex}
+\end{document}

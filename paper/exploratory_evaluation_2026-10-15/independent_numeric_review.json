@@ -1,0 +1,234 @@
+{
+  "date": "2026-10-15",
+  "checked_items_passed": true,
+  "scope": "Independent arithmetic/rounding review of the specified new source results, headline historical means and panel geometry; not exhaustive symbolic verification of every manuscript statement, historical algorithm, citation, waveform or forward pass.",
+  "manuscripts_edited": false,
+  "new_fits": 0,
+  "raw_or_private_data_reads": 0,
+  "reserved_or_new_target_access": false,
+  "neural_public_prediction_rows": 6260,
+  "main_source_mse_checks": [
+    {
+      "fit": "context_residual_seed20261101",
+      "source_mse": {
+        "120": 1.3415913099093282,
+        "240": 0.9921460428257055,
+        "360": 0.8646996522394564
+      },
+      "reduction_240_to_360_percent": 12.84552727976138,
+      "reduction_from_offset_percent": 71.47501761349353
+    },
+    {
+      "fit": "context_residual_seed20261102",
+      "source_mse": {
+        "120": 1.3966179051137662,
+        "240": 1.0955680196697448,
+        "360": 0.8782651690526011
+      },
+      "reduction_240_to_360_percent": 19.834720137472516,
+      "reduction_from_offset_percent": 71.0275141050133
+    }
+  ],
+  "neural_held_checks": [
+    {
+      "epoch": 120,
+      "recomputed_ensemble_held_mae": 1.3768873333694442
+    },
+    {
+      "epoch": 240,
+      "recomputed_ensemble_held_mae": 1.375874263757751
+    },
+    {
+      "epoch": 360,
+      "recomputed_ensemble_held_mae": 1.407483197299261
+    }
+  ],
+  "capacity_checks": [
+    {
+      "fit": "capacity_real",
+      "trials": 32,
+      "participants": 4,
+      "titles": 8,
+      "final_source_mse": 0.10580135927118534
+    },
+    {
+      "fit": "capacity_permuted",
+      "trials": 32,
+      "participants": 4,
+      "titles": 8,
+      "final_source_mse": 0.13968502061553875
+    }
+  ],
+  "permuted_target_multiset_matches": true,
+  "spectral_source_checks": [
+    {
+      "model": "context_only",
+      "alpha": 0.1,
+      "recomputed_mae": 1.344964249830673,
+      "trials": 840
+    },
+    {
+      "model": "late_joint",
+      "alpha": 0.1,
+      "recomputed_mae": 1.7914571700975244,
+      "trials": 840
+    },
+    {
+      "model": "distributed_joint",
+      "alpha": 0.1,
+      "recomputed_mae": 1.8748040066320746,
+      "trials": 840
+    },
+    {
+      "model": "context_only",
+      "alpha": 10.0,
+      "recomputed_mae": 1.3460040593794727,
+      "trials": 840
+    },
+    {
+      "model": "late_joint",
+      "alpha": 10.0,
+      "recomputed_mae": 1.5761589331879848,
+      "trials": 840
+    },
+    {
+      "model": "distributed_joint",
+      "alpha": 10.0,
+      "recomputed_mae": 1.5800775021603504,
+      "trials": 840
+    },
+    {
+      "model": "context_only",
+      "alpha": 100.0,
+      "recomputed_mae": 1.366504059265924,
+      "trials": 840
+    },
+    {
+      "model": "late_joint",
+      "alpha": 100.0,
+      "recomputed_mae": 1.4646169159882483,
+      "trials": 840
+    },
+    {
+      "model": "distributed_joint",
+      "alpha": 100.0,
+      "recomputed_mae": 1.445543209566133,
+      "trials": 840
+    }
+  ],
+  "spectral_category_mae": 1.3039702690972221,
+  "spectral_public_prediction_rows": 8400,
+  "historical_headline_checks": [
+    {
+      "arm": "validation_unseen",
+      "model": "category_median",
+      "mean_mae": 1.2601737467447915,
+      "per_rotation_mae": [
+        1.2220453559027775,
+        1.2315541924370659,
+        1.3269216918945312
+      ]
+    },
+    {
+      "arm": "validation_unseen",
+      "model": "joint_spectral",
+      "mean_mae": 1.2155536569034335,
+      "per_rotation_mae": [
+        1.2588468888984188,
+        1.176674988199071,
+        1.2111390936128104
+      ]
+    },
+    {
+      "arm": "validation_unseen",
+      "model": "eegnet_residual",
+      "mean_mae": 1.2549795880313723,
+      "per_rotation_mae": [
+        1.1906553478076252,
+        1.3109734144232585,
+        1.2633100018632335
+      ]
+    },
+    {
+      "arm": "validation_familiar",
+      "model": "category_median",
+      "mean_mae": 1.172270058525933,
+      "per_rotation_mae": [
+        1.1619037628173827,
+        1.2204772440592446,
+        1.1344291687011718
+      ]
+    },
+    {
+      "arm": "validation_familiar",
+      "model": "joint_spectral",
+      "mean_mae": 1.209423360525022,
+      "per_rotation_mae": [
+        1.1983870766457474,
+        1.2155813566210953,
+        1.2143016483082232
+      ]
+    },
+    {
+      "arm": "validation_familiar",
+      "model": "eegnet_residual",
+      "mean_mae": 1.2917610585182075,
+      "per_rotation_mae": [
+        1.2585474779086672,
+        1.2970987781834373,
+        1.319636919462518
+      ]
+    }
+  ],
+  "historical_tables_byte_identical_to_12_october": [
+    "all_original_conditions.tex",
+    "all_pairing_intervals.tex",
+    "category_gain_intervals.tex",
+    "matched_context_sensitivity.tex",
+    "primary_mae.tex",
+    "source_selection.tex",
+    "target_decomposition.tex"
+  ],
+  "reviewed_panel_denominators": {
+    "historical_unfamiliar_each_rotation": 120,
+    "historical_familiar_each_rotation": 160,
+    "source_spectral_unique_held": 840,
+    "source_neural_train": 448,
+    "source_neural_held": 84,
+    "source_neural_all_selected": 532,
+    "tiny_capacity": 32,
+    "reserved_unfamiliar_proposed_not_observed": 297,
+    "reserved_familiar_proposed_not_observed": 462
+  },
+  "rounding_issue_found": false,
+  "required_numeric_fixes": [],
+  "qualification": "Comparator neural MAEs cross-checked with the prior independent audit; neural scores/source MSE and all nine later spectral candidates recomputed directly from public exports. All displayed late-source table values inspected at their shown precision. The audit does not establish independent scientific confirmation.",
+  "snapshot_bindings": {
+    "paper/exploratory_evaluation_2026-10-15/manuscript.tex": "83e2e47c26abc097667f01a211e2d2c33b0ace5abf5b1e8021a00f221a6047fb",
+    "paper/exploratory_evaluation_2026-10-15/supplementary_methods.tex": "2a51d7d5eb852605ebba994a5bacdefdf5486951ce5ddcf6acf6d734172c83da",
+    "paper/exploratory_evaluation_2026-10-15/tables/source_followup.tex": "40a4a513d71872a9aa98da52cefa0c973c897a42210e14cd15532676c48b80b6",
+    "paper/exploratory_evaluation_2026-10-15/tables/primary_mae.tex": "1de2ab90321404c9fa507c7fbde8880a6c4068f3de742901422b8df78b06c8d8",
+    "paper/exploratory_evaluation_2026-10-12/evidence.json": "7df056095f40e441002ae14aed1524e08edd999d9badebb9794b49840a5cc844",
+    "results/development/faced_stronger_baseline_continuation_2026-10-15/comparison.json": "74b56144c58c0f365cefb2a46e2ac243c1e283feda674f13515a955f0c3a1377",
+    "results/development/faced_stronger_baseline_continuation_2026-10-15/histories.json": "cf435871fe2dcc88d041e5c13ad108305e5a0eec5d80a0d9e7b4157739ec4705",
+    "results/development/faced_stronger_baseline_continuation_2026-10-15/predictions.csv": "86ef993e9008c29d332b4551df3bd0c35677bccbe122f1c5e3fa3bfe244196b3",
+    "results/development/faced_coverage_missing_2026-10-13/comparison.json": "cde8aae72c196cdc794b97049c3d04917a9e41996b20afac78b2abdb649cf22b",
+    "results/development/faced_coverage_missing_2026-10-13/cv_predictions.json": "f644264e1010cb2d096d2f464942fff769755a4506a1d3a36786c2d936c00314",
+    "results/development/faced_baseline_independent_audit_2026-10-15/completion_v2.json": "7303ad42cf1a477c98e71109d6638967d3808c634dd5a1acf24e2c6401debd5a",
+    "results/development/faced_coverage_missing_2026-10-13/independent_audit.json": "c213551939addb07fd793c333cdc5df2fe09351517672dfc0d188ecca32d1c6a"
+  },
+  "final_snapshot_refresh": {
+    "date": "2026-10-15",
+    "checked_items_passed": true,
+    "changed_source_bindings": [
+      {
+        "path": "paper/exploratory_evaluation_2026-10-15/manuscript.tex",
+        "previous_sha256": "3aecd3b92cf8749d6910f305a5cef5e50b4d639b53229fd9747b43f00be5a590",
+        "final_sha256": "83e2e47c26abc097667f01a211e2d2c33b0ace5abf5b1e8021a00f221a6047fb"
+      }
+    ],
+    "final_review": "Rechecked numerical result/percentage tokens and panel denominators after final layout controls and wording precision edits; observed squared-deviation, source-eligibility and historical-audit scoping wording. Prior independent arithmetic scope remains unchanged. All other bound source/evidence bytes are unchanged.",
+    "manuscripts_edited_by_reviewer": false,
+    "broad_symbolic_or_scientific_validation_claimed": false
+  }
+}

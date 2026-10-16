@@ -1,0 +1,18 @@
+\begin{table}[tbp]
+\centering
+\small
+\caption{Category-supported source-person CV used for contextual qualification.}
+\label{tab:sourcecv}
+\begin{tabular}{lrrr}
+\toprule
+Context candidate & R0 & R1 & R2 \\
+\midrule
+global\_median & 1.802 & 1.917 & 1.880 \\
+coarse\_valence\_median & 1.318 & 1.339 & 1.318 \\
+category\_median & 1.255 & 1.301 & 1.263 \\
+category\_only & 1.288 & 1.320 & 1.283 \\
+full\_context & 1.304 & 1.330 & 1.293 \\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize Five fixed folds train on 56 source people and assess 14, preserving all eight source titles/categories. Category median wins in every rotation; category and full-context Ridge select alpha 0.1. These folds assess held people on familiar source titles and do not independently qualify unseen-title transfer. Earlier crossed folds omitted the held titles' categories and triggered unsupported-category fallback in every held cell.\end{minipage}
+\end{table}

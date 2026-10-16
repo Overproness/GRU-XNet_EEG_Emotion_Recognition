@@ -1,0 +1,243 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,booktabs,array,graphicx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\setlength{\emergencystretch}{2em}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{18pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+\renewcommand{\thetable}{\Alph{table}}
+\title{Supplementary Methods\\and Complete Development Results}
+\author{Muhammad Muntazar \and Muhammad Wasif Shakeel}
+\date{PLOS ONE submission preparation, 16 October 2026}
+\begin{document}\maketitle
+Companion to ``Context controls and EEG pairing in retrospective valence prediction: an exploratory FACED study''. Correspondence: Muhammad Muntazar, National University of Sciences and Technology (NUST), Islamabad, Pakistan, \nolinkurl{mmuntzar.bsds23seecs@seecs.edu.pk}.
+
+
+\section{Scope, identities and adaptation}
+This supplement retains historical FACED conditions and adds the later source coverage/learning diagnostics, including unfavorable results. It reports adaptive development evidence, not independent confirmation. Earlier validation scores, the later 840-pair source comparison and the separate 84-pair neural cell are distinct evaluations. No DEAP, SEED-IV, GAMEEMO, pretrained-encoder or DENS result is pooled into the FACED claim. The original GRU-XNet draft and preceding paper versions remain archived; the 12 October exploratory paper is preserved byte-for-byte.
+
+Rotation 0 source clips are 3,4,9,11,17,20,23,27 and held clips 2,6,12,18,25,28. Rotation 1 uses source 2,6,9,12,18,20,25,28 and held 3,4,11,17,23,27. Rotation 2 uses source 2,6,9,11,17,20,23,28 and held 3,4,12,18,25,27. Source IDs and development-validation IDs are fixed at 70 and 20 people. Each rotation has 560 fit, 120 unfamiliar and 160 familiar trials. Across rotations there are 980 unique source and 280 validation trials, hence 1,260 permitted rating targets. The released anonymous identity lists allow disjointness checks.
+
+All three rotations share participants and partially share source/held titles. Their average cannot be treated as three independent replications. The unfamiliar-title arm excludes Fear and Inspiration. Materials are grouped by normalized catalogue source-film titles, not physical-video hashes; the grouping hash encodes title metadata. Reserved clips 7/8 share \emph{The Shining}. Neither catalogue separation nor stimulus-category metadata certifies physical or semantic stimulus independence.
+
+Initial Ridge settings were selected using unfamiliar validation, and later covariance, neural, quality, category-support and pairing diagnoses followed earlier inspection. Source-only fitting and selection prevent row leakage within a fit; they do not remove programme-level adaptation. The present matched-alpha sensitivity was specified and committed before its new arithmetic, but after the historical development results were known. It is retrospective, not a preregistered untouched comparison. All existing anchors remain unchanged.
+
+\section{Processing and acquisition fallback}
+Eligible marker spans are at least 34.106 seconds. A 32-second interval ending at the end marker lies within the recorded trial; after trimming, the retained interval is approximately end-minus-30 to end-minus-2 seconds. The 28-second core is not the entire clip. Native calibrated EEG undergoes a 50-Hz notch with quality factor 30, Butterworth filtering configured as order 4, 0.5--45 Hz, forward/backward, and polyphase resampling with Kaiser beta 5 and line edge extension. Common-average reference uses the qualified thirty-channel scalp order.
+
+Before referencing, channels exceeding processed SD 100 microvolts or peak-to-peak 1,000 microvolts are identified. One to three detections permit spherical-spline repair in the calibrated native interval, using nominal standard-1020 positions, fifty Legendre terms, stiffness four and regularization \(10^{-5}\). Eight source trials contain nine repaired channel/trial events; 972 source trials retain their earlier processed bytes. More than three detections holds processing. No ICA, augmentation or cross-trial filter is used.
+
+Unavailable EEG is declared for any channel with raw rail fraction above \(10^{-4}\), identical-adjacent count fraction above 0.95, processed SD outside 0.1--100 microvolts, peak-to-peak above 1,000 microvolts, or 49--51/1--45-Hz power ratio above 0.10. Numerical or repair-capacity failure also triggers unavailability. These are engineering conditions, not independently validated biological artifact labels. Source late intervals all pass; the later three-region rule has one unavailable source trial, as detailed below. Fifteen validation trials fail; fourteen belong to a single person with a rail-fixed channel. All 280 validation targets and twenty people remain in each rotation's complete two-arm denominator.
+
+Historical joint recipes use their original full-source context fallback; EEG-only recipes use the original source global median. Revised category controls do not rewrite those fallbacks. In the matched-alpha sensitivity, cached context-alpha-100 predictions apply on available inputs; unavailable recipients receive the historical joint model's exact fallback for both compared methods. Consequently, adding EEG has exactly zero gain on these failed inputs. No unavailable EEG arrays are decoded for this paper. The separately inactive future confirmation recipe has its own frozen fallback and is not a completed result here.
+
+\section{Historical representations and learning}
+Welch spectra use a 512-sample Hann window, constant detrending and density scaling. Powers are integrated over half-open 1--4, 4--8, 8--13, 13--30 and 30--45-Hz bands. Averaged \(\log_{10}\max(P,10^{-8})\) over seven windows yields 150 features.
+
+The covariance diagnostic integrates real cross-spectra in these bands, averages windows and forms \(\widetilde C_b=0.9C_b/\mathrm{tr}(C_b)+0.1I/30\). Symmetric matrix logs are upper-triangle vectorized, with off-diagonal weight \(\sqrt{2}\). Five log-total-power values produce 2,330 features. This trial-local log-Euclidean recipe is not a reproduction of every published Riemannian method.
+
+Historical spectral/context Ridge alpha grids are \(\{0.1,1,10,100,1000\}\). Each feature family selects by unfamiliar-validation MAE, then MSE and fixed alpha order. Joint spectral Ridge selects 100 throughout; full context selects 0.1/100/100. Covariance Ridge uses 1,000 alone and 100 jointly. Kernel alpha is 0.1; Gaussian RBF inputs use source standardization, feature-block weight \(1/\sqrt d\), and inverse source median positive squared distance as gamma. Source target means provide offsets. Seven covariance/kernel conditions have one full and five person-held source fits per rotation, totaling 126. Twelve additional source capacity fits use alpha \(10^{-6}\) with real or shuffled labels. Shuffled-label capacity is not generalization evidence.
+
+The EEGNet-8,2 backbone uses eight length-64 temporal filters, depth multiplier two, length-16 depthwise temporal filters, sixteen pointwise filters, ELU, batch normalization, pooling by four/eight and dropout 0.5. The scalar adapter has 1,841 trainable parameters; post-update spatial/head max norms are 1 and 0.25. Backbone qualification is against pinned author code; the regression adapter is local. Channel standardization uses only source windows, with SD floor \(10^{-6}\) microvolts.
+
+With offset \(a_i\), training minimizes original-trial MSE on normalized valence:
+\[
+\frac{1}{N}\sum_i\left[\frac{1}{7}\sum_{w=1}^{7}f_\theta(X_{iw})-\frac{y_i-a_i}{7}\right]^2.
+\]
+EEG-only uses source global-median offsets. The residual model uses participant-excluded source OOF context offsets in training, and the full source context fit at inference. Two seed predictions average before clipping. Unavailable EEG receives its offset unchanged. AdamW has weight decay 0.01 and batches of eight original trials. Epochs 30/60/120 are retained. Rotation 0 tests learning rates 0.0003/0.001/0.003, two readouts and two seeds (20261101/20261102), totaling twelve fits. Complete two-seed schedules are selected by unfamiliar ensemble MAE, with ties favoring earlier epochs/lower rates. Transfer to rotations 1/2 adds eight fits. Selected schedules are EEG-only 0.001/30 epochs and residual 0.003/120 epochs.
+
+Source eval-mode MSE from epochs 60 to 120 decreases more than 10\% in five of six selected readout/rotation trajectories: all EEG-only and residual rotations 0/2. This continuing-learning flag limits negative interpretation. The bounded twenty-fit execution took approximately 1.48 hours on the RTX 3050 Laptop GPU; peak PyTorch allocator reserved memory was approximately 160 MiB, excluding driver memory. The 0.15-unit continuation screen was an engineering resource rule, not a psychometric minimum effect. No optimization/convergence or state-of-the-art claim follows from it.
+
+\section{Historical baseline qualification and matched contrasts}
+The first source context-selection diagnostic jointly held people and pairs of source titles. Because one source title represented each category, all sixty crossed cells lacked held-category support. Its selected coarse prior does not establish a strongest comparator for a task with available category support. This failed information match remains recorded.
+
+The revised diagnostic uses five person folds: 56 people\(\times\)8 titles (448 trials) fit and 14\(\times\)8 (112 trials) score per fold. Every category remains supported. Five candidates are compared: global, coarse-valence and category medians, category-only Ridge and full-context Ridge. The same five-alpha grid applies to both Ridge families. All transforms/priors use only each fold's source rows. Category median wins all rotations; both Ridge families choose alpha 0.1. The final source-context fits use 560 trials. This stage comprises 150 CV Ridge fits plus six full-source fits and eighteen median-prior fits. Source OOF ranking concerns familiar source titles; new-title utility is assessed separately on the reused validation arm. The global/coarse/category/category-Ridge/full-context source CV MAEs are respectively 1.802/1.318/1.255/1.288/1.304 in rotation 0, 1.917/1.339/1.301/1.320/1.330 in rotation 1, and 1.880/1.318/1.263/1.283/1.293 in rotation 2. These values are descriptive source-selection results, not independent test performance.
+
+\section{Pairing estimands, target variation and uncertainty}
+For each rotation/arm, another-person donors share the recipient's catalogue title and acquisition group; another-film donors share the recipient's person and coarse valence. Within eligible non-singleton strata, thirty-two seeded derangements exclude self-donors. A singleton stratum is unchanged. Donor EEG availability is required, and unavailable recipients retain fallback. Spectral predictions are recomputed from donor EEG and recipient context. Neural controls exchange cached raw EEG corrections while retaining the recipient context offset. This is an association diagnostic; EEG may encode person, acquisition, artifact or material properties without specifically encoding emotion.
+
+Each repeat's absolute errors are averaged before participant/title aggregation; averaging donor predictions would produce a different estimand. Loss changes equal perturbed minus unchanged losses. Person-swap eligibility on unfamiliar panels is 108/107/107 of 120; film-swap eligibility is 114/113/113. All other recipients remain scored. Neither swap establishes a counterfactual emotional state or a permutation-null significance test.
+
+Participant/title-equal MAE first averages absolute clip errors within a cell. Gain intervals jointly resample people and catalogue-title families with replacement, using the same sampled indices for both compared methods. With a complete rectangle, the difference equals the mean sampled cell loss difference. Four thousand draws and seed 425401 are used for ordinary and matched gains. Pairing intervals retain the earlier panel-specific frozen seeds. Percentile intervals are descriptive; there is no adjustment for tuning, diagnostic multiplicity or earlier adaptive inspection, and six unfamiliar titles limit precision. No pooled confidence interval is constructed over rotations.
+
+Let \(\bar y\), \(\bar y_{p\cdot}\), \(\bar y_{\cdot f}\) be global, person and title means. On a complete rectangle the centered additive components are \(y_{pf}-\bar y=(\bar y_{p\cdot}-\bar y)+(\bar y_{\cdot f}-\bar y)+r_{pf}\). Reported fractions divide each component's squared sum by the total centered sum of squares. One observation per cell leaves person\(\times\)title interaction and measurement variation unidentified. The residual does not estimate a recoverable neural signal, measurement reliability or an irreducible noise floor.
+
+\section{Audit boundaries and reproducibility}
+For the earlier validation/pairing recomputation, the frozen evidence activation permitted only public cached development predictions and metadata, with zero fits, private-array access or protected-outcome access. It binds the producer, classical scoring helpers and original input hashes. Public evidence retains 840 matched paired units (1,680 method prediction rows), six complete arm panels, all historical conditions and all twenty-four pairing panels. Independent arithmetic checks use the original quality CSV and explicit crossed indexing, separately from the producer.
+
+Original waveform/feature preparation and cached identities were previously authenticated. For the earlier selected states, an independent checkpoint-to-window replay covers 24 source fixture/seed forward calls and 48 source-offset comparisons across six selected states, at tolerance \(10^{-5}\), maximum discrepancy approximately \(4.44\times10^{-16}\). It is partial source qualification, not a full validation forward replay. Validation pairing audits authenticate cached corrections, offsets, donor identities, losses and intervals. Fifteen failed validation arrays are not decoded. Neither an audit nor source qualification is independent scientific confirmation.
+
+The public repository contains anonymous predictions, identities, declarations, audit records, source-selection traces and paper build receipts. Raw EEG, original rating archives, stimulus media and private model arrays are not redistributed. The reserved 33 people and eight title families remain unopened numerically. An inactive future precision/confirmation packet is separate from the empirical findings; its hypothetical simulations are not empirical power or a completed confirmation result.
+
+\section{Later source coverage comparison}
+This later experiment uses only the seventy existing source people and fourteen development clips, retaining all 980 original trials. Cross five participant folds with two material assignments. Within each of six paired categories, assignment 0 holds the lower-numbered clip and assignment 1 the higher; the other six paired-category clips and singleton Fear/Inspiration clips train. Each cell fits 56 people times eight titles (448 trials) and assesses fourteen different people times six disjoint titles (84 trials). The ten cells yield 840 distinct held pairs over twelve titles; training sets overlap. No twenty-person validation outcome is re-evaluated in this follow-up.
+
+At native rate \(r\), let \(A=\lceil t_\mathrm{start}r\rceil\), \(B=\lfloor t_\mathrm{end}r\rfloor\), and \(N=32r\). Half-open ranges are early \([A,A+N)\), middle \([M,M+N)\), \(M=\lfloor(A+B-N)/2\rfloor\), and late \([B-N,B)\). Each uses local seconds 2--30 and the historical processor. Distributed EEG averages the three already-log-transformed 150-vectors, rather than averaging power before logging. Joint features concatenate thirteen context columns and 150 EEG columns.
+
+Initial strict qualification held fitting because sub-087/clip20/middle retained Fp2 peak-to-peak 1,004.539 microvolts after FC6/P8 repair. This held attempt remains recorded. A separately declared shared missing-input policy keeps thresholds unchanged: a trial is available only if all three regions pass. All three numerical feature arrays for the unavailable trial are skipped, including its passing late region. There are 979 available trials and 2,937 usable vectors. Each cell retains all 448 context/target rows; EEG values missing by policy receive the corresponding mean of available training donors (447 in eight cells, 448 in two). Feature scaling and all priors use training rows only. At inference, matched context and both joint regressors use a common training category-median fallback for unavailable EEG. Numerical/technical errors are fatal, rather than imputable acquisition failures. The one missing trial is a training-only Inspiration singleton, so all 840 held pairs have available EEG; real held failures remain untested by these scores.
+
+Standardized intercept-containing SVD Ridge tests alpha 0.1/10/100 for context, late joint and distributed joint, totaling ninety CV fits. Ten cell priors provide category medians. At alpha 0.1, their context/late/distributed MAEs are 1.344964/1.791457/1.874804; at alpha 10, 1.346004/1.576159/1.580078; at alpha 100, 1.366504/1.464617/1.445543. Category-median MAE is 1.303970. The primary alpha-100 comparison was fixed before this new arithmetic, but the source outcomes had already supported adaptive development. A secondary shared-alpha rule minimizes the equal mean of the three regressor MAEs, then MSE and alpha order; it selects 100. At that alpha, distributed coverage has lower joint MAE than late and becomes the nominal coverage candidate. This is a nomination without a positive incremental EEG lead.
+
+Three all-980-row Ridge state-qualification fits and one category-prior bundle follow, with 979 available EEG donors. Across CV and full-source qualification this is 93 Ridge fits and eleven prior bundles. Their source-state algebra is checked without treating source reconstruction as held performance. Independent audits check available-feature identities, fold means, 8,400 candidate/prior prediction rows and their metrics. All earlier settings and manuscripts remain preserved. Neither common QC nor overlapping regional averaging qualifies a lower-cost acquisition protocol, whole-film representation or independent replication.
+
+\section{Later EEGNet source learning diagnostic}
+The declared metadata-first quality-complete source cell is cell 6, participant fold 3/material assignment 0. Its 448 training trials and 84 held trials involve 56/14 disjoint source people, with eight/six disjoint titles. Choosing a complete cell is label-blind, without making it representative. All 532 trial pairs already belong to source development. Held categories are Anger, Disgust, Sadness, Amusement, Joy and Tenderness; singleton Fear/Inspiration have no held-material outcome.
+
+The qualified EEGNet-8,2 backbone retains the historical local scalar residual adapter, 1,841 trainable parameters and seven-window trial averaging. Source-only channel mean/RMS scaling uses the 448 training trials; held windows never determine it. The alpha-100 thirteen-feature context model uses four participant-excluded inner folds (336 fit/112 OOF trials each) for residual-training offsets, and a full-448 fit for held offsets. Context is a matched fixed recipe, without independently optimized regularization. The author implementation is pinned at commit \texttt{4a512e503198db2010848813ead9afbf8cd54c97}; qualification authenticates the backbone, rather than a published FACED regression result or optimizer trajectory.
+
+Main initializations 20261101/20261102 train for 360 epochs at learning rate 0.001, AdamW decay 0.01, dropout 0.5 and batch eight original trials, using the same spatial/head constraints. Epochs 120/240/360 are retained; 360 stays primary regardless of held scores. Source MSE is unbounded eval-mode error against training OOF offsets on the original rating scale. Held MAE averages raw seed predictions before clipping. Individual final held MAEs are 1.442593/1.412859; the ensemble is 1.407483. Matched context/category MAEs are 1.295346/1.099392. Every retained ensemble checkpoint is worse than both controls (main Table 2B).
+
+Offset-only source MSE is 3.031377. Eval-mode MSE falls from 0.992146/1.095568 at epoch 240 to 0.864700/0.878265 at 360, reductions of 12.8455\%/19.8347\%. This triggers the declared continuing-learning flag (more than 10\% for both initializations); a plateau has not been demonstrated. The insufficient-learning and seed-divergence screens do not trigger. Continued source fitting does not predict a favorable effect from additional epochs.
+
+Capacity controls use the first four lexicographic training people and their eight titles (32 trials), sharing a median offset, optimizer settings and 200 epochs. One fits real targets and one fixed permutation (seed 20261014); neither is assessed on held outcomes. Both start at MSE 6.112975 and finish at 0.105801/0.139685, passing the declared at-most-half-baseline capacity screen. This establishes small-set arbitrary-assignment fitting, without establishing emotional information, generalization or full-448-trial interpolation.
+
+The four successful neural fits consumed approximately 772 charged fit seconds and 959 total execution wall seconds on the RTX 3050 Laptop GPU (6 GB); peak PyTorch allocator reservation was 160 MiB, excluding driver/context overhead. Python 3.11.13, NumPy 2.4.4, Torch 2.5.1/CUDA 12.4 and two Torch CPU threads were used. A preserved earlier actual-source attempt failed before neural construction/optimization due to an unindexed CUDA device; its five auxiliary context fits and costs remain recorded. A four-trial manufactured backward smoke also failed before an optimizer step. A separately frozen batch-eight manufactured qualification passed before successful source activation. No causal diagnosis of the earlier backend failure is asserted.
+
+All 6,260 exported prediction rows, 532 source target identities, five successful-continuation Ridge normal equations, ten saved states and final metrics pass a separately frozen independent audit. The largest normalized Ridge residual is \(1.39\times10^{-15}\). Producer checkpoint reloads on fixed source/held window subsets agree within \(5.09\times10^{-7}\) original-scale units. The independent audit verifies these receipts, scaler identity/geometry and exported arithmetic; it does not reacquire raw windows, recompute waveform scaler moments or independently replay every neural forward. The supplementary source studies add four completed neural fits, without an all-fold neural score or a new full-source confirmation finalist.
+
+\section{Reserved scope and closest-method qualification}
+All 33 reserved participants remain sealed. The inactive fixed-recipe proposal would assess nine unfamiliar clips in eight title families (297 primary ratings), with 7/8 sharing one family; fourteen familiar clips would give 462 secondary ratings. These are proposed denominators, not completed outcomes. Uncertainty conditional on fixed films and fixed states would not establish arbitrary-film or retraining generalization. Fear/Inspiration lack source material-transfer held support. Workflow/source/manufactured-input checks provide implementation evidence only; no manufactured prediction is presented as scientific performance.
+
+HEART is cited because its author-university record reports continuous VAD regression integrated with categorical prediction on FACED, SEED-VII and SEED. The complete target definition and final methods could not be authenticated in the inspected sources. Whether FACED supervision corresponds to original individual item-10 valence, its scale, and independent material reservation remain unresolved. This does not establish that HEART uses, or fails to use, the exact present target. No first-FACED-regression, strongest-decoder, independent-confirmation or absence-of-EEG-information claim is made.
+
+\clearpage
+\begin{table}[tbp]
+\centering
+\small
+\caption{All historical unfamiliar-film conditions, including adverse results.}
+\label{tab:allconditions}
+\begin{tabular}{lrrrr}
+\toprule
+Historical condition & R0 & R1 & R2 & Mean \\
+\midrule
+global\_median & 1.581 & 1.514 & 1.534 & 1.543 \\
+coarse\_valence\_median & 1.285 & 1.274 & 1.382 & 1.314 \\
+category\_median & 1.222 & 1.232 & 1.327 & 1.260 \\
+context\_only & 1.253 & 1.210 & 1.311 & 1.258 \\
+context\_kernel & 1.262 & 1.288 & 1.355 & 1.302 \\
+spectral\_eeg\_only & 1.532 & 1.469 & 1.474 & 1.492 \\
+context\_plus\_spectral\_eeg & 1.259 & 1.177 & 1.211 & 1.216 \\
+covariance\_linear & 1.640 & 1.531 & 1.653 & 1.608 \\
+context\_covariance\_linear & 1.572 & 1.582 & 1.556 & 1.570 \\
+spectral\_kernel & 1.784 & 1.516 & 1.651 & 1.650 \\
+context\_spectral\_kernel & 1.320 & 1.228 & 1.358 & 1.302 \\
+covariance\_kernel & 1.552 & 1.507 & 1.548 & 1.536 \\
+context\_covariance\_kernel & 1.224 & 1.211 & 1.267 & 1.234 \\
+eeg\_only & 1.652 & 1.621 & 1.555 & 1.609 \\
+context\_residual & 1.191 & 1.311 & 1.263 & 1.255 \\
+retrospective\_context\_envelope & 1.222 & 1.210 & 1.311 & 1.248 \\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize The first 15 rows retain every declared historical main condition. The final retrospective per-panel context envelope is an outcome-selected diagnostic and cannot be deployed as a source-selected predictor. These recipes are distinct from the later category-supported qualification.\end{minipage}
+\end{table}
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{All category-control contrasts and descriptive crossed intervals.}
+\label{tab:categorygains}
+\begin{tabular}{rllrrl}
+\toprule
+R & Titles & EEG & Category MAE & EEG MAE & Gain [95\% interval] \\
+\midrule
+0 & Unfamiliar & Spectral & 1.222 & 1.259 & -0.037 [-0.244, +0.153] \\
+0 & Unfamiliar & EEGNet & 1.222 & 1.191 & +0.031 [-0.194, +0.285] \\
+0 & Familiar & Spectral & 1.162 & 1.198 & -0.036 [-0.208, +0.172] \\
+0 & Familiar & EEGNet & 1.162 & 1.259 & -0.097 [-0.279, +0.076] \\
+1 & Unfamiliar & Spectral & 1.232 & 1.177 & +0.055 [-0.166, +0.271] \\
+1 & Unfamiliar & EEGNet & 1.232 & 1.311 & -0.079 [-0.298, +0.141] \\
+1 & Familiar & Spectral & 1.220 & 1.216 & +0.005 [-0.189, +0.184] \\
+1 & Familiar & EEGNet & 1.220 & 1.297 & -0.077 [-0.292, +0.110] \\
+2 & Unfamiliar & Spectral & 1.327 & 1.211 & +0.116 [-0.079, +0.327] \\
+2 & Unfamiliar & EEGNet & 1.327 & 1.263 & +0.064 [-0.091, +0.232] \\
+2 & Familiar & Spectral & 1.134 & 1.214 & -0.080 [-0.256, +0.097] \\
+2 & Familiar & EEGNet & 1.134 & 1.320 & -0.185 [-0.350, -0.014] \\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize Gain is category-control MAE minus EEG-recipe MAE. It compares whole prediction recipes with different metadata/readout forms. Intervals use 4,000 crossed person/title resamples (seed 425401), reused development and no selection correction. An interval including zero does not establish equivalence or lack of EEG information.\end{minipage}
+\end{table}
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{Retrospective fixed-alpha matched-context sensitivity; no new fits.}
+\label{tab:matched}
+\begin{tabular}{rlrrrl}
+\toprule
+R & Titles & Context MAE & Joint MAE & Fallbacks & Gain [95\% interval] \\
+\midrule
+0 & Unfamiliar & 1.258 & 1.259 & 6 & -0.001 [-0.166, +0.163] \\
+0 & Familiar & 1.173 & 1.198 & 9 & -0.026 [-0.125, +0.081] \\
+1 & Unfamiliar & 1.210 & 1.177 & 7 & +0.033 [-0.095, +0.160] \\
+1 & Familiar & 1.247 & 1.216 & 8 & +0.031 [-0.091, +0.145] \\
+2 & Unfamiliar & 1.311 & 1.211 & 7 & +0.099 [-0.035, +0.248] \\
+2 & Familiar & 1.167 & 1.214 & 8 & -0.047 [-0.170, +0.070] \\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize Available trials use cached context-only and joint spectral Ridge predictions at alpha 100, the same source identities, 13 contextual columns and source scaling rule. On every unavailable EEG trial, both methods use the unchanged historical joint fallback; paired gain is exactly zero. The declared comparison includes every familiar and unfamiliar outcome. Development reuse and retrospective choice of alpha remain limitations.\end{minipage}
+\end{table}
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{All pairing controls, including familiar-film panels.}
+\label{tab:allpairing}
+\begin{tabular}{rlllll}
+\toprule
+R & Titles & EEG & Donor & Eligible & Loss increase [95\% interval] \\
+\midrule
+0 & Unfamiliar & Spectral & Other person & 108/120 & +0.049 [-0.090, +0.175] \\
+0 & Unfamiliar & EEGNet & Other person & 108/120 & +0.122 [-0.063, +0.332] \\
+0 & Unfamiliar & Spectral & Other film & 114/120 & +0.021 [-0.096, +0.140] \\
+0 & Unfamiliar & EEGNet & Other film & 114/120 & +0.062 [-0.183, +0.303] \\
+0 & Familiar & Spectral & Other person & 143/160 & +0.009 [-0.100, +0.115] \\
+0 & Familiar & EEGNet & Other person & 143/160 & -0.032 [-0.195, +0.096] \\
+0 & Familiar & Spectral & Other film & 151/160 & -0.015 [-0.108, +0.081] \\
+0 & Familiar & EEGNet & Other film & 151/160 & -0.034 [-0.168, +0.076] \\
+1 & Unfamiliar & Spectral & Other person & 107/120 & +0.102 [-0.003, +0.218] \\
+1 & Unfamiliar & EEGNet & Other person & 107/120 & -0.066 [-0.230, +0.077] \\
+1 & Unfamiliar & Spectral & Other film & 113/120 & -0.030 [-0.126, +0.059] \\
+1 & Unfamiliar & EEGNet & Other film & 113/120 & -0.017 [-0.157, +0.126] \\
+1 & Familiar & Spectral & Other person & 144/160 & +0.069 [-0.057, +0.185] \\
+1 & Familiar & EEGNet & Other person & 144/160 & +0.022 [-0.155, +0.187] \\
+1 & Familiar & Spectral & Other film & 152/160 & -0.007 [-0.102, +0.079] \\
+1 & Familiar & EEGNet & Other film & 152/160 & +0.018 [-0.145, +0.187] \\
+2 & Unfamiliar & Spectral & Other person & 107/120 & +0.131 [-0.005, +0.276] \\
+2 & Unfamiliar & EEGNet & Other person & 107/120 & +0.099 [-0.074, +0.280] \\
+2 & Unfamiliar & Spectral & Other film & 113/120 & -0.016 [-0.115, +0.076] \\
+2 & Unfamiliar & EEGNet & Other film & 113/120 & -0.005 [-0.180, +0.171] \\
+2 & Familiar & Spectral & Other person & 144/160 & -0.021 [-0.132, +0.092] \\
+2 & Familiar & EEGNet & Other person & 144/160 & -0.091 [-0.256, +0.053] \\
+2 & Familiar & Spectral & Other film & 152/160 & -0.020 [-0.137, +0.085] \\
+2 & Familiar & EEGNet & Other film & 152/160 & -0.078 [-0.217, +0.066] \\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize Recipient context and target stay fixed. Other-person donors share film/acquisition; other-film donors share participant/coarse valence. The 32 repeat losses are averaged before scoring, with unavailable recipients and singleton strata unperturbed. Intervals use the full rectangle, not the nonrectangular eligible subset. All 24 intervals contain zero; no causal or formal permutation-null interpretation is justified.\end{minipage}
+\end{table}
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{Descriptive additive squared-deviation components of retrospective valence.}
+\label{tab:variation}
+\begin{tabular}{lrrrrr}
+\toprule
+Role & People & Titles & Person & Title & Residual \\
+\midrule
+Source & 70 & 14 & 9.95\% & 43.29\% & 46.76\% \\
+Validation & 20 & 14 & 12.83\% & 42.31\% & 44.86\% \\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize Complete person-by-title rectangles contain one rating per cell. The residual includes person--title interaction and unexplained variation; these fractions do not identify measurement noise, response style, reliability or a prediction floor.\end{minipage}
+\end{table}
+
+\end{document}

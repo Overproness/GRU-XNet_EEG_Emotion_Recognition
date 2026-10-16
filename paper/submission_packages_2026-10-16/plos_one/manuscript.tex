@@ -1,0 +1,340 @@
+% Template for PLoS
+% Version 3.8 Apr 2026
+%
+% % % % % % % % % % % % % % % % % % % % % %
+%
+% -- IMPORTANT NOTE
+%
+% This template contains comments intended
+% to minimize problems and delays during our production
+% process. Please follow the template instructions
+% whenever possible.
+%
+% % % % % % % % % % % % % % % % % % % % % % %
+%
+% Once your paper is accepted for publication,
+% PLEASE REMOVE ALL TRACKED CHANGES in this file
+% and leave only the final text of your manuscript.
+% PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
+% Visit https://www.ctan.org/pkg/latexdiff?lang=en for info.
+%
+%
+% IMPORTANT
+% Below are a few tips to help format manuscript according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://journals.plos.org/plosone/s/latex
+%
+% There are no restrictions on package use within the LaTeX files except that no packages listed in the template may be deleted.
+%
+% Please do not include colors or graphics in the text.
+%
+% The manuscript LaTeX source should be contained within a single file (do not use \input, \externaldocument, or similar commands).
+%
+% % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- FIGURES AND TABLES
+%
+% Please include tables/figure captions directly after the paragraph where they are first cited in the text.
+%
+% DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
+% - Figures should be uploaded separately from your manuscript file.
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission.
+% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
+% For figure citations, please use "Fig" instead of "Figure".
+% See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
+%
+% Tables should be cell-based and may not contain:
+% - spacing/line breaks within cells to alter layout or alignment
+% - do not nest tabular environments (no tabular environments within tabular environments)
+% - no graphics or colored text (cell background color/shading OK)
+% See http://journals.plos.org/plosone/s/tables for table guidelines.
+%
+% For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- EQUATIONS, MATH SYMBOLS, OTHER SPECIAL FORMATTING
+%
+% - For bold symbols, use the \boldsymbol command and not \mathbf.
+% - For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
+% - Do not include text that is not math in the math environment. For example, CO2 should be written as CO\textsubscript{2} instead of CO$_2$.
+% - Avoid capturing simple text as equations, for example $<$.
+% - For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
+% - When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2".
+% - Do not use \cal for caligraphic font.  Instead, use \mathcal{}.
+% - Avoid splitting for fragmenting a single equation into multiple objects/environments, for example $f(x)$ = $g(x)$ + $h(x)$.
+% - Use math environment for all equations, do not mimic using text.
+% - Avoid using single letters in math mode where possible.
+% - Always use matching parentheses and delimiters, avoid mixing math and text brackets.
+% - Insert spaces around inline equations to ensure proper display after conversion.
+% - Do not use forced numbers for display equation labeling or suppress numbering with \nonumber.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+%
+% Please contact customercare@plos.org with any questions.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage[nopatch=eqnum]{microtype}
+% The official template's ligature switch is pdfTeX-specific.
+\ifPDFTeX\DisableLigatures[f]{encoding = *, family = * }\fi
+
+% color can be used to apply background shading to table cells only
+\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace}
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Please use the included `plos2025.bst` as your BibTeX style
+\bibliographystyle{plos2025}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+%% Include all user-defined macros below
+
+\newcommand{\lorem}{\textbf{LOREM}}
+\newcommand{\ipsum}{\textbf{IPSUM}}
+
+%% END MACROS SECTION
+
+
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,booktabs,xurl,setspace}
+\geometry{left=1in,right=1in,top=1in,bottom=1in}
+\textwidth=6.5in
+\textheight=9in
+\fancyheadoffset[L]{0in}
+\fancyfootoffset[L]{0in}
+\lfoot{16 October 2026}
+\doublespacing
+\newcommand{\doi}[1]{\url{https://doi.org/#1}}
+\setlength{\emergencystretch}{2em}
+\begin{document}
+\begin{flushleft}
+{\Large\textbf{Context controls and EEG pairing in retrospective valence prediction: an exploratory FACED study}}\\[12pt]
+Muhammad Muntazar\textsuperscript{1*}, Muhammad Wasif Shakeel\textsuperscript{1}\\[8pt]
+\textbf{1} National University of Sciences and Technology (NUST), Islamabad, Pakistan\\
+\textbf{* Correspondence:} \nolinkurl{mmuntzar.bsds23seecs@seecs.edu.pk}\\
+\textbf{Short title:} Context controls in EEG valence prediction
+\end{flushleft}
+\noindent\textbf{Author-review draft.} Secondary-analysis ethics determination and final author review remain outstanding; complete the author-actions checklist before submitting.
+\section*{Abstract}
+We evaluated whether tested electroencephalography (EEG) recipes improve individual retrospective valence prediction beyond supplied elicitation metadata on the FACED dataset. Seventy source and twenty development-validation participants formed three overlapping title-held rotations. Category and metadata controls, spectral regression and EEGNet residual prediction were examined using acquisition fallback and constrained EEG swaps. Later source diagnostics separately assessed spectral coverage on 840 held pairs and longer EEGNet learning on one 84-pair panel. All evaluations reused development data; 33 reserved participants remained sealed. Mean unfamiliar-title validation absolute error was 1.2602 for category medians, 1.2156 for spectral/context prediction and 1.2550 for EEGNet/context prediction; all corresponding descriptive gain intervals included zero. In the later source comparison, distributed spectral error was 1.4455 versus 1.3665 for matched context. On the separate neural panel, fixed 360-epoch EEGNet error was 1.4075 versus 1.2953 for context and 1.0994 for category medians. Source error continued decreasing, while real and shuffled small-set targets were fitted. Basic learning capacity therefore did not establish incremental EEG utility. These adaptive evaluations support a bounded case study, without establishing convergence, equivalence to context or absence of affective EEG information.
+\linenumbers
+\section{Introduction}
+EEG emotion benchmarks often predict assigned stimulus categories, whereas individual affect can differ within a stimulus. FACED provides elicitation categories and retrospective individual ratings \cite{chen2023faced}. Predicting individual valence requires testing whether EEG adds information beyond supplied experimental context.
+
+Gerster et al. investigate FACED stimulus confounding \cite{gerster2026stimulus}; their later code includes individual categorical targets, clip-held evaluation and nested tuning \cite{gerster2026code}. Preprint/code version equivalence remains unverified. Other work examines video/time priors and shared versus individual continuous affect \cite{kong2026priors,wang2026shared}. HEART combines continuous valence--arousal--dominance regression with categorical prediction on FACED \cite{fernandez2026heart}; its correspondence to our item-10 target and catalogue-held evaluation remains unverified. We claim neither the first context control nor a novel architecture.
+
+We ask whether the tested recipes improve individual retrospective valence prediction on new people and held catalogue titles. The exploratory contribution is an evaluation connecting category-supported controls, operational acquisition fallback, pairing diagnostics and source learning-capacity checks. EEGNet supplies an established compact backbone \cite{lawhern2018eegnet}, rather than a fully optimized or strongest-field decoder.
+
+\section{Materials and methods}
+\subsection{Target, population and evidence blocks}
+The outcome is FACED item-10 post-clip valence, with negative-to-positive anchors on 0--7. All endpoints and midpoint ratings are retained. Metadata exclusions and participant/material reservations preceded rating decoding. Neutral clips 13--16 share \emph{Blue} and are outside this non-neutral population; clip 22 is excluded because marker-duration and footage correspondence remain unresolved.
+
+Seventy source, twenty development-validation and 33 reserved people are disjoint. Fourteen title families enter development; eight others remain reserved. \emph{Unfamiliar} means absent from a fit's source-title catalogue, without certifying personal unfamiliarity or distinct physical footage. Three evidence blocks remain separate:
+
+\textit{Earlier validation:} three overlapping rotations fit eight source titles (560 trials) and assess six held titles on twenty validation people (120 trials each). A familiar-title arm adds 160 trials per rotation. Source fitting has one title per category, confounding category and title.
+
+\textit{Later spectral source comparison:} five participant folds crossed with two material assignments produce ten cells, each with 448 training trials (56 people/eight titles) and 84 held trials (14 people/six titles). These yield 840 unique held pairs from seventy source people and twelve titles.
+
+\textit{Later neural source diagnostic:} one metadata-first quality-complete cell uses the same 448/84 geometry, with different source people and disjoint titles across its partitions. Availability selection was label-blind but limits representativeness. It is neither an all-fold neural study nor new validation evidence. All held-material arms cover six categories; Fear and Inspiration are training-only.
+
+\subsection{Ethics and data access}
+This study reused de-identified FACED recordings and ratings obtained through Synapse; it collected no new recordings and involved no participant recruitment or contact. The original FACED publication reports approval by the local Ethics Committee of Tsinghua University (THU201906) and informed consent from all participants \cite{chen2023faced}. The analysis used coded participant identifiers. Original patient/recording-identification header values were kept uninterpreted; whether the downloaded files contain potentially identifying information has not been established. The authors report no separate NUST approval, exemption or written determination for the present secondary analysis. \textbf{Author action before submission: establish and report the applicable institutional basis for this secondary analysis; do not treat the original collection approval as a new local exemption.}
+
+\subsection{Processing and acquisition availability}
+Headers calibrate signed ADC counts to microvolts at native 250/1,000 Hz. Trial-local processing uses common-average reference, a 50-Hz notch, 0.5--45-Hz forward/backward filtering and resampling to 128 Hz. A late 32-second interval ending at the recorded end marker supplies a trimmed 28-second core of seven four-second windows on thirty channels. This offline, acausal interval predicts whole-clip retrospective valence.
+
+Fixed engineering rules assess rails, stuck counts, amplitude, line power and numerical validity; at most three channels permit spherical-spline repair \cite{perrin1989spherical}. All 980 source late intervals pass after repair. Fifteen of 280 validation trials lack available EEG, fourteen belonging to one person. All remain scored using the declared historical fallback. This policy followed earlier development inspection.
+
+The later coverage comparison adds early/middle regions with the same processing. Their trimmed cores overlap; distributed features do not represent an entire film. Common availability requires all three regions to pass, leaving 979 source trials available and one middle-region failure. All 980 source trials remain eligible for fitting: EEG features missing by policy receive available-training-donor means. Both joint models and matched context share category fallback at inference; the actual 840 held pairs all have EEG. Thus matched context uses an EEG-availability route, whereas category median is the practical acquisition-free comparator. Thresholds remain fixed across the later comparison.
+
+\subsection{Predictors, selection and learning}
+Context comprises eight category and three acquisition indicators, catalogue duration and presentation ordinal. No evaluated person's rating or held-title rating consensus is supplied. Five-band log power averaged across seven windows gives 150 EEG features. Distributed coverage averages the early/middle/late log-feature vectors, preserving dimension.
+
+An initial source-selection diagnostic jointly withheld the only source title for a category and therefore removed held-category support. Revised five-fold participant-held selection preserves every source category and compares global/coarse/category medians and category/full-context Ridge. Category median wins every rotation; both Ridge controls select alpha 0.1 from five candidates. This qualifies prediction on source titles, without certifying unfamiliar-title transfer.
+
+Earlier spectral/context Ridge retains alpha 100. Earlier EEGNet-8,2 uses a local scalar head, participant-excluded context residuals, one loss per original trial after averaging seven window outputs, and a two-initialization ensemble. Twenty fits test bounded schedules through 120 epochs; rotation-0 validation selects schedules transferred to rotations 1/2. The retrospective alpha-100 context sensitivity shares the historical joint fallback, making feature-addition gain exactly zero on unavailable inputs. Pairing diagnostics exchange EEG between people sharing title/acquisition group, or titles sharing person/coarse valence; recipient context remains fixed. Thirty-two constrained derangements retain every recipient, including ineligible cases.
+
+The later source coverage study tests Ridge alpha 0.1/10/100. A symmetric shared-alpha rule nominates 100 and distributed coverage, without independently optimizing context. The separate neural diagnostic fixes alpha-100 context, four participant-excluded inner folds for training offsets, source-only channel scaling and the 1,841-parameter scalar EEGNet adapter. Two initializations train 360 epochs at learning rate 0.001, AdamW weight decay 0.01, dropout 0.5 and original-trial batch eight. Epochs 120/240 are diagnostics; 360 is the fixed primary endpoint. Two 200-epoch capacity controls use the same 32 training trials with real or one fixed permutation of targets, without held evaluation. MSE training and MAE assessment target different losses.
+
+\subsection{Endpoints, uncertainty and verification}
+Predictions average across initializations before clipping to 0--7. MAE equally weights people and title families. Gain is comparator minus EEG-recipe MAE; pairing change is swapped minus original MAE. Rotation averages summarize dependent panels.
+
+Earlier paired participant/title bootstrap intervals use 4,000 draws. They are descriptive on reused outcomes, without selection or multiplicity adjustment \cite{owen2007,owen2012}; six held titles limit precision \cite{westfall2014power}. Later source scores are descriptive CV/cell summaries, without confirmatory intervals. Independent numerical audits verify exported losses, identities and offsets. Checkpoint reloads verify fixed source/held forward subsets, without independently replaying every waveform or scaler moment. No protected outcomes support any result.
+
+\subsection{AI assistance and verification}
+OpenAI Codex assisted literature screening, analysis-script and test development, plotting-code preparation, and manuscript drafting and revision. Outputs were checked using frozen input/output bindings, focused software tests, exported-prediction arithmetic, source-state checks and fixed-subset checkpoint replays within the scopes reported here and in the supplement. These checks were also AI-assisted; they are implementation checks rather than independent human replication or scientific confirmation. Human authors retain responsibility for reviewing all final code, evidence, interpretations and references. The precise deployment identifiers and the final author review are to be confirmed before submission.
+
+\section{Results}
+
+
+Against category medians, earlier spectral/context unfamiliar-title gains are \(-0.0368\), \(+0.0549\) and \(+0.1158\), averaging 0.0446; EEGNet gains average 0.0052 (Table~\ref{tab:primary}). All six gain intervals include zero. Matched-context spectral gains average 0.0440, with all three intervals including zero. Familiar-title mean MAEs are 1.1723 (category), 1.2094 (spectral/context) and 1.2918 (EEGNet/context). EEGNet's adverse rotation-2 familiar gain is \(-0.1852\), interval \([-0.3498,-0.0143]\). Historical conditions remain in S1 Appendix.
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Unfamiliar-film validation MAE on the original 0--7 rating scale (lower is better).}
+\label{tab:primary}
+\begin{tabular}{lrrrr}
+\toprule
+Predictor & R0 & R1 & R2 & Mean \\
+\midrule
+Category median (source selected) & 1.222 & 1.232 & 1.327 & 1.260 \\
+Category Ridge (source selected) & 1.252 & 1.234 & 1.315 & 1.267 \\
+Full-context Ridge (source selected) & 1.253 & 1.220 & 1.338 & 1.270 \\
+Matched context, $\alpha=100$ (sensitivity) & 1.258 & 1.210 & 1.311 & 1.260 \\
+Spectral + context Ridge (frozen) & 1.259 & 1.177 & 1.211 & 1.216 \\
+EEGNet + context residual (frozen) & 1.191 & 1.311 & 1.263 & 1.255 \\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize Each panel contains 20 held people and six title families; all outcomes, including unavailable EEG, are retained. The mean is a descriptive average of dependent rotations. Category/full-context selection is source-person-only and familiar-title CV; frozen EEG recipes were previously development selected. Matched context is a separately declared retrospective sensitivity with the historical joint fallback shared by both methods on acquisition failures.\end{minipage}
+\end{table}
+
+
+
+
+
+Same-title person swaps raise unfamiliar spectral MAE by 0.0487/0.1017/0.1309; EEGNet changes are 0.1221/\(-0.0665\)/0.0987 (Fig~1). Same-person title swaps have smaller, mixed changes. All twenty-four pairing intervals include zero. Additive title terms account for 43.3\%/42.3\% of source/validation squared rating deviations; these descriptive components do not identify a decodable neural residual.
+
+\par\medskip\begin{samepage}\noindent
+\textbf{Fig 1. Earlier unfamiliar-title pairing diagnostics. Positive change means swaps raise mean absolute error. Points average 32 repeat losses; bars are descriptive crossed participant/title intervals. Ineligible and unavailable recipients remain unchanged. All twelve displayed intervals include zero; S1 Appendix retains all twenty-four panels. AI assistance supported plotting-code preparation; every plotted estimate and interval was checked against the frozen public exports.}\label{fig:pairing}
+\par\end{samepage}\medskip
+
+
+
+
+The later spectral comparison is adverse against both controls (Table~\ref{tab:sourcefollowup}A). Distributed coverage improves on late-only MAE by 0.0191 at alpha 100, while trailing matched context by 0.0790 and category medians by 0.1416. All tested EEG/alpha combinations trail their matched context and category comparators. Context's lowest tested MAE is 1.3450 at alpha 0.1; the shared-alpha control is therefore not its individually best setting.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Later source diagnostics, separate from the earlier validation panels.}
+\label{tab:sourcefollowup}
+\begin{tabular}{lrrr}
+\toprule
+\multicolumn{4}{l}{A. Spectral comparison: 840 held pairs across ten source cells}\\
+Predictor & \multicolumn{3}{r}{Held MAE}\\
+\midrule
+Category median & \multicolumn{3}{r}{1.3040}\\
+Matched context, $\alpha=100$ & \multicolumn{3}{r}{1.3665}\\
+Late EEG + context, $\alpha=100$ & \multicolumn{3}{r}{1.4646}\\
+Distributed EEG + context, $\alpha=100$ & \multicolumn{3}{r}{1.4455}\\
+\midrule
+\multicolumn{4}{l}{B. EEGNet diagnostic: 84 held pairs in one reused source cell}\\
+Epoch & Source MSE, seed 1 & Source MSE, seed 2 & Held MAE\\
+\midrule
+120 & 1.3416 & 1.3966 & 1.3769\\
+240 & 0.9921 & 1.0956 & 1.3759\\
+360 (fixed primary) & 0.8647 & 0.8783 & 1.4075\\
+\midrule
+Category median & \multicolumn{3}{r}{1.0994}\\
+Matched context, $\alpha=100$ & \multicolumn{3}{r}{1.2953}\\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize Lower is better. Each source cell fits 448 trials and assesses 84 participant/title-held trials. Panel B is one metadata-selected complete cell, not the neural counterpart of all ten panel-A cells. Source MSE uses unbounded eval-mode predictions with training offsets; held MAE clips the two-seed mean. No score is independent confirmation, and no confidence interval is inferred across these overlapping fits.\end{minipage}
+\end{table}
+
+
+On the separate neural cell, both source trajectories learn substantially: final source MSE falls 71.5\%/71.0\% from offset-only error 3.0314. Yet the fixed 360-epoch held MAE is worse than context/category by 0.1121/0.3081; earlier checkpoints also trail both. Between epochs 240 and 360, eval-mode source MSE falls another 12.8\%/19.8\%; an optimization plateau is unestablished. The 32-trial real/shuffled capacity errors fall from 6.1130 to 0.1058/0.1397. Arbitrary-target fitting establishes small-set learning capacity, without establishing emotion information or full-set interpolation.
+
+\section{Discussion}
+Category-supported selection corrects an information mismatch and supplies a competitive simple comparator. The earlier small favorable average spectral gain is not consistent across rotations. Later source results provide no incremental lead for either the distributed spectral recipe or the tested longer neural schedule. These evaluations differ in people, titles, fitting size and adaptive history; their errors cannot be pooled or read as a controlled before/after improvement.
+
+Small-set fitting narrows a basic implementation/learning concern. Continued source improvement alongside adverse held prediction is compatible with overfitting or poor transfer, without identifying its cause. Additional epochs could lower training error without improving utility. MSE/MAE mismatch, fixed regularization, one neural cell and incomplete stronger-method qualification limit an optimized-null interpretation. Pairing dependence can reflect acquisition, artifacts or identity; swaps do not isolate emotion-specific or causal cerebral information.
+
+Other limits are a single corpus, one retrospective rating per cell, six held categories, few title families, supplied context, overlapping EEG cores and unauthenticated footage/playback timing. Common QC routing makes the late/distributed comparison about representations, not recording cost. Held missing-input behavior is not empirically tested by the later source panel. Adaptive exploration, overlapping rotations and reused outcomes preclude independent confirmation. HEART's exact target correspondence remains unresolved; neither priority nor state-of-the-art superiority is claimed.
+
+All 33 reserved participants remain sealed. Source and manufactured-input export checks qualify implementation, without supplying replication or novelty. Stronger claims require credible comparator qualification and independent participant/material evidence under a fixed protocol.
+
+\section{Conclusion}
+The tested EEG recipes do not establish consistent incremental valence prediction beyond context. Learning-capacity controls and longer source training clarify this bounded finding without establishing convergence, equivalence or a general absence of EEG information. The released evaluation preserves acquisition failures, adverse results and the boundary between development and independent confirmation.
+
+
+\section*{Data availability}
+Original FACED recordings and rating archives are third-party data obtained through the authors' Synapse release (project syn50614194, \url{https://www.synapse.org/Synapse:syn50614194}) under its access conditions; they are not redistributed here. Public analysis-level development predictions, result summaries and an indexed code snapshot are supplied as supporting files and in \url{https://github.com/Overproness/GRU-XNet_EEG_Emotion_Recognition}. The supporting-file manifests identify the included public artifacts. Access terms for original data, analysis-level sharing permissions and a stable final release identifier must be checked before submission. Reserved outcomes and private model arrays are not included.
+\section*{Acknowledgments}
+The contribution account supplied for this draft is that Muhammad Muntazar performed the majority of the research work and Muhammad Wasif Shakeel assisted with the initial research. Final author contributions are recorded in the submission system. No other person is acknowledged in this draft.
+\bibliography{references}
+\section*{Supporting information}
+\paragraph{S1 Appendix. Supplementary methods and complete development results.}
+Full processing, selection, learning, scope and audit limits, with historical result tables A--E.
+\paragraph{S2 Data. Public analysis-level evidence.}
+Anonymous development prediction exports, reported summaries and integrity manifests; no original recordings or reserved outcomes.
+\paragraph{S3 Code. Public analysis code snapshot.}
+Analysis and qualification source with a scope/readme and file hashes. Original third-party data are obtained separately under their access conditions.
+\end{document}

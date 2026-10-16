@@ -1,0 +1,27 @@
+\begin{table}[tbp]
+\centering\small
+\caption{Later source diagnostics, separate from the earlier validation panels.}
+\label{tab:sourcefollowup}
+\begin{tabular}{lrrr}
+\toprule
+\multicolumn{4}{l}{A. Spectral comparison: 840 held pairs across ten source cells}\\
+Predictor & \multicolumn{3}{r}{Held MAE}\\
+\midrule
+Category median & \multicolumn{3}{r}{1.3040}\\
+Matched context, $\alpha=100$ & \multicolumn{3}{r}{1.3665}\\
+Late EEG + context, $\alpha=100$ & \multicolumn{3}{r}{1.4646}\\
+Distributed EEG + context, $\alpha=100$ & \multicolumn{3}{r}{1.4455}\\
+\midrule
+\multicolumn{4}{l}{B. EEGNet diagnostic: 84 held pairs in one reused source cell}\\
+Epoch & Source MSE, seed 1 & Source MSE, seed 2 & Held MAE\\
+\midrule
+120 & 1.3416 & 1.3966 & 1.3769\\
+240 & 0.9921 & 1.0956 & 1.3759\\
+360 (fixed primary) & 0.8647 & 0.8783 & 1.4075\\
+\midrule
+Category median & \multicolumn{3}{r}{1.0994}\\
+Matched context, $\alpha=100$ & \multicolumn{3}{r}{1.2953}\\
+\bottomrule
+\end{tabular}
+\par\medskip\begin{minipage}{0.97\linewidth}\footnotesize Lower is better. Each source cell fits 448 trials and assesses 84 participant/title-held trials. Panel B is one metadata-selected complete cell, not the neural counterpart of all ten panel-A cells. Source MSE uses unbounded eval-mode predictions with training offsets; held MAE clips the two-seed mean. No score is independent confirmation, and no confidence interval is inferred across these overlapping fits.\end{minipage}
+\end{table}
